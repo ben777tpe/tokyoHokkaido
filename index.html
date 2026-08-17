@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-TW" :class="fontSizeClass">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
+  <!-- Anti-Cache Meta Tags to prevent browser & proxy stale cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Ben家專屬 ｜ 晚夏・北海道 × 東京 7天6夜全家行</title>
   
@@ -43,15 +47,13 @@
   </script>
 
   <style>
+    :root {
+      --base-font-size: 17px;
+    }
+
     html {
-      font-size: 16px;
+      font-size: var(--base-font-size);
       -webkit-text-size-adjust: 100%;
-    }
-    html.font-large {
-      font-size: 18px;
-    }
-    html.font-xlarge {
-      font-size: 20px;
     }
 
     body {
@@ -60,6 +62,7 @@
       background-image: radial-gradient(#E2D9CA 0.9px, transparent 0.9px);
       background-size: 28px 28px;
       line-height: 1.65;
+      font-size: 1rem;
     }
 
     .washi-card {
@@ -78,24 +81,27 @@
   </style>
 </head>
 
-<body class="font-sans antialiased selection:bg-kohaku selection:text-white pb-16" x-data="tripApp()">
+<body class="font-sans antialiased selection:bg-kohaku selection:text-white pb-16" x-data="tripApp()" x-init="initApp()">
 
   <!-- Top Weather Bar -->
   <div class="bg-aizome text-white px-4 py-2 text-sm font-medium tracking-wide">
     <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center space-x-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium text-xs sm:text-sm">🌤️ 晚夏情報：8月下旬北海道 28~31°C。已順向整合 Google 澀谷 35F景觀午餐、諏訪神社與柯南特展！</span>
+        <span class="font-medium text-xs sm:text-sm">🌤️ 晚夏情報：已加入即時搜尋、Google 35F景觀午餐、諏訪神社與柯南特展！</span>
       </div>
-      <div class="text-xs sm:text-sm font-maru text-slate-200">
-        8/23 (日) 出發 ｜ 7天6夜全家行
+      <div class="flex items-center space-x-2 text-xs sm:text-sm font-maru text-slate-200">
+        <span>8/23 (日) 出發 ｜ 7天6夜全家行</span>
+        <button @click="forceBustCache()" class="bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded text-[11px] font-mono" title="強制跳過快取重新載入最新版本">
+          <i class="fa-solid fa-rotate mr-1"></i>重載最新
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Header with Instant Font Size Scaler -->
+  <!-- Header with Instant Font Size Scaler & Search Bar -->
   <header class="border-b border-[#D8CEBC] bg-white/95 backdrop-blur-md sticky top-0 z-40 shadow-xs">
-    <div class="max-w-5xl mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
       <div class="flex items-center space-x-3">
         <div class="w-11 h-11 rounded-xl bg-aizome flex items-center justify-center text-white font-serif font-black text-xl shadow-xs">
           北
@@ -111,33 +117,69 @@
       </div>
 
       <!-- Right Controls: Font Scaler -->
-      <div class="flex items-center space-x-2 bg-washi-dark/80 p-1.5 rounded-xl border border-[#D5CABB]">
+      <div class="flex items-center space-x-2 bg-washi-dark/90 p-1.5 rounded-xl border border-[#D5CABB]">
         <span class="text-xs font-bold text-sumi-light px-1 hidden sm:inline"><i class="fa-solid fa-text-height mr-1"></i>字體:</span>
-        <button @click="setFontSize('normal')" :class="fontSize === 'normal' ? 'bg-white text-aizome shadow font-black' : 'text-sumi-light hover:text-sumi'" class="w-8 h-8 rounded-lg text-xs flex items-center justify-center transition font-bold" title="標準字體">A</button>
-        <button @click="setFontSize('large')" :class="fontSize === 'large' ? 'bg-white text-aizome shadow font-black' : 'text-sumi-light hover:text-sumi'" class="w-8 h-8 rounded-lg text-sm flex items-center justify-center transition font-bold" title="大字體 (推薦手機閱讀)">A+</button>
-        <button @click="setFontSize('xlarge')" :class="fontSize === 'xlarge' ? 'bg-white text-aizome shadow font-black' : 'text-sumi-light hover:text-sumi'" class="w-8 h-8 rounded-lg text-base flex items-center justify-center transition font-bold" title="特大字體">A++</button>
+        <button 
+          @click="setFontSize('normal')" 
+          :class="fontSize === 'normal' ? 'bg-aizome text-white shadow font-black' : 'bg-white text-sumi-light hover:text-sumi'" 
+          class="px-2.5 py-1 rounded-lg text-xs flex items-center justify-center transition font-bold" 
+          title="標準 (16px)">
+          標準
+        </button>
+        <button 
+          @click="setFontSize('large')" 
+          :class="fontSize === 'large' ? 'bg-aizome text-white shadow font-black' : 'bg-white text-sumi-light hover:text-sumi'" 
+          class="px-2.5 py-1 rounded-lg text-xs md:text-sm flex items-center justify-center transition font-bold" 
+          title="大字體 (18.5px 推薦手機閱讀)">
+          大 A+
+        </button>
+        <button 
+          @click="setFontSize('xlarge')" 
+          :class="fontSize === 'xlarge' ? 'bg-aizome text-white shadow font-black' : 'bg-white text-sumi-light hover:text-sumi'" 
+          class="px-2.5 py-1 rounded-lg text-xs md:text-base flex items-center justify-center transition font-bold" 
+          title="特大 (21px)">
+          特大 A++
+        </button>
+      </div>
+    </div>
+
+    <!-- 🔍 Global Instant Search Bar -->
+    <div class="max-w-5xl mx-auto px-4 pb-2.5">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-sumi-light text-sm"></i>
+        <input 
+          type="text" 
+          x-model="searchQuery" 
+          placeholder="快速搜尋景點/美食/交通 (如: 柯南, 和牛, Google, 諏訪, 青池, 拉麵, 蝦, 冰淇淋...)" 
+          class="w-full pl-10 pr-10 py-2 rounded-xl bg-washi border border-[#D5CABB] text-sm md:text-base text-sumi placeholder-sumi-light/60 focus:outline-none focus:ring-2 focus:ring-aizome focus:bg-white transition">
+        <button 
+          x-show="searchQuery" 
+          @click="searchQuery = ''" 
+          class="absolute right-3 top-1/2 -translate-y-1/2 text-sumi-light hover:text-sumi text-sm p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
     </div>
 
     <!-- Navigation Bar -->
     <div class="border-t border-[#EAE3D4] bg-[#FAF8F5] px-4 py-2">
       <div class="max-w-5xl mx-auto flex items-center space-x-2 overflow-x-auto scrollbar-none py-0.5">
-        <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'itinerary'; searchQuery = ''" :class="activeMainTab === 'itinerary' && !searchQuery ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-map-location-dot mr-1.5 text-base"></i> 每日行程 & 導航
         </button>
-        <button @click="activeMainTab = 'conanSpecial'" :class="activeMainTab === 'conanSpecial' ? 'bg-blue-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'conanSpecial'; searchQuery = ''" :class="activeMainTab === 'conanSpecial' ? 'bg-blue-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-magnifying-glass mr-1.5 text-base text-amber-400"></i> 柯南 2 大限定特展
         </button>
-        <button @click="activeMainTab = 'localTrends'" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'localTrends'; searchQuery = ''" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-fire mr-1.5 text-base"></i> 在地流行私房
         </button>
-        <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'rainPlans'; searchQuery = ''" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-cloud-showers-heavy mr-1.5 text-base"></i> 雨天備案
         </button>
-        <button @click="activeMainTab = 'shopping'" :class="activeMainTab === 'shopping' ? 'bg-aizome-light text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'shopping'; searchQuery = ''" :class="activeMainTab === 'shopping' ? 'bg-aizome-light text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-bag-shopping mr-1.5 text-base"></i> 動漫採買
         </button>
-        <button @click="activeMainTab = 'checklist'" :class="activeMainTab === 'checklist' ? 'bg-sumi text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'checklist'; searchQuery = ''" :class="activeMainTab === 'checklist' ? 'bg-sumi text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-list-check mr-1.5 text-base"></i> 預約清單
         </button>
       </div>
@@ -146,8 +188,71 @@
 
   <main class="max-w-5xl mx-auto px-4 py-5 md:py-8 space-y-6">
 
-    <!-- Flight & Hotel Summary Card -->
-    <section class="washi-card rounded-2xl p-5 md:p-6">
+    <!-- 🔍 SEARCH RESULTS VIEW (Appears dynamically when searching) -->
+    <div x-show="searchQuery.trim().length > 0" class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-serif font-black text-xl text-sumi flex items-center">
+          <i class="fa-solid fa-magnifying-glass text-kohaku mr-2"></i>
+          <span>搜尋結果：共找到 <span class="text-kohaku font-mono font-bold" x-text="filteredSearchResults.length"></span> 個符合項目</span>
+        </h3>
+        <button @click="searchQuery = ''" class="text-sm font-bold text-sumi-light hover:text-sumi underline">
+          清除搜尋
+        </button>
+      </div>
+
+      <template x-if="filteredSearchResults.length === 0">
+        <div class="washi-card rounded-2xl p-8 text-center space-y-2">
+          <p class="text-lg font-serif font-bold text-sumi">找不到與「<span x-text="searchQuery"></span>」相符的景點或資訊</p>
+          <p class="text-sm text-sumi-light">試試搜尋：柯南、和牛、Google、青池、小樽、拉麵、水族館、神社 等關鍵字</p>
+        </div>
+      </template>
+
+      <div class="space-y-4">
+        <template x-for="(res, idx) in filteredSearchResults" :key="idx">
+          <div class="washi-card rounded-2xl p-5 md:p-6 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAE3D4] pb-3">
+              <div class="flex items-center space-x-2.5">
+                <span class="text-xs font-bold px-2.5 py-1 rounded bg-aizome text-white font-serif" x-text="res.dayLabel"></span>
+                <span class="font-mono text-sm font-bold text-aizome bg-aizome/10 px-2 py-0.5 rounded" x-text="res.time"></span>
+                <h4 class="font-serif font-black text-lg md:text-xl text-sumi" x-text="res.spot"></h4>
+              </div>
+              <template x-if="res.mapUrl">
+                <a :href="res.mapUrl" target="_blank" class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-lg bg-white border border-[#CFBFAB] text-aizome hover:bg-aizome hover:text-white font-bold text-xs md:text-sm transition shadow-xs">
+                  <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> Google 導航
+                </a>
+              </template>
+            </div>
+
+            <!-- Transit & Description -->
+            <template x-if="res.transit">
+              <div class="p-3 rounded-xl bg-[#F7F4EE] border border-[#E7DFC0] text-sm md:text-base">
+                <span class="font-bold text-aizome mr-1"><i class="fa-solid fa-train-subway mr-1"></i>交通：</span>
+                <span class="text-sumi" x-html="res.transit"></span>
+              </div>
+            </template>
+
+            <p class="text-sm md:text-base text-sumi-light" x-text="res.desc"></p>
+
+            <template x-if="res.history">
+              <div class="p-3.5 rounded-xl bg-[#FAF8F5] border-l-4 border-kohaku text-sm text-sumi">
+                <span class="font-bold text-kohaku">文史亮點：</span>
+                <span x-html="res.history"></span>
+              </div>
+            </template>
+
+            <template x-if="res.mustBuy">
+              <div class="text-xs md:text-sm text-sumi font-medium">
+                <span class="font-bold text-kohaku">🛍️ 必看/必買：</span>
+                <span class="text-sumi-light" x-text="res.mustBuy"></span>
+              </div>
+            </template>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- Flight & Hotel Summary Card (Hidden during search) -->
+    <section x-show="!searchQuery" class="washi-card rounded-2xl p-5 md:p-6">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#E8E0D2] pb-4">
         <div>
           <span class="inline-block px-3 py-1 rounded-md text-xs md:text-sm font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1.5">
@@ -209,7 +314,7 @@
     </section>
 
     <!-- SECTION 1: MAIN ITINERARY -->
-    <div x-show="activeMainTab === 'itinerary'" class="space-y-6">
+    <div x-show="activeMainTab === 'itinerary' && !searchQuery" class="space-y-6">
       
       <!-- Day Selector -->
       <div class="flex items-center space-x-2.5 overflow-x-auto pb-2 scrollbar-none">
@@ -361,7 +466,7 @@
     </div>
 
     <!-- SECTION: DETECTIVE CONAN SPECIAL EXHIBITIONS -->
-    <div x-show="activeMainTab === 'conanSpecial'" class="space-y-6">
+    <div x-show="activeMainTab === 'conanSpecial' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-xl bg-blue-800 flex items-center justify-center text-amber-400 text-lg">
@@ -424,7 +529,7 @@
     </div>
 
     <!-- SECTION 2: LOCAL INSIDER TRENDS -->
-    <div x-show="activeMainTab === 'localTrends'" class="space-y-6">
+    <div x-show="activeMainTab === 'localTrends' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-xl bg-kohaku flex items-center justify-center text-white text-lg">
@@ -566,7 +671,7 @@
     </div>
 
     <!-- SECTION 3: RAIN PLANS DEEP DIVE -->
-    <div x-show="activeMainTab === 'rainPlans'" class="space-y-6">
+    <div x-show="activeMainTab === 'rainPlans' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-xl bg-matcha flex items-center justify-center text-white text-lg">
@@ -684,7 +789,7 @@
     </div>
 
     <!-- SECTION 4: ANIME SHOPPING RADAR -->
-    <div x-show="activeMainTab === 'shopping'" class="space-y-6">
+    <div x-show="activeMainTab === 'shopping' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-xl bg-aizome-light flex items-center justify-center text-white text-lg">
@@ -747,7 +852,7 @@
     </div>
 
     <!-- SECTION 5: BOOKING & PACKING CHECKLIST -->
-    <div x-show="activeMainTab === 'checklist'" class="space-y-6">
+    <div x-show="activeMainTab === 'checklist' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-xl bg-sumi flex items-center justify-center text-white text-lg">
@@ -782,7 +887,7 @@
     </div>
 
     <!-- Family Budget Summary Accordion -->
-    <section class="washi-card rounded-2xl p-5 md:p-6">
+    <section x-show="!searchQuery" class="washi-card rounded-2xl p-5 md:p-6">
       <div class="flex justify-between items-center cursor-pointer" @click="showBudget = !showBudget">
         <div class="flex items-center space-x-2.5">
           <i class="fa-solid fa-coins text-gold text-xl"></i>
@@ -840,14 +945,65 @@
         selectedDay: 0,
         showBudget: false,
         fontSize: 'large',
-        get fontSizeClass() {
-          if (this.fontSize === 'xlarge') return 'font-xlarge';
-          if (this.fontSize === 'large') return 'font-large';
-          return '';
+        searchQuery: '',
+        
+        initApp() {
+          const savedSize = localStorage.getItem('benTrip_fontSize');
+          if (savedSize) {
+            this.fontSize = savedSize;
+          }
+          this.applyFontSize();
         },
+
         setFontSize(size) {
           this.fontSize = size;
+          localStorage.setItem('benTrip_fontSize', size);
+          this.applyFontSize();
         },
+
+        applyFontSize() {
+          let sizeVal = '18.5px'; // default large
+          if (this.fontSize === 'normal') sizeVal = '16px';
+          if (this.fontSize === 'xlarge') sizeVal = '21px';
+          document.documentElement.style.setProperty('--base-font-size', sizeVal);
+        },
+
+        forceBustCache() {
+          const url = new URL(window.location.href);
+          url.searchParams.set('t', Date.now());
+          window.location.href = url.toString();
+        },
+
+        get allSpots() {
+          const list = [];
+          this.days.forEach((day, dIdx) => {
+            if (day.timeline) {
+              day.timeline.forEach(item => {
+                list.push({
+                  ...item,
+                  dayLabel: day.dayLabel,
+                  dayIdx: dIdx
+                });
+              });
+            }
+          });
+          return list;
+        },
+
+        get filteredSearchResults() {
+          if (!this.searchQuery || !this.searchQuery.trim()) return [];
+          const q = this.searchQuery.trim().toLowerCase();
+          return this.allSpots.filter(item => {
+            const spotMatch = (item.spot || '').toLowerCase().includes(q);
+            const descMatch = (item.desc || '').toLowerCase().includes(q);
+            const transitMatch = (item.transit || '').toLowerCase().includes(q);
+            const historyMatch = (item.history || '').toLowerCase().includes(q);
+            const buyMatch = (item.mustBuy || '').toLowerCase().includes(q);
+            const tipMatch = (item.tip || '').toLowerCase().includes(q);
+            return spotMatch || descMatch || transitMatch || historyMatch || buyMatch || tipMatch;
+          });
+        },
+
         days: [
           {
             shortDate: '8/23 (日)',
