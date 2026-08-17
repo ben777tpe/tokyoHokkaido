@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" :class="fontSizeClass">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Ben家專屬 ｜ 晚夏・北海道 × 東京 7天6夜夏末全家行</title>
   
   <!-- Tailwind CSS -->
@@ -13,25 +13,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'washi': '#FAF8F5',
-            'washi-dark': '#F1ECE1',
-            'sumi': '#22262A',
-            'sumi-light': '#555E68',
-            'aizome': '#1A334E',
-            'aizome-light': '#2F4D6F',
-            'matcha': '#445D43',
-            'matcha-light': '#E5EDE4',
-            'kohaku': '#B86235',
-            'kohaku-light': '#FDF1E8',
-            'sakura': '#E5CECC',
-            'gold': '#B0883E'
+            'washi': '#FBF9F5',
+            'washi-dark': '#EFE9DE',
+            'sumi': '#191E24',
+            'sumi-light': '#47515C',
+            'aizome': '#18334F',
+            'aizome-light': '#2A4A6E',
+            'matcha': '#3B573A',
+            'matcha-light': '#E2EBE1',
+            'kohaku': '#B55B2E',
+            'kohaku-light': '#FCEDE3',
+            'gold': '#9E7428'
           },
           fontFamily: {
             serif: ['"Noto Serif TC"', 'serif'],
@@ -44,145 +43,164 @@
   </script>
 
   <style>
-    body {
-      background-color: #FAF8F5;
-      color: #22262A;
-      background-image: radial-gradient(#E5DDD0 0.8px, transparent 0.8px);
-      background-size: 24px 24px;
+    /* Mobile Accessibility & Typography Scaling */
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
     }
+    html.font-large {
+      font-size: 18px;
+    }
+    html.font-xlarge {
+      font-size: 20px;
+    }
+
+    body {
+      background-color: #F8F5EE;
+      color: #191E24;
+      background-image: radial-gradient(#E2D9CA 0.9px, transparent 0.9px);
+      background-size: 28px 28px;
+      line-height: 1.65;
+    }
+
     .washi-card {
       background: #FFFFFF;
-      border: 1px solid #DCD4C4;
-      box-shadow: 0 4px 20px -2px rgba(34, 38, 42, 0.04);
+      border: 1px solid #D8CEBC;
+      box-shadow: 0 4px 18px -2px rgba(25, 30, 36, 0.05);
     }
+
+    /* Better Mobile Tap Touch Target */
+    button, a {
+      touch-action: manipulation;
+    }
+    
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #F1ECE1; }
-    ::-webkit-scrollbar-thumb { background: #C2B6A3; border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: #EFE9DE; }
+    ::-webkit-scrollbar-thumb { background: #BDB09A; border-radius: 3px; }
   </style>
 </head>
 
-<body class="font-sans antialiased selection:bg-kohaku selection:text-white" x-data="tripApp()">
+<body class="font-sans antialiased selection:bg-kohaku selection:text-white pb-16" x-data="tripApp()">
 
-  <!-- Top Announcement Bar -->
-  <div class="bg-aizome text-washi px-4 py-2 text-xs md:text-sm font-medium tracking-wide">
+  <!-- Top Weather Bar -->
+  <div class="bg-aizome text-white px-4 py-2 text-sm font-medium tracking-wide">
     <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center space-x-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        <span>🌤️ 晚夏情報：8月下旬北海道氣溫約 28~31°C，午後偶有局部對流陣雨，已整合室內替換路線與在地私房名單。</span>
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-medium text-xs sm:text-sm">🌤️ 晚夏情報：8月下旬北海道 28~31°C，午後偶有短暫陣雨，已備妥室內雨天替代路線。</span>
       </div>
-      <div class="flex items-center space-x-3 text-xs opacity-90">
-        <span>✈️ 8/23 (日) 出發</span>
-        <span>•</span>
-        <span>7天6夜 (北海道4晚 + 東京2晚)</span>
+      <div class="text-xs sm:text-sm font-maru text-slate-200">
+        8/23 (日) 出發 ｜ 7天6夜全家行
       </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="border-b border-[#E0D8C3] bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
+  <!-- Header with Instant Font Size Scaler -->
+  <header class="border-b border-[#D8CEBC] bg-white/95 backdrop-blur-md sticky top-0 z-40 shadow-xs">
     <div class="max-w-5xl mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-lg bg-aizome flex items-center justify-center text-washi font-serif font-bold text-lg shadow-xs">
+        <div class="w-11 h-11 rounded-xl bg-aizome flex items-center justify-center text-white font-serif font-black text-xl shadow-xs">
           北
         </div>
         <div>
-          <h1 class="font-serif font-black text-lg md:text-xl text-sumi tracking-wider">
-            Ben家專屬 ｜ 晚夏・北海道 × 東京全家行
+          <h1 class="font-serif font-black text-lg md:text-2xl text-sumi tracking-wide">
+            Ben家專屬 ｜ 晚夏・北海道 × 東京
           </h1>
-          <p class="text-xs text-sumi-light font-maru">
+          <p class="text-xs md:text-sm text-sumi-light font-maru font-medium">
             2026/8/23 (日) – 8/29 (六) ｜ 爸爸 Ben • 媽媽 • 佳恩 • 芊瑾
           </p>
         </div>
       </div>
 
-      <!-- Navigation Tabs -->
-      <div class="hidden sm:flex items-center space-x-1 text-sm font-medium">
-        <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-lg transition">
-          <i class="fa-solid fa-map-location-dot mr-1"></i> 每日行程 & 導航
-        </button>
-        <button @click="activeMainTab = 'localTrends'" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-lg transition">
-          <i class="fa-solid fa-fire mr-1"></i> 在地流行私房
-        </button>
-        <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-lg transition">
-          <i class="fa-solid fa-cloud-showers-heavy mr-1"></i> 雨天備案
-        </button>
-        <button @click="activeMainTab = 'shopping'" :class="activeMainTab === 'shopping' ? 'bg-aizome-light text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-lg transition">
-          <i class="fa-solid fa-bag-shopping mr-1"></i> 動漫採買
-        </button>
-        <button @click="activeMainTab = 'checklist'" :class="activeMainTab === 'checklist' ? 'bg-sumi text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-lg transition">
-          <i class="fa-solid fa-list-check mr-1"></i> 預約清單
-        </button>
+      <!-- Right Controls: Font Scaler -->
+      <div class="flex items-center space-x-2 bg-washi-dark/80 p-1.5 rounded-xl border border-[#D5CABB]">
+        <span class="text-xs font-bold text-sumi-light px-1 hidden sm:inline"><i class="fa-solid fa-text-height mr-1"></i>字體:</span>
+        <button @click="setFontSize('normal')" :class="fontSize === 'normal' ? 'bg-white text-aizome shadow font-black' : 'text-sumi-light hover:text-sumi'" class="w-8 h-8 rounded-lg text-xs flex items-center justify-center transition font-bold" title="標準字體">A</button>
+        <button @click="setFontSize('large')" :class="fontSize === 'large' ? 'bg-white text-aizome shadow font-black' : 'text-sumi-light hover:text-sumi'" class="w-8 h-8 rounded-lg text-sm flex items-center justify-center transition font-bold" title="大字體 (推薦手機閱讀)">A+</button>
+        <button @click="setFontSize('xlarge')" :class="fontSize === 'xlarge' ? 'bg-white text-aizome shadow font-black' : 'text-sumi-light hover:text-sumi'" class="w-8 h-8 rounded-lg text-base flex items-center justify-center transition font-bold" title="特大字體">A++</button>
       </div>
+    </div>
 
-      <!-- Mobile Tabs -->
-      <div class="sm:hidden flex space-x-1">
-        <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white' : 'bg-washi-dark text-sumi'" class="px-2 py-1 text-xs rounded font-medium">行程</button>
-        <button @click="activeMainTab = 'localTrends'" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white' : 'bg-washi-dark text-sumi'" class="px-2 py-1 text-xs rounded font-medium">流行</button>
-        <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white' : 'bg-washi-dark text-sumi'" class="px-2 py-1 text-xs rounded font-medium">雨天</button>
-        <button @click="activeMainTab = 'shopping'" :class="activeMainTab === 'shopping' ? 'bg-aizome-light text-white' : 'bg-washi-dark text-sumi'" class="px-2 py-1 text-xs rounded font-medium">購物</button>
-        <button @click="activeMainTab = 'checklist'" :class="activeMainTab === 'checklist' ? 'bg-sumi text-white' : 'bg-washi-dark text-sumi'" class="px-2 py-1 text-xs rounded font-medium">清單</button>
+    <!-- Navigation Bar -->
+    <div class="border-t border-[#EAE3D4] bg-[#FAF8F5] px-4 py-2">
+      <div class="max-w-5xl mx-auto flex items-center space-x-2 overflow-x-auto scrollbar-none py-0.5">
+        <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-map-location-dot mr-1.5 text-base"></i> 每日行程 & 導航
+        </button>
+        <button @click="activeMainTab = 'localTrends'" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-fire mr-1.5 text-base"></i> 在地流行私房
+        </button>
+        <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-cloud-showers-heavy mr-1.5 text-base"></i> 雨天備案
+        </button>
+        <button @click="activeMainTab = 'shopping'" :class="activeMainTab === 'shopping' ? 'bg-aizome-light text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-bag-shopping mr-1.5 text-base"></i> 動漫採買
+        </button>
+        <button @click="activeMainTab = 'checklist'" :class="activeMainTab === 'checklist' ? 'bg-sumi text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-list-check mr-1.5 text-base"></i> 預約清單
+        </button>
       </div>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-6 md:py-8 space-y-8">
+  <main class="max-w-5xl mx-auto px-4 py-5 md:py-8 space-y-6">
 
-    <!-- Flight & Hotel Summary -->
+    <!-- Flight & Hotel Summary Card -->
     <section class="washi-card rounded-2xl p-5 md:p-6">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EBE5D8] pb-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#E8E0D2] pb-4">
         <div>
-          <span class="inline-block px-2.5 py-0.5 rounded text-xs font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1">
+          <span class="inline-block px-3 py-1 rounded-md text-xs md:text-sm font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1.5">
             ✈️ 航段配置
           </span>
-          <h2 class="font-serif font-bold text-lg md:text-xl text-sumi">台北松山 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
+          <h2 class="font-serif font-bold text-xl md:text-2xl text-sumi">台北松山 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
         </div>
-        <div class="text-xs md:text-sm text-sumi-light space-y-0.5">
-          <p><span class="font-semibold text-sumi">8/23 (日):</span> 松山 13:30 ➔ 羽田 17:45 (NH852) ➔ 轉機 2.5h ➔ 札幌 21:50 (HD37)</p>
-          <p><span class="font-semibold text-sumi">8/27 (四):</span> 札幌 12:00 ➔ 羽田 13:35 (NH60) 進入東京</p>
-          <p><span class="font-semibold text-sumi">8/29 (六):</span> 羽田 13:20 ➔ 松山 15:50 (NH853)</p>
+        <div class="text-sm md:text-base text-sumi-light space-y-1">
+          <p><span class="font-bold text-sumi">8/23 (日):</span> 松山 13:30 ➔ 羽田 17:45 (NH852) ➔ 轉機 2.5h ➔ 札幌 21:50 (HD37)</p>
+          <p><span class="font-bold text-sumi">8/27 (四):</span> 札幌 12:00 ➔ 羽田 13:35 (NH60) 進入東京</p>
+          <p><span class="font-bold text-sumi">8/29 (六):</span> 羽田 13:20 ➔ 松山 15:50 (NH853)</p>
         </div>
       </div>
 
-      <!-- Hotels & Supermarkets -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs md:text-sm">
-        <div class="p-4 rounded-xl bg-washi border border-[#E8E2D5] flex flex-col justify-between">
+      <!-- Hotels -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-sm md:text-base">
+        <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
           <div>
             <div class="flex justify-between items-start mb-1.5">
-              <span class="font-bold text-aizome font-serif text-sm">8/23 (1晚) 千歲機場旅驛</span>
-              <span class="text-[11px] bg-aizome/10 text-aizome px-1.5 py-0.5 rounded">車程10分</span>
+              <span class="font-bold text-aizome font-serif text-base">8/23 (1晚) 千歲機場旅驛</span>
+              <span class="text-xs bg-aizome/10 text-aizome px-2 py-0.5 rounded font-medium">車程10分</span>
             </div>
-            <p class="text-sumi-light text-xs mb-2">千歳市東郊 1-12-21。深夜抵達新千歲後乘車就近入住。</p>
-            <div class="text-[11px] text-kohaku font-medium mb-2"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店</div>
+            <p class="text-sumi-light text-sm mb-2">千歳市東郊 1-12-21。深夜抵達新千歲後乘車就近入住。</p>
+            <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店</div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21" target="_blank" class="w-full py-1.5 text-center rounded-lg bg-white border border-[#D8CEBC] text-sumi hover:text-aizome font-bold text-xs flex items-center justify-center shadow-2xs">
+          <a href="https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
             <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
           </a>
         </div>
 
-        <div class="p-4 rounded-xl bg-washi border border-[#E8E2D5] flex flex-col justify-between">
+        <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
           <div>
             <div class="flex justify-between items-start mb-1.5">
-              <span class="font-bold text-aizome font-serif text-sm">8/24–8/27 (3晚) Vessel Campana</span>
-              <span class="text-[11px] bg-matcha/10 text-matcha px-1.5 py-0.5 rounded">大浴場/桑拿</span>
+              <span class="font-bold text-aizome font-serif text-base">8/24–8/27 (3晚) Vessel Campana</span>
+              <span class="text-xs bg-matcha/10 text-matcha px-2 py-0.5 rounded font-medium">大浴場/桑拿</span>
             </div>
-            <p class="text-sumi-light text-xs mb-2">札幌薄野・<strong>地鐵南北線「すすきの」站 4 號出口徒步 4 分</strong>。設有天然大浴場與海鮮早餐。</p>
-            <div class="text-[11px] text-kohaku font-medium mb-2"><i class="fa-solid fa-moon mr-1"></i> 同街區 Seicomart 南5条店 ＋ 唐吉訶德薄野店</div>
+            <p class="text-sumi-light text-sm mb-2">札幌薄野・<strong>地鐵南北線「すすきの」站 4 號出口徒步 4 分</strong>。設有天然大浴場與極上海鮮早餐。</p>
+            <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-moon mr-1"></i> 同街區 Seicomart ＋ 唐吉訶德</div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino" target="_blank" class="w-full py-1.5 text-center rounded-lg bg-white border border-[#D8CEBC] text-sumi hover:text-aizome font-bold text-xs flex items-center justify-center shadow-2xs">
+          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
             <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
           </a>
         </div>
 
-        <div class="p-4 rounded-xl bg-washi border border-[#E8E2D5] flex flex-col justify-between">
+        <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
           <div>
             <div class="flex justify-between items-start mb-1.5">
-              <span class="font-bold text-aizome font-serif text-sm">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
-              <span class="text-[11px] bg-kohaku/10 text-kohaku px-1.5 py-0.5 rounded">地鐵直結</span>
+              <span class="font-bold text-aizome font-serif text-base">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
+              <span class="text-xs bg-kohaku/10 text-kohaku px-2 py-0.5 rounded font-medium">地鐵直通</span>
             </div>
-            <p class="text-sumi-light text-xs mb-2"><strong>地鐵東西線「高田馬場」站 4 號出口電梯直通 B1</strong>、JR 站 2 分。以極上海鮮丼早餐聞名。</p>
-            <div class="text-[11px] text-kohaku font-medium mb-2"><i class="fa-solid fa-cart-shopping mr-1"></i> 24h 西友超市(徒步5分) ＋ 日本第一炸豬排街</div>
+            <p class="text-sumi-light text-sm mb-2"><strong>地鐵東西線「高田馬場」站 4 號出口電梯直通 B1</strong>、JR 站 2 分。以生魚片海鮮丼早餐聞名。</p>
+            <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-utensils mr-1"></i> 徒步 3 分達頂級炸豬排街</div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station" target="_blank" class="w-full py-1.5 text-center rounded-lg bg-white border border-[#D8CEBC] text-sumi hover:text-aizome font-bold text-xs flex items-center justify-center shadow-2xs">
+          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
             <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
           </a>
         </div>
@@ -192,66 +210,66 @@
     <!-- SECTION 1: MAIN ITINERARY -->
     <div x-show="activeMainTab === 'itinerary'" class="space-y-6">
       
-      <!-- Day Selector Pills -->
-      <div class="flex items-center justify-between overflow-x-auto pb-2 space-x-2 scrollbar-none">
+      <!-- Day Selector (Larger touch targets on mobile) -->
+      <div class="flex items-center space-x-2.5 overflow-x-auto pb-2 scrollbar-none">
         <template x-for="(day, index) in days" :key="index">
           <button 
             @click="selectedDay = index"
-            :class="selectedDay === index ? 'bg-aizome text-white shadow-sm' : 'bg-white text-sumi hover:bg-washi-dark border border-[#DDD6C8]'"
-            class="flex-shrink-0 px-4 py-2.5 rounded-xl text-center transition-all flex flex-col items-center min-w-[105px]">
-            <span class="text-[11px] uppercase tracking-wider font-maru" :class="selectedDay === index ? 'text-washi/80' : 'text-sumi-light'" x-text="day.shortDate"></span>
-            <span class="font-serif font-bold text-sm md:text-base" x-text="day.dayLabel"></span>
+            :class="selectedDay === index ? 'bg-aizome text-white shadow-md' : 'bg-white text-sumi hover:bg-washi-dark border border-[#D5CABE]'"
+            class="flex-shrink-0 px-4 py-3 rounded-2xl text-center transition-all flex flex-col items-center min-w-[110px]">
+            <span class="text-xs uppercase tracking-wider font-maru font-bold" :class="selectedDay === index ? 'text-white/80' : 'text-sumi-light'" x-text="day.shortDate"></span>
+            <span class="font-serif font-black text-base md:text-lg mt-0.5" x-text="day.dayLabel"></span>
           </button>
         </template>
       </div>
 
       <!-- Active Day Card -->
-      <div class="washi-card rounded-2xl p-5 md:p-6 relative overflow-hidden">
+      <div class="washi-card rounded-2xl p-5 md:p-7 relative overflow-hidden">
         
-        <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 mb-6 border-b border-[#EAE4D7] gap-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 mb-6 border-b border-[#EAE3D4] gap-3">
           <div>
-            <div class="flex items-center space-x-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-serif font-bold bg-aizome text-white" x-text="days[selectedDay].dayLabel"></span>
-              <span class="text-xs text-sumi-light font-maru" x-text="days[selectedDay].fullDate"></span>
-              <span class="px-2 py-0.5 rounded text-[11px] font-medium" :class="days[selectedDay].paceColor" x-text="'節奏：' + days[selectedDay].pace"></span>
+            <div class="flex items-center space-x-2 mb-1.5">
+              <span class="px-3 py-1 rounded-lg text-xs md:text-sm font-serif font-black bg-aizome text-white" x-text="days[selectedDay].dayLabel"></span>
+              <span class="text-xs md:text-sm text-sumi-light font-maru font-bold" x-text="days[selectedDay].fullDate"></span>
+              <span class="px-2.5 py-0.5 rounded text-xs font-bold" :class="days[selectedDay].paceColor" x-text="'節奏：' + days[selectedDay].pace"></span>
             </div>
-            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi" x-text="days[selectedDay].title"></h3>
+            <h3 class="text-2xl md:text-3xl font-serif font-black text-sumi" x-text="days[selectedDay].title"></h3>
           </div>
 
           <!-- Rain Mode Toggle -->
-          <div class="flex items-center bg-washi-dark p-1 rounded-xl border border-[#D9D1C3]">
-            <button @click="days[selectedDay].isRainMode = false" :class="!days[selectedDay].isRainMode ? 'bg-white shadow text-sumi font-bold' : 'text-sumi-light'" class="px-3 py-1 text-xs rounded-lg transition">
+          <div class="flex items-center bg-washi-dark p-1.5 rounded-2xl border border-[#D5CABB]">
+            <button @click="days[selectedDay].isRainMode = false" :class="!days[selectedDay].isRainMode ? 'bg-white shadow text-sumi font-black' : 'text-sumi-light font-bold'" class="px-4 py-1.5 text-sm rounded-xl transition">
               ☀️ 晴天計畫
             </button>
-            <button @click="days[selectedDay].isRainMode = true" :class="days[selectedDay].isRainMode ? 'bg-matcha text-white shadow font-bold' : 'text-sumi-light'" class="px-3 py-1 text-xs rounded-lg transition">
+            <button @click="days[selectedDay].isRainMode = true" :class="days[selectedDay].isRainMode ? 'bg-matcha text-white shadow font-black' : 'text-sumi-light font-bold'" class="px-4 py-1.5 text-sm rounded-xl transition">
               🌧️ 雨天備案
             </button>
           </div>
         </div>
 
         <!-- Rain Alert Banner -->
-        <div x-show="days[selectedDay].isRainMode" class="mb-6 p-4 rounded-xl bg-matcha-light/80 border border-matcha/30 text-matcha text-sm flex items-start space-x-3">
-          <i class="fa-solid fa-umbrella text-lg mt-0.5"></i>
+        <div x-show="days[selectedDay].isRainMode" class="mb-6 p-4 rounded-xl bg-matcha-light/90 border border-matcha/40 text-matcha text-sm md:text-base flex items-start space-x-3">
+          <i class="fa-solid fa-umbrella text-xl mt-0.5"></i>
           <div>
-            <div class="font-bold font-serif mb-0.5" x-text="days[selectedDay].rainBannerTitle"></div>
-            <div class="text-xs text-sumi" x-text="days[selectedDay].rainBannerDesc"></div>
+            <div class="font-bold font-serif text-base mb-1" x-text="days[selectedDay].rainBannerTitle"></div>
+            <div class="text-sm md:text-base text-sumi" x-text="days[selectedDay].rainBannerDesc"></div>
           </div>
         </div>
 
         <!-- Timeline Items -->
-        <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-[#E2DAD0]">
+        <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-[#DCD4C4]">
           <template x-for="(item, idx) in (days[selectedDay].isRainMode ? days[selectedDay].rainTimeline : days[selectedDay].timeline)" :key="idx">
-            <div class="relative flex items-start pl-8 group" x-data="{ showHistory: false }">
-              <div class="absolute left-1.5 top-3 w-4 h-4 rounded-full border-2 border-white shadow-sm flex items-center justify-center transition" :class="item.highlight ? 'bg-kohaku scale-110 ring-2 ring-kohaku/30' : (days[selectedDay].isRainMode ? 'bg-matcha' : 'bg-aizome')"></div>
+            <div class="relative flex items-start pl-9 group" x-data="{ showHistory: false }">
+              <div class="absolute left-2 top-3 w-4 h-4 rounded-full border-2 border-white shadow-sm flex items-center justify-center transition" :class="item.highlight ? 'bg-kohaku scale-125 ring-2 ring-kohaku/40' : (days[selectedDay].isRainMode ? 'bg-matcha' : 'bg-aizome')"></div>
               
-              <!-- Clean Pure Washi Card (No Background Image Noise) -->
-              <div class="flex-1 p-4 md:p-5 rounded-2xl bg-white border border-[#E3DBD0] transition shadow-xs">
+              <!-- Clean Pure Card with High Legibility -->
+              <div class="flex-1 p-5 md:p-6 rounded-2xl bg-white border border-[#DDD5C5] transition shadow-xs space-y-3">
                 
-                <!-- Spot Header & Actions -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-[#EDE6DA]">
-                  <div class="flex items-center space-x-2">
-                    <span class="font-mono font-bold text-xs md:text-sm text-aizome px-2 py-0.5 bg-aizome/10 rounded" x-text="item.time"></span>
-                    <h4 class="font-serif font-bold text-base md:text-lg text-sumi" x-text="item.spot"></h4>
+                <!-- Spot Header & Action Buttons -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-[#EAE3D4]">
+                  <div class="flex items-center space-x-2.5">
+                    <span class="font-mono font-bold text-sm md:text-base text-aizome px-2.5 py-1 bg-aizome/10 rounded-lg" x-text="item.time"></span>
+                    <h4 class="font-serif font-black text-lg md:text-xl text-sumi" x-text="item.spot"></h4>
                   </div>
                   
                   <div class="flex items-center space-x-2">
@@ -259,17 +277,17 @@
                     <template x-if="item.history">
                       <button 
                         @click="showHistory = !showHistory" 
-                        class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-serif font-bold transition border"
-                        :class="showHistory ? 'bg-kohaku text-white border-kohaku' : 'bg-kohaku-light text-kohaku border-kohaku/30 hover:bg-kohaku/10'">
-                        <i class="fa-solid fa-scroll mr-1"></i>
+                        class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs md:text-sm font-serif font-bold transition border"
+                        :class="showHistory ? 'bg-kohaku text-white border-kohaku' : 'bg-kohaku-light text-kohaku border-kohaku/40 hover:bg-kohaku/10'">
+                        <i class="fa-solid fa-scroll mr-1.5"></i>
                         <span x-text="showHistory ? '收合文史' : '歷史見聞 & 推薦'"></span>
                       </button>
                     </template>
 
-                    <!-- Google Map Link -->
+                    <!-- Google Maps Button -->
                     <template x-if="item.mapUrl">
-                      <a :href="item.mapUrl" target="_blank" class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-white border border-[#D5CCBC] text-aizome hover:bg-aizome hover:text-white font-bold text-xs transition shadow-2xs">
-                        <i class="fa-solid fa-location-arrow mr-1 text-xs text-kohaku"></i> 導航
+                      <a :href="item.mapUrl" target="_blank" class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-lg bg-white border border-[#CFBFAB] text-aizome hover:bg-aizome hover:text-white font-bold text-xs md:text-sm transition shadow-xs">
+                        <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> Google 導航
                       </a>
                     </template>
                   </div>
@@ -277,43 +295,41 @@
 
                 <!-- 🚇 Detailed Transit -->
                 <template x-if="item.transit">
-                  <div class="mb-2.5 p-2.5 rounded-xl bg-[#F7F4EE] border border-[#E7E0D3] text-xs">
-                    <span class="font-bold text-aizome mr-1"><i class="fa-solid fa-train-subway mr-1"></i>交通：</span>
-                    <span class="text-sumi leading-relaxed" x-html="item.transit"></span>
+                  <div class="p-3.5 rounded-xl bg-[#F7F4EE] border border-[#E7DFC0] text-sm md:text-base leading-relaxed">
+                    <span class="font-bold text-aizome mr-1.5"><i class="fa-solid fa-train-subway mr-1"></i>地鐵與交通：</span>
+                    <span class="text-sumi" x-html="item.transit"></span>
                   </div>
                 </template>
                 
                 <!-- Description -->
-                <p class="text-xs md:text-sm text-sumi-light leading-relaxed mb-2.5" x-text="item.desc"></p>
+                <p class="text-sm md:text-base text-sumi-light leading-relaxed" x-text="item.desc"></p>
 
                 <!-- 📜 Expandable History & Cultural Insight Drawer with Links -->
                 <template x-if="item.history">
-                  <div x-show="showHistory" x-transition class="mt-3 mb-2 p-4 rounded-xl bg-[#F7F4EE] border-l-4 border-kohaku text-xs text-sumi shadow-inner space-y-2">
-                    <div class="font-serif font-bold text-kohaku flex items-center justify-between">
-                      <div class="flex items-center">
-                        <i class="fa-solid fa-landmark mr-1.5"></i>
-                        <span>文化典故、必買必看與延伸閱讀：</span>
-                      </div>
+                  <div x-show="showHistory" x-transition class="p-4 md:p-5 rounded-xl bg-[#F7F4EE] border-l-4 border-kohaku text-sm md:text-base text-sumi shadow-inner space-y-2.5">
+                    <div class="font-serif font-bold text-kohaku flex items-center">
+                      <i class="fa-solid fa-landmark mr-2"></i>
+                      <span>文化典故、必買必看與延伸閱讀：</span>
                     </div>
                     
                     <p class="leading-relaxed text-sumi/90" x-html="item.history"></p>
 
-                    <!-- Tips / Must-Buy -->
+                    <!-- Must-Buy -->
                     <template x-if="item.mustBuy">
-                      <div class="pt-2 border-t border-[#EAE3D6] flex items-start space-x-1.5">
+                      <div class="pt-2.5 border-t border-[#EAE2D2] flex items-start space-x-2">
                         <span class="font-bold text-kohaku shrink-0">🛍️ 必看/必買：</span>
                         <span class="text-sumi-light leading-relaxed" x-text="item.mustBuy"></span>
                       </div>
                     </template>
 
-                    <!-- Reference Links -->
+                    <!-- Links -->
                     <template x-if="item.links && item.links.length > 0">
-                      <div class="pt-2 border-t border-[#EAE3D6] flex flex-wrap items-center gap-2">
+                      <div class="pt-2.5 border-t border-[#EAE2D2] flex flex-wrap items-center gap-2.5">
                         <span class="font-bold text-aizome">🔗 延伸資訊：</span>
                         <template x-for="(link, lIdx) in item.links" :key="lIdx">
-                          <a :href="link.url" target="_blank" class="inline-flex items-center text-aizome-light hover:text-kohaku underline text-xs">
+                          <a :href="link.url" target="_blank" class="inline-flex items-center text-aizome hover:text-kohaku underline text-sm font-medium">
                             <span x-text="link.title"></span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
                           </a>
                         </template>
                       </div>
@@ -322,16 +338,16 @@
                 </template>
                 
                 <!-- Badges / Tips / Booking Link -->
-                <div class="flex flex-wrap items-center gap-2 text-xs pt-1">
+                <div class="flex flex-wrap items-center gap-2 pt-1 text-xs md:text-sm">
                   <template x-if="item.cost">
-                    <span class="px-2 py-0.5 rounded bg-[#EDE8DE] text-sumi font-medium" x-text="'💰 ' + item.cost"></span>
+                    <span class="px-3 py-1 rounded-lg bg-[#EFE9DD] text-sumi font-medium" x-text="'💰 ' + item.cost"></span>
                   </template>
                   <template x-if="item.tip">
-                    <span class="px-2 py-0.5 rounded bg-kohaku-light text-kohaku border border-kohaku/30 font-medium" x-text="'💡 ' + item.tip"></span>
+                    <span class="px-3 py-1 rounded-lg bg-kohaku-light text-kohaku border border-kohaku/30 font-medium" x-text="'💡 ' + item.tip"></span>
                   </template>
                   <template x-if="item.bookingUrl">
-                    <a :href="item.bookingUrl" target="_blank" class="px-2.5 py-0.5 rounded bg-matcha text-white font-bold hover:bg-matcha/90 transition inline-flex items-center shadow-2xs">
-                      <i class="fa-solid fa-ticket mr-1"></i> 官方預約
+                    <a :href="item.bookingUrl" target="_blank" class="px-3.5 py-1 rounded-lg bg-matcha text-white font-bold hover:bg-matcha/90 transition inline-flex items-center shadow-xs">
+                      <i class="fa-solid fa-ticket mr-1.5"></i> 官方預約
                     </a>
                   </template>
                 </div>
@@ -343,143 +359,143 @@
       </div>
     </div>
 
-    <!-- SECTION 2: LOCAL INSIDER TRENDS (NEW!) -->
+    <!-- SECTION 2: LOCAL INSIDER TRENDS -->
     <div x-show="activeMainTab === 'localTrends'" class="space-y-6">
-      <div class="washi-card rounded-2xl p-6">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-kohaku flex items-center justify-center text-white text-base">
+      <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-kohaku flex items-center justify-center text-white text-lg">
             <i class="fa-solid fa-fire"></i>
           </div>
           <div>
-            <h3 class="text-xl font-serif font-bold text-sumi">日本在地社群與論壇流行私房推薦 (2025–2026)</h3>
-            <p class="text-xs text-sumi-light font-maru">精選日本當地年輕人與饕客最瘋傳的在地體驗，可彈性穿插於各日行程！</p>
+            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">日本在地社群流行私房推薦 (2025–2026)</h3>
+            <p class="text-sm md:text-base text-sumi-light font-maru">精選日本在地人最瘋傳的私房名單，隨時穿插於行程中！</p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs md:text-sm">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm md:text-base">
           
-          <!-- Trend 1: 札幌 締めパフェ (夜聖代文化) -->
-          <div class="p-5 rounded-2xl bg-washi border border-[#E3DBD0] flex flex-col justify-between">
+          <!-- Trend 1 -->
+          <div class="p-5 md:p-6 rounded-2xl bg-washi border border-[#E0D8C6] flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-kohaku-light text-kohaku border border-kohaku/30">札幌薄野・狸小路</span>
-                <span class="text-xs text-sumi-light">營業至 23:00~01:00</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-kohaku-light text-kohaku border border-kohaku/30">札幌薄野・狸小路</span>
+                <span class="text-xs text-sumi-light">營業至深夜 23:00~01:00</span>
               </div>
-              <h4 class="font-serif font-bold text-base md:text-lg text-sumi mb-1">🍨 札幌在地夜文化：締めパフェ (夜聖代)</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
-                札幌獨有的夜生活儀式！在地人吃完晚餐或烤肉後，習慣走進專門店以一杯層次豐富的北海道鮮乳、當季水果與精釀冰淇淋聖代收尾。
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🍨 札幌在地夜文化：締めパフェ (夜聖代)</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
+                札幌獨有的夜生活儀式！吃完烤肉後，習慣走進專門店以一杯北海道純濃生乳、當季水果與精釀冰淇淋聖代收尾。
               </p>
-              <div class="bg-white p-3 rounded-xl border border-[#E6DFD2] space-y-1 text-xs mb-3">
-                <p>📍 <strong>推薦名店：</strong> <strong>「パフェ、珈琲、酒、佐藤」</strong> (狸小路1丁目) 或 <strong>「INITIAL 札幌」</strong> (南3条西5丁目)。</p>
+              <div class="bg-white p-3.5 rounded-xl border border-[#E4DBCB] space-y-1.5 text-sm">
+                <p>📍 <strong>推薦名店：</strong> <strong>「パフェ、珈琲、酒、佐藤」</strong> (狸小路1丁目) 或 <strong>「INITIAL 札幌」</strong>。</p>
                 <p>🚶 <strong>交通：</strong> 離 Vessel 飯店徒步僅 3~5 分鐘，晚上散步即可抵達！</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=パフェ+珈琲+酒+佐藤+札幌" target="_blank" class="w-full py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-              <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟「佐藤聖代」Google 導航
+            <a href="https://www.google.com/maps/search/?api=1&query=パフェ+珈琲+酒+佐藤+札幌" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 開啟「佐藤夜聖代」Google 導航
             </a>
           </div>
 
-          <!-- Trend 2: 小樽 かま栄「パンロール」+ 北一 Hall 煤氣燈 -->
-          <div class="p-5 rounded-2xl bg-washi border border-[#E3DBD0] flex flex-col justify-between">
+          <!-- Trend 2 -->
+          <div class="p-5 md:p-6 rounded-2xl bg-washi border border-[#E0D8C6] flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-matcha-light text-matcha border border-matcha/30">小樽堺町通</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-matcha-light text-matcha border border-matcha/30">小樽堺町通</span>
                 <span class="text-xs text-sumi-light">在地人靈魂小吃</span>
               </div>
-              <h4 class="font-serif font-bold text-base md:text-lg text-sumi mb-1">🍢 小樽 かま栄「炸 Pan-Roll」＋ 北一 Hall 煤氣燈</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🍢 小樽 かま栄「炸 Pan-Roll」＋ 北一 Hall 煤氣燈</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 1. <strong>かま栄魚板工廠</strong>：在地人從小吃到大的「パンロール」，薄吐司包裹爆漿鮮蝦魚漿現炸，外酥內彈！<br>
                 2. <strong>北一 Hall</strong>：由 167 盞石油煤氣燈照明的古董倉庫咖啡廳，氛圍如夢似幻。
               </p>
-              <div class="bg-white p-3 rounded-xl border border-[#E6DFD2] space-y-1 text-xs mb-3">
+              <div class="bg-white p-3.5 rounded-xl border border-[#E4DBCB] space-y-1.5 text-sm">
                 <p>📍 <strong>位置：</strong> 堺町通 7-12（北一硝子三號館旁）。</p>
-                <p>💡 <strong>推薦：</strong> 逛街途中買一根熱呼呼的魚板吐司捲邊走邊吃，午後進北一 Hall 喝紅茶。</p>
+                <p>💡 <strong>推薦：</strong> 逛街途中買一根熱呼呼魚板捲邊走邊吃，午後進北一 Hall 喝茶。</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Kamaei+Factory+Direct+Store+Otaru" target="_blank" class="w-full py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-              <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟「かま栄工廠店」導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Kamaei+Factory+Direct+Store+Otaru" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 開啟「かま栄工廠店」導航
             </a>
           </div>
 
-          <!-- Trend 3: 澀谷 PARCO 6F (CYBERSPACE TOKYO) -->
-          <div class="p-5 rounded-2xl bg-washi border border-[#E3DBD0] flex flex-col justify-between">
+          <!-- Trend 3 -->
+          <div class="p-5 md:p-6 rounded-2xl bg-washi border border-[#E0D8C6] flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">東京澀谷 ｜ 6F 電玩動漫聖殿</span>
-                <span class="text-xs text-sumi-light">中學生超愛！</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-blue-100 text-blue-800">東京澀谷 ｜ 6F 電玩動漫聖殿</span>
+                <span class="text-xs text-sumi-light">兩位女兒超愛！</span>
               </div>
-              <h4 class="font-serif font-bold text-base md:text-lg text-sumi mb-1">🎮 澀谷 PARCO 6F：Nintendo × Pokémon Center</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🎮 澀谷 PARCO 6F：Nintendo × Pokémon Center</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 全日本動漫電玩迷的最強集散地！集結了日本首間「Nintendo TOKYO」直營店、巨大人工培育槽沉睡超夢的「Pokémon Center SHIBUYA」與 JUMP SHOP。
               </p>
-              <div class="bg-white p-3 rounded-xl border border-[#E6DFD2] space-y-1 text-xs mb-3">
-                <p>🚇 <strong>交通：</strong> 澀谷站八公口步行 6 分鐘，可安排在 Day 6 SHIBUYA SKY 之後順路前往！</p>
+              <div class="bg-white p-3.5 rounded-xl border border-[#E4DBCB] space-y-1.5 text-sm">
+                <p>🚇 <strong>交通：</strong> 澀谷站八公口步行 6 分鐘，可安排在 Day 6 SHIBUYA SKY 之後前往！</p>
                 <p>📸 <strong>打卡：</strong> 與等身大沉睡超夢水槽、瑪利歐巨型雕像合照。</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Shibuya+PARCO" target="_blank" class="w-full py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-              <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟「澀谷 PARCO」導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Shibuya+PARCO" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 開啟「澀谷 PARCO」導航
             </a>
           </div>
 
-          <!-- Trend 4: 原宿神宮前全新地標「ハラカド (HARAKADO)」+ 生甜甜圈 -->
-          <div class="p-5 rounded-2xl bg-washi border border-[#E3DBD0] flex flex-col justify-between">
+          <!-- Trend 4 -->
+          <div class="p-5 md:p-6 rounded-2xl bg-washi border border-[#E0D8C6] flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800">東京原宿 ｜ 2024全新開幕</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-800">東京原宿 ｜ 2024全新開幕</span>
                 <span class="text-xs text-sumi-light">神宮前十字路口</span>
               </div>
-              <h4 class="font-serif font-bold text-base md:text-lg text-sumi mb-1">🏛️ 東急Plaza原宿「ハラカド」＋ I'm donut?</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
-                原宿最新文化樞紐！結合空中立體綠化露台、文創雜誌館「COVER」、高円寺名湯「小杉湯原宿」與限定甜點。順道探訪排隊名店「I'm donut?」生甜甜圈。
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🏛️ 東急Plaza原宿「ハラカド」＋ I'm donut?</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
+                原宿最新文化樞紐！結合空中綠意露台、文創雜誌館「COVER」、高円寺名湯「小杉湯原宿」與排隊名店「I'm donut?」生甜甜圈。
               </p>
-              <div class="bg-white p-3 rounded-xl border border-[#E6DFD2] space-y-1 text-xs mb-3">
+              <div class="bg-white p-3.5 rounded-xl border border-[#E4DBCB] space-y-1.5 text-sm">
                 <p>🚇 <strong>交通：</strong> 地鐵明治神宮前站 4 號出口直結 / 原宿站步行 4 分鐘（Kiddy Land 對面）。</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Tokyu+Plaza+Harakado" target="_blank" class="w-full py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-              <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟「HARAKADO」導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Tokyu+Plaza+Harakado" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 開啟「HARAKADO」導航
             </a>
           </div>
 
-          <!-- Trend 5: 高田馬場 日本第一「頂級炸豬排激戰區」 -->
-          <div class="p-5 rounded-2xl bg-washi border border-[#E3DBD0] flex flex-col justify-between">
+          <!-- Trend 5 -->
+          <div class="p-5 md:p-6 rounded-2xl bg-washi border border-[#E0D8C6] flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-kohaku-light text-kohaku border border-kohaku/30">東京高田馬場 ｜ 飯店旁美食</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-kohaku-light text-kohaku border border-kohaku/30">東京高田馬場 ｜ 飯店旁美食</span>
                 <span class="text-xs text-sumi-light">徒步 3 分鐘</span>
               </div>
-              <h4 class="font-serif font-bold text-base md:text-lg text-sumi mb-1">🥩 高田馬場名物：とんかつ ひなた (Hinata 頂級炸豬排)</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🥩 高田馬場名物：とんかつ ひなた (Hinata 頂級炸豬排)</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 高田馬場是全東京公認的「炸豬排一級戰區」！「ひなた」以低溫慢炸帶出特選黑豬肉的粉嫩肉汁，搭配松露鹽與黃芥末，被譽為神級炸豬排。
               </p>
-              <div class="bg-white p-3 rounded-xl border border-[#E6DFD2] space-y-1 text-xs mb-3">
+              <div class="bg-white p-3.5 rounded-xl border border-[#E4DBCB] space-y-1.5 text-sm">
                 <p>📍 <strong>位置：</strong> 高田馬場 2-13-9（離 Vessel 飯店步行 3 分鐘）。</p>
-                <p>💡 <strong>推薦：</strong> Day 5 或 Day 6 晚餐若不想在澀谷排隊，回飯店旁吃這家最愜意！</p>
+                <p>💡 <strong>推薦：</strong> Day 5 或 Day 6 晚餐若不想在澀谷排隊，回飯店旁吃這家最享受！</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Tonkatsu+Hinata+Takadanobaba" target="_blank" class="w-full py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-              <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟「ひなた炸豬排」導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Tonkatsu+Hinata+Takadanobaba" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 開啟「ひなた炸豬排」導航
             </a>
           </div>
 
-          <!-- Trend 6: 札幌市民靈魂麵包 どんぐり「竹輪麵包」 -->
-          <div class="p-5 rounded-2xl bg-washi border border-[#E3DBD0] flex flex-col justify-between">
+          <!-- Trend 6 -->
+          <div class="p-5 md:p-6 rounded-2xl bg-washi border border-[#E0D8C6] flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">札幌在地靈魂美食</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800">札幌在地靈魂美食</span>
                 <span class="text-xs text-sumi-light">銅板價 ¥180</span>
               </div>
-              <h4 class="font-serif font-bold text-base md:text-lg text-sumi mb-1">🥖 どんぐり (Donguri) 札幌「竹輪麵包」</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🥖 どんぐり (Donguri) 札幌「竹輪麵包」</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 札幌無人不知的傳奇麵包店！招牌「ちくわパン」將一整根彈牙竹輪填滿濃郁特調鮪魚洋蔥沙拉，裹上鬆軟麵包烘烤，鹹香爽口令人驚艷。
               </p>
-              <div class="bg-white p-3 rounded-xl border border-[#E6DFD2] space-y-1 text-xs mb-3">
+              <div class="bg-white p-3.5 rounded-xl border border-[#E4DBCB] space-y-1.5 text-sm">
                 <p>📍 <strong>分店：</strong> 大通公園地下街（大通站地下 Aurora Town 內）。</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Donguri+Odori+Sapporo" target="_blank" class="w-full py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-              <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟「Donguri 大通店」導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Donguri+Odori+Sapporo" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 開啟「Donguri 大通店」導航
             </a>
           </div>
 
@@ -489,121 +505,121 @@
 
     <!-- SECTION 3: RAIN PLANS DEEP DIVE -->
     <div x-show="activeMainTab === 'rainPlans'" class="space-y-6">
-      <div class="washi-card rounded-2xl p-6">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-matcha flex items-center justify-center text-white text-base">
+      <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-matcha flex items-center justify-center text-white text-lg">
             <i class="fa-solid fa-cloud-showers-heavy"></i>
           </div>
           <div>
-            <h3 class="text-xl font-serif font-bold text-sumi">4 大室內精選備案景點</h3>
-            <p class="text-xs text-sumi-light font-maru">全室內動線設計，兼顧互動體驗、知識深度與全家動線</p>
+            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">4 大室內精選備案景點</h3>
+            <p class="text-sm md:text-base text-sumi-light font-maru">全室內動線設計，兼顧互動體驗、知識深度與全家動線</p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm md:text-base">
           
           <!-- Card 1: ROYCE -->
-          <div class="p-5 rounded-2xl bg-white border border-[#E3DBD0] shadow-2xs flex flex-col justify-between">
+          <div class="p-5 md:p-6 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-kohaku-light text-kohaku border border-kohaku/30">當別町 ｜ 2023開幕</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-kohaku-light text-kohaku border border-kohaku/30">當別町 ｜ 2023開幕</span>
                 <span class="text-xs text-sumi-light">大人 ¥1,200 / 國中小 ¥500</span>
               </div>
-              <h4 class="font-serif font-bold text-lg text-sumi mb-1">🍫 ROYCE' Cacao & Chocolate Town</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🍫 ROYCE' Cacao & Chocolate Town</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 北海道全新沉浸式巧克力觀光工廠。自可可樹栽植、烘焙加工至巨幅板巧克力工坊（Workshop DIY），全室內互動體驗。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+              <div class="text-sm text-sumi space-y-1.5 mb-4 bg-washi p-3.5 rounded-xl border border-[#E4DBCB]">
                 <p>🚇 <strong>交通：</strong> 札幌站搭乘 JR 學園都市線至「ロイズタウン（Royce Town）站」步行 7 分鐘（附免費接駁車）；市區自駕約 40 分鐘。</p>
                 <p>📜 <strong>歷史：</strong> 當別町為明治時期仙台岩出山伊達家開拓地；2022 年為振興地方產業，JR 設立「Royce' Town 站」，為 JR 北海道時隔 20 年首座新車站。</p>
                 <p>🛍️ <strong>必買：</strong> 當別町限定巨型巧克力磚 DIY、新鮮可可豆烘焙冰淇淋。</p>
               </div>
             </div>
             <div class="flex gap-2">
-              <a href="https://www.google.com/maps/search/?api=1&query=ROYCE+CACAO+AND+CHOCOLATE+TOWN" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 導航
+              <a href="https://www.google.com/maps/search/?api=1&query=ROYCE+CACAO+AND+CHOCOLATE+TOWN" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+                <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 導航
               </a>
-              <a href="https://www.royce.com/cct/" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
-                <i class="fa-solid fa-ticket mr-1"></i> 官網預約
+              <a href="https://www.royce.com/cct/" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-aizome text-white hover:bg-aizome-light transition text-sm">
+                <i class="fa-solid fa-ticket mr-1.5"></i> 官網預約
               </a>
             </div>
           </div>
 
           <!-- Card 2: AOAO SAPPORO -->
-          <div class="p-5 rounded-2xl bg-white border border-[#E3DBD0] shadow-2xs flex flex-col justify-between">
+          <div class="p-5 md:p-6 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-aizome/10 text-aizome border border-aizome/20">狸小路 ｜ 營業至22:00</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-aizome/10 text-aizome border border-aizome/20">狸小路 ｜ 營業至22:00</span>
                 <span class="text-xs text-sumi-light">大人 ¥2,200 / 國中小 ¥1,100</span>
               </div>
-              <h4 class="font-serif font-bold text-lg text-sumi mb-1">🐧 AOAO SAPPORO 水族館</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🐧 AOAO SAPPORO 水族館</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 座落於狸小路 moyuk SAPPORO 4–6 樓的都會型療癒水族館。展出跳岩企鵝、水母微光展廳與造景水草生態缸。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+              <div class="text-sm text-sumi space-y-1.5 mb-4 bg-washi p-3.5 rounded-xl border border-[#E4DBCB]">
                 <p>🚇 <strong>交通：</strong> 地鐵「大通站」地下街直通 moyuk SAPPORO 4F，離薄野飯店徒步 5 分鐘。</p>
                 <p>📜 <strong>歷史：</strong> 命名取自「青（Ao）」，象徵海洋與森林的生命力。館內首創將企鵝養育後場完全公開化，融合現代美學與海洋生態教育。</p>
                 <p>🥐 <strong>特色：</strong> 館內 6F 有「白熊可頌烘焙坊」，邊吃現烤可頌邊看水母。</p>
               </div>
             </div>
             <div class="flex gap-2">
-              <a href="https://www.google.com/maps/search/?api=1&query=AOAO+SAPPORO" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 導航
+              <a href="https://www.google.com/maps/search/?api=1&query=AOAO+SAPPORO" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+                <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 導航
               </a>
-              <a href="https://aoao-sapporo.blue/" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
-                <i class="fa-solid fa-ticket mr-1"></i> 官網預約
+              <a href="https://aoao-sapporo.blue/" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-aizome text-white hover:bg-aizome-light transition text-sm">
+                <i class="fa-solid fa-ticket mr-1.5"></i> 官網預約
               </a>
             </div>
           </div>
 
           <!-- Card 3: 札幌市青少年科學館 -->
-          <div class="p-5 rounded-2xl bg-white border border-[#E3DBD0] shadow-2xs flex flex-col justify-between">
+          <div class="p-5 md:p-6 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-matcha-light text-matcha border border-matcha/30">新札幌 ｜ 2024改裝</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-matcha-light text-matcha border border-matcha/30">新札幌 ｜ 2024改裝</span>
                 <span class="text-xs text-sumi-light font-bold text-matcha">中學生以下免費</span>
               </div>
-              <h4 class="font-serif font-bold text-lg text-sumi mb-1">🔬 札幌市青少年科學館</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🔬 札幌市青少年科學館</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 2024 年 4 月全面翻新。設有 -30°C 極寒體驗室、人工降雪裝置、太空星象儀與 200 餘項物理互動設施。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+              <div class="text-sm text-sumi space-y-1.5 mb-4 bg-washi p-3.5 rounded-xl border border-[#E4DBCB]">
                 <p>🚇 <strong>交通：</strong> 地鐵東西線「新さっぽろ站」1 號出口正面直通 / JR 新札幌站步行 5 分鐘。</p>
                 <p>📜 <strong>歷史：</strong> 始建於 1981 年，館內特別紀念北海道大學中谷宇吉郎博士於 1936 年成功製造出世界首個人工雪結晶的科學歷史里程碑。</p>
               </div>
             </div>
             <div class="flex gap-2">
-              <a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Science+Center" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 導航
+              <a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Science+Center" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+                <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 導航
               </a>
-              <a href="https://www.ssc.slp.or.jp/" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
-                <i class="fa-solid fa-ticket mr-1"></i> 官網資訊
+              <a href="https://www.ssc.slp.or.jp/" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-aizome text-white hover:bg-aizome-light transition text-sm">
+                <i class="fa-solid fa-ticket mr-1.5"></i> 官網資訊
               </a>
             </div>
           </div>
 
           <!-- Card 4: J Art Foundation -->
-          <div class="p-5 rounded-2xl bg-white border border-[#E3DBD0] shadow-2xs flex flex-col justify-between">
+          <div class="p-5 md:p-6 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-bold px-2 py-0.5 rounded bg-sakura/40 text-sumi border border-sakura">中央區宮之森 ｜ 數位藝術</span>
+                <span class="text-xs font-serif font-bold px-2.5 py-1 rounded bg-sakura/40 text-sumi border border-sakura">中央區宮之森 ｜ 數位藝術</span>
                 <span class="text-xs text-sumi-light">大人 ¥2,000 / 學生 ¥1,500</span>
               </div>
-              <h4 class="font-serif font-bold text-lg text-sumi mb-1">🎨 J Art Foundation</h4>
-              <p class="text-xs text-sumi-light mb-3 leading-relaxed">
+              <h4 class="font-serif font-black text-lg md:text-xl text-sumi mb-2">🎨 J Art Foundation</h4>
+              <p class="text-sumi-light leading-relaxed mb-3">
                 原札幌宮之森美術館，常設展出 teamLab 巨型數位光影裝置《教會跡に増殖する無量の生命》。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+              <div class="text-sm text-sumi space-y-1.5 mb-4 bg-washi p-3.5 rounded-xl border border-[#E4DBCB]">
                 <p>🚇 <strong>交通：</strong> 地鐵東西線「西28丁目站」2號出口轉乘公車或計程車約 7 分鐘。</p>
                 <p>📜 <strong>歷史：</strong> 2025 年 5 月歷經 7 年閉館整修後重新出發，結合北海道自然地景與數位科技藝術。</p>
               </div>
             </div>
             <div class="flex gap-2">
-              <a href="https://www.google.com/maps/search/?api=1&query=J+Art+Foundation+Sapporo" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 導航
+              <a href="https://www.google.com/maps/search/?api=1&query=J+Art+Foundation+Sapporo" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-white border border-[#CFBFAB] text-sumi hover:bg-washi-dark transition text-sm">
+                <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 導航
               </a>
-              <a href="https://jartfoundation.com" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
-                <i class="fa-solid fa-ticket mr-1"></i> 官網預約
+              <a href="https://jartfoundation.com" target="_blank" class="flex-1 py-2.5 text-center font-bold rounded-xl bg-aizome text-white hover:bg-aizome-light transition text-sm">
+                <i class="fa-solid fa-ticket mr-1.5"></i> 官網預約
               </a>
             </div>
           </div>
@@ -614,71 +630,71 @@
 
     <!-- SECTION 4: ANIME SHOPPING RADAR -->
     <div x-show="activeMainTab === 'shopping'" class="space-y-6">
-      <div class="washi-card rounded-2xl p-6">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-aizome-light flex items-center justify-center text-white text-base">
+      <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-aizome-light flex items-center justify-center text-white text-lg">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
           <div>
-            <h3 class="text-xl font-serif font-bold text-sumi">專屬動漫採買地圖 (柯南 • 蠟筆小新 • 堀與宮村)</h3>
-            <p class="text-xs text-sumi-light font-maru">精確標註官方專賣店、地鐵出入口與 Google Maps 導航</p>
+            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">專屬動漫採買地圖 (柯南 • 蠟筆小新 • 堀與宮村)</h3>
+            <p class="text-sm md:text-base text-sumi-light font-maru">精確標註官方專賣店、地鐵出入口與 Google Maps 導航</p>
           </div>
         </div>
 
-        <div class="space-y-4 text-xs md:text-sm">
+        <div class="space-y-4 text-sm md:text-base">
           
-          <div class="p-4 rounded-xl bg-white border border-[#E5DEC7] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
-              <span class="px-2 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">蠟筆小新 官方專賣店</span>
-              <h4 class="font-serif font-bold text-base text-sumi mt-1">アクションデパート (Action Department) 東京駅店</h4>
-              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>交通：</strong> JR「東京站」八重洲地下中央口出來即達「東京駅一番街・東京キャラクターストリート」B1F。品項最齊全！</p>
+              <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-900">蠟筆小新 官方專賣店</span>
+              <h4 class="font-serif font-black text-lg text-sumi mt-1.5">アクションデパート (Action Department) 東京駅店</h4>
+              <p class="text-sumi-light mt-1">🚇 <strong>交通：</strong> JR「東京站」八重洲地下中央口出來即達「東京駅一番街・東京キャラクターストリート」B1F。品項最齊全！</p>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Crayon+Shin-chan+Official+Shop+Tokyo+Station" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-2xs">
-              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> 東京站一番街導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Crayon+Shin-chan+Official+Shop+Tokyo+Station" target="_blank" class="px-4 py-2.5 bg-washi-dark hover:bg-[#EAE0D0] text-sumi rounded-xl text-sm font-bold border border-[#CFBFAB] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 東京站一番街導航
             </a>
           </div>
 
-          <div class="p-4 rounded-xl bg-white border border-[#E5DEC7] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
-              <span class="px-2 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">蠟筆小新 官方專賣店 (札幌順路點)</span>
-              <h4 class="font-serif font-bold text-base text-sumi mt-1">アクションデパート 札幌店 (AEON 発寒)</h4>
-              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>交通：</strong> 西區 AEON 發寒店 3F，JR「発寒站」步行 4 分鐘，距白色戀人公園車程約 10 分鐘。</p>
+              <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-900">蠟筆小新 官方專賣店 (札幌順路點)</span>
+              <h4 class="font-serif font-black text-lg text-sumi mt-1.5">アクションデパート 札幌店 (AEON 発寒)</h4>
+              <p class="text-sumi-light mt-1">🚇 <strong>交通：</strong> 西區 AEON 發寒店 3F，JR「発寒站」步行 4 分鐘，距白色戀人公園車程約 10 分鐘。</p>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Crayon+Shin-chan+Official+Shop+Sapporo+Hassamu" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-2xs">
-              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> 札幌発寒店導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Crayon+Shin-chan+Official+Shop+Sapporo+Hassamu" target="_blank" class="px-4 py-2.5 bg-washi-dark hover:bg-[#EAE0D0] text-sumi rounded-xl text-sm font-bold border border-[#CFBFAB] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 札幌発寒店導航
             </a>
           </div>
 
-          <div class="p-4 rounded-xl bg-white border border-[#E5DEC7] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
-              <span class="px-2 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-800">名偵探柯南 ＋ 文具周邊</span>
-              <h4 class="font-serif font-bold text-base text-sumi mt-1">Animate (アニメイト) 澀谷店 / 池袋本店</h4>
-              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>交通：</strong> 澀谷店自 JR「澀谷站」八公口步行 5 分鐘（澀谷 BEAM 3F）；池袋本店距高田馬場僅山手線 2 站 (5分)。</p>
+              <span class="px-3 py-1 rounded-md text-xs font-bold bg-blue-100 text-blue-900">名偵探柯南 ＋ 文具周邊</span>
+              <h4 class="font-serif font-black text-lg text-sumi mt-1.5">Animate (アニメイト) 澀谷店 / 池袋本店</h4>
+              <p class="text-sumi-light mt-1">🚇 <strong>交通：</strong> 澀谷店自 JR「澀谷站」八公口步行 5 分鐘（澀谷 BEAM 3F）；池袋本店距高田馬場僅山手線 2 站 (5分)。</p>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Animate+Shibuya" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-2xs">
-              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> Animate 澀谷店導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Animate+Shibuya" target="_blank" class="px-4 py-2.5 bg-washi-dark hover:bg-[#EAE0D0] text-sumi rounded-xl text-sm font-bold border border-[#CFBFAB] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> Animate 澀谷店導航
             </a>
           </div>
 
-          <div class="p-4 rounded-xl bg-white border border-[#E5DEC7] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
-              <span class="px-2 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-800">《堀與宮村》官方專區</span>
-              <h4 class="font-serif font-bold text-base text-sumi mt-1">SHIBUYA TSUTAYA (Square Enix 官方專區)</h4>
-              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>交通：</strong> 澀谷十字路口八公口正對面（Q-FRONT 大樓）。設有 Square Enix 漫畫與周邊專區。</p>
+              <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-900">《堀與宮村》官方專區</span>
+              <h4 class="font-serif font-black text-lg text-sumi mt-1.5">SHIBUYA TSUTAYA (Square Enix 官方專區)</h4>
+              <p class="text-sumi-light mt-1">🚇 <strong>交通：</strong> 澀谷十字路口八公口正對面（Q-FRONT 大樓）。設有 Square Enix 漫畫與周邊專區。</p>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+TSUTAYA" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-2xs">
-              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> SHIBUYA TSUTAYA導航
+            <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+TSUTAYA" target="_blank" class="px-4 py-2.5 bg-washi-dark hover:bg-[#EAE0D0] text-sumi rounded-xl text-sm font-bold border border-[#CFBFAB] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> SHIBUYA TSUTAYA導航
             </a>
           </div>
 
-          <div class="p-4 rounded-xl bg-white border border-[#E5DEC7] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
-              <span class="px-2 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-800">小新 • 哆啦A夢 • 吉卜力 • 少女文具</span>
-              <h4 class="font-serif font-bold text-base text-sumi mt-1">Kiddy Land 原宿旗艦店</h4>
-              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>交通：</strong> 地鐵千代田線/副都心線「明治神宮前站」4 號出口步行 2 分；或 JR「原宿站」東口步行 7 分鐘（表參道大道上）。</p>
+              <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-900">小新 • 哆啦A夢 • 吉卜力 • 少女文具</span>
+              <h4 class="font-serif font-black text-lg text-sumi mt-1.5">Kiddy Land 原宿旗艦店</h4>
+              <p class="text-sumi-light mt-1">🚇 <strong>交通：</strong> 地鐵千代田線/副都心線「明治神宮前站」4 號出口步行 2 分；或 JR「原宿站」東口步行 7 分鐘（表參道大道上）。</p>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-2xs">
-              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> Kiddy Land 原宿導航
+            <a href="https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku" target="_blank" class="px-4 py-2.5 bg-washi-dark hover:bg-[#EAE0D0] text-sumi rounded-xl text-sm font-bold border border-[#CFBFAB] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> Kiddy Land 原宿導航
             </a>
           </div>
 
@@ -688,29 +704,29 @@
 
     <!-- SECTION 5: BOOKING & PACKING CHECKLIST -->
     <div x-show="activeMainTab === 'checklist'" class="space-y-6">
-      <div class="washi-card rounded-2xl p-6">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-sumi flex items-center justify-center text-white text-base">
+      <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-sumi flex items-center justify-center text-white text-lg">
             <i class="fa-solid fa-list-check"></i>
           </div>
           <div>
-            <h3 class="text-xl font-serif font-bold text-sumi">出發前重點待辦與預約清單</h3>
-            <p class="text-xs text-sumi-light font-maru">依時效性排序，點選方框可打勾紀錄</p>
+            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">出發前重點待辦與預約清單</h3>
+            <p class="text-sm md:text-base text-sumi-light font-maru">依時效性排序，點選方框可打勾紀錄</p>
           </div>
         </div>
 
-        <div class="space-y-3">
+        <div class="space-y-3.5">
           <template x-for="(todo, index) in checklist" :key="index">
-            <div class="p-3.5 rounded-xl border transition flex items-start space-x-3" :class="todo.done ? 'bg-washi/40 border-[#E8E2D5] opacity-60' : 'bg-white border-[#E0D8C8] shadow-2xs'">
-              <input type="checkbox" x-model="todo.done" class="mt-1 w-4 h-4 rounded text-aizome focus:ring-aizome cursor-pointer">
+            <div class="p-4 rounded-xl border transition flex items-start space-x-3.5" :class="todo.done ? 'bg-washi/40 border-[#E8E2D5] opacity-60' : 'bg-white border-[#D8CEBC] shadow-xs'">
+              <input type="checkbox" x-model="todo.done" class="mt-1 w-5 h-5 rounded text-aizome focus:ring-aizome cursor-pointer shrink-0">
               <div class="flex-1">
                 <div class="flex items-center space-x-2">
-                  <span class="text-xs px-2 py-0.5 rounded font-bold" :class="todo.badgeColor" x-text="todo.category"></span>
-                  <span class="font-serif font-bold text-sm md:text-base text-sumi" :class="todo.done ? 'line-through text-sumi-light' : ''" x-text="todo.title"></span>
+                  <span class="text-xs px-2.5 py-0.5 rounded font-bold" :class="todo.badgeColor" x-text="todo.category"></span>
+                  <span class="font-serif font-bold text-base md:text-lg text-sumi" :class="todo.done ? 'line-through text-sumi-light' : ''" x-text="todo.title"></span>
                 </div>
-                <p class="text-xs text-sumi-light mt-1" x-text="todo.detail"></p>
+                <p class="text-sm md:text-base text-sumi-light mt-1.5 leading-relaxed" x-text="todo.detail"></p>
                 <template x-if="todo.actionUrl">
-                  <a :href="todo.actionUrl" target="_blank" class="inline-block mt-2 text-xs font-bold text-kohaku hover:underline">
+                  <a :href="todo.actionUrl" target="_blank" class="inline-block mt-2.5 text-sm font-bold text-kohaku hover:underline">
                     <i class="fa-solid fa-link mr-1"></i> 前往預約 / 申辦連結
                   </a>
                 </template>
@@ -724,41 +740,41 @@
     <!-- Family Budget Summary Accordion -->
     <section class="washi-card rounded-2xl p-5 md:p-6">
       <div class="flex justify-between items-center cursor-pointer" @click="showBudget = !showBudget">
-        <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-coins text-gold text-lg"></i>
-          <h3 class="font-serif font-bold text-base md:text-lg text-sumi">4人門票與主要交通預算概估（不含機加酒餐費）</h3>
+        <div class="flex items-center space-x-2.5">
+          <i class="fa-solid fa-coins text-gold text-xl"></i>
+          <h3 class="font-serif font-black text-base md:text-xl text-sumi">4人門票與主要交通預算概估（不含機加酒餐費）</h3>
         </div>
-        <button class="text-xs font-medium text-sumi-light hover:text-sumi flex items-center">
+        <button class="text-sm font-bold text-sumi-light hover:text-sumi flex items-center">
           <span x-text="showBudget ? '收合明細' : '展開明細'"></span>
-          <i class="fa-solid ml-1" :class="showBudget ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          <i class="fa-solid ml-1.5" :class="showBudget ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
         </button>
       </div>
 
-      <div x-show="showBudget" x-transition class="pt-4 border-t border-[#EAE3D6] mt-3">
+      <div x-show="showBudget" x-transition class="pt-4 border-t border-[#EAE3D4] mt-3">
         <div class="overflow-x-auto">
-          <table class="w-full text-xs md:text-sm text-left">
+          <table class="w-full text-sm md:text-base text-left">
             <thead>
-              <tr class="border-b border-[#E3DBD0] text-sumi-light font-serif">
-                <th class="py-2 font-bold">項目</th>
-                <th class="py-2 text-right">日圓 (¥)</th>
-                <th class="py-2 text-right">台幣估計 (NT$)</th>
+              <tr class="border-b border-[#E0D8C3] text-sumi-light font-serif">
+                <th class="py-2.5 font-bold">項目</th>
+                <th class="py-2.5 text-right">日圓 (¥)</th>
+                <th class="py-2.5 text-right">台幣估計 (NT$)</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-[#EAE4D7] text-sumi">
-              <tr><td class="py-2">新千歲 ⇄ 札幌 JR 機場快線 (4人來回)</td><td class="py-2 text-right font-mono">¥9,200</td><td class="py-2 text-right font-mono">NT$1,840</td></tr>
-              <tr><td class="py-2">白色戀人公園 付費區 (2大2小)</td><td class="py-2 text-right font-mono">¥2,400</td><td class="py-2 text-right font-mono">NT$480</td></tr>
-              <tr><td class="py-2">藻岩山纜車＋迷你纜車來回 (4人)</td><td class="py-2 text-right font-mono">¥6,300</td><td class="py-2 text-right font-mono">NT$1,260</td></tr>
-              <tr><td class="py-2">旭山動物園 (2大 + 2小免費)</td><td class="py-2 text-right font-mono">¥2,000</td><td class="py-2 text-right font-mono">NT$400</td></tr>
-              <tr><td class="py-2">Day 3 租車 1 日 (含免責CDW+安心NOC)</td><td class="py-2 text-right font-mono">¥12,000</td><td class="py-2 text-right font-mono">NT$2,400</td></tr>
-              <tr><td class="py-2">Day 3 高速過路費 ＋ 油資 (380km)</td><td class="py-2 text-right font-mono">¥11,500</td><td class="py-2 text-right font-mono">NT$2,300</td></tr>
-              <tr><td class="py-2">小樽 JR 來回 (4人)</td><td class="py-2 text-right font-mono">¥6,000</td><td class="py-2 text-right font-mono">NT$1,200</td></tr>
-              <tr><td class="py-2">teamLab Planets TOKYO (4人指定票)</td><td class="py-2 text-right font-mono">¥13,000</td><td class="py-2 text-right font-mono">NT$2,600</td></tr>
-              <tr><td class="py-2">藤子・F・不二雄博物館 ＋ 接駁巴士 (4人)</td><td class="py-2 text-right font-mono">¥4,300</td><td class="py-2 text-right font-mono">NT$860</td></tr>
-              <tr><td class="py-2">SHIBUYA SKY 展望台 (4人)</td><td class="py-2 text-right font-mono">¥10,000</td><td class="py-2 text-right font-mono">NT$2,000</td></tr>
-              <tr class="font-bold bg-matcha-light/40 text-aizome">
-                <td class="py-2.5">總計預估 (匯率約 100円 ≈ NT$20)</td>
-                <td class="py-2.5 text-right font-mono text-base">約 ¥76,700</td>
-                <td class="py-2.5 text-right font-mono text-base">約 NT$15,340</td>
+            <tbody class="divide-y divide-[#EAE3D4] text-sumi">
+              <tr><td class="py-2.5">新千歲 ⇄ 札幌 JR 機場快線 (4人來回)</td><td class="py-2.5 text-right font-mono">¥9,200</td><td class="py-2.5 text-right font-mono">NT$1,840</td></tr>
+              <tr><td class="py-2.5">白色戀人公園 付費區 (2大2小)</td><td class="py-2.5 text-right font-mono">¥2,400</td><td class="py-2.5 text-right font-mono">NT$480</td></tr>
+              <tr><td class="py-2.5">藻岩山纜車＋迷你纜車來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,300</td><td class="py-2.5 text-right font-mono">NT$1,260</td></tr>
+              <tr><td class="py-2.5">旭山動物園 (2大 + 2小免費)</td><td class="py-2.5 text-right font-mono">¥2,000</td><td class="py-2.5 text-right font-mono">NT$400</td></tr>
+              <tr><td class="py-2.5">Day 3 租車 1 日 (含免責CDW+安心NOC)</td><td class="py-2.5 text-right font-mono">¥12,000</td><td class="py-2.5 text-right font-mono">NT$2,400</td></tr>
+              <tr><td class="py-2.5">Day 3 高速過路費 ＋ 油資 (380km)</td><td class="py-2.5 text-right font-mono">¥11,500</td><td class="py-2.5 text-right font-mono">NT$2,300</td></tr>
+              <tr><td class="py-2.5">小樽 JR 來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,000</td><td class="py-2.5 text-right font-mono">NT$1,200</td></tr>
+              <tr><td class="py-2.5">teamLab Planets TOKYO (4人指定票)</td><td class="py-2.5 text-right font-mono">¥13,000</td><td class="py-2.5 text-right font-mono">NT$2,600</td></tr>
+              <tr><td class="py-2.5">藤子・F・不二雄博物館 ＋ 接駁巴士 (4人)</td><td class="py-2.5 text-right font-mono">¥4,300</td><td class="py-2.5 text-right font-mono">NT$860</td></tr>
+              <tr><td class="py-2.5">SHIBUYA SKY 展望台 (4人)</td><td class="py-2.5 text-right font-mono">¥10,000</td><td class="py-2.5 text-right font-mono">NT$2,000</td></tr>
+              <tr class="font-bold bg-matcha-light/50 text-aizome">
+                <td class="py-3">總計預估 (匯率約 100円 ≈ NT$20)</td>
+                <td class="py-3 text-right font-mono text-lg">約 ¥76,700</td>
+                <td class="py-3 text-right font-mono text-lg">約 NT$15,340</td>
               </tr>
             </tbody>
           </table>
@@ -768,9 +784,9 @@
 
   </main>
 
-  <footer class="border-t border-[#E3DCC5] bg-white/70 py-6 text-center text-xs text-sumi-light">
-    <p class="font-serif">Ben 家 2026 晚夏旅誌 ｜ 北海道 × 東京 7天6夜</p>
-    <p class="text-[11px] mt-1 opacity-75">資料已整合氣象情報、歷史見聞、在地私房與 Google Maps 一鍵導航</p>
+  <footer class="border-t border-[#D8CEBC] bg-white/80 py-8 text-center text-sm text-sumi-light">
+    <p class="font-serif font-bold text-base text-sumi">Ben 家 2026 晚夏旅誌 ｜ 北海道 × 東京 7天6夜</p>
+    <p class="text-xs mt-1.5 opacity-80">資料已整合氣象情報、歷史見聞、在地私房與 Google Maps 一鍵導航</p>
   </footer>
 
   <script>
@@ -779,6 +795,15 @@
         activeMainTab: 'itinerary',
         selectedDay: 0,
         showBudget: false,
+        fontSize: 'large', // 預設大字模式，手機閱讀最舒適
+        get fontSizeClass() {
+          if (this.fontSize === 'xlarge') return 'font-xlarge';
+          if (this.fontSize === 'large') return 'font-large';
+          return '';
+        },
+        setFontSize(size) {
+          this.fontSize = size;
+        },
         days: [
           {
             shortDate: '8/23 (日)',
