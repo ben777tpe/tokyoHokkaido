@@ -51,9 +51,9 @@
       background-size: 24px 24px;
     }
     .washi-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(220, 214, 202, 0.7);
+      border: 1px solid rgba(220, 214, 202, 0.75);
       box-shadow: 0 4px 20px -2px rgba(44, 50, 56, 0.05);
     }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -80,7 +80,7 @@
   </div>
 
   <!-- Header -->
-  <header class="border-b border-[#E3DCC5] bg-white/70 backdrop-blur-md sticky top-0 z-30 shadow-sm">
+  <header class="border-b border-[#E3DCC5] bg-white/75 backdrop-blur-md sticky top-0 z-30 shadow-sm">
     <div class="max-w-5xl mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-lg bg-aizome flex items-center justify-center text-washi font-serif font-bold text-lg shadow-sm">
@@ -99,7 +99,7 @@
       <!-- Navigation Tabs -->
       <div class="hidden sm:flex items-center space-x-1 text-sm font-medium">
         <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-md transition">
-          <i class="fa-solid fa-map-location-dot mr-1"></i> 每日行程
+          <i class="fa-solid fa-map-location-dot mr-1"></i> 每日行程 & 地鐵導航
         </button>
         <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white' : 'text-sumi hover:bg-washi-dark'" class="px-3 py-1.5 rounded-md transition">
           <i class="fa-solid fa-cloud-showers-heavy mr-1"></i> 雨天備案
@@ -114,24 +114,24 @@
 
       <!-- Mobile Tabs -->
       <div class="sm:hidden flex space-x-1">
-        <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded">行程</button>
-        <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded">雨天</button>
-        <button @click="activeMainTab = 'shopping'" :class="activeMainTab === 'shopping' ? 'bg-kohaku text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded">購物</button>
-        <button @click="activeMainTab = 'checklist'" :class="activeMainTab === 'checklist' ? 'bg-aizome-light text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded">清單</button>
+        <button @click="activeMainTab = 'itinerary'" :class="activeMainTab === 'itinerary' ? 'bg-aizome text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded font-medium">行程</button>
+        <button @click="activeMainTab = 'rainPlans'" :class="activeMainTab === 'rainPlans' ? 'bg-matcha text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded font-medium">雨天</button>
+        <button @click="activeMainTab = 'shopping'" :class="activeMainTab === 'shopping' ? 'bg-kohaku text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded font-medium">購物</button>
+        <button @click="activeMainTab = 'checklist'" :class="activeMainTab === 'checklist' ? 'bg-aizome-light text-white' : 'bg-washi-dark text-sumi'" class="px-2.5 py-1 text-xs rounded font-medium">清單</button>
       </div>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-4 py-6 md:py-8 space-y-8">
 
-    <!-- Flight & Hotel Glance -->
+    <!-- Flight & Hotel Glance Card -->
     <section class="washi-card rounded-2xl p-5 md:p-6 border border-[#DDD6C8]">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EBE5D8] pb-4">
         <div>
           <span class="inline-block px-2.5 py-0.5 rounded text-xs font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1">
-            ✈️ 航班時程與行李確認
+            ✈️ 航班時程與行李直掛確認
           </span>
-          <h2 class="font-serif font-bold text-lg md:text-xl text-sumi">台北 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
+          <h2 class="font-serif font-bold text-lg md:text-xl text-sumi">台北松山 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
         </div>
         <div class="text-xs md:text-sm text-sumi-light space-y-0.5">
           <p><span class="font-semibold text-sumi">去程 8/23:</span> 松山 13:30 ➔ 羽田 17:45 (NH852) ➔ 轉機 2.5h ➔ 札幌 21:50 (HD37)</p>
@@ -142,31 +142,46 @@
 
       <!-- Hotels & Supermarkets -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs md:text-sm">
-        <div class="p-3.5 rounded-xl bg-washi border border-[#E8E2D5]">
-          <div class="flex justify-between items-start mb-1.5">
-            <span class="font-bold text-aizome font-serif">8/23 (1晚) 千歲民宿</span>
-            <span class="text-[11px] bg-aizome/10 text-aizome px-1.5 py-0.5 rounded">機場旁</span>
+        <div class="p-3.5 rounded-xl bg-washi border border-[#E8E2D5] flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-1.5">
+              <span class="font-bold text-aizome font-serif text-sm">8/23 (1晚) 千歲機場旁民宿</span>
+              <span class="text-[11px] bg-aizome/10 text-aizome px-1.5 py-0.5 rounded">機場計程車10分</span>
+            </div>
+            <p class="text-sumi-light text-xs mb-2">千歳市東郊 1-12-21。落地深夜搭計程車10分就近放鬆睡飽，免拉車進札幌。</p>
+            <div class="text-[11px] text-kohaku font-medium mb-2"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店 (宵夜熱食/霜淇淋)</div>
           </div>
-          <p class="text-sumi-light text-xs mb-2">千歳市東郊 1-12-21。落地深夜搭計程車10分就近放鬆睡飽。</p>
-          <div class="text-[11px] text-kohaku font-medium"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21" target="_blank" class="w-full py-1.5 text-center rounded-lg bg-white border border-[#D8CEBC] text-sumi hover:text-aizome font-bold text-xs flex items-center justify-center shadow-xs">
+            <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> 開啟民宿 Google Map 導航
+          </a>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-washi border border-[#E8E2D5]">
-          <div class="flex justify-between items-start mb-1.5">
-            <span class="font-bold text-aizome font-serif">8/24–8/27 (3晚) Vessel Campana</span>
-            <span class="text-[11px] bg-matcha/10 text-matcha px-1.5 py-0.5 rounded">大浴場/桑拿</span>
+        <div class="p-3.5 rounded-xl bg-washi border border-[#E8E2D5] flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-1.5">
+              <span class="font-bold text-aizome font-serif text-sm">8/24–8/27 (3晚) Vessel Campana</span>
+              <span class="text-[11px] bg-matcha/10 text-matcha px-1.5 py-0.5 rounded">大浴場/桑拿</span>
+            </div>
+            <p class="text-sumi-light text-xs mb-2">札幌薄野・<strong>地鐵南北線「すすきの」站 4 號出口徒步 4 分</strong>、市電「資生館小学校前」1分。海鮮早餐6:00起。</p>
+            <div class="text-[11px] text-kohaku font-medium mb-2"><i class="fa-solid fa-moon mr-1"></i> 同街區 Seicomart 南5条店 ＋ 唐吉訶德薄野店</div>
           </div>
-          <p class="text-sumi-light text-xs mb-2">札幌薄野・地鐵南北線「すすきの」4號口徒步4分。海鮮早餐6:00起。</p>
-          <div class="text-[11px] text-kohaku font-medium"><i class="fa-solid fa-moon mr-1"></i> Seicomart 南5条店 (同街區) & 唐吉訶德</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino" target="_blank" class="w-full py-1.5 text-center rounded-lg bg-white border border-[#D8CEBC] text-sumi hover:text-aizome font-bold text-xs flex items-center justify-center shadow-xs">
+            <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> 開啟飯店 Google Map 導航
+          </a>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-washi border border-[#E8E2D5]">
-          <div class="flex justify-between items-start mb-1.5">
-            <span class="font-bold text-aizome font-serif">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
-            <span class="text-[11px] bg-kohaku/10 text-kohaku px-1.5 py-0.5 rounded">地鐵直結</span>
+        <div class="p-3.5 rounded-xl bg-washi border border-[#E8E2D5] flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-1.5">
+              <span class="font-bold text-aizome font-serif text-sm">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
+              <span class="text-[11px] bg-kohaku/10 text-kohaku px-1.5 py-0.5 rounded">地鐵直結</span>
+            </div>
+            <p class="text-sumi-light text-xs mb-2"><strong>地鐵東西線「高田馬場」站 4 號出口電梯直結飯店 B1</strong>、JR/西武高田馬場站 2 分。招牌極上海鮮丼早餐。</p>
+            <div class="text-[11px] text-kohaku font-medium mb-2"><i class="fa-solid fa-cart-shopping mr-1"></i> 24h 西友超市(徒步5分) ＋ Y's Mart ＋ Peacock</div>
           </div>
-          <p class="text-sumi-light text-xs mb-2">東西線高田馬場4號出口電梯直達飯店B1、JR站2分。招牌極上海鮮丼早餐。</p>
-          <div class="text-[11px] text-kohaku font-medium"><i class="fa-solid fa-cart-shopping mr-1"></i> 24h 西友超市 & Y's Mart</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station" target="_blank" class="w-full py-1.5 text-center rounded-lg bg-white border border-[#D8CEBC] text-sumi hover:text-aizome font-bold text-xs flex items-center justify-center shadow-xs">
+            <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> 開啟飯店 Google Map 導航
+          </a>
         </div>
       </div>
     </section>
@@ -180,7 +195,7 @@
           <button 
             @click="selectedDay = index"
             :class="selectedDay === index ? 'bg-aizome text-white shadow-md' : 'bg-white text-sumi hover:bg-washi-dark border border-[#DDD6C8]'"
-            class="flex-shrink-0 px-4 py-2.5 rounded-xl text-center transition-all flex flex-col items-center min-w-[100px]">
+            class="flex-shrink-0 px-4 py-2.5 rounded-xl text-center transition-all flex flex-col items-center min-w-[105px]">
             <span class="text-[11px] uppercase tracking-wider font-maru" :class="selectedDay === index ? 'text-washi/80' : 'text-sumi-light'" x-text="day.shortDate"></span>
             <span class="font-serif font-bold text-sm md:text-base" x-text="day.dayLabel"></span>
           </button>
@@ -188,7 +203,7 @@
       </div>
 
       <!-- Active Day Card -->
-      <div class="washi-card rounded-2xl p-6 border border-[#DDD6C8] relative overflow-hidden">
+      <div class="washi-card rounded-2xl p-5 md:p-6 border border-[#DDD6C8] relative overflow-hidden">
         
         <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 mb-6 border-b border-[#EAE4D7] gap-3">
           <div>
@@ -224,33 +239,49 @@
         <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-[#E2DAD0]">
           <template x-for="(item, idx) in (days[selectedDay].isRainMode ? days[selectedDay].rainTimeline : days[selectedDay].timeline)" :key="idx">
             <div class="relative flex items-start pl-8 group">
-              <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full border-2 border-white shadow-sm flex items-center justify-center transition" :class="item.highlight ? 'bg-kohaku scale-110 ring-2 ring-kohaku/30' : (days[selectedDay].isRainMode ? 'bg-matcha' : 'bg-aizome')"></div>
+              <div class="absolute left-1.5 top-2 w-4 h-4 rounded-full border-2 border-white shadow-sm flex items-center justify-center transition" :class="item.highlight ? 'bg-kohaku scale-110 ring-2 ring-kohaku/30' : (days[selectedDay].isRainMode ? 'bg-matcha' : 'bg-aizome')"></div>
               
-              <div class="flex-1 bg-washi/70 hover:bg-white p-4 rounded-xl border border-[#EAE3D6] transition">
-                <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <div class="flex-1 bg-washi/70 hover:bg-white p-4 md:p-5 rounded-2xl border border-[#EAE3D6] transition shadow-xs">
+                
+                <!-- Spot Header & Map Button -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-[#EDE6DA]">
                   <div class="flex items-center space-x-2">
-                    <span class="font-mono font-bold text-xs md:text-sm text-aizome" x-text="item.time"></span>
+                    <span class="font-mono font-bold text-xs md:text-sm text-aizome px-2 py-0.5 bg-aizome/10 rounded" x-text="item.time"></span>
                     <h4 class="font-serif font-bold text-base md:text-lg text-sumi" x-text="item.spot"></h4>
                   </div>
+                  
                   <template x-if="item.mapUrl">
-                    <a :href="item.mapUrl" target="_blank" class="text-xs text-kohaku hover:underline flex items-center">
-                      <i class="fa-solid fa-location-arrow mr-1"></i> Google 地圖
+                    <a :href="item.mapUrl" target="_blank" class="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-white border border-[#D5CCBC] text-kohaku hover:bg-kohaku hover:text-white font-bold text-xs transition shadow-xs">
+                      <i class="fa-solid fa-diamond-turn-right mr-1.5 text-xs"></i> Google Maps 一鍵導航
                     </a>
                   </template>
                 </div>
+
+                <!-- 🚇 Detailed Subway / Transit Step -->
+                <template x-if="item.transit">
+                  <div class="mb-3 p-3 rounded-xl bg-[#F4EFE6] border border-[#E5DECf] text-xs space-y-1">
+                    <div class="font-bold text-aizome flex items-center">
+                      <i class="fa-solid fa-train-subway mr-1.5 text-aizome"></i>
+                      <span>地鐵與交通指引：</span>
+                    </div>
+                    <p class="text-sumi leading-relaxed" x-html="item.transit"></p>
+                  </div>
+                </template>
                 
-                <p class="text-xs md:text-sm text-sumi-light leading-relaxed mb-2" x-text="item.desc"></p>
+                <!-- Description -->
+                <p class="text-xs md:text-sm text-sumi-light leading-relaxed mb-3" x-text="item.desc"></p>
                 
-                <div class="flex flex-wrap gap-2 text-xs pt-1">
+                <!-- Badges / Tips / Booking Link -->
+                <div class="flex flex-wrap items-center gap-2 text-xs pt-1">
                   <template x-if="item.cost">
-                    <span class="px-2 py-0.5 rounded bg-[#EDE8DE] text-sumi font-medium" x-text="'💰 ' + item.cost"></span>
+                    <span class="px-2.5 py-1 rounded-md bg-[#EDE8DE] text-sumi font-medium" x-text="'💰 費用：' + item.cost"></span>
                   </template>
                   <template x-if="item.tip">
-                    <span class="px-2 py-0.5 rounded bg-kohaku-light text-kohaku border border-kohaku/30 font-medium" x-text="'💡 ' + item.tip"></span>
+                    <span class="px-2.5 py-1 rounded-md bg-kohaku-light text-kohaku border border-kohaku/30 font-medium" x-text="'💡 提醒：' + item.tip"></span>
                   </template>
                   <template x-if="item.bookingUrl">
-                    <a :href="item.bookingUrl" target="_blank" class="px-2.5 py-0.5 rounded bg-matcha text-white font-bold hover:bg-matcha/90 transition inline-flex items-center">
-                      <i class="fa-solid fa-ticket mr-1"></i> 官方預約連結
+                    <a :href="item.bookingUrl" target="_blank" class="px-3 py-1 rounded-md bg-matcha text-white font-bold hover:bg-matcha/90 transition inline-flex items-center shadow-xs">
+                      <i class="fa-solid fa-ticket mr-1.5"></i> 前往官方預約網站
                     </a>
                   </template>
                 </div>
@@ -288,13 +319,16 @@
               <p class="text-xs text-sumi-light mb-3 leading-relaxed">
                 全日本最新沉浸式巧克力觀光工廠！從可可樹種植、加工互動遊戲，到親手自製特大片板巧克力（Workshop DIY）。雨天完全不怕風雨！
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-2.5 rounded-lg">
-                <p>📍 <strong>交通：</strong> JR學園都市線「Royce' Town」站步行7分；或札幌市區開車約40分。</p>
+              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+                <p>🚇 <strong>地鐵/鐵路：</strong> 札幌站搭乘 <strong>JR 學園都市線（札沼線）</strong> 至 <strong>「ロイズタウン駅（Royce' Town 站）」</strong>，出站步行約 7 分鐘（有免費專屬接駁巴士）。</p>
                 <p>⏰ <strong>時間：</strong> 10:00–17:00 (最終入場 15:00)</p>
                 <p>⚠️ <strong>預約：</strong> 採指定日時預約制，建議提早於官網訂票。</p>
               </div>
             </div>
             <div class="flex gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=ROYCE+CACAO+AND+CHOCOLATE+TOWN" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
+                <i class="fa-solid fa-diamond-turn-right mr-1 text-kohaku"></i> Google 導航
+              </a>
               <a href="https://www.royce.com/cct/" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
                 <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> ROYCE 官網預約
               </a>
@@ -312,13 +346,16 @@
               <p class="text-xs text-sumi-light mb-3 leading-relaxed">
                 位於狸小路 moyuk SAPPORO 4–6 樓的都會型療癒水族館！近距離看跳岩企鵝跳躍、水母光影展廳，館內還有現烤可頌麵包與咖啡吧。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-2.5 rounded-lg">
-                <p>📍 <strong>交通：</strong> 札幌地下街直通「狸小路」/ 大通站徒步3分（離薄野飯店步行5分！超順路）。</p>
+              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+                <p>🚇 <strong>地鐵/地下街：</strong> <strong>地鐵南北線/東西線「大通站」地下街直通</strong>，或市電「狸小路站」正對面「moyuk SAPPORO」搭電梯直上 4 樓（離薄野飯店徒步僅 5 分鐘，免淋雨）。</p>
                 <p>⏰ <strong>時間：</strong> 10:00–22:00 (最終入館 21:00)</p>
                 <p>💡 <strong>特色：</strong> 地下街直通免撐傘，逛完直接走地下街逛狸小路藥妝！</p>
               </div>
             </div>
             <div class="flex gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=AOAO+SAPPORO" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
+                <i class="fa-solid fa-diamond-turn-right mr-1 text-kohaku"></i> Google 導航
+              </a>
               <a href="https://aoao-sapporo.blue/" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
                 <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> AOAO 官網預約
               </a>
@@ -336,13 +373,16 @@
               <p class="text-xs text-sumi-light mb-3 leading-relaxed">
                 2024年4月全面翻新完工！擁有極寒低溫（-30°C）體驗室、人工降雪機、太空星象儀與超過200種動手互動科學設施，佳恩與芊瑾一定會超愛。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-2.5 rounded-lg">
-                <p>📍 <strong>交通：</strong> 地鐵東西線「新さっぽろ」站1號出口直結 / JR新札幌站徒步5分。</p>
+              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+                <p>🚇 <strong>地鐵出口：</strong> <strong>地鐵東西線「新さっぽろ（新札幌）站」1 號出口正面直通</strong> / JR「新札幌站」步行 5 分鐘（經 Sun Piazza 室內商場連通道）。</p>
                 <p>⏰ <strong>時間：</strong> 9:00–17:00 (週一休館)</p>
                 <p>💰 <strong>門票：</strong> 兩位女兒免費！大人展示室 ¥800、星象館 ¥550。</p>
               </div>
             </div>
             <div class="flex gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Science+Center" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
+                <i class="fa-solid fa-diamond-turn-right mr-1 text-kohaku"></i> Google 導航
+              </a>
               <a href="https://www.ssc.slp.or.jp/" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
                 <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> 科學館官網資訊
               </a>
@@ -360,13 +400,16 @@
               <p class="text-xs text-sumi-light mb-3 leading-relaxed">
                 常設展出全球知名的 teamLab 大型數位光影巨作《教會跡に増殖する無量の生命》。需注意 Day 5 在東京已排 teamLab Planets，若想維持新鮮感可考慮將時間留給水族館或科學館。
               </p>
-              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-2.5 rounded-lg">
-                <p>📍 <strong>交通：</strong> 地鐵東西線「西28丁目」轉乘巴士/計程車約7分。</p>
+              <div class="text-xs text-sumi space-y-1 mb-4 bg-washi p-3 rounded-xl border border-[#E6DFD2]">
+                <p>🚇 <strong>地鐵/巴士：</strong> 地鐵東西線「西28丁目站」2號出口轉乘 JR 巴士（圓13/桑11）至「宮の森2条11丁目」下車步行 2 分鐘，或直接搭計程車約 7 分鐘。</p>
                 <p>⏰ <strong>時間：</strong> 10:00–19:00 (完全預約制，現場不售票)</p>
                 <p>⚠️ <strong>注意：</strong> 展期偶有維護休館，出行前請確認官網公告。</p>
               </div>
             </div>
             <div class="flex gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=J+Art+Foundation+Sapporo" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-white border border-[#D5CCBC] text-sumi hover:bg-washi-dark transition">
+                <i class="fa-solid fa-diamond-turn-right mr-1 text-kohaku"></i> Google 導航
+              </a>
               <a href="https://jartfoundation.com" target="_blank" class="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-aizome text-white hover:bg-aizome-light transition">
                 <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> J Art 官網預約
               </a>
@@ -386,7 +429,7 @@
           </div>
           <div>
             <h3 class="text-xl font-serif font-bold text-sumi">專屬動漫採購地圖 (柯南 • 蠟筆小新 • 堀與宮村)</h3>
-            <p class="text-xs text-sumi-light font-maru">精確標註各角色的官方專賣店與最佳順路採購點</p>
+            <p class="text-xs text-sumi-light font-maru">精確標註各角色的官方專賣店、地鐵出入口與 Google Maps 導航</p>
           </div>
         </div>
 
@@ -396,10 +439,10 @@
             <div>
               <span class="px-2 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">蠟筆小新 官方專賣店</span>
               <h4 class="font-serif font-bold text-base text-sumi mt-1">アクションデパート (Action Department) 東京駅店</h4>
-              <p class="text-sumi-light text-xs">東京駅一番街「東京キャラクターストリート」B1F。品項最齊全！若不想特地繞東京站，Day 6 原宿 Kiddy Land 2F 也有小新專區。</p>
+              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>地鐵/交通：</strong> JR「東京站」八重洲地下中央口出來即達「東京駅一番街・東京キャラクターストリート」B1F。品項最齊全！</p>
             </div>
-            <a href="https://maps.google.com/?q=Crayon+Shin-chan+Official+Shop+Tokyo+Station" target="_blank" class="px-3 py-1.5 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-medium border border-[#D5CCBA]">
-              <i class="fa-solid fa-location-dot mr-1 text-kohaku"></i> 東京站一番街地圖
+            <a href="https://www.google.com/maps/search/?api=1&query=Crayon+Shin-chan+Official+Shop+Tokyo+Station" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> 東京站一番街導航
             </a>
           </div>
 
@@ -407,10 +450,10 @@
             <div>
               <span class="px-2 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">蠟筆小新 官方專賣店 (札幌順路點)</span>
               <h4 class="font-serif font-bold text-base text-sumi mt-1">アクションデパート 札幌店 (AEON 発寒)</h4>
-              <p class="text-sumi-light text-xs">位於西區 AEON 發寒店 3F，距離白色戀人公園僅約 10 分鐘車程。Day 2 逛完白色戀人若有自駕或搭車可順道買！</p>
+              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>地鐵/交通：</strong> 位於西區 AEON 發寒店 3F，JR「発寒站」步行 4 分鐘，距白色戀人公園僅約 10 分鐘車程。Day 2 可順路前往！</p>
             </div>
-            <a href="https://maps.google.com/?q=Crayon+Shin-chan+Official+Shop+Sapporo+Hassamu" target="_blank" class="px-3 py-1.5 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-medium border border-[#D5CCBA]">
-              <i class="fa-solid fa-location-dot mr-1 text-kohaku"></i> 札幌発寒店地圖
+            <a href="https://www.google.com/maps/search/?api=1&query=Crayon+Shin-chan+Official+Shop+Sapporo+Hassamu" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> 札幌発寒店導航
             </a>
           </div>
 
@@ -418,10 +461,10 @@
             <div>
               <span class="px-2 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-800">名偵探柯南 ＋ 文具周邊</span>
               <h4 class="font-serif font-bold text-base text-sumi mt-1">Animate (アニメイト) 澀谷店 / 池袋本店</h4>
-              <p class="text-sumi-light text-xs">柯南在東京無常設專賣店，最穩定齊全的周邊就在 Animate！Day 6 下午在澀谷順路逛；池袋本店離高田馬場飯店僅山手線 2 站 (5分)。</p>
+              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>地鐵/交通：</strong> 澀谷店從 JR「澀谷站」八公口步行 5 分鐘至澀谷 BEAM 大樓 3F；池袋本店離高田馬場飯店僅 JR 山手線 2 站 (5分)。</p>
             </div>
-            <a href="https://maps.google.com/?q=Animate+Shibuya" target="_blank" class="px-3 py-1.5 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-medium border border-[#D5CCBA]">
-              <i class="fa-solid fa-location-dot mr-1 text-kohaku"></i> Animate 澀谷店地圖
+            <a href="https://www.google.com/maps/search/?api=1&query=Animate+Shibuya" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> Animate 澀谷店導航
             </a>
           </div>
 
@@ -429,10 +472,10 @@
             <div>
               <span class="px-2 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-800">《堀與宮村》官方專區</span>
               <h4 class="font-serif font-bold text-base text-sumi mt-1">SHIBUYA TSUTAYA (Square Enix 官方專區)</h4>
-              <p class="text-sumi-light text-xs">澀谷十字路口旁！因《堀與宮村》為 Square Enix GFantasy 連載作品，TSUTAYA 設有 SE 官方動漫專櫃，常設新品與特典。</p>
+              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>地鐵/交通：</strong> 澀谷十字路口八公口正對面（Q-FRONT 大樓）。設有 Square Enix 官方漫畫與周邊專區，新品最齊！</p>
             </div>
-            <a href="https://maps.google.com/?q=SHIBUYA+TSUTAYA" target="_blank" class="px-3 py-1.5 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-medium border border-[#D5CCBA]">
-              <i class="fa-solid fa-location-dot mr-1 text-kohaku"></i> SHIBUYA TSUTAYA地圖
+            <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+TSUTAYA" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> SHIBUYA TSUTAYA導航
             </a>
           </div>
 
@@ -440,10 +483,10 @@
             <div>
               <span class="px-2 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-800">小新 • 哆啦A夢 • 吉卜力 • 少女文具</span>
               <h4 class="font-serif font-bold text-base text-sumi mt-1">Kiddy Land 原宿旗艦店</h4>
-              <p class="text-sumi-light text-xs">表參道大道上整棟角色天堂！2F 小新專區（含一番賞抽獎）、吉卜力、卡娜赫拉、文具扭蛋，一次買齊兩位女兒的心願！</p>
+              <p class="text-sumi-light text-xs mt-0.5">🚇 <strong>地鐵/交通：</strong> 地鐵千代田線/副都心線「明治神宮前站」4 號出口步行 2 分；或 JR「原宿站」東口步行 7 分鐘（表參道大道上）。</p>
             </div>
-            <a href="https://maps.google.com/?q=Kiddy+Land+Harajuku" target="_blank" class="px-3 py-1.5 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-medium border border-[#D5CCBA]">
-              <i class="fa-solid fa-location-dot mr-1 text-kohaku"></i> Kiddy Land 原宿地圖
+            <a href="https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku" target="_blank" class="px-3.5 py-2 bg-washi-dark hover:bg-[#EAE3D6] text-sumi rounded-lg text-xs font-bold border border-[#D5CCBA] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-diamond-turn-right mr-1.5 text-kohaku"></i> Kiddy Land 原宿導航
             </a>
           </div>
 
@@ -556,14 +599,54 @@
             rainBannerTitle: '🌧️ 雨天備案提示',
             rainBannerDesc: '抵達當晚直接搭計程車進民宿，雨天完全不影響。',
             timeline: [
-              { time: '13:30', spot: '松山機場 (TSA) 出發', desc: '搭乘全日空 NH852 飛往東京羽田，預計 17:45 抵達。', cost: '', tip: '提前上 Visit Japan Web 填妥入境與海關申報 QR code' },
-              { time: '17:45', spot: '羽田機場轉機 (2.5小時)', desc: '若行李有直掛新千歲，直接走國內線轉機通道；若無直掛需提領行李再到 Air Do 櫃台報到。', tip: '轉機抓緊時間，20:15 起飛' },
-              { time: '21:50', spot: '抵達新千歲機場 (CTS)', desc: '領行李出關。出機場搭計程車約10分鐘直接前往千歲市民宿。', mapUrl: 'https://maps.google.com/?q=Chitose+Airport' },
-              { time: '22:30', spot: '千歲民宿休息 ＋ 宵夜', desc: '民宿位於千歲市東郊 1-12-21。深夜不用辛苦拉車進札幌，民宿旁 Seicomart 買北海道哈密瓜霜淇淋與現做炸雞，早點休息！', tip: '計程車車資約 ¥1,500–2,000' }
+              { 
+                time: '13:30', 
+                spot: '松山機場 (TSA) 出發', 
+                transit: '台北捷運文湖線<strong>「松山機場站」1 號或 2 號出口</strong>直結國際線航廈。搭乘全日空 NH852 飛往東京羽田。',
+                desc: '預計 17:45 抵達東京羽田機場第 3 航廈。', 
+                tip: '提前上 Visit Japan Web 填妥全家入境與海關申報 QR code',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport'
+              },
+              { 
+                time: '17:45', 
+                spot: '羽田機場轉機 (2.5小時)', 
+                transit: '抵達第 3 航廈出關後，若行李直掛直接前往國內線轉機櫃台搭乘<strong>航廈間無料連絡巴士</strong>至第 2 航廈（約 10 分鐘）；若無直掛需領行李至第 2 航廈 Air Do/ANA 櫃台重新 Check-in。',
+                desc: '轉機抓緊時間，搭乘 20:15 起飛的 HD37 (Air Do / ANA聯營)。', 
+                tip: '羽田轉機時間 2.5 小時動作需快',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2'
+              },
+              { 
+                time: '21:50', 
+                spot: '抵達新千歲機場 (CTS)', 
+                transit: '領行李出關後，前往國內線 1F 計程車乘車處搭車。',
+                desc: '出機場搭計程車約 10 分鐘直接前往千歲市民宿（千歳市東郊 1-12-21）。', 
+                cost: '計程車車資約 ¥1,500–2,000',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=New+Chitose+Airport'
+              },
+              { 
+                time: '22:30', 
+                spot: '千歲民宿休息 ＋ 宵夜', 
+                transit: '民宿地址：千歳市東郊 1-12-21。深夜不用辛苦拉車進札幌。',
+                desc: '民宿旁 Seicomart 超市買北海道產哈密瓜霜淇淋、現做炸雞塊與飲料，早點休息！', 
+                tip: '落地當晚就近休息最舒服',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21'
+              }
             ],
             rainTimeline: [
-              { time: '21:50', spot: '抵達新千歲機場 (CTS)', desc: '雨天出航廈直接到計程車站搭車，行李直接上後車廂，10分鐘抵達民宿。', tip: '計程車免淋雨' },
-              { time: '22:30', spot: '千歲民宿休息', desc: '就近休息，為隔天札幌行程養足精神。' }
+              { 
+                time: '21:50', 
+                spot: '抵達新千歲機場 (CTS)', 
+                transit: '出航廈走室內連通道至計程車候車區，免淋雨上車。',
+                desc: '搭計程車 10 分鐘直達民宿門口。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=New+Chitose+Airport'
+              },
+              { 
+                time: '22:30', 
+                spot: '千歲民宿休息', 
+                transit: '千歳市東郊 1-12-21。',
+                desc: '就近休息，為隔天札幌行程養足精神。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21'
+              }
             ]
           },
           {
@@ -577,20 +660,103 @@
             rainBannerTitle: '🌧️ Day 2 雨天替換策略',
             rainBannerDesc: '下午將戶外大通公園改為「札幌市青少年科學館」（2024全新改裝/兩位女兒免費！）；晚上藻岩山起霧改為「AOAO SAPPORO 水族館」（狸小路室內直通營業至22:00）。',
             timeline: [
-              { time: '08:30', spot: '千歲退房 ➔ 搭 JR 機場快線進札幌', desc: '民宿退房後至千歲/南千歲站搭快速 Airport 到札幌（約 35 分鐘），車資約 ¥840/人。', mapUrl: 'https://maps.google.com/?q=Sapporo+Station' },
-              { time: '09:45', spot: 'Vessel Campana 薄野飯店寄放行李', desc: '地鐵南北線「すすきの」站4號口徒步4分，先將大行李交給櫃台寄放，輕裝出門。', mapUrl: 'https://maps.google.com/?q=Vessel+Hotel+Campana+Susukino' },
-              { time: '10:45', spot: '白色戀人公園 (白い恋人パーク)', desc: '童話歐風莊園，參觀巧克力生產線，兩位女兒可體驗手作餅乾DIY。', cost: '付費區4人約 ¥2,400 (NT$480)', bookingUrl: 'https://www.shiroikoibitopark.jp/', mapUrl: 'https://maps.google.com/?q=Shiroi+Koibito+Park' },
-              { time: '13:00', spot: '午餐：札幌名物 湯咖哩 / 味噌拉麵', desc: '品嚐大通或薄野人氣湯咖哩（如 Suage+ 或 GARAKU）或拉麵共和國。', cost: '人均約 ¥1,200' },
-              { time: '14:30', spot: '大通公園 ＋ 電視塔 ＋ 狸小路商店街', desc: '散步散策，二条市場看海鮮，狸小路免稅店採買藥妝零食。', mapUrl: 'https://maps.google.com/?q=Tanukikoji+Shopping+Street' },
-              { time: '19:00', spot: '藻岩山纜車・日本新三大夜景', desc: '搭市電至「纜車入口」轉接駁車。搭乘空中纜車登上山頂眺望札幌百萬夜景！', cost: '纜車4人約 ¥6,300', tip: '若雨天霧大改至 JR Tower T38 室內展望台', mapUrl: 'https://maps.google.com/?q=Mt.+Moiwa+Ropeway' },
-              { time: '20:30', spot: '晚餐：成吉思汗烤羊肉 / 迴轉壽司', desc: '薄野一帶品嚐炭火烤羊肉或根室花丸迴轉壽司。', tip: '同街區 Seicomart 買宵夜' }
+              { 
+                time: '08:30', 
+                spot: '千歲退房 ➔ 搭 JR 機場快線進札幌', 
+                transit: '民宿退房搭車至 <strong>JR「千歲站」</strong>，搭乘 <strong>JR 快速 Airport (快速エアポート)</strong> 往札幌方向（約 35 分鐘，¥840/人）直達 <strong>「札幌站」</strong>。',
+                desc: '沿途欣賞北海道早晨田園風光。', 
+                cost: 'JR 單程 ¥840 / 人',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Chitose+Station'
+              },
+              { 
+                time: '09:45', 
+                spot: 'Vessel Campana 薄野飯店寄放行李', 
+                transit: '從札幌站地下轉乘 <strong>地鐵南北線（往真駒內方向）</strong> 搭 2 站（3分鐘）至 <strong>「すすきの（薄野）站」</strong> ➔ 從 <strong>4 號出口</strong>（有手扶梯/電梯）出站，沿南5条通向西步行 4 分鐘抵達飯店。',
+                desc: '先將大行李交給飯店櫃台寄放，輕裝出發！', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino'
+              },
+              { 
+                time: '10:45', 
+                spot: '白色戀人公園 (白い恋人パーク)', 
+                transit: '從飯店步行至地鐵南北線「薄野站」搭 1 站至「大通站」，轉乘 <strong>地鐵東西線（往宮の沢方向）</strong> 搭至終點站 <strong>「宮之澤（宮の沢）站」</strong>（約 16 分鐘）➔ 從 <strong>5 號出口</strong> 出站，沿指標步行約 7 分鐘抵達公園大門。',
+                desc: '歐風夢幻城堡莊園，參觀巧克力生產線，兩位女兒可體驗手作烘焙餅乾 DIY。', 
+                cost: '付費區4人約 ¥2,400 (NT$480)', 
+                bookingUrl: 'https://www.shiroikoibitopark.jp/', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shiroi+Koibito+Park'
+              },
+              { 
+                time: '13:00', 
+                spot: '午餐：札幌名物 湯咖哩 / 味噌拉麵', 
+                transit: '從「宮の沢站」搭地鐵東西線回 <strong>「大通站」</strong> 或轉南北線至 <strong>「薄野（すすきの）站」2號/4號出口</strong> 步行 3 分鐘至 Suage+ 本店或 GARAKU。',
+                desc: '品嚐道地濃郁湯咖哩（推薦知床雞肉串湯咖哩）或拉麵共和國味噌拉麵。', 
+                cost: '人均約 ¥1,200',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Soup+Curry+Suage%2B+Sapporo'
+              },
+              { 
+                time: '14:30', 
+                spot: '大通公園 ＋ 電視塔 ＋ 狸小路商店街', 
+                transit: '地鐵 <strong>「大通站」27 號出口</strong> 直結大通公園與電視塔；由大通站地下街「Pole Town」往南步行直通 <strong>狸小路商店街（1~6丁目）</strong>，完全不怕風吹日曬。',
+                desc: '大通公園散步、看電視塔地標，狸小路免稅店（唐吉訶德、松本清）採買零食藥妝。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Tanukikoji+Shopping+Arcade'
+              },
+              { 
+                time: '19:00', 
+                spot: '藻岩山纜車・日本新三大夜景', 
+                transit: '從狸小路/薄野搭乘 <strong>札幌市電（路面電車）</strong> 至 <strong>「纜車入口（ロープウェイ入口）站」</strong>（約 20 分鐘）➔ 下車即有 <strong>免費接駁巴士</strong>（每15分鐘一班，車程2分鐘）直達纜車山麓站。',
+                desc: '搭乘空中纜車＋迷你森林纜車登上山頂展望台，360度俯瞰札幌百萬璀璨夜景！', 
+                cost: '纜車來回4人約 ¥6,300', 
+                tip: '若遇下雨起霧改至札幌站 JR Tower T38 室內展望台', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Mt.+Moiwa+Ropeway+Sanroku+Station'
+              },
+              { 
+                time: '20:30', 
+                spot: '晚餐：成吉思汗烤羊肉 / 迴轉壽司', 
+                transit: '搭市電回到「薄野站」周邊，達摩烤羊肉本店或根室花丸壽司步行 3 分鐘即可抵達。',
+                desc: '薄野享用炭火成吉思汗烤羊肉，吃飽後散步回 Vessel 飯店泡大浴場與桑拿放鬆。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Daruma+Rokugouten+Susukino'
+              }
             ],
             rainTimeline: [
-              { time: '10:45', spot: '白色戀人公園 (全室內館舍)', desc: '本體即為室內觀光工廠，照常進行餅乾與巧克力手作 DIY。', bookingUrl: 'https://www.shiroikoibitopark.jp/' },
-              { time: '13:00', spot: '午餐：地下街人氣拉麵 / 湯咖哩', desc: '走大通地下街直通美食區，完全免淋雨。' },
-              { time: '14:30', spot: '🔬 替換備案：札幌市青少年科學館', desc: '搭地鐵東西線直通新札幌！體驗2024年4月全新改裝的-30°C極寒室、人工降雪與星象館。', cost: '中學生以下免費！大人 ¥800', bookingUrl: 'https://www.ssc.slp.or.jp/' },
-              { time: '18:30', spot: '🐧 替換備案：AOAO SAPPORO 水族館', desc: '狸小路 moyuk SAPPORO 4–6F，營業至22:00。地下街直通，看企鵝與水母沉浸展，浪漫又好拍！', cost: '大人 ¥2,200 / 國中小 ¥1,100', bookingUrl: 'https://aoao-sapporo.blue/' },
-              { time: '20:30', spot: '狸小路室內商店街 ＋ 晚餐', desc: '逛狸小路藥妝店與美食餐廳，走回 Vessel 飯店泡大浴場。' }
+              { 
+                time: '10:45', 
+                spot: '白色戀人公園 (全室內觀光工廠)', 
+                transit: '地鐵東西線 <strong>「宮の沢站」5 號出口</strong> 步行 7 分鐘。',
+                desc: '本體即為室內工廠城堡，照常進行餅乾與巧克力手作 DIY。', 
+                bookingUrl: 'https://www.shiroikoibitopark.jp/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shiroi+Koibito+Park'
+              },
+              { 
+                time: '13:00', 
+                spot: '午餐：地下街人氣拉麵 / 湯咖哩', 
+                transit: '地鐵大通站地下街「Pole Town / Aurora Town」直通美食區，完全免淋雨。',
+                desc: '享受暖呼呼的拉麵與湯咖哩。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sapporo+Underground+Pedestrian+Space'
+              },
+              { 
+                time: '14:30', 
+                spot: '🔬 替換備案：札幌市青少年科學館', 
+                transit: '從大通站搭乘 <strong>地鐵東西線（往新さっぽろ方向）</strong> 直達終點 <strong>「新さっぽろ（新札幌）站」</strong>（約 19 分鐘）➔ <strong>1 號出口出站正面直通科學館大門！</strong>',
+                desc: '2024年4月全面改裝完工！體驗-30°C極寒室、人工降雪、動力科學與星象館，兩位女兒完全免費！', 
+                cost: '中學生以下免費！大人 ¥800', 
+                bookingUrl: 'https://www.ssc.slp.or.jp/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sapporo+Science+Center'
+              },
+              { 
+                time: '18:30', 
+                spot: '🐧 替換備案：AOAO SAPPORO 水族館', 
+                transit: '搭地鐵東西線回「大通站」走地下街直達 <strong>「moyuk SAPPORO」商場 4F~6F</strong>（狸小路站對面），營業至 22:00。',
+                desc: '看跳岩企鵝跳躍、水母光影沉浸展與品嚐咖啡麵包，地下街直通免撐傘！', 
+                cost: '大人 ¥2,200 / 國中小 ¥1,100', 
+                bookingUrl: 'https://aoao-sapporo.blue/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=AOAO+SAPPORO'
+              },
+              { 
+                time: '20:30', 
+                spot: '狸小路室內商店街 ＋ 晚餐', 
+                transit: '水族館下樓即為狸小路 3 丁目室內商店街，地下街直通回 Vessel 飯店。',
+                desc: '逛街採買免淋雨，回飯店泡大浴場休息。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Tanukikoji+Shopping+Arcade'
+              }
             ]
           },
           {
@@ -604,18 +770,86 @@
             rainBannerTitle: '🌧️ Day 3 雨天備案（取消長途自駕，改為札幌近郊全室內日）',
             rainBannerDesc: '雨天山區路滑且青池混濁，建議取消4小時高速駕駛，改為：上午「ROYCE 巧克力小鎮」DIY ➔ 下午「青少年科學館」➔ 傍晚「AOAO 水族館」，全家免受風雨！',
             timeline: [
-              { time: '07:45', spot: '札幌站取車出發 (Times / Toyota)', desc: '取車手續約20分。駕駛人必帶：台灣駕照正本 ＋ 監理站日文譯本 ＋ 護照。走道央道前往旭川（約140km、1小時50分）。', highlight: true, tip: '租車記得加購 CDW免責 + NOC安心險 + ETC卡' },
-              { time: '10:00', spot: '旭川市旭山動物園', desc: '近距離看企鵝水下隧道、北極熊跳水、海豹垂直圓柱水槽。', cost: '2大人 ¥2,000，國中以下免費（兩位女兒全免！）', mapUrl: 'https://maps.google.com/?q=Asahiyama+Zoo' },
-              { time: '13:30', spot: '午餐：旭川醬油拉麵名店', desc: '在旭川拉麵村或梅光軒品嚐道地正統醬油拉麵。' },
-              { time: '15:00', spot: '美瑛・白金青池 ＋ 白鬚瀑布', desc: '夢幻鈷藍色水池與落葉松，順道步行探訪白鬚瀑布。', cost: '青池停車費 ¥500', mapUrl: 'https://maps.google.com/?q=Shirogane+Blue+Pond' },
-              { time: '16:30', spot: '四季彩之丘 (選去) / 啟程回札幌', desc: '8月盛開彩色向日葵與花田。若體力足夠可短暫停留拍照，隨後開車返回札幌（約2.5小時）。' },
-              { time: '19:30', spot: '札幌站還車 ＋ 晚餐', desc: '還車前將油箱加滿。今天車程較長，還車後就近在札幌站周邊享用晚餐並早點休息。' }
+              { 
+                time: '07:45', 
+                spot: '札幌站北口取車出發 (Times / Toyota)', 
+                transit: '薄野飯店搭地鐵南北線至「札幌站」➔ 從 <strong>JR 札幌站北口</strong> 出來步行 3 分鐘至 Times 租車北口店。走道央自動車道（札幌北IC ➔ 旭川北IC，約 140km、1小時50分）。',
+                desc: '駕駛人必備：台灣駕照正本 ＋ 監理站日文譯本 ＋ 護照。加購 CDW免責 ＋ NOC安心險 ＋ 租借 ETC 卡。', 
+                highlight: true, 
+                tip: '08:15準時上路，避開動物園中午人潮',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Times+CAR+RENTAL+Sapporo+Station+North+Exit'
+              },
+              { 
+                time: '10:00', 
+                spot: '旭川市 旭山動物園', 
+                transit: '自駕直達動物園正門/東門停車場。',
+                desc: '必看企鵝水中隧道、北極熊跳水游泳、海豹垂直圓柱穿梭水槽。國中以下全免費！', 
+                cost: '2大人 ¥2,000，佳恩、芊瑾免費！', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Asahiyama+Zoo'
+              },
+              { 
+                time: '13:30', 
+                spot: '午餐：旭川醬油拉麵名店 (旭川拉麵村)', 
+                transit: '開車自動物園出發約 15 分鐘至「あさひかわラーメン村」（無料大型停車場）。',
+                desc: '品嚐正統豚骨海鮮熬製的旭川醬油拉麵（梅光軒、青葉等名店齊聚）。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Asahikawa+Ramen+Village'
+              },
+              { 
+                time: '15:00', 
+                spot: '美瑛・白金青池 ＋ 白鬚瀑布', 
+                transit: '旭川走國道 237 號往美瑛白金溫泉方向開車約 40 分鐘抵達青池停車場（停車費 ¥500），步行 3 分鐘進池；再開車 5 分鐘抵達白鬚瀑布。',
+                desc: '夢幻鈷藍色池水與枯落葉松絕景，順道探訪如白鬚般奔流的白金瀑布。', 
+                cost: '青池停車費 ¥500', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shirogane+Blue+Pond'
+              },
+              { 
+                time: '16:30', 
+                spot: '四季彩之丘 (選去) ➔ 啟程回札幌', 
+                transit: '從青池開車約 20 分鐘抵達四季彩之丘（美瑛町新星第三）。隨後走道央道開車回札幌（約 2.5 小時）。',
+                desc: '8月盛開彩色向日葵與花田。若體力許可拍照後啟程回札幌，副駕協助注意路況。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shikisai-no-Oka'
+              },
+              { 
+                time: '19:30', 
+                spot: '札幌站北口還車 ＋ 晚餐', 
+                transit: '還車前至札幌站北口附近加油站加滿油。還車後步行至札幌站商場享用晚餐。',
+                desc: '今日全日行車約 360–400km，還完車就近用餐，回飯店早點休息。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Times+CAR+RENTAL+Sapporo+Station+North+Exit'
+              }
             ],
             rainTimeline: [
-              { time: '09:30', spot: '🍫 備案A：ROYCE CACAO & CHOCOLATE TOWN (當別町)', desc: '開車或搭JR學園都市線至Royce Town站。參觀全新大型巧克力互動樂園，報名巧克力製作體驗！', cost: '大人 ¥1,200 / 兒童 ¥500', bookingUrl: 'https://www.royce.com/cct/' },
-              { time: '13:30', spot: '午餐：新札幌商場美食街', desc: '抵達新札幌 Sun Piazza / Duo 商場用餐。' },
-              { time: '14:30', spot: '🔬 備案B：札幌市青少年科學館', desc: '室內極寒體驗、人工雪花、星象儀劇場，完全不受天候影響。', bookingUrl: 'https://www.ssc.slp.or.jp/' },
-              { time: '18:00', spot: '回市區 ＋ AOAO SAPPORO 水族館', desc: '晚上在室內水族館散步，享受療癒企鵝與水母時光。', bookingUrl: 'https://aoao-sapporo.blue/' }
+              { 
+                time: '09:30', 
+                spot: '🍫 備案A：ROYCE CACAO & CHOCOLATE TOWN (當別町)', 
+                transit: '札幌站搭乘 <strong>JR 學園都市線</strong> 至 <strong>「ロイズタウン（Royce Town）站」</strong> 步行 7 分鐘（有接駁專車）；或市區開車 40 分鐘。',
+                desc: '全新大型巧克力觀光樂園，體驗巧克力生產互動遊戲與自製大片板巧克力 Workshop！', 
+                cost: '大人 ¥1,200 / 兒童 ¥500', 
+                bookingUrl: 'https://www.royce.com/cct/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=ROYCE+CACAO+AND+CHOCOLATE+TOWN'
+              },
+              { 
+                time: '13:30', 
+                spot: '午餐：新札幌 Sun Piazza / Duo 商場美食街', 
+                transit: 'JR 或地鐵直達「新札幌站」，地下直通大型室內購物商場。',
+                desc: '免受風雨影響，享用北海道在地美食。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sunpiazza+Shin-Sapporo'
+              },
+              { 
+                time: '14:30', 
+                spot: '🔬 備案B：札幌市青少年科學館', 
+                transit: '地鐵東西線 <strong>「新さっぽろ站」1 號出口直結</strong>。',
+                desc: '體驗人工降雪、動力極限、太空星象儀劇場，趣味無窮！', 
+                bookingUrl: 'https://www.ssc.slp.or.jp/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sapporo+Science+Center'
+              },
+              { 
+                time: '18:00', 
+                spot: '回市區 ＋ AOAO SAPPORO 水族館', 
+                transit: '地鐵東西線回大通站，地下街直通 moyuk SAPPORO 4F。',
+                desc: '看企鵝夜間餵食與水母光影展，逛狸小路藥妝。', 
+                bookingUrl: 'https://aoao-sapporo.blue/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=AOAO+SAPPORO'
+              }
             ]
           },
           {
@@ -629,17 +863,75 @@
             rainBannerTitle: '🌧️ Day 4 雨天提示',
             rainBannerDesc: '小樽堺町通兩側皆為室內歷史洋館與商店（北一硝子、八音盒堂、LeTAO），雨天影響極小，備妥雨傘即可輕鬆逛！',
             timeline: [
-              { time: '09:30', spot: '札幌站搭 JR 快速 Airport 至小樽', desc: '車程約 35 分鐘，沿途欣賞石狩灣蔚藍海景。', cost: 'JR 來回 4 人約 ¥6,000' },
-              { time: '10:30', spot: '小樽運河散步 ＋ 拍照', desc: '昔日石造倉庫群與復古瓦斯燈，小樽代表性地標。', mapUrl: 'https://maps.google.com/?q=Otaru+Canal' },
-              { time: '11:30', spot: '堺町通商店街：北一硝子 × 小樽音樂盒堂', desc: '欣賞精緻玻璃工藝、八音盒DIY；品嚐 LeTAO 雙層乳酪蛋糕與北菓樓大泡芙。', mapUrl: 'https://maps.google.com/?q=Otaru+Music+Box+Museum' },
-              { time: '13:00', spot: '午餐：三角市場海鮮丼 / 壽司', desc: '新鮮干貝、海膽、鮭魚卵澎湃海鮮丼。', cost: '人均約 ¥2,000–3,000', mapUrl: 'https://maps.google.com/?q=Sankaku+Market+Otaru' },
-              { time: '16:00', spot: '返回札幌 ＋ 市區百貨最後補貨', desc: '大丸百貨、ESTA、狸小路採買伴手禮與電器。' },
-              { time: '18:30', spot: '晚餐：北海道帝王蟹 • 毛蟹饗宴 (北海道最後一晚)', desc: '在「かに本家」或蟹料理專門店大啖活蟹會席料理，儀式感滿分！', highlight: true, tip: '熱門蟹料理請務必提前訂位' }
+              { 
+                time: '09:30', 
+                spot: '札幌站搭 JR 快速 Airport 至小樽', 
+                transit: '地鐵薄野站搭至「札幌站」，轉乘 <strong>JR 函館本線 快速 Airport</strong> 至 <strong>「小樽站」</strong>（約 35 分鐘，¥750/人）。',
+                desc: '車程僅 35 分鐘，右側車窗可眺望美麗的石狩灣蔚藍海岸。', 
+                cost: 'JR 來回 4 人約 ¥6,000',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Otaru+Station'
+              },
+              { 
+                time: '10:30', 
+                spot: '小樽運河散步 ＋ 淺草橋拍照', 
+                transit: '從 <strong>JR「小樽站」正門出站</strong>，沿正前方「中央通」筆直步行約 8 分鐘（600公尺）即達小樽運河淺草橋。',
+                desc: '漫步在百年石造倉庫群與復古煤氣瓦斯燈旁，拍攝全家福最佳取景點。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Otaru+Canal'
+              },
+              { 
+                time: '11:30', 
+                spot: '堺町通商店街：北一硝子 × 小樽音樂盒堂', 
+                transit: '從小樽運河沿著堺町通步行，沿途皆為歷史商店街；童話十字路口（メルヘン交差点）即為音樂盒堂本館。',
+                desc: '參觀璀璨玻璃工藝、八音盒DIY；品嚐 LeTAO 雙層乳酪蛋糕與北菓樓「夢不思議」大泡芙。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Otaru+Music+Box+Museum+Main+Building'
+              },
+              { 
+                time: '13:00', 
+                spot: '午餐：小樽三角市場 海鮮丼 / 壽司', 
+                transit: '返回 <strong>JR 小樽站正門左側階梯</strong>，走上去 1 分鐘即達三角市場入口（武田鮮魚店 / 滝波食堂）。',
+                desc: '現剖活干貝、頂級海膽、滿滿鮭魚卵三色海鮮丼，海味十足！', 
+                cost: '人均約 ¥2,000–3,000', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sankaku+Market+Otaru'
+              },
+              { 
+                time: '16:00', 
+                spot: '返回札幌 ＋ 大丸百貨 / 狸小路採買', 
+                transit: '從 JR「小樽站」或「南小樽站」搭 JR 快速回 <strong>「札幌站」</strong>，地下直通大丸百貨（Daimaru）與 ESTA。',
+                desc: '採買北海道限定伴手禮、電器與藥妝。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Daimaru+Sapporo'
+              },
+              { 
+                time: '18:30', 
+                spot: '晚餐：北海道帝王蟹 • 毛蟹饗宴 (北海道最後一晚)', 
+                transit: '<strong>「かに本家（蟹本家）」札幌站前本店</strong>（札幌站南口步行5分）或薄野店（薄野站2號出口步行2分）。',
+                desc: '在日式塌塌米包廂享用熱騰騰的活帝王蟹火鍋、烤蟹腳與蟹膏刺身，儀式感滿分！', 
+                highlight: true, 
+                tip: '熱門蟹料理請務必提前訂位',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sapporo+Kani+Honke+Sapporo+Ekimae'
+              }
             ],
             rainTimeline: [
-              { time: '10:30', spot: '小樽運河與堺町通室內巡禮', desc: '沿途逛北一硝子館、音樂盒堂、LeTAO 本店，雨天在歐風洋館內品嚐甜點更具浪漫情調。' },
-              { time: '13:00', spot: '三角市場海鮮丼 (全室內海鮮市場)', desc: '棚架室內市場，大啖生猛海鮮丼。' },
-              { time: '18:30', spot: '札幌螃蟹將軍 / かに本家 帝王蟹會席', desc: '包廂享用熱騰騰的帝王蟹火鍋與烤蟹。' }
+              { 
+                time: '10:30', 
+                spot: '小樽運河與堺町通室內巡禮', 
+                transit: 'JR 小樽站出站步行至堺町通，沿途皆為室內洋館商店。',
+                desc: '逛北一硝子館、音樂盒堂、LeTAO 本店，雨天在歐風洋館內品嚐甜點更具浪漫情調。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Otaru+Music+Box+Museum+Main+Building'
+              },
+              { 
+                time: '13:00', 
+                spot: '三角市場海鮮丼 (全室內市場)', 
+                transit: '小樽站旁 1 分鐘室內棚架市場，完全不淋雨。',
+                desc: '品嚐現點現做海鮮丼。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sankaku+Market+Otaru'
+              },
+              { 
+                time: '18:30', 
+                spot: '札幌螃蟹本家 帝王蟹會席', 
+                transit: '札幌站南口步行 5 分鐘進入店內包廂。',
+                desc: '享用豪華螃蟹大餐。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sapporo+Kani+Honke+Sapporo+Ekimae'
+              }
             ]
           },
           {
@@ -653,15 +945,62 @@
             rainBannerTitle: '🌧️ Day 5 雨天提示',
             rainBannerDesc: '今日轉往東京，teamLab Planets 為全室內赤腳涉水體驗，完全不受雨天影響。',
             timeline: [
-              { time: '09:30', spot: 'Vessel 退房 ➔ 搭 JR 前往新千歲機場', desc: '車程約 37 分鐘。10:45 前抵達機場國內線報到過安檢。' },
-              { time: '12:00', spot: '新千歲 (CTS) 飛往 羽田 (HND)', desc: '搭乘全日空 NH60，預計 13:35 抵達東京羽田機場。' },
-              { time: '14:45', spot: '前往 Vessel Inn 高田馬場站前飯店 Check-in', desc: '搭單軌轉山手線至高田馬場（約50分）。地鐵4號出口電梯直達飯店B1，放行李稍作休息。', mapUrl: 'https://maps.google.com/?q=Vessel+Inn+Takadanobaba+Station' },
-              { time: '17:00', spot: 'teamLab Planets TOKYO (豐洲)', desc: '沉浸式赤腳走入水中與巨型光影宇宙！花朵與鏡像空間震撼感官。', highlight: true, cost: '4人約 ¥13,000 (NT$2,600)', bookingUrl: 'https://planets.teamlab.art/tokyo/', tip: '出發前 2–3 週必須於官網卡位時段票！', mapUrl: 'https://maps.google.com/?q=teamLab+Planets+TOKYO' },
-              { time: '19:30', spot: '晚餐：豐洲 LaLaport / 銀座', desc: '逛街用餐後搭車返回高田馬場飯店。' }
+              { 
+                time: '09:30', 
+                spot: 'Vessel 退房 ➔ 搭 JR 前往新千歲機場', 
+                transit: '薄野飯店出發至「札幌站」，轉乘 <strong>JR 快速 Airport</strong> 直達新千歲機場國內線地下月台（約 37 分鐘）。',
+                desc: '10:45 前抵達機場國內線櫃台完成行李託運與過安檢。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=New+Chitose+Airport'
+              },
+              { 
+                time: '12:00', 
+                spot: '新千歲 (CTS) 飛往 羽田 (HND)', 
+                transit: '搭乘全日空 NH60，預計 13:35 抵達東京羽田機場第 2 航廈。',
+                desc: '下飛機領取託運行李後，前往單軌電車月台。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2'
+              },
+              { 
+                time: '14:45', 
+                spot: '前往 Vessel Inn 高田馬場站前飯店 Check-in', 
+                transit: '羽田機場第 2 航廈搭乘 <strong>東京單軌電車（空港快速）</strong> 至 <strong>「濱松町站」</strong>（約 13 分鐘）➔ 站內轉乘 <strong>JR 山手線（外環）</strong> 直達 <strong>「高田馬場站」</strong>（約 25 分鐘）➔ <strong>地鐵東西線 4 號出口電梯直達飯店 B1</strong>（或 JR 早稻田口步行 2 分鐘）。',
+                desc: '14:00 後可辦理入住，進房放行李、稍微梳洗休息。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station'
+              },
+              { 
+                time: '17:00', 
+                spot: 'teamLab Planets TOKYO (豐洲)', 
+                transit: '從高田馬場搭 <strong>地鐵東西線</strong> 至「飯田橋站」➔ 轉乘 <strong>地鐵有樂町線</strong> 至 <strong>「豐洲站」7號出口</strong> ➔ 轉乘 <strong>百合海鷗號</strong> 搭 1 站至 <strong>「新豐洲站」</strong>，出站過天橋徒步 1 分鐘即達。',
+                desc: '走入水中與巨型光影宇宙！赤腳穿梭在無邊際水晶宇宙與漂浮花園，視覺極度震撼。', 
+                highlight: true, 
+                cost: '4人約 ¥13,000 (NT$2,600)', 
+                bookingUrl: 'https://planets.teamlab.art/tokyo/', 
+                tip: '出發前 2–3 週必須於官網卡位時段票！', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=teamLab+Planets+TOKYO'
+              },
+              { 
+                time: '19:30', 
+                spot: '晚餐：豐洲 LaLaport / 銀座', 
+                transit: '從新豐洲搭百合海鷗號回「豐洲站」，2b 號出口直結 <strong>Urban Dock LaLaport 豐洲</strong>。',
+                desc: '全室內大型購物商場，品嚐美味晚餐後搭車返回高田馬場飯店。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Urban+Dock+LaLaport+Toyosu'
+              }
             ],
             rainTimeline: [
-              { time: '17:00', spot: 'teamLab Planets TOKYO (全室內)', desc: '赤腳涉水光影展，館內舒適不受天候影響。', bookingUrl: 'https://planets.teamlab.art/tokyo/' },
-              { time: '19:30', spot: '豐洲 LaLaport 室內商場晚餐', desc: '全室內大型複合商場，美食街與品牌雲集。' }
+              { 
+                time: '17:00', 
+                spot: 'teamLab Planets TOKYO (全室內赤腳涉水)', 
+                transit: '百合海鷗號「新豐洲站」出站 1 分鐘直達館內。',
+                desc: '全室內體驗，不受雨天影響。', 
+                bookingUrl: 'https://planets.teamlab.art/tokyo/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=teamLab+Planets+TOKYO'
+              },
+              { 
+                time: '19:30', 
+                spot: '豐洲 LaLaport 室內大型商場晚餐', 
+                transit: '豐洲站地下通道直通商場。',
+                desc: '美食餐廳雲集，免淋雨逛街。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Urban+Dock+LaLaport+Toyosu'
+              }
             ]
           },
           {
@@ -675,20 +1014,101 @@
             rainBannerTitle: '🌧️ Day 6 雨天提示',
             rainBannerDesc: '哆啦A夢博物館、Google辦公室、SHIBUYA SKY室內層、Animate、TSUTAYA皆為室內！若雨大竹下通縮短，改在 Kiddy Land 與 PARCO 室內逛街。',
             timeline: [
-              { time: '08:50', spot: '出發前往川崎 登戶站', desc: '新宿/澀谷搭小田急線至登戶約 15 分，出站轉乘哆啦A夢彩繪接駁巴士（約 10 分）。' },
-              { time: '10:00', spot: '🔔 藤子・F・不二雄博物館 (哆啦A夢)', desc: '預約 10:00 第一場。任意門、空地水管拍照，品嚐記憶吐司，購買博物館限定周邊。', highlight: true, cost: '門票4人約 ¥3,400 (NT$680)', bookingUrl: 'https://fujiko-museum.com/', tip: '完全預約制！每月開賣日立即搶票！', mapUrl: 'https://maps.google.com/?q=Fujiko+F+Fujio+Museum' },
-              { time: '12:15', spot: '接駁回登戶 ➔ 搭車前往澀谷', desc: '車程約 25 分鐘直達澀谷。' },
-              { time: '13:00', spot: '🍴 Google 澀谷 Stream 辦公室・員工餐', desc: 'Ben 帶全家進入體驗 Google 辦公室環境與員工餐廳午餐。順道讓女兒看看爸爸上班的地方！', highlight: true, tip: '請提前確認家人訪客登記並攜帶員工識別證' },
-              { time: '14:30', spot: 'SHIBUYA SKY 展望台 ＋ 澀谷購物', desc: '高空 360 度俯瞰東京全景與澀谷十字路口。', cost: '4人約 ¥10,000', bookingUrl: 'https://www.shibuya-scramble-square.com/sky/', mapUrl: 'https://maps.google.com/?q=SHIBUYA+SKY' },
-              { time: '15:45', spot: '🕵️ Animate 澀谷店 ＋ SHIBUYA TSUTAYA', desc: 'Animate 採買名偵探柯南周邊文具；TSUTAYA 探訪《堀與宮村》Square Enix 官方專區。', mapUrl: 'https://maps.google.com/?q=Animate+Shibuya' },
-              { time: '16:45', spot: '原宿竹下通 ＋ 🎈 Kiddy Land 原宿旗艦店', desc: '少女系可麗餅、扭蛋；Kiddy Land 2F 蠟筆小新、吉卜力、卡娜赫拉角色文具一次補齊！', mapUrl: 'https://maps.google.com/?q=Kiddy+Land+Harajuku' },
-              { time: '19:00', spot: '晚餐：澀谷 / 新宿 燒肉慶功', desc: '慶祝旅程圓滿，品嚐日式燒肉或人氣壽司。' }
+              { 
+                time: '08:50', 
+                spot: '出發前往川崎 登戶站', 
+                transit: '高田馬場搭 <strong>JR 山手線</strong>（約 5 分鐘）至 <strong>「新宿站」</strong> ➔ 轉乘 <strong>小田急小田原線（快速急行）</strong> 搭 16 分鐘至 <strong>「登戶站（登戸駅）」</strong> ➔ 從 <strong>生田綠地口</strong> 出站，轉乘專屬「哆啦A夢彩繪接駁巴士」（約 10 分鐘，¥220/人）。',
+                desc: '接駁巴士車身與拉環都是哆啦A夢，直達博物館大門！', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Noborito+Station'
+              },
+              { 
+                time: '10:00', 
+                spot: '🔔 藤子・F・不二雄博物館 (哆啦A夢)', 
+                transit: '登戶站搭接駁公車直達門口。',
+                desc: '預約 10:00 第一場。任意門、空地水管合照，品嚐記憶吐司，購買博物館限定周邊。', 
+                highlight: true, 
+                cost: '門票4人約 ¥3,400 (NT$680)', 
+                bookingUrl: 'https://fujiko-museum.com/', 
+                tip: '完全預約制！每月開賣日立即搶票！', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Fujiko+F+Fujio+Museum'
+              },
+              { 
+                time: '12:15', 
+                spot: '接駁回登戶 ➔ 搭車前往澀谷', 
+                transit: '搭接駁巴士回登戶站，搭乘 <strong>小田急線急行</strong> 至「下北澤站」轉 <strong>京王井之頭線急行</strong> 直達 <strong>「澀谷站」</strong>（約 20 分鐘）。',
+                desc: '直奔澀谷 Stream 辦公大樓。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shibuya+Station'
+              },
+              { 
+                time: '13:00', 
+                spot: '🍴 Google 澀谷 Stream 辦公室・員工餐', 
+                transit: '從澀谷站搭地下連通道走 <strong>C2 出口直結「Shibuya Stream」大樓</strong>，搭電梯上樓進辦公室。',
+                desc: 'Ben 帶全家進入體驗 Google 辦公室環境與員工餐廳午餐。順道讓女兒看看爸爸上班的地方！', 
+                highlight: true, 
+                tip: '請提前完成家人訪客登記並攜帶員工識別證',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shibuya+Stream'
+              },
+              { 
+                time: '14:30', 
+                spot: 'SHIBUYA SKY 展望台 ＋ 澀谷購物', 
+                transit: '從 Shibuya Stream 2F 天橋連通道步行 2 分鐘直結 <strong>「Shibuya Scramble Square」14F 售票/入場處</strong>，搭高速電梯直達頂樓 46F。',
+                desc: '高空 360 度俯瞰東京全景、東京鐵塔與澀谷十字路口人潮。', 
+                cost: '4人約 ¥10,000', 
+                bookingUrl: 'https://www.shibuya-scramble-square.com/sky/', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY'
+              },
+              { 
+                time: '15:45', 
+                spot: '🕵️ Animate 澀谷店 ＋ SHIBUYA TSUTAYA', 
+                transit: '1. <strong>TSUTAYA</strong>：澀谷站八公口正對面。<br>2. <strong>Animate 澀谷店</strong>：從八公口步行 5 分鐘至澀谷 BEAM 大樓 3F。',
+                desc: 'Animate 採買名偵探柯南周邊文具；TSUTAYA 探訪《堀與宮村》Square Enix 官方專櫃。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Animate+Shibuya'
+              },
+              { 
+                time: '16:45', 
+                spot: '原宿竹下通 ＋ 🎈 Kiddy Land 原宿旗艦店', 
+                transit: '澀谷搭 <strong>JR 山手線（內環）</strong> 1 站（2分鐘）至 <strong>「原宿站」東口</strong> 出站對面即為竹下通；穿過竹下通走至表參道即達 Kiddy Land（地鐵明治神宮前站 4 號出口步行 2 分）。',
+                desc: '少女系可麗餅、扭蛋；Kiddy Land 2F 蠟筆小新、吉卜力、卡娜赫拉角色文具一次補齊！', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku'
+              },
+              { 
+                time: '19:00', 
+                spot: '晚餐：澀谷 / 新宿 燒肉慶功', 
+                transit: '原宿搭山手線至新宿或回高田馬場飯店周邊。',
+                desc: '慶祝旅程圓滿，品嚐日式頂級燒肉或人氣壽司。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Jojoen+Shinjuku'
+              }
             ],
             rainTimeline: [
-              { time: '10:00', spot: '藤子・F・不二雄博物館 (室內展廳為主)', desc: '原畫展區、室內電影院、咖啡廳記憶吐司。', bookingUrl: 'https://fujiko-museum.com/' },
-              { time: '13:00', spot: 'Google 澀谷辦公室午餐 (澀谷 Stream 室內)', desc: '搭車直達室內大樓，免受風雨。' },
-              { time: '14:30', spot: 'SHIBUYA SKY 室內展望迴廊 ＋ PARCO', desc: '46樓室內落地窗展望空間，隨後至 Shibuya PARCO 逛任天堂與 Jump 專賣店。' },
-              { time: '16:00', spot: 'Animate 澀谷店 ＋ Kiddy Land 原宿店 (整棟室內)', desc: '室內吹冷氣採買柯南、小新、堀與宮村所有周邊。' }
+              { 
+                time: '10:00', 
+                spot: '藤子・F・不二雄博物館 (全室內館舍)', 
+                transit: '登戶站搭接駁巴士直達門口。',
+                desc: '原畫展區、室內電影院、咖啡廳記憶吐司。', 
+                bookingUrl: 'https://fujiko-museum.com/',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Fujiko+F+Fujio+Museum'
+              },
+              { 
+                time: '13:00', 
+                spot: 'Google 澀谷辦公室午餐 (澀谷 Stream 室內大樓)', 
+                transit: '澀谷站 C2 出口地下直通大樓，免受風雨。',
+                desc: '舒適享受辦公室員工午餐。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shibuya+Stream'
+              },
+              { 
+                time: '14:30', 
+                spot: 'SHIBUYA SKY 室內展望迴廊 ＋ PARCO', 
+                transit: '地下連通道直通 Scramble Square 與 Shibuya PARCO。',
+                desc: '46樓室內落地窗展望空間，隨後至 Shibuya PARCO 逛任天堂與 Jump 專賣店。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY'
+              },
+              { 
+                time: '16:00', 
+                spot: 'Animate 澀谷店 ＋ Kiddy Land 原宿店 (整棟室內)', 
+                transit: '搭車前往室內專賣店採買。',
+                desc: '室內吹冷氣採買柯南、小新、堀與宮村所有周邊。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku'
+              }
             ]
           },
           {
@@ -702,13 +1122,44 @@
             rainBannerTitle: '🌧️ 雨天提示',
             rainBannerDesc: '高田馬場搭 JR 山手線至濱松町轉單軌或品川轉京急直通羽田航廈內，全段有遮蔽。',
             timeline: [
-              { time: '08:00', spot: 'Vessel Inn 極上海鮮自助早餐 ＋ 整理行李', desc: '品嚐高田馬場 Vessel 招牌海鮮丼（鮭魚卵、生魚片吃到飽）。分裝託運行李與免稅品。', tip: '液體刀具務必放託運，免稅品留手提' },
-              { time: '09:45', spot: '退房 ➔ 前往羽田機場第 3 航廈', desc: '高田馬場搭山手線至濱松町轉單軌電車（約50分鐘）。國際線抓 2.5–3 小時，目標 10:50 前抵達機場。' },
-              { time: '10:50', spot: '羽田機場報到、出關、免稅店最後衝刺', desc: '購買東京芭娜娜、Royce生巧克力、伴手禮。' },
-              { time: '13:20', spot: '搭乘 NH853 返回台北松山 (TSA)', desc: '預計 15:50 順利抵達松山機場，平安回到溫暖的家！', highlight: true }
+              { 
+                time: '08:00', 
+                spot: 'Vessel Inn 極上海鮮自助早餐 ＋ 整理行李', 
+                transit: '飯店 2F 餐廳享用。',
+                desc: '品嚐高田馬場 Vessel 招牌海鮮丼（鮭魚卵、生魚片吃到飽）。分裝託運行李與免稅品。', 
+                tip: '液體刀具務必放託運，免稅品留手提',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station'
+              },
+              { 
+                time: '09:45', 
+                spot: '退房 ➔ 前往羽田機場第 3 航廈', 
+                transit: '從高田馬場搭 <strong>JR 山手線（外環）</strong>（約 22 分鐘）至 <strong>「濱松町站」</strong> ➔ 站內轉乘 <strong>東京單軌電車（空港快速）</strong>（約 13 分鐘）直達 <strong>「羽田機場第 3 航廈站」</strong> 3F 出境大廳。',
+                desc: '國際線抓 2.5–3 小時，目標 10:50 前抵達機場。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3'
+              },
+              { 
+                time: '10:50', 
+                spot: '羽田機場報到、出關、免稅店最後衝刺', 
+                transit: '羽田第 3 航廈 3F 國際線報到大廳。',
+                desc: '過安檢後在免稅店採購東京芭娜娜、Royce 生巧克力與日本銘品伴手禮。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3'
+              },
+              { 
+                time: '13:20', 
+                spot: '搭乘 NH853 返回台北松山 (TSA)', 
+                transit: '羽田機場登機門搭機，預計 15:50 抵達台北松山機場，捷運文湖線直達返家。',
+                desc: '順利抵達松山機場，平安回到溫暖的家，結束精彩充實的 7 天 6 夜全家之旅！', 
+                highlight: true,
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport'
+              }
             ],
             rainTimeline: [
-              { time: '09:45', spot: '搭乘地鐵/單軌直達羽田第3航廈', desc: '全程地下道與航廈內直通，輕鬆返台。' }
+              { 
+                time: '09:45', 
+                spot: '搭乘地鐵/單軌直達羽田第3航廈', 
+                transit: '全程地下道與航廈內直通，免淋雨輕鬆返台。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3'
+              }
             ]
           }
         ],
