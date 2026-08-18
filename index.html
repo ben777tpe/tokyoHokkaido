@@ -88,7 +88,7 @@
     <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center space-x-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium text-xs sm:text-sm">🌤️ 晚夏情報：各景點精確「停留與離開時間」已標註，掌控節奏最安心！</span>
+        <span class="font-medium text-xs sm:text-sm">🛫 羽田 T3 轉機指南已排入 Day 1：託運行李 ➔ 江戶小路美食 ➔ 接駁巴士順暢銜接！</span>
       </div>
       <div class="flex items-center space-x-2 text-xs sm:text-sm font-maru text-slate-200">
         <span>8/23 (日) 出發 ｜ 7天6夜全家行</span>
@@ -150,7 +150,7 @@
         <input 
           type="text" 
           x-model="searchQuery" 
-          placeholder="快速搜尋景點/美食/交通 (如: 租車, 101851488, 柯南, 和牛, Google, 諏訪, 青池...)" 
+          placeholder="快速搜尋景點/美食/交通 (如: 江戶小路, 轉機, 租車, 101851488, 柯南, 和牛, Google...)" 
           class="w-full pl-10 pr-10 py-2 rounded-xl bg-washi border border-[#D5CABB] text-sm md:text-base text-sumi placeholder-sumi-light/60 focus:outline-none focus:ring-2 focus:ring-aizome focus:bg-white transition">
         <button 
           x-show="searchQuery" 
@@ -206,7 +206,7 @@
       <template x-if="filteredSearchResults.length === 0">
         <div class="washi-card rounded-2xl p-8 text-center space-y-2">
           <p class="text-lg font-serif font-bold text-sumi">找不到與「<span x-text="searchQuery"></span>」相符的景點或資訊</p>
-          <p class="text-sm text-sumi-light">試試搜尋：租車、Nippon、柯南、和牛、Google、青池、小樽、拉麵、神社 等關鍵字</p>
+          <p class="text-sm text-sumi-light">試試搜尋：江戶小路、六厘舍、轉機、租車、Nippon、柯南、和牛、Google、青池 等關鍵字</p>
         </div>
       </template>
 
@@ -257,70 +257,8 @@
       </div>
     </div>
 
-    <!-- SECTION 1: MAIN ITINERARY (Shows Flight/Hotels, Day Selector, Timelines, and Budget) -->
+    <!-- SECTION 1: MAIN ITINERARY -->
     <div x-show="activeMainTab === 'itinerary' && !searchQuery" class="space-y-6">
-      
-      <!-- Flight & Hotel Summary Card (ONLY IN ITINERARY TAB) -->
-      <section class="washi-card rounded-2xl p-5 md:p-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#E8E0D2] pb-4">
-          <div>
-            <span class="inline-block px-3 py-1 rounded-md text-xs md:text-sm font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1.5">
-              ✈️ 航段配置
-            </span>
-            <h2 class="font-serif font-bold text-xl md:text-2xl text-sumi">台北松山 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
-          </div>
-          <div class="text-sm md:text-base text-sumi-light space-y-1">
-            <p><span class="font-bold text-sumi">8/23 (日):</span> 松山 13:30 ➔ 羽田 17:45 (NH852) ➔ 轉機 2.5h ➔ 札幌 21:50 (HD37)</p>
-            <p><span class="font-bold text-sumi">8/27 (四):</span> 札幌 12:00 ➔ 羽田 13:35 (NH60) 進入東京</p>
-            <p><span class="font-bold text-sumi">8/29 (六):</span> 羽田 13:20 ➔ 松山 15:50 (NH853)</p>
-          </div>
-        </div>
-
-        <!-- Hotels -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-sm md:text-base">
-          <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
-            <div>
-              <div class="flex justify-between items-start mb-1.5">
-                <span class="font-bold text-aizome font-serif text-base">8/23 (1晚) 千歲機場旅驛</span>
-                <span class="text-xs bg-aizome/10 text-aizome px-2 py-0.5 rounded font-medium">車程10分</span>
-              </div>
-              <p class="text-sumi-light text-sm mb-2">千歳市東郊 1-12-21。深夜抵達新千歲後乘車就近入住。</p>
-              <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店</div>
-            </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
-              <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
-            </a>
-          </div>
-
-          <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
-            <div>
-              <div class="flex justify-between items-start mb-1.5">
-                <span class="font-bold text-aizome font-serif text-base">8/24–8/27 (3晚) Vessel Campana</span>
-                <span class="text-xs bg-matcha/10 text-matcha px-2 py-0.5 rounded font-medium">大浴場/桑拿</span>
-              </div>
-              <p class="text-sumi-light text-sm mb-2">札幌薄野・<strong>地鐵南北線「すすきの」站 4 號出口徒步 4 分</strong>。徒步 3 分達 Razan 炭火燒肉。</p>
-              <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-fire mr-1"></i> 徒步 3 分：炭火焼肉 羅山 ＋ 佐藤聖代</div>
-            </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
-              <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
-            </a>
-          </div>
-
-          <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
-            <div>
-              <div class="flex justify-between items-start mb-1.5">
-                <span class="font-bold text-aizome font-serif text-base">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
-                <span class="text-xs bg-kohaku/10 text-kohaku px-2 py-0.5 rounded font-medium">地鐵直通</span>
-              </div>
-              <p class="text-sumi-light text-sm mb-2"><strong>地鐵東西線「高田馬場」站 4 號出口電梯直通 B1</strong>、JR 站 2 分。直達東京巨蛋城柯南廣場。</p>
-              <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-utensils mr-1"></i> 徒步 3 分達「ひなた」頂級炸豬排</div>
-            </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
-              <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
-            </a>
-          </div>
-        </div>
-      </section>
 
       <!-- Day Selector -->
       <div class="flex items-center space-x-2.5 overflow-x-auto pb-2 scrollbar-none">
@@ -479,7 +417,7 @@
 
       </div>
 
-      <!-- Family Budget Summary Accordion (ONLY IN ITINERARY TAB) -->
+      <!-- Family Budget Summary Accordion -->
       <section class="washi-card rounded-2xl p-5 md:p-6">
         <div class="flex justify-between items-center cursor-pointer" @click="showBudget = !showBudget">
           <div class="flex items-center space-x-2.5">
@@ -1109,19 +1047,19 @@
             shortDate: '8/23 (日)',
             dayLabel: 'Day 1 ｜ 抵達千歲',
             fullDate: '2026年8月23日（週日）',
-            title: '抵達新千歲 ➔ 千歲旅驛安頓',
-            pace: '輕鬆',
+            title: '松山飛羽田 ➔ T3 江戶小路美食 ➔ 飛抵新千歲',
+            pace: '充裕轉機 ｜ 美食享受',
             paceColor: 'bg-emerald-100 text-emerald-800',
             isRainMode: false,
             rainBannerTitle: '🌧️ 雨天備案提示',
-            rainBannerDesc: '抵達後走室內連通道搭乘計程車直達旅驛，免受天候影響。',
+            rainBannerDesc: '羽田機場與新千歲機場全程室內連通及專屬接駁巴士，完全不受天候影響。',
             timeline: [
               { 
                 time: '13:30 – 17:45', 
-                stay: '飛行 3h15m ｜ 17:45 抵達羽田',
-                spot: '松山機場 (TSA) 啟程 ➔ 羽田 (HND)', 
-                transit: '捷運文湖線<strong>「松山機場站」1/2 號出口</strong>直通航廈。搭乘全日空 NH852 飛往東京羽田。',
-                desc: '預計 11:30 抵達松山報到託運，13:30 起飛，17:45 抵達東京羽田機場第 3 航廈。', 
+                stay: '飛行 3h15m ｜ 17:45 抵達羽田 T3',
+                spot: '台北松山 (TSA) 啟程 ➔ 東京羽田 (HND) 第 3 航廈', 
+                transit: '捷運文湖線<strong>「松山機場站」1/2 號出口</strong>直通航廈。搭乘全日空 NH852 班機飛往東京羽田機場。',
+                desc: '預計 11:30 抵達松山機場報到託運，13:30 起飛，17:45 準時抵達羽田機場第 3 航廈 (T3)。', 
                 history: '台北松山機場建於 1936 年（昭和 11 年），原名「台北飛行場」，為台灣第一座民用機場，見證台日航空往返近百年歷史。',
                 mustBuy: '免稅店預訂伴手禮、機場國際線觀景台',
                 links: [
@@ -1130,28 +1068,55 @@
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport'
               },
               { 
-                time: '17:45 – 20:15', 
-                stay: '轉機 2.5 小時 ｜ 20:00 前往登機門',
-                spot: '羽田機場轉機 ➔ 飛往札幌新千歲', 
-                transit: '第 3 航廈出關後搭乘<strong>航廈間無料連絡巴士</strong>至第 2 航廈國內線（車程約 10 分鐘）。',
-                desc: '搭乘 20:15 起飛的 HD37（Air Do / ANA 聯營）飛往札幌新千歲。', 
-                history: '羽田機場於 1931 年啟用，是東京最主要的空中玄關；Air Do 則是北海道在地成立的航空公司，吉祥物為可愛的白熊（Bear Do）。',
-                mustBuy: '羽田第2航廈限定 東京芭娜娜、Air Do 機上限定洋蔥湯',
+                time: '17:45 – 18:30', 
+                stay: '通關託運 45 分鐘 ｜ 18:30 完成掛行李',
+                spot: '羽田 T3 入境通關 ➔ 2F 國內線轉機行李託運', 
+                transit: 'T3 下機 ➔ 入境審查 ➔ 提領行李 ➔ 海關申報 ➔ <strong>T3 2F 到達大廳「ANA 國內線轉機櫃台」</strong>。',
+                desc: '【關鍵順暢步驟】一入境 T3 2F 大廳，直接在 ANA 國內線轉機櫃台將大件托運行李掛上下段班機！全家只攜帶隨身小包，輕鬆上樓吃飯逛街。', 
+                highlight: true,
+                history: '<strong>羽田轉機實用資訊：</strong><br>• T3 2F 設有國內線轉機專屬櫃台，可直接辦理下段國內線登機與行李直掛托運。<br>• 托運後即為非管制自由區，可無拘無束搭電梯至 4F/5F 享受美食與購物。',
                 links: [
-                  { title: '羽田機場航廈指南', url: 'https://tokyo-haneda.com/' },
-                  { title: 'Air Do 官方網站', url: 'https://www.airdo.jp/' }
+                  { title: '羽田機場 T3 航廈地圖', url: 'https://tokyo-haneda.com/floor/terminal3/index.html' }
                 ],
+                tip: '大件行李先在 T3 2F 國內線櫃台托運，免拖行李逛街最輕鬆！',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3'
+              },
+              { 
+                time: '18:30 – 19:35', 
+                stay: '停留 1 小時 05 分 ｜ 19:35 前往搭接駁車',
+                spot: '羽田 T3 美食散策：4F 江戶小路 ＋ 5F TOKYO POP TOWN / 展望台', 
+                transit: 'T3 2F 搭電梯直達 4F 江戶小路、5F 展望台；或經 2F 室內連通道至「羽田機場花園」。',
+                desc: '轉機時間非常充裕！在 4F 江戶小路享用美味晚餐（六厘舍沾麵、燒肉、壽司），帶孩子到 5F 動漫玩具旗艦店與戶外展望台近距離欣賞飛機起降。', 
+                highlight: true,
+                history: '<strong>T3 必逛與美食亮點：</strong><br>• <strong>4F 江戶小路（Edo Ko-ji）：</strong> 忠實重現江戶時期木造街景的美食街，推薦「六厘舍」特濃沾麵、炸豬排、炭火燒肉與壽司。<br>• <strong>5F TOKYO POP TOWN：</strong> 聚集吉卜力、Hello Kitty、各類動漫周邊旗艦店與 270 度露天觀景台。<br>• <strong>羽田機場花園：</strong> 2F 連通道直通大型商場，聚集日本各地精緻生活雜貨。',
+                mustBuy: '六厘舍沾麵、銀座千疋屋水果聖代、5F 展望台夜景拍照',
+                links: [
+                  { title: '羽田 T3 江戶小路美食指南', url: 'https://tokyo-haneda.com/shop_and_dine/search_dine.html?terminal=3' }
+                ],
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Edo+Koji'
+              },
+              { 
+                time: '19:40 – 20:15', 
+                stay: '移動 20 分鐘 ｜ 20:05 抵達登機門',
+                spot: '免費接駁巴士至 T2 ➔ 國內線安檢 ➔ 飛往札幌', 
+                transit: 'T3 1F 搭乘 <strong>航廈間無料連絡巴士（綠色車身，每 4–8 分鐘一班）</strong>，約 10–15 分鐘直達第 2 航廈 (T2)。',
+                desc: '通過 T2 國內線安檢門（日本規定：起飛前 20 分通過安檢、10 分前抵達登機門）。搭乘 20:15 起飛的 HD37（Air Do / ANA 聯營）飛往札幌新千歲。', 
+                history: '日本國內線安檢動線極為高效，飲料可攜帶（機器會快速檢驗）。Air Do 是北海道在地航空公司，吉祥物為可愛的白熊（Bear Do）。',
+                mustBuy: '羽田第2航廈限定伴手禮、Air Do 機上熱洋蔥湯',
+                links: [
+                  { title: '羽田機場航廈間接駁巴士指南', url: 'https://tokyo-haneda.com/access/travel_between_terminals/index.html' }
+                ],
+                tip: '國內線要求起飛前 20 分鐘通過安檢、10 分鐘前抵達登機門',
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2'
               },
               { 
                 time: '21:50 – 22:20', 
                 stay: '停留 30 分鐘 ｜ 22:20 出航廈搭車',
-                spot: '抵達新千歲機場 (CTS)', 
+                spot: '抵達新千歲機場 (CTS) ➔ 搭乘計程車', 
                 transit: '國內線航廈 1F 出口即為計程車站。',
-                desc: '領取行李後搭乘計程車約 10 分鐘直達千歲市民宿（千歳市東郊 1-12-21）。', 
+                desc: '領取行李後搭乘計程車約 10 分鐘直達千歲市旅驛（千歳市東郊 1-12-21）。', 
                 cost: '車資約 ¥1,500–2,000',
                 history: '新千歲機場於 1988 年正式啟用，為日本首座 24 小時運行的樞紐機場，其地名「千歲」源於阿伊努語「Shikot」（大窪地）。',
-                mustBuy: 'KINOTOYA 極上牛乳霜淇淋、美瑛選果玉米麵包（Day 5 離境時必買）',
                 links: [
                   { title: '新千歲機場設施指南', url: 'https://www.new-chitose-airport.jp/tw/' }
                 ],
@@ -1161,8 +1126,8 @@
                 time: '22:30 – 23:30', 
                 stay: '停留 1 小時 ｜ 23:30 就寢休息',
                 spot: '千歲旅驛安頓 ＋ Seicomart 宵夜', 
-                transit: '民宿地址：千歳市東郊 1-12-21。',
-                desc: '入住千歲市區旅驛，徒步至周邊 Seicomart 採買北海道限定牛奶與輕食。', 
+                transit: '旅驛地址：千歳市東郊 1-12-21。',
+                desc: '入住千歲市區旅驛，徒步至周邊 Seicomart 採買北海道限定生乳、Hot Chef 熱食宵夜。', 
                 history: 'Seicomart（セイコーマート）創立於 1971 年，是日本歷史最悠久的連鎖便利店品牌，擁有北海道最高的市場佔有率，其「Hot Chef」現做熱食是北海道居民的心靈良伴。',
                 mustBuy: 'Seicomart 哈密瓜霜淇淋、現炸雞塊（ザンギ）、北海道生乳布丁',
                 links: [
@@ -1173,19 +1138,27 @@
             ],
             rainTimeline: [
               { 
-                time: '21:50 – 22:20', 
-                stay: '停留 30 分鐘',
-                spot: '抵達新千歲機場 (CTS)', 
-                transit: '航廈室內通道直達計程車月台。',
-                desc: '乘車直達千歲民宿。', 
-                mapUrl: 'https://www.google.com/maps/search/?api=1&query=New+Chitose+Airport'
+                time: '17:45 – 19:35', 
+                stay: '停留約 1.5 小時',
+                spot: '羽田 T3 轉機 ＋ 江戶小路美食散策', 
+                transit: 'T3 室內直通 4F 美食街。',
+                desc: '全室內享用晚餐與逛街。', 
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Edo+Koji'
               },
               { 
-                time: '22:30 – 23:30', 
-                stay: '停留 1 小時',
-                spot: '千歲旅驛安頓', 
+                time: '19:40 – 20:15', 
+                stay: '移動 20 分鐘',
+                spot: '接駁巴士至 T2 ➔ 飛往札幌新千歲', 
+                transit: '免費接駁巴士直達 T2 航廈。',
+                desc: '搭乘 HD37 班機。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2'
+              },
+              { 
+                time: '21:50 – 22:30', 
+                stay: '移動 30 分鐘',
+                spot: '抵達新千歲機場 ➔ 計程車直達千歲旅驛', 
                 transit: '千歳市東郊 1-12-21。',
-                desc: '安頓休息，準備翌日札幌行程。',
+                desc: '安頓休息。',
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21'
               }
             ]
@@ -1218,7 +1191,7 @@
                 time: '09:30 – 10:00', 
                 stay: '停留 30 分鐘 ｜ 10:00 離開前往地鐵',
                 spot: 'Vessel Campana 薄野飯店寄物', 
-                transit: '札幌站轉乘 <strong>地鐵南北線至「すすきの站」4 號出口</strong>，西行步行 4 分鐘抵達飯店。',
+                transit: '札幌站轉乘 <strong>地鐵南北線至「すすきの站」4 號出口</strong>，西行步行 4 分鐘抵達飯店（札幌市中央区南5条西6丁目16-1）。',
                 desc: '寄放大型行李，輕裝出發。', 
                 history: '「薄野（すすきの）」是日本三大繁華街之一，開拓初期於明治 4 年（1871年）設立，今日已演變為聚集數千家美食餐飲的北國不夜城。',
                 mustBuy: '飯店天然大浴場與極上海鮮丼朝食',
@@ -1568,7 +1541,7 @@
                 desc: '包廂享用活帝王蟹火鍋、炭烤蟹腳與蟹膏刺身料理。', 
                 highlight: true, 
                 history: '北海道為日本三大名蟹（帝王蟹、松葉蟹、毛蟹）的重要漁場，得益於鄂霍次克海冰融後豐富的浮游生物，肉質緊緻鮮甜。',
-                mustBuy: '帝王蟹會席（タ拉バガニ会席）、蟹黃甲羅燒、蟹肉壽司',
+                mustBuy: '帝王蟹會席（タラバガニ会席）、蟹黃甲羅燒、蟹肉壽司',
                 links: [
                   { title: '札幌かに本家官網預約', url: 'https://www.kani-honke.co.jp/' }
                 ],
@@ -1626,7 +1599,7 @@
                 time: '14:45 – 15:45', 
                 stay: '停留 1 小時 ｜ 15:45 出發前往台場',
                 spot: 'Vessel Inn 高田馬場站前 Check-in', 
-                transit: '羽田第 2 航廈搭 <strong>東京單軌電車（空港快速）</strong> 至「濱松町站」轉 <strong>JR 山手線（外環）</strong> 直達「高田馬場站」，<strong>地鐵東西線 4 號出口電梯直通飯店 B1</strong>。',
+                transit: '羽田第 2 航廈搭 <strong>東京單軌電車（空港快速）</strong> 至「濱松町站」轉 <strong>JR 山手線（外環）</strong> 直達「高田馬場站」，<strong>地鐵東西線 4 號出口電梯直通飯店 B1</strong>（東京都新宿区高田馬場2-17-4）。',
                 desc: '入住飯店放行李稍作休息。', 
                 history: '「高田馬場」源自江戶時代（1636年）德川將軍家設立的旗本騎馬射箭訓練場，亦為手塚治虫筆下「原子小金剛」的誕生舞台。',
                 links: [
