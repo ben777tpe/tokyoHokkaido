@@ -88,7 +88,7 @@
     <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center space-x-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium text-xs sm:text-sm">🛫 羽田 T3 轉機指南已排入 Day 1：託運行李 ➔ 江戶小路美食 ➔ 接駁巴士順暢銜接！</span>
+        <span class="font-medium text-xs sm:text-sm">🛫 8/27 羽田下機黑貓寄大行李 ➔ 15分直奔台場 DiverCity 暢玩＋teamLab 完美順暢！</span>
       </div>
       <div class="flex items-center space-x-2 text-xs sm:text-sm font-maru text-slate-200">
         <span>8/23 (日) 出發 ｜ 7天6夜全家行</span>
@@ -150,7 +150,7 @@
         <input 
           type="text" 
           x-model="searchQuery" 
-          placeholder="快速搜尋景點/美食/交通 (如: 江戶小路, 轉機, 租車, 101851488, 柯南, 和牛, Google...)" 
+          placeholder="快速搜尋景點/美食/交通 (如: 未來百貨, 柯南廣場, 租車, 101851488, 羅山和牛, Google...)" 
           class="w-full pl-10 pr-10 py-2 rounded-xl bg-washi border border-[#D5CABB] text-sm md:text-base text-sumi placeholder-sumi-light/60 focus:outline-none focus:ring-2 focus:ring-aizome focus:bg-white transition">
         <button 
           x-show="searchQuery" 
@@ -171,7 +171,7 @@
           <i class="fa-solid fa-car mr-1.5 text-base text-emerald-400"></i> 8/25 租車憑證資訊
         </button>
         <button @click="activeMainTab = 'conanSpecial'; searchQuery = ''" :class="activeMainTab === 'conanSpecial' ? 'bg-blue-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
-          <i class="fa-solid fa-magnifying-glass mr-1.5 text-base text-amber-400"></i> 柯南 2 大限定特展
+          <i class="fa-solid fa-magnifying-glass mr-1.5 text-base text-amber-400"></i> 柯南廣場 ＆ 哆啦A夢未來百貨
         </button>
         <button @click="activeMainTab = 'localTrends'; searchQuery = ''" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-fire mr-1.5 text-base"></i> 在地流行私房
@@ -206,7 +206,7 @@
       <template x-if="filteredSearchResults.length === 0">
         <div class="washi-card rounded-2xl p-8 text-center space-y-2">
           <p class="text-lg font-serif font-bold text-sumi">找不到與「<span x-text="searchQuery"></span>」相符的景點或資訊</p>
-          <p class="text-sm text-sumi-light">試試搜尋：江戶小路、六厘舍、轉機、租車、Nippon、柯南、和牛、Google、青池 等關鍵字</p>
+          <p class="text-sm text-sumi-light">試試搜尋：未來百貨、柯南廣場、黑貓、羽田、租車、和牛、Google 等關鍵字</p>
         </div>
       </template>
 
@@ -547,16 +547,16 @@
       </div>
     </div>
 
-    <!-- SECTION: DETECTIVE CONAN SPECIAL EXHIBITIONS -->
+    <!-- SECTION: CONAN PLAZA & DORAEMON FUTURE DEPT -->
     <div x-show="activeMainTab === 'conanSpecial' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-xl bg-blue-800 flex items-center justify-center text-amber-400 text-lg">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
           <div>
-            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">名偵探柯南 2 大限定盛事（已順向排入 Day 5 & Day 6）</h3>
-            <p class="text-sm md:text-base text-sumi-light font-maru">2026 最新劇場版限定周邊 ＋ 30 週年電視動畫紀念轉蛋抽獎</p>
+            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">名偵探柯南廣場 ＆ 哆啦A夢未來百貨旗艦店</h3>
+            <p class="text-sm md:text-base text-sumi-light font-maru">2026 柯南最新劇場版限定快閃 ＋ 全球首間哆啦A夢官方體驗店</p>
           </div>
         </div>
 
@@ -566,8 +566,8 @@
           <div class="p-5 md:p-6 rounded-2xl bg-white border-2 border-blue-800/30 shadow-xs flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-black px-3 py-1 rounded-lg bg-blue-900 text-white">🔥 最推薦 ｜ 期間限定快閃店</span>
-                <span class="text-xs font-bold text-red-600">展期至 2026/9/27(日)</span>
+                <span class="text-xs font-serif font-black px-3 py-1 rounded-lg bg-blue-900 text-white">🔥 東京規模最大 ｜ 柯南年度快閃店</span>
+                <span class="text-xs font-bold text-red-600">熱烈舉辦中 ～ 2026/9/27(日)</span>
               </div>
               <h4 class="font-serif font-black text-xl text-sumi mb-2">🕵️‍♂️ 名偵探柯南廣場 (Detective Conan Plaza)</h4>
               <p class="text-xs font-bold text-aizome mb-2">📍 東京巨蛋城（Tokyo Dome City）セントラルパーク (Central Park)</p>
@@ -584,25 +584,25 @@
             </a>
           </div>
 
-          <!-- Event 2: Conan Land 2026 at Odaiba DiverCity -->
-          <div class="p-5 md:p-6 rounded-2xl bg-white border-2 border-amber-600/30 shadow-xs flex flex-col justify-between space-y-4">
+          <!-- Event 2: Doraemon Future Department Store at DiverCity -->
+          <div class="p-5 md:p-6 rounded-2xl bg-white border-2 border-blue-500/30 shadow-xs flex flex-col justify-between space-y-4">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <span class="text-xs font-serif font-black px-3 py-1 rounded-lg bg-amber-600 text-white">🎉 新登場 ｜ 大型巡迴互動體驗</span>
-                <span class="text-xs font-bold text-slate-600">展期至 2027/1/11</span>
+                <span class="text-xs font-serif font-black px-3 py-1 rounded-lg bg-blue-600 text-white">🔔 全球首創 ｜ 官方體驗旗艦店</span>
+                <span class="text-xs font-bold text-slate-600">常設旗艦店（女兒超愛！）</span>
               </div>
-              <h4 class="font-serif font-black text-xl text-sumi mb-2">🎡 名偵探柯南樂園 2026 (Conan Land)</h4>
-              <p class="text-xs font-bold text-kohaku mb-2">📍 台場 DiverCity Tokyo Plaza（三井不動產主辦）</p>
+              <h4 class="font-serif font-black text-xl text-sumi mb-2">🎈 ドラえもん未来デパート (哆啦A夢未來百貨公司)</h4>
+              <p class="text-xs font-bold text-kohaku mb-2">📍 台場 DiverCity Tokyo Plaza 2F</p>
               <p class="text-sumi-light leading-relaxed mb-3">
-                慶祝<strong>電視動畫 30 週年紀念</strong>規模全面升級！現場除了販售限定原創周邊，還新增了可以抽專屬徽章的「限定轉蛋機」、特製「置物櫃抽獎（ロッカーくじ）」以及紀念 30 週年的電視動畫名場面彩色立體模型展示！
+                世界第一間哆啦A夢官方旗艦店！設有<strong>「秘密道具實驗室」</strong>（空氣砲射擊、竹蜻蜓飛行、記憶吐司等互動體驗）、<strong>「客製化刺繡工坊」</strong>（可現場刺繡名字在毛巾提袋上）以及海量會場限定周邊！
               </p>
-              <div class="bg-[#FDF8F3] p-4 rounded-xl border border-amber-100 space-y-2 text-sm">
-                <p>🚇 <strong>交通：</strong> 百合海鷗號「台場站」步行 5 分 / 臨海線「東京電訊站」步行 3 分。</p>
-                <p>⏱️ <strong>時間：</strong> <strong>Day 5 (8/27 週四) 16:15 – 17:35 (停留 1 小時 20 分，17:35 離開前往百合海鷗號)</strong>，10 分鐘直達 teamLab Planets！</p>
+              <div class="bg-[#F4F8FC] p-4 rounded-xl border border-blue-100 space-y-2 text-sm">
+                <p>🚇 <strong>交通：</strong> 羽田 T2 搭計程車 15 分直達 / 臨海線「東京電訊站」步行 3 分。</p>
+                <p>⏱️ <strong>時間：</strong> <strong>Day 5 (8/27 週四) 14:30 – 17:30</strong>，下飛機直奔台場，午餐＋未來百貨＋實體大鋼彈！</p>
               </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=DiverCity+Tokyo+Plaza" target="_blank" class="w-full py-3 text-center font-bold rounded-xl bg-kohaku text-white hover:bg-kohaku/90 transition text-sm shadow-xs">
-              <i class="fa-solid fa-location-arrow mr-1.5 text-white"></i> 開啟「台場 DiverCity」導航
+            <a href="https://www.google.com/maps/search/?api=1&query=ドラえもん未来デパート+DiverCity+Tokyo+Plaza" target="_blank" class="w-full py-3 text-center font-bold rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition text-sm shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-white"></i> 開啟「哆啦A夢未來百貨公司」導航
             </a>
           </div>
 
@@ -878,13 +878,24 @@
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
           <div>
-            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">專屬動漫採買地圖 (柯南 • 蠟筆小新 • 堀與宮村)</h3>
+            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">專屬動漫採買地圖 (柯南 • 哆啦A夢 • 蠟筆小新 • 堀與宮村)</h3>
             <p class="text-sm md:text-base text-sumi-light font-maru">精確標註官方專賣店、地鐵出入口與 Google Maps 導航</p>
           </div>
         </div>
 
         <div class="space-y-4 text-sm md:text-base">
           
+          <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div>
+              <span class="px-3 py-1 rounded-md text-xs font-bold bg-blue-100 text-blue-900">哆啦A夢 全球首間官方旗艦店</span>
+              <h4 class="font-serif font-black text-lg text-sumi mt-1.5">ドラえもん未来デパート (DiverCity Tokyo Plaza 2F)</h4>
+              <p class="text-sumi-light mt-1">🚇 <strong>交通：</strong> 羽田 T2 搭計程車 15 分直達 / 臨海線「東京電訊站」步行 3 分。秘密道具遊戲＋專屬刺繡！</p>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=ドラえもん未来デパート+DiverCity+Tokyo+Plaza" target="_blank" class="px-4 py-2.5 bg-washi-dark hover:bg-[#EAE0D0] text-sumi rounded-xl text-sm font-bold border border-[#CFBFAB] whitespace-nowrap shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> 哆啦A夢未來百貨導航
+            </a>
+          </div>
+
           <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
               <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-900">蠟筆小新 官方專賣店</span>
@@ -958,7 +969,7 @@
                 <p class="text-sm md:text-base text-sumi-light mt-1.5 leading-relaxed" x-text="todo.detail"></p>
                 <template x-if="todo.actionUrl">
                   <a :href="todo.actionUrl" target="_blank" class="inline-block mt-2.5 text-sm font-bold text-kohaku hover:underline">
-                    <i class="fa-solid fa-link mr-1"></i> 前往預約 / 查詢資訊夾
+                    <i class="fa-solid fa-link mr-1"></i> 前往預約 / 官方連結
                   </a>
                 </template>
               </div>
@@ -1570,71 +1581,76 @@
           },
           {
             shortDate: '8/27 (四)',
-            dayLabel: 'Day 5 ｜ 飛東京・柯南與光影',
+            dayLabel: 'Day 5 ｜ 飛東京・台場與光影',
             fullDate: '2026年8月27日（週四）',
-            title: '札幌飛羽田 ➔ 台場「名偵探柯南樂園」➔ teamLab Planets',
-            pace: '水岸順向',
+            title: '札幌飛羽田 ➔ 黑貓寄大行李 ➔ 台場未來百貨 ➔ teamLab Planets',
+            pace: '省時順向 ｜ 極致輕鬆',
             paceColor: 'bg-blue-100 text-blue-800',
             isRainMode: false,
             rainBannerTitle: '🌧️ Day 5 雨天提示',
-            rainBannerDesc: '柯南樂園商場與 teamLab Planets 皆為全室內體驗，完全不受天候影響。',
+            rainBannerDesc: '羽田機場、台場 DiverCity 商場與 teamLab Planets 皆為全室內體驗，完全不受天候影響。',
             timeline: [
               { 
                 time: '09:30 – 10:30', 
                 stay: '車程 45 分鐘 ｜ 10:15 抵達新千歲報到',
                 spot: '退房 ➔ JR 快速 Airport ➔ 新千歲機場', 
                 transit: '札幌站搭乘 <strong>JR 快速 Airport</strong> 直達新千歲機場地下月台（約 37 分鐘）。',
-                desc: '10:45 前抵達國內線櫃台報到託運。', 
+                desc: '10:45 前抵達國內線櫃台報到託運。昨晚打包好的北海道戰利品全數裝箱託運！', 
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=New+Chitose+Airport'
               },
               { 
                 time: '12:00 – 13:35', 
                 stay: '飛行 1h35m ｜ 13:35 抵達東京羽田',
                 spot: '新千歲 (CTS) 飛往 羽田 (HND)', 
-                transit: '搭乘全日空 NH60，預計 13:35 抵達東京羽田機場第 2 航廈。',
-                desc: '領取行李後轉搭單軌電車。', 
+                transit: '搭乘全日空 NH60，預計 13:35 準時抵達東京羽田機場第 2 航廈 (T2)。',
+                desc: '領取行李後，直接在到達大廳辦理寄件。', 
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2'
               },
               { 
-                time: '14:45 – 15:45', 
-                stay: '停留 1 小時 ｜ 15:45 出發前往台場',
-                spot: 'Vessel Inn 高田馬場站前 Check-in', 
-                transit: '羽田第 2 航廈搭 <strong>東京單軌電車（空港快速）</strong> 至「濱松町站」轉 <strong>JR 山手線（外環）</strong> 直達「高田馬場站」，<strong>地鐵東西線 4 號出口電梯直通飯店 B1</strong>（東京都新宿区高田馬場2-17-4）。',
-                desc: '入住飯店放行李稍作休息。', 
-                history: '「高田馬場」源自江戶時代（1636年）德川將軍家設立的旗本騎馬射箭訓練場，亦為手塚治虫筆下「原子小金剛」的誕生舞台。',
+                time: '13:35 – 14:15', 
+                stay: '提領寄件 30 分鐘 ｜ 14:15 搭計程車出發',
+                spot: '羽田 T2 領行李 ➔ 1F「4號出口」黑貓寄送大行李 ➔ 計程車直奔台場', 
+                transit: 'T2 1F 到著大廳 <strong>「到着出口 4 號」正前方黑貓櫃台</strong> 寄送大行李 ➔ 走出大門直接於 1F 計程車站搭車（走灣岸線 15–20 分鐘直達台場 DiverCity 門口，車資約 ¥5,500）。',
+                desc: '【省下1.5小時神操作】下機後在 4 號出口黑貓櫃台出示手機 QR Code，2 分鐘把 2 件大行李寄往高田馬場飯店（指定 8/28 早上送達）！全家只留隨身小包，跳上計程車直奔台場！', 
+                highlight: true,
+                history: '<strong>羽田黑貓寄件指南：</strong><br>• 位置：T2 1F 到著大廳「到着出口 4 番」正前方。<br>• 手機填單：使用「宅急便をスマホで送る」生成 QR Code，現場 1 秒掃描免手寫！<br>• 送達時間：同屬東京都內，<strong>8/28 (Day 6) 上午 09:00～12:00 準時送達高田馬場飯店</strong>。',
+                mustBuy: '事先截圖黑貓手機 QR Code、大行李託運收據',
                 links: [
-                  { title: 'Vessel Inn 高田馬場官網', url: 'https://www.vessel-hotel.jp/inn/takadanobaba/' }
+                  { title: '黑貓宅急便「手機線上填單」官網', url: 'https://www.kuronekoyamato.co.jp/ytc/customer/send/sp/' },
+                  { title: '羽田機場 T2 宅配櫃台指南', url: 'https://tokyo-haneda.com/service/facilities/delivery.html' }
                 ],
-                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station'
+                tip: '大行李在羽田直接寄飯店，全家一身輕裝直奔台場，省下繞路回飯店的 1.5 小時！',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2'
               },
               { 
-                time: '16:15 – 17:35', 
-                stay: '停留 1 小時 20 分 ｜ 17:35 離開前往百合海鷗號',
-                spot: '🎡 台場 DiverCity：名偵探柯南樂園 2026 (30週年特展)', 
-                transit: '高田馬場搭 JR 山手線至大崎轉 <strong>臨海線直達「東京電訊站 (Tokyo Teleport)」步行 3 分</strong> 即達 DiverCity Tokyo Plaza。',
-                desc: '朝聖三井不動產主辦的「名偵探柯南樂園 2026」！參加電視動畫 30 週年限定轉蛋機、置物櫃抽獎（ロッカーくじ）與名場面模型拍照。', 
+                time: '14:30 – 17:30', 
+                stay: '停留 3 小時 ｜ 17:30 啟程前往 teamLab',
+                spot: '台場 DiverCity：美食街午餐 ＋ 哆啦A夢未來百貨 ＋ 實體大鋼彈', 
+                transit: '計程車下車即為 DiverCity Tokyo Plaza 正門。全家背隨身小包自由漫步，無需尋找大型置物櫃。',
+                desc: '抵達後先在 2F 美食街享用午餐。接著朝聖全球首間「ドラえもん未来デパート（哆啦A夢未來百貨公司）」，體驗秘密道具互動遊戲、客製化刺繡工坊；戶外觀賞 1:1 實體大獨角獸鋼彈變身秀，漫步海濱公園眺望彩虹大橋。', 
                 highlight: true, 
-                history: '2026 年適逢《名偵探柯南》電視動畫開播 30 週年紀念，三井不動產於全日本巡迴舉辦「柯南樂園」，台場 DiverCity 為東京最核心展區，結合巨型鋼彈立像與海灣購物娛樂。',
-                mustBuy: '30週年限定轉蛋徽章、置物櫃限定大獎、會場限定壓克力角色立牌',
+                history: '<strong>台場 DiverCity 核心亮點：</strong><br>• <strong>ドラえもん未来デパート (2F)：</strong> 世界第一間哆啦A夢官方旗艦店！設有空氣砲射擊、竹蜻蜓飛行等秘密道具遊戲區，並提供專屬名字刺繡服務。<br>• <strong>實體大獨角獸鋼彈立像 (戶外)：</strong> 高達 19.7 公尺，每到午後有毀滅模式變身聲光秀！<br>• <strong>台場海濱公園：</strong> 東京灣最美水岸，可遠眺自由女神像與彩虹大橋。',
+                mustBuy: '未來百貨限定客製化刺繡毛巾/提袋、秘密道具銅鑼燒、鋼彈模型旗艦店限定品',
                 links: [
-                  { title: '名偵探柯南樂園 官方活動頁', url: 'https://conan-park.jp/' }
+                  { title: '哆啦A夢未來百貨公司 官方指南', url: 'https://mirai.dora-world.com/' },
+                  { title: 'DiverCity Tokyo Plaza 官方網站', url: 'https://mitsui-shopping-park.com/divercity-tokyo/' }
                 ],
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=DiverCity+Tokyo+Plaza'
               },
               { 
-                time: '17:45 – 18:00', 
-                stay: '車程 15 分鐘 ｜ 17:55 抵達新豐洲',
-                spot: '台場 ➔ 百合海鷗號 ➔ teamLab Planets (豐洲)', 
-                transit: 'DiverCity 步行至 <strong>百合海鷗號「台場站」搭乘 5 站（約 10 分鐘）直達「新豐洲站」</strong>，出站過天橋 1 分鐘即達（水岸順向無縫連接！）。',
-                desc: '前往預約好的 teamLab Planets 涉水光影展。', 
+                time: '17:35 – 17:55', 
+                stay: '車程 10 分鐘 ｜ 17:50 抵達新豐洲',
+                spot: '台場 ➔ 計程車 8 分鐘（或百合海鷗號）➔ teamLab Planets', 
+                transit: 'DiverCity 門口直接搭計程車（約 8 分鐘，¥1,800，4人免擠車超舒服）；或步行至百合海鷗號「台場站」搭 5 站至「新豐洲站」。',
+                desc: '順向無縫抵達豐洲，準備進入 teamLab Planets 光影宇宙。', 
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=Shin-Toyosu+Station'
               },
               { 
                 time: '18:00 – 19:45', 
                 stay: '停留 1 小時 45 分 ｜ 19:45 離開前往晚餐',
                 spot: 'teamLab Planets TOKYO (沉浸式涉水展)', 
-                transit: '新豐洲站 1 分鐘。',
-                desc: '沉浸式赤腳涉入水中與巨型光影宇宙、漂浮花園。', 
+                transit: '新豐洲站出站過天橋 1 分鐘。隨身小包直接免費鎖在入口處置物櫃。',
+                desc: '赤腳涉入巨型水中宇宙、光影水晶宇宙與蘭花漂浮花園。', 
                 highlight: true, 
                 cost: '4人約 ¥13,000', 
                 history: 'teamLab 成立於 2001 年，由豬子壽之帶領跨領域團隊打造，以「Body Immersive（身臨其境）」理念模糊人與藝術創作的邊界，獲評為全球最多人造訪的單一藝術家美術館之一。',
@@ -1648,30 +1664,31 @@
               },
               { 
                 time: '20:00 – 21:30', 
-                stay: '用餐 1.5 小時 ｜ 21:30 返回高田馬場飯店',
-                spot: '晚餐：豐洲 LaLaport / 回高田馬場', 
-                transit: '新豐洲搭百合海鷗號 1 站回「豐洲站」2b 出口直結商場；或搭有樂町線/東西線返回高田馬場。',
-                desc: '海灣商場晚餐或回飯店旁享用「ひなた」頂級炸豬排。', 
+                stay: '用餐車程 1.5 小時 ｜ 21:30 飯店入住休息',
+                spot: '豐洲海灣晚餐 ➔ 前往 Vessel Inn 高田馬場 Check-in', 
+                transit: '豐洲搭有樂町線至飯田橋轉 <strong>東西線至「高田馬場站」4 號出口電梯直通飯店 B1</strong>；或從豐洲直接搭計程車約 25 分鐘（¥5,500）直達飯店正門。',
+                desc: '品嚐豐洲美食，前往高田馬場飯店辦理入住手續。使用隨身包內的換洗衣物洗澡休息，飯店免費提供完整睡衣與盥洗備品！', 
+                history: '「高田馬場」源自江戶時代（1636年）德川將軍家設立的旗本騎馬射箭訓練場，亦為手塚治虫筆下「原子小金剛」的誕生舞台。',
                 links: [
-                  { title: 'LaLaport 豐洲購物中心指南', url: 'https://mitsui-shopping-park.com/lalaport/toyosu/' }
+                  { title: 'Vessel Inn 高田馬場官網', url: 'https://www.vessel-hotel.jp/inn/takadanobaba/' }
                 ],
-                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Urban+Dock+LaLaport+Toyosu'
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station'
               }
             ],
             rainTimeline: [
               { 
-                time: '16:15 – 17:35', 
-                stay: '停留 1 小時 20 分',
-                spot: '🎡 台場 DiverCity：名偵探柯南樂園 2026', 
-                transit: '臨海線直達東京電訊站。',
-                desc: '室內商場柯南展。',
+                time: '14:30 – 17:30', 
+                stay: '停留 3 小時',
+                spot: '台場 DiverCity (全室內商場 ＋ 哆啦A夢未來百貨)', 
+                transit: '羽田機場計程車直達室內商場。',
+                desc: '全室內美食街午餐、秘密道具體驗。',
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=DiverCity+Tokyo+Plaza'
               },
               { 
                 time: '18:00 – 19:45', 
                 stay: '停留 1 小時 45 分',
                 spot: 'teamLab Planets TOKYO (全室內涉水展)', 
-                transit: '新豐洲站 1 分鐘。',
+                transit: '計程車 8 分鐘直達。',
                 desc: '全室內體驗不受天候影響。', 
                 bookingUrl: 'https://planets.teamlab.art/tokyo/',
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=teamLab+Planets+TOKYO'
@@ -1694,7 +1711,7 @@
                 stay: '車程 55 分鐘 ｜ 09:45 抵達博物館門口',
                 spot: '高田馬場 ➔ 川崎 登戶站', 
                 transit: '高田馬場搭 <strong>JR 山手線</strong> 至新宿，轉乘 <strong>小田急小田原線（快速急行）16 分鐘至「登戶站」生田綠地口</strong> 轉乘專屬「哆啦A夢彩繪接駁巴士」（車程約 10 分鐘，¥220/人）。',
-                desc: '前往藤子・F・不二雄博物館。', 
+                desc: '前往藤子・F・不二雄博物館。（黑貓大行李已於上午準時送達高田馬場飯店保管室）', 
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=Noborito+Station'
               },
               { 
@@ -1781,10 +1798,10 @@
               },
               { 
                 time: '19:45 – 21:15', 
-                stay: '用餐 1.5 小時 ｜ 21:15 回飯店休息',
-                spot: '晚餐：高田馬場 ひなた 頂級炸豬排 / 新宿燒肉', 
+                stay: '用餐 1.5 小時 ｜ 21:15 回飯店開箱整理大行李',
+                spot: '晚餐：高田馬場 ひなた 頂級炸豬排 / 飯店開箱整理大行李', 
                 transit: '水道橋搭 JR 總武線至新宿轉山手線，<strong>12 分鐘直達高田馬場站</strong>。',
-                desc: '回到飯店旁享用神級炸豬排「ひなた」或日式燒肉，慶祝充實圓滿的一天。', 
+                desc: '回到飯店享用神級炸豬排「ひなた」。黑貓大行李已送達房間，全家開箱將北海道與東京採買的戰利品全部裝箱打包！', 
                 mapUrl: 'https://www.google.com/maps/search/?api=1&query=Tonkatsu+Hinata+Takadanobaba'
               }
             ],
@@ -1882,6 +1899,7 @@
         ],
         checklist: [
           { done: true, category: '已完成・租車', badgeColor: 'bg-emerald-100 text-emerald-800', title: '✅ 8/25 NIPPON 租車已完成預約！', detail: '預約號碼：101851488 ｜ 密碼：c60305a4 ｜ 取車點：JR 札幌站東口步行 5 分 (札幌市東区北7条東1丁目1番1号) ｜ Map Code：9 553 092 ｜ 費用：¥12,540 (現場付款，含 CDW+安心NOC+ETC卡) ｜ 必帶：台灣駕照正本＋日文譯本＋護照。', actionUrl: 'https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488' },
+          { done: false, category: '黑貓寄件', badgeColor: 'bg-amber-100 text-amber-800', title: '8/27 羽田黑貓寄大行李 (手機事先填單 QR Code)', detail: '使用黑貓「宅急便をスマホで送る」生成 QR Code，收件填高田馬場飯店、指定 8/28 午前中送達，羽田 T2 1F 4號出口前櫃台 1 秒掃描寄出！', actionUrl: 'https://www.kuronekoyamato.co.jp/ytc/customer/send/sp/' },
           { done: false, category: '最優先・搶票', badgeColor: 'bg-red-100 text-red-700', title: 'teamLab Planets (8/27 18:00場)', detail: '出發前 2–3 週上官網訂指定時段票，熱門時段常售罄。', actionUrl: 'https://planets.teamlab.art/tokyo/' },
           { done: false, category: '最優先・搶票', badgeColor: 'bg-red-100 text-red-700', title: '藤子・F・不二雄博物館 (8/28 10:00場)', detail: '完全預約制，現場無售票！每月開賣日立即搶票。', actionUrl: 'https://fujiko-museum.com/' },
           { done: false, category: '必吃燒肉', badgeColor: 'bg-red-100 text-red-700', title: '預約 8/25 20:00 炭火焼肉 羅山 すすきの店', detail: '自駕回程後享用頂級 A5 黑毛和牛，離飯店步行僅 3 分鐘。', actionUrl: 'https://razan.gorp.jp/' },
