@@ -88,7 +88,7 @@
     <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center space-x-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium text-xs sm:text-sm">🚗 最新更新：8/25 NIPPON 租車預約確認！Map Code、門市與取還車時間已同步整合！</span>
+        <span class="font-medium text-xs sm:text-sm">🌤️ 晚夏情報：各景點精確「停留與離開時間」已標註，掌控節奏最安心！</span>
       </div>
       <div class="flex items-center space-x-2 text-xs sm:text-sm font-maru text-slate-200">
         <span>8/23 (日) 出發 ｜ 7天6夜全家行</span>
@@ -257,71 +257,71 @@
       </div>
     </div>
 
-    <!-- Flight & Hotel Summary Card (Hidden during search) -->
-    <section x-show="!searchQuery" class="washi-card rounded-2xl p-5 md:p-6">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#E8E0D2] pb-4">
-        <div>
-          <span class="inline-block px-3 py-1 rounded-md text-xs md:text-sm font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1.5">
-            ✈️ 航段配置
-          </span>
-          <h2 class="font-serif font-bold text-xl md:text-2xl text-sumi">台北松山 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
-        </div>
-        <div class="text-sm md:text-base text-sumi-light space-y-1">
-          <p><span class="font-bold text-sumi">8/23 (日):</span> 松山 13:30 ➔ 羽田 17:45 (NH852) ➔ 轉機 2.5h ➔ 札幌 21:50 (HD37)</p>
-          <p><span class="font-bold text-sumi">8/27 (四):</span> 札幌 12:00 ➔ 羽田 13:35 (NH60) 進入東京</p>
-          <p><span class="font-bold text-sumi">8/29 (六):</span> 羽田 13:20 ➔ 松山 15:50 (NH853)</p>
-        </div>
-      </div>
-
-      <!-- Hotels -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-sm md:text-base">
-        <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
-          <div>
-            <div class="flex justify-between items-start mb-1.5">
-              <span class="font-bold text-aizome font-serif text-base">8/23 (1晚) 千歲機場旅驛</span>
-              <span class="text-xs bg-aizome/10 text-aizome px-2 py-0.5 rounded font-medium">車程10分</span>
-            </div>
-            <p class="text-sumi-light text-sm mb-2">千歳市東郊 1-12-21。深夜抵達新千歲後乘車就近入住。</p>
-            <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店</div>
-          </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
-            <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
-          </a>
-        </div>
-
-        <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
-          <div>
-            <div class="flex justify-between items-start mb-1.5">
-              <span class="font-bold text-aizome font-serif text-base">8/24–8/27 (3晚) Vessel Campana</span>
-              <span class="text-xs bg-matcha/10 text-matcha px-2 py-0.5 rounded font-medium">大浴場/桑拿</span>
-            </div>
-            <p class="text-sumi-light text-sm mb-2">札幌薄野・<strong>地鐵南北線「すすきの」站 4 號出口徒步 4 分</strong>。徒步 3 分達 Razan 炭火燒肉。</p>
-            <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-fire mr-1"></i> 徒步 3 分：炭火焼肉 羅山 ＋ 佐藤聖代</div>
-          </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
-            <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
-          </a>
-        </div>
-
-        <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
-          <div>
-            <div class="flex justify-between items-start mb-1.5">
-              <span class="font-bold text-aizome font-serif text-base">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
-              <span class="text-xs bg-kohaku/10 text-kohaku px-2 py-0.5 rounded font-medium">地鐵直通</span>
-            </div>
-            <p class="text-sumi-light text-sm mb-2"><strong>地鐵東西線「高田馬場」站 4 號出口電梯直通 B1</strong>、JR 站 2 分。直達東京巨蛋城柯南廣場。</p>
-            <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-utensils mr-1"></i> 徒步 3 分達「ひなた」頂級炸豬排</div>
-          </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
-            <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 1: MAIN ITINERARY -->
+    <!-- SECTION 1: MAIN ITINERARY (Shows Flight/Hotels, Day Selector, Timelines, and Budget) -->
     <div x-show="activeMainTab === 'itinerary' && !searchQuery" class="space-y-6">
       
+      <!-- Flight & Hotel Summary Card (ONLY IN ITINERARY TAB) -->
+      <section class="washi-card rounded-2xl p-5 md:p-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#E8E0D2] pb-4">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-md text-xs md:text-sm font-serif font-bold bg-matcha-light text-matcha border border-matcha/30 mb-1.5">
+              ✈️ 航段配置
+            </span>
+            <h2 class="font-serif font-bold text-xl md:text-2xl text-sumi">台北松山 ⇄ 東京羽田 ⇄ 札幌新千歲</h2>
+          </div>
+          <div class="text-sm md:text-base text-sumi-light space-y-1">
+            <p><span class="font-bold text-sumi">8/23 (日):</span> 松山 13:30 ➔ 羽田 17:45 (NH852) ➔ 轉機 2.5h ➔ 札幌 21:50 (HD37)</p>
+            <p><span class="font-bold text-sumi">8/27 (四):</span> 札幌 12:00 ➔ 羽田 13:35 (NH60) 進入東京</p>
+            <p><span class="font-bold text-sumi">8/29 (六):</span> 羽田 13:20 ➔ 松山 15:50 (NH853)</p>
+          </div>
+        </div>
+
+        <!-- Hotels -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-sm md:text-base">
+          <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-start mb-1.5">
+                <span class="font-bold text-aizome font-serif text-base">8/23 (1晚) 千歲機場旅驛</span>
+                <span class="text-xs bg-aizome/10 text-aizome px-2 py-0.5 rounded font-medium">車程10分</span>
+              </div>
+              <p class="text-sumi-light text-sm mb-2">千歳市東郊 1-12-21。深夜抵達新千歲後乘車就近入住。</p>
+              <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-store mr-1"></i> Seicomart 千歲分店</div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
+              <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
+            </a>
+          </div>
+
+          <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-start mb-1.5">
+                <span class="font-bold text-aizome font-serif text-base">8/24–8/27 (3晚) Vessel Campana</span>
+                <span class="text-xs bg-matcha/10 text-matcha px-2 py-0.5 rounded font-medium">大浴場/桑拿</span>
+              </div>
+              <p class="text-sumi-light text-sm mb-2">札幌薄野・<strong>地鐵南北線「すすきの」站 4 號出口徒步 4 分</strong>。徒步 3 分達 Razan 炭火燒肉。</p>
+              <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-fire mr-1"></i> 徒步 3 分：炭火焼肉 羅山 ＋ 佐藤聖代</div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Susukino" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
+              <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
+            </a>
+          </div>
+
+          <div class="p-4 rounded-xl bg-washi border border-[#E2D8C7] flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-start mb-1.5">
+                <span class="font-bold text-aizome font-serif text-base">8/27–8/29 (2晚) Vessel Inn 高田馬場</span>
+                <span class="text-xs bg-kohaku/10 text-kohaku px-2 py-0.5 rounded font-medium">地鐵直通</span>
+              </div>
+              <p class="text-sumi-light text-sm mb-2"><strong>地鐵東西線「高田馬場」站 4 號出口電梯直通 B1</strong>、JR 站 2 分。直達東京巨蛋城柯南廣場。</p>
+              <div class="text-xs md:text-sm text-kohaku font-bold"><i class="fa-solid fa-utensils mr-1"></i> 徒步 3 分達「ひなた」頂級炸豬排</div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Vessel+Inn+Takadanobaba+Station" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-white border border-[#D0C4B0] text-sumi hover:text-aizome font-bold text-sm flex items-center justify-center shadow-xs">
+              <i class="fa-solid fa-location-dot mr-1.5 text-kohaku"></i> Google Maps 導航
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- Day Selector -->
       <div class="flex items-center space-x-2.5 overflow-x-auto pb-2 scrollbar-none">
         <template x-for="(day, index) in days" :key="index">
@@ -478,6 +478,52 @@
         </div>
 
       </div>
+
+      <!-- Family Budget Summary Accordion (ONLY IN ITINERARY TAB) -->
+      <section class="washi-card rounded-2xl p-5 md:p-6">
+        <div class="flex justify-between items-center cursor-pointer" @click="showBudget = !showBudget">
+          <div class="flex items-center space-x-2.5">
+            <i class="fa-solid fa-coins text-gold text-xl"></i>
+            <h3 class="font-serif font-black text-base md:text-xl text-sumi">4人門票與主要交通預算概估（不含機加酒餐費）</h3>
+          </div>
+          <button class="text-sm font-bold text-sumi-light hover:text-sumi flex items-center">
+            <span x-text="showBudget ? '收合明細' : '展開明細'"></span>
+            <i class="fa-solid ml-1.5" :class="showBudget ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          </button>
+        </div>
+
+        <div x-show="showBudget" x-transition class="pt-4 border-t border-[#EAE3D4] mt-3">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm md:text-base text-left">
+              <thead>
+                <tr class="border-b border-[#E0D8C3] text-sumi-light font-serif">
+                  <th class="py-2.5 font-bold">項目</th>
+                  <th class="py-2.5 text-right">日圓 (¥)</th>
+                  <th class="py-2.5 text-right">台幣估計 (NT$)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#EAE3D4] text-sumi">
+                <tr><td class="py-2.5">新千歲 ⇄ 札幌 JR 機場快線 (4人來回)</td><td class="py-2.5 text-right font-mono">¥9,200</td><td class="py-2.5 text-right font-mono">NT$1,840</td></tr>
+                <tr><td class="py-2.5">白色戀人公園 付費區 (2大2小)</td><td class="py-2.5 text-right font-mono">¥2,400</td><td class="py-2.5 text-right font-mono">NT$480</td></tr>
+                <tr><td class="py-2.5">藻岩山纜車＋迷你纜車來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,300</td><td class="py-2.5 text-right font-mono">NT$1,260</td></tr>
+                <tr><td class="py-2.5">旭山動物園 (2大 + 2小免費)</td><td class="py-2.5 text-right font-mono">¥2,000</td><td class="py-2.5 text-right font-mono">NT$400</td></tr>
+                <tr class="bg-emerald-50/50"><td class="py-2.5 font-bold text-emerald-900">8/25 NIPPON 租車 1 日 (已訂！含安心保險+NOC+ETC卡)</td><td class="py-2.5 text-right font-mono font-bold text-emerald-900">¥12,540</td><td class="py-2.5 text-right font-mono font-bold text-emerald-900">NT$2,508</td></tr>
+                <tr><td class="py-2.5">Day 3 高速過路費 ＋ 油資 (380km)</td><td class="py-2.5 text-right font-mono">¥11,500</td><td class="py-2.5 text-right font-mono">NT$2,300</td></tr>
+                <tr><td class="py-2.5">小樽 JR 來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,000</td><td class="py-2.5 text-right font-mono">NT$1,200</td></tr>
+                <tr><td class="py-2.5">teamLab Planets TOKYO (4人指定票)</td><td class="py-2.5 text-right font-mono">¥13,000</td><td class="py-2.5 text-right font-mono">NT$2,600</td></tr>
+                <tr><td class="py-2.5">藤子・F・不二雄博物館 ＋ 接駁巴士 (4人)</td><td class="py-2.5 text-right font-mono">¥4,300</td><td class="py-2.5 text-right font-mono">NT$860</td></tr>
+                <tr><td class="py-2.5">SHIBUYA SKY 展望台 (4人)</td><td class="py-2.5 text-right font-mono">¥10,000</td><td class="py-2.5 text-right font-mono">NT$2,000</td></tr>
+                <tr class="font-bold bg-matcha-light/50 text-aizome">
+                  <td class="py-3">總計預估 (匯率約 100円 ≈ NT$20)</td>
+                  <td class="py-3 text-right font-mono text-lg">約 ¥77,240</td>
+                  <td class="py-3 text-right font-mono text-lg">約 NT$15,448</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
     </div>
 
     <!-- SECTION: 8/25 CAR RENTAL VOUCHER & DETAILS -->
@@ -983,51 +1029,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Family Budget Summary Accordion -->
-    <section x-show="!searchQuery" class="washi-card rounded-2xl p-5 md:p-6">
-      <div class="flex justify-between items-center cursor-pointer" @click="showBudget = !showBudget">
-        <div class="flex items-center space-x-2.5">
-          <i class="fa-solid fa-coins text-gold text-xl"></i>
-          <h3 class="font-serif font-black text-base md:text-xl text-sumi">4人門票與主要交通預算概估（不含機加酒餐費）</h3>
-        </div>
-        <button class="text-sm font-bold text-sumi-light hover:text-sumi flex items-center">
-          <span x-text="showBudget ? '收合明細' : '展開明細'"></span>
-          <i class="fa-solid ml-1.5" :class="showBudget ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
-        </button>
-      </div>
-
-      <div x-show="showBudget" x-transition class="pt-4 border-t border-[#EAE3D4] mt-3">
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm md:text-base text-left">
-            <thead>
-              <tr class="border-b border-[#E0D8C3] text-sumi-light font-serif">
-                <th class="py-2.5 font-bold">項目</th>
-                <th class="py-2.5 text-right">日圓 (¥)</th>
-                <th class="py-2.5 text-right">台幣估計 (NT$)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-[#EAE3D4] text-sumi">
-              <tr><td class="py-2.5">新千歲 ⇄ 札幌 JR 機場快線 (4人來回)</td><td class="py-2.5 text-right font-mono">¥9,200</td><td class="py-2.5 text-right font-mono">NT$1,840</td></tr>
-              <tr><td class="py-2.5">白色戀人公園 付費區 (2大2小)</td><td class="py-2.5 text-right font-mono">¥2,400</td><td class="py-2.5 text-right font-mono">NT$480</td></tr>
-              <tr><td class="py-2.5">藻岩山纜車＋迷你纜車來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,300</td><td class="py-2.5 text-right font-mono">NT$1,260</td></tr>
-              <tr><td class="py-2.5">旭山動物園 (2大 + 2小免費)</td><td class="py-2.5 text-right font-mono">¥2,000</td><td class="py-2.5 text-right font-mono">NT$400</td></tr>
-              <tr class="bg-emerald-50/50"><td class="py-2.5 font-bold text-emerald-900">8/25 NIPPON 租車 1 日 (已訂！含安心保險+NOC+ETC卡)</td><td class="py-2.5 text-right font-mono font-bold text-emerald-900">¥12,540</td><td class="py-2.5 text-right font-mono font-bold text-emerald-900">NT$2,508</td></tr>
-              <tr><td class="py-2.5">Day 3 高速過路費 ＋ 油資 (380km)</td><td class="py-2.5 text-right font-mono">¥11,500</td><td class="py-2.5 text-right font-mono">NT$2,300</td></tr>
-              <tr><td class="py-2.5">小樽 JR 來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,000</td><td class="py-2.5 text-right font-mono">NT$1,200</td></tr>
-              <tr><td class="py-2.5">teamLab Planets TOKYO (4人指定票)</td><td class="py-2.5 text-right font-mono">¥13,000</td><td class="py-2.5 text-right font-mono">NT$2,600</td></tr>
-              <tr><td class="py-2.5">藤子・F・不二雄博物館 ＋ 接駁巴士 (4人)</td><td class="py-2.5 text-right font-mono">¥4,300</td><td class="py-2.5 text-right font-mono">NT$860</td></tr>
-              <tr><td class="py-2.5">SHIBUYA SKY 展望台 (4人)</td><td class="py-2.5 text-right font-mono">¥10,000</td><td class="py-2.5 text-right font-mono">NT$2,000</td></tr>
-              <tr class="font-bold bg-matcha-light/50 text-aizome">
-                <td class="py-3">總計預估 (匯率約 100円 ≈ NT$20)</td>
-                <td class="py-3 text-right font-mono text-lg">約 ¥77,240</td>
-                <td class="py-3 text-right font-mono text-lg">約 NT$15,448</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -1567,7 +1568,7 @@
                 desc: '包廂享用活帝王蟹火鍋、炭烤蟹腳與蟹膏刺身料理。', 
                 highlight: true, 
                 history: '北海道為日本三大名蟹（帝王蟹、松葉蟹、毛蟹）的重要漁場，得益於鄂霍次克海冰融後豐富的浮游生物，肉質緊緻鮮甜。',
-                mustBuy: '帝王蟹會席（タラバガニ会席）、蟹黃甲羅燒、蟹肉壽司',
+                mustBuy: '帝王蟹會席（タ拉バガニ会席）、蟹黃甲羅燒、蟹肉壽司',
                 links: [
                   { title: '札幌かに本家官網預約', url: 'https://www.kani-honke.co.jp/' }
                 ],
