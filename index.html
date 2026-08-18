@@ -88,7 +88,7 @@
     <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center space-x-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium text-xs sm:text-sm">🌤️ 晚夏情報：已標註各景點精確「停留時間」與「離開時間」，掌控節奏最安心！</span>
+        <span class="font-medium text-xs sm:text-sm">🚗 最新更新：8/25 NIPPON 租車預約確認！Map Code、門市與取還車時間已同步整合！</span>
       </div>
       <div class="flex items-center space-x-2 text-xs sm:text-sm font-maru text-slate-200">
         <span>8/23 (日) 出發 ｜ 7天6夜全家行</span>
@@ -150,7 +150,7 @@
         <input 
           type="text" 
           x-model="searchQuery" 
-          placeholder="快速搜尋景點/美食/交通 (如: 柯南, 和牛, Google, 諏訪, 青池, 拉麵, 蝦, 冰淇淋...)" 
+          placeholder="快速搜尋景點/美食/交通 (如: 租車, 101851488, 柯南, 和牛, Google, 諏訪, 青池...)" 
           class="w-full pl-10 pr-10 py-2 rounded-xl bg-washi border border-[#D5CABB] text-sm md:text-base text-sumi placeholder-sumi-light/60 focus:outline-none focus:ring-2 focus:ring-aizome focus:bg-white transition">
         <button 
           x-show="searchQuery" 
@@ -166,6 +166,9 @@
       <div class="max-w-5xl mx-auto flex items-center space-x-2 overflow-x-auto scrollbar-none py-0.5">
         <button @click="activeMainTab = 'itinerary'; searchQuery = ''" :class="activeMainTab === 'itinerary' && !searchQuery ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-map-location-dot mr-1.5 text-base"></i> 每日行程 & 導航
+        </button>
+        <button @click="activeMainTab = 'carRental'; searchQuery = ''" :class="activeMainTab === 'carRental' ? 'bg-emerald-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-car mr-1.5 text-base text-emerald-400"></i> 8/25 租車憑證資訊
         </button>
         <button @click="activeMainTab = 'conanSpecial'; searchQuery = ''" :class="activeMainTab === 'conanSpecial' ? 'bg-blue-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-magnifying-glass mr-1.5 text-base text-amber-400"></i> 柯南 2 大限定特展
@@ -203,7 +206,7 @@
       <template x-if="filteredSearchResults.length === 0">
         <div class="washi-card rounded-2xl p-8 text-center space-y-2">
           <p class="text-lg font-serif font-bold text-sumi">找不到與「<span x-text="searchQuery"></span>」相符的景點或資訊</p>
-          <p class="text-sm text-sumi-light">試試搜尋：柯南、和牛、Google、青池、小樽、拉麵、水族館、神社 等關鍵字</p>
+          <p class="text-sm text-sumi-light">試試搜尋：租車、Nippon、柯南、和牛、Google、青池、小樽、拉麵、神社 等關鍵字</p>
         </div>
       </template>
 
@@ -238,14 +241,14 @@
 
             <template x-if="res.history">
               <div class="p-3.5 rounded-xl bg-[#FAF8F5] border-l-4 border-kohaku text-sm text-sumi">
-                <span class="font-bold text-kohaku">文史亮點：</span>
+                <span class="font-bold text-kohaku">文史/預約亮點：</span>
                 <span x-html="res.history"></span>
               </div>
             </template>
 
             <template x-if="res.mustBuy">
               <div class="text-xs md:text-sm text-sumi font-medium">
-                <span class="font-bold text-kohaku">🛍️ 必看/必買：</span>
+                <span class="font-bold text-kohaku">🛍️ 必看/必備：</span>
                 <span class="text-sumi-light" x-text="res.mustBuy"></span>
               </div>
             </template>
@@ -398,7 +401,7 @@
                         class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs md:text-sm font-serif font-bold transition border"
                         :class="showHistory ? 'bg-kohaku text-white border-kohaku' : 'bg-kohaku-light text-kohaku border-kohaku/40 hover:bg-kohaku/10'">
                         <i class="fa-solid fa-scroll mr-1.5"></i>
-                        <span x-text="showHistory ? '收合文史' : '歷史見聞 & 推薦'"></span>
+                        <span x-text="showHistory ? '收合文史/預約' : '詳細見聞 & 資訊'"></span>
                       </button>
                     </template>
 
@@ -426,8 +429,8 @@
                 <template x-if="item.history">
                   <div x-show="showHistory" x-transition class="p-4 md:p-5 rounded-xl bg-[#F7F4EE] border-l-4 border-kohaku text-sm md:text-base text-sumi shadow-inner space-y-2.5">
                     <div class="font-serif font-bold text-kohaku flex items-center">
-                      <i class="fa-solid fa-landmark mr-2"></i>
-                      <span>文化典故、必買必看與延伸閱讀：</span>
+                      <i class="fa-solid fa-circle-info mr-2"></i>
+                      <span>詳細資訊、文史典故與預約憑證：</span>
                     </div>
                     
                     <p class="leading-relaxed text-sumi/90" x-html="item.history"></p>
@@ -435,7 +438,7 @@
                     <!-- Must-Buy -->
                     <template x-if="item.mustBuy">
                       <div class="pt-2.5 border-t border-[#EAE2D2] flex items-start space-x-2">
-                        <span class="font-bold text-kohaku shrink-0">🛍️ 必看/必買：</span>
+                        <span class="font-bold text-kohaku shrink-0">🛍️ 必看/必備：</span>
                         <span class="text-sumi-light leading-relaxed" x-text="item.mustBuy"></span>
                       </div>
                     </template>
@@ -465,13 +468,96 @@
                   </template>
                   <template x-if="item.bookingUrl">
                     <a :href="item.bookingUrl" target="_blank" class="px-3.5 py-1 rounded-lg bg-matcha text-white font-bold hover:bg-matcha/90 transition inline-flex items-center shadow-xs">
-                      <i class="fa-solid fa-ticket mr-1.5"></i> 官方預約 / 資訊
+                      <i class="fa-solid fa-ticket mr-1.5"></i> 官方預約 / 登入
                     </a>
                   </template>
                 </div>
               </div>
             </div>
           </template>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION: 8/25 CAR RENTAL VOUCHER & DETAILS -->
+    <div x-show="activeMainTab === 'carRental' && !searchQuery" class="space-y-6">
+      <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
+        <div class="flex items-center justify-between border-b border-[#E8E0D2] pb-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-11 h-11 rounded-xl bg-emerald-800 flex items-center justify-center text-white text-xl">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">8/25 (週二) NIPPON 租車確認憑證</h3>
+              <p class="text-sm text-sumi-light font-maru">預約平台：Tabirai Japan ｜ 租車公司：Nippon Rent-A-Car</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 text-emerald-800 font-mono font-bold rounded-lg text-sm border border-emerald-300">
+            預約確定
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm md:text-base">
+          
+          <!-- Booking Meta Card -->
+          <div class="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E2D8C7] space-y-3">
+            <h4 class="font-serif font-black text-lg text-aizome border-b border-[#EAE3D4] pb-2">📋 預約核心資訊</h4>
+            <div class="space-y-2">
+              <p><span class="font-bold text-sumi">預約號碼：</span><span class="font-mono font-bold text-kohaku text-lg">101851488</span></p>
+              <p><span class="font-bold text-sumi">查詢密碼：</span><span class="font-mono font-bold text-sumi bg-white px-2 py-0.5 rounded border border-[#DDD5C5]">c60305a4</span></p>
+              <p><span class="font-bold text-sumi">預約人姓名：</span>李浩賓 (Lee Hao Pin)</p>
+              <p><span class="font-bold text-sumi">乘車人數：</span>4 位 (全家)</p>
+              <p><span class="font-bold text-sumi">預定車型：</span>Standard 禁菸車（FIT / COROLLA 或同級）</p>
+              <p><span class="font-bold text-sumi">取還時間：</span><strong>2026/08/25 (週二) 08:00 – 20:00 (12小時)</strong></p>
+              <p><span class="font-bold text-sumi">費用合計：</span><strong class="text-red-700 text-lg font-mono">¥12,540</strong> (取車現場以信用卡付款)</p>
+            </div>
+            <div class="pt-2">
+              <a href="https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-aizome text-white hover:bg-aizome-light transition text-sm flex items-center justify-center shadow-xs">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-1.5"></i> 開啟 Tabirai「預約資訊夾」查詢頁
+              </a>
+            </div>
+          </div>
+
+          <!-- Store Location & Navigation Card -->
+          <div class="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E2D8C7] space-y-3">
+            <h4 class="font-serif font-black text-lg text-aizome border-b border-[#EAE3D4] pb-2">📍 取還車營業所資訊</h4>
+            <div class="space-y-2">
+              <p><span class="font-bold text-sumi">營業所名稱：</span><strong>NIPPON 租車 札幌車站前營業所</strong></p>
+              <p><span class="font-bold text-sumi">門市地址：</span>北海道札幌市東区北7条東1丁目1番1号</p>
+              <p><span class="font-bold text-sumi">連絡電話：</span><span class="font-mono">050-1712-2997</span></p>
+              <p><span class="font-bold text-sumi">車載導航 Map Code：</span><span class="font-mono font-black text-kohaku text-lg bg-amber-50 px-2 py-0.5 rounded border border-amber-300">9 553 092</span></p>
+              <p class="text-sumi-light text-sm">🚶 <strong>步行指南：</strong>從 <strong>JR 札幌車站「東口」步行約 5 分鐘</strong> 即可抵達。</p>
+            </div>
+            <div class="pt-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-emerald-700 text-white hover:bg-emerald-800 transition text-sm flex items-center justify-center shadow-xs">
+                <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航至 NIPPON 札幌站前營業所
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Insurance & Reminders -->
+        <div class="p-5 rounded-2xl bg-white border border-[#DDD5C5] space-y-3">
+          <h4 class="font-serif font-black text-lg text-sumi flex items-center">
+            <i class="fa-solid fa-shield-halved text-matcha mr-2"></i>
+            <span>已包含保險與行車注意事項</span>
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-sumi-light">
+            <div class="space-y-1.5">
+              <p>✅ <strong>免責補償制度 (CDW)：</strong>已內含在費用中。</p>
+              <p>✅ <strong>標準附加安心方案 ＋ ECO (NOC 賠償)：</strong>發生事故免付營業損失賠償。</p>
+              <p>✅ <strong>ETC 裝置 ＋ ETC 卡租借：</strong>已包含（卡片租金 ¥330 已計入總額）。</p>
+            </div>
+            <div class="space-y-1.5">
+              <p class="text-red-700 font-bold">⚠️ 駕駛人必帶證件：</p>
+              <p>1. 台灣駕照正本</p>
+              <p>2. 台灣監理所核發之「駕照日文譯本」正本</p>
+              <p>3. 護照</p>
+              <p class="text-xs text-sumi-light">※ 取車時請出示預約編號 101851488 即可快速辦理。</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -888,7 +974,7 @@
                 <p class="text-sm md:text-base text-sumi-light mt-1.5 leading-relaxed" x-text="todo.detail"></p>
                 <template x-if="todo.actionUrl">
                   <a :href="todo.actionUrl" target="_blank" class="inline-block mt-2.5 text-sm font-bold text-kohaku hover:underline">
-                    <i class="fa-solid fa-link mr-1"></i> 前往預約 / 申辦連結
+                    <i class="fa-solid fa-link mr-1"></i> 前往預約 / 查詢資訊夾
                   </a>
                 </template>
               </div>
@@ -926,7 +1012,7 @@
               <tr><td class="py-2.5">白色戀人公園 付費區 (2大2小)</td><td class="py-2.5 text-right font-mono">¥2,400</td><td class="py-2.5 text-right font-mono">NT$480</td></tr>
               <tr><td class="py-2.5">藻岩山纜車＋迷你纜車來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,300</td><td class="py-2.5 text-right font-mono">NT$1,260</td></tr>
               <tr><td class="py-2.5">旭山動物園 (2大 + 2小免費)</td><td class="py-2.5 text-right font-mono">¥2,000</td><td class="py-2.5 text-right font-mono">NT$400</td></tr>
-              <tr><td class="py-2.5">Day 3 租車 1 日 (含免責CDW+安心NOC)</td><td class="py-2.5 text-right font-mono">¥12,000</td><td class="py-2.5 text-right font-mono">NT$2,400</td></tr>
+              <tr class="bg-emerald-50/50"><td class="py-2.5 font-bold text-emerald-900">8/25 NIPPON 租車 1 日 (已訂！含安心保險+NOC+ETC卡)</td><td class="py-2.5 text-right font-mono font-bold text-emerald-900">¥12,540</td><td class="py-2.5 text-right font-mono font-bold text-emerald-900">NT$2,508</td></tr>
               <tr><td class="py-2.5">Day 3 高速過路費 ＋ 油資 (380km)</td><td class="py-2.5 text-right font-mono">¥11,500</td><td class="py-2.5 text-right font-mono">NT$2,300</td></tr>
               <tr><td class="py-2.5">小樽 JR 來回 (4人)</td><td class="py-2.5 text-right font-mono">¥6,000</td><td class="py-2.5 text-right font-mono">NT$1,200</td></tr>
               <tr><td class="py-2.5">teamLab Planets TOKYO (4人指定票)</td><td class="py-2.5 text-right font-mono">¥13,000</td><td class="py-2.5 text-right font-mono">NT$2,600</td></tr>
@@ -934,8 +1020,8 @@
               <tr><td class="py-2.5">SHIBUYA SKY 展望台 (4人)</td><td class="py-2.5 text-right font-mono">¥10,000</td><td class="py-2.5 text-right font-mono">NT$2,000</td></tr>
               <tr class="font-bold bg-matcha-light/50 text-aizome">
                 <td class="py-3">總計預估 (匯率約 100円 ≈ NT$20)</td>
-                <td class="py-3 text-right font-mono text-lg">約 ¥76,700</td>
-                <td class="py-3 text-right font-mono text-lg">約 NT$15,340</td>
+                <td class="py-3 text-right font-mono text-lg">約 ¥77,240</td>
+                <td class="py-3 text-right font-mono text-lg">約 NT$15,448</td>
               </tr>
             </tbody>
           </table>
@@ -1268,25 +1354,28 @@
             shortDate: '8/25 (二)',
             dayLabel: 'Day 3 ｜ 美瑛自駕與和牛',
             fullDate: '2026年8月25日（週二）',
-            title: '旭山動物園 ➔ 美瑛青池 ➔ 炭火燒肉 羅山 (Razan)',
-            pace: '早起充實 ➔ 頂級和牛晚餐',
+            title: 'NIPPON 租車 ➔ 旭山動物園 ➔ 美瑛青池 ➔ 炭火燒肉 羅山',
+            pace: '早起自駕 ➔ 頂級和牛晚餐',
             paceColor: 'bg-amber-100 text-amber-800',
             isRainMode: false,
             rainBannerTitle: '🌧️ Day 3 雨天備案（免除 4 小時長途駕駛，改近郊全室內日）',
             rainBannerDesc: '雨天山區路滑且青池水濁，改為：上午「ROYCE 巧克力小鎮」DIY ➔ 下午「青少年科學館」➔ 傍晚「AOAO 水族館」➔ 晚餐「炭火燒肉 羅山」。',
             timeline: [
               { 
-                time: '07:45 – 08:00', 
-                stay: '取車 15 分 ｜ 08:00 出發上道央道',
-                spot: '札幌站北口取車 ➔ 旭川 (行車約 1h50m)', 
-                transit: '薄野搭地鐵至札幌站，<strong>JR 札幌站北口</strong> 步行 3 分鐘至 Times 租車。走道央道直達旭川（約 140km、1小時50分）。',
-                desc: '備妥台灣駕照正本 ＋ 日文譯本 ＋ 護照。', 
+                time: '07:45 – 08:15', 
+                stay: '辦理手續 15 分 ｜ 08:00 取車出發上道央道',
+                spot: '🚗 札幌站東口 NIPPON 租車取車 ➔ 旭川 (行車約 1h50m)', 
+                transit: '薄野搭地鐵至札幌站，從 <strong>JR 札幌站「東口」步行 5 分鐘</strong> 抵達 <strong>NIPPON 租車 札幌車站前營業所</strong>（札幌市東区北7条東1丁目1番1号）。走道央道直達旭川（約 140km、1小時50分）。',
+                desc: '已預約 Standard 禁菸車（預約號: 101851488，密碼: c60305a4）。請 Ben 代表一人辦理手續，現場信用卡付費 ¥12,540。', 
                 highlight: true, 
-                history: '道央自動車道是縱貫北海道中央的大動脈，自 1971 年通車至今，串連了石狩平原與大雪山山脈周邊的拓荒農業重鎮。',
+                cost: '租車費 ¥12,540 (已含安心方案+NOC+ETC卡)',
+                history: '<strong>租車憑證資訊：</strong><br>• 租車公司：Nippon Rent-A-Car 札幌車站前營業所 (電話: 050-1712-2997)<br>• <strong>車載導航 Map Code：9 553 092</strong>（回程導航必備）<br>• 保險方案：已含 CDW 免責補償 ＋ 安心方案 ＋ ECO (NOC 營業損失免責) ＋ ETC 卡<br>• 取車時間：08:00 ｜ 最遲還車時間：20:00',
+                mustBuy: '必帶：台灣駕照正本 ＋ 駕照日文譯本 ＋ 護照',
                 links: [
-                  { title: 'Tabirai 北海道租車比價', url: 'https://www.tabirai.net/car/' }
+                  { title: 'Tabirai 預約資訊夾登入 (號碼 101851488)', url: 'https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488' },
+                  { title: 'NIPPON 札幌站前營業所店舖資訊', url: 'https://tc.tabirai.net/car/hokkaido/company/nippon/branch/?PID=4602' }
                 ],
-                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Times+CAR+RENTAL+Sapporo+Station+North+Exit'
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号'
               },
               { 
                 time: '10:00 – 13:15', 
@@ -1345,10 +1434,11 @@
               { 
                 time: '19:30 – 19:50', 
                 stay: '還車 20 分鐘 ｜ 19:50 搭地鐵回薄野',
-                spot: '札幌站北口還車 ➔ 回薄野', 
-                transit: '還車前至札幌站北口周邊加油站加滿油。搭地鐵南北線 3 站回薄野。',
-                desc: '完成全日約 380km 自駕行程。', 
-                mapUrl: 'https://www.google.com/maps/search/?api=1&query=Times+CAR+RENTAL+Sapporo+Station+North+Exit'
+                spot: '🚗 札幌站東口 NIPPON 還車 ➔ 回薄野', 
+                transit: '還車前至營業所周邊加油站加滿油。使用車載導航輸入 <strong>Map Code：9 553 092</strong> 返回「札幌市東区北7条東1丁目1番1号」。搭地鐵南北線 3 站回薄野。',
+                desc: '於 20:00 前順利完成還車手續，結束全日約 380km 自駕行程。', 
+                history: '還車提醒：請將油箱加滿並保留加油發票供店員確認。店舖電話：050-1712-2997。',
+                mapUrl: 'https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号'
               },
               { 
                 time: '20:00 – 21:45', 
@@ -1817,12 +1907,12 @@
           }
         ],
         checklist: [
+          { done: true, category: '已完成・租車', badgeColor: 'bg-emerald-100 text-emerald-800', title: '✅ 8/25 NIPPON 租車已完成預約！', detail: '預約號碼：101851488 ｜ 密碼：c60305a4 ｜ 取車點：JR 札幌站東口步行 5 分 (札幌市東区北7条東1丁目1番1号) ｜ Map Code：9 553 092 ｜ 費用：¥12,540 (現場付款，含 CDW+安心NOC+ETC卡) ｜ 必帶：台灣駕照正本＋日文譯本＋護照。', actionUrl: 'https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488' },
           { done: false, category: '最優先・搶票', badgeColor: 'bg-red-100 text-red-700', title: 'teamLab Planets (8/27 18:00場)', detail: '出發前 2–3 週上官網訂指定時段票，熱門時段常售罄。', actionUrl: 'https://planets.teamlab.art/tokyo/' },
           { done: false, category: '最優先・搶票', badgeColor: 'bg-red-100 text-red-700', title: '藤子・F・不二雄博物館 (8/28 10:00場)', detail: '完全預約制，現場無售票！每月開賣日立即搶票。', actionUrl: 'https://fujiko-museum.com/' },
           { done: false, category: '必吃燒肉', badgeColor: 'bg-red-100 text-red-700', title: '預約 8/25 20:00 炭火焼肉 羅山 すすきの店', detail: '自駕回程後享用頂級 A5 黑毛和牛，離飯店步行僅 3 分鐘。', actionUrl: 'https://razan.gorp.jp/' },
           { done: false, category: 'Google 訪客', badgeColor: 'bg-blue-100 text-blue-800', title: '8/28 Google 澀谷 Stream 辦公室訪客登記 (go/guest)', detail: '提前完成太太、佳恩、芊瑾 3 位家人訪客登記，確認 13:00 帶至 35F PAUSA 享用景觀午餐，記得攜帶員工識別證。', actionUrl: '' },
           { done: false, category: '證件交通', badgeColor: 'bg-amber-100 text-amber-800', title: '台灣監理站申辦「駕照日文譯本」', detail: '駕駛人出發前至監理站辦理（臨櫃 NT$100，帶身分證＋駕照正本）。', actionUrl: '' },
-          { done: false, category: '租車預約', badgeColor: 'bg-amber-100 text-amber-800', title: '預約 8/25 札幌站 Times / Toyota 租車', detail: '加購 CDW 免責補償 ＋ NOC 安心險 ＋ 租借 ETC 卡。', actionUrl: 'https://www.tabirai.net/car/' },
           { done: false, category: '入境手續', badgeColor: 'bg-emerald-100 text-emerald-800', title: '全家填寫 Visit Japan Web', detail: '登錄入境審查與海關申報，截圖 QR code 備用。', actionUrl: 'https://vjw-lp.digital.go.jp/zh-hant/' },
           { done: false, category: '景點預約', badgeColor: 'bg-purple-100 text-purple-800', title: 'SHIBUYA SKY 展望台 門票預約', detail: '8/28 14:30 時段，提前線上購票避開現場排隊。', actionUrl: 'https://www.shibuya-scramble-square.com/sky/' }
         ]
