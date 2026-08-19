@@ -55,37 +55,70 @@
             box-shadow: 0 4px 10px rgba(192, 86, 33, 0.3);
             font-weight: 700;
         }
+        
+        /* Font Scale Mode Classes */
+        body.font-normal-mode {
+            --base-text: 0.9375rem; /* 15px */
+            --title-text: 1.125rem;  /* 18px */
+            --small-text: 0.8125rem; /* 13px */
+        }
+        body.font-large-mode {
+            --base-text: 1.0625rem; /* 17px */
+            --title-text: 1.25rem;   /* 20px */
+            --small-text: 0.9375rem; /* 15px */
+        }
+        body.font-xlarge-mode {
+            --base-text: 1.1875rem; /* 19px */
+            --title-text: 1.375rem;  /* 22px */
+            --small-text: 1.0625rem; /* 17px */
+        }
     </style>
 </head>
-<body class="bg-[#f8f9fa] text-slate-800 min-h-screen pb-16 font-sans antialiased" x-data="tripApp()" x-cloak>
+<body class="bg-[#f8f9fa] text-slate-800 min-h-screen pb-16 font-sans antialiased" 
+      :class="{
+          'font-normal-mode': fontSize === 'normal',
+          'font-large-mode': fontSize === 'large',
+          'font-xlarge-mode': fontSize === 'xlarge'
+      }"
+      x-data="tripApp()" x-cloak>
 
     <!-- Top Header -->
     <header class="bg-gradient-to-r from-[#1a365d] via-[#2a4365] to-[#1a365d] text-white shadow-lg sticky top-0 z-40">
-        <div class="max-w-4xl mx-auto px-4 py-3 sm:py-4">
-            <div class="flex items-center justify-between">
+        <div class="max-w-4xl mx-auto px-4 py-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
                 <div>
                     <div class="flex items-center space-x-2">
-                        <span class="bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs px-2 py-0.5 rounded-full font-bold">2026.08.23 – 08.29</span>
+                        <span class="bg-amber-400/20 text-amber-300 border border-amber-400/40 text-xs px-2.5 py-0.5 rounded-full font-bold">2026.08.23 – 08.29</span>
                         <span class="text-xs text-slate-300 font-medium">7 天 6 夜</span>
                     </div>
                     <h1 class="text-lg sm:text-2xl font-bold tracking-tight mt-0.5 flex items-center">
                         <span>北海道・東京 盛夏家庭旅</span>
-                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.0 模組化版</span>
+                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.1 旗艦版</span>
                     </h1>
                 </div>
-                <div class="text-right">
-                    <div class="text-[11px] text-slate-300">成員 4 位</div>
-                    <div class="text-xs sm:text-sm font-semibold text-amber-300">Ben • 媽咪 • 佳恩 • 芊瑾</div>
+
+                <!-- Font Size Scaler Control (標準 / 大 / 特大) -->
+                <div class="flex items-center bg-slate-900/60 p-1 rounded-xl border border-slate-700">
+                    <span class="text-xs font-bold text-slate-300 px-1.5 hidden sm:inline"><i class="fa-solid fa-text-height mr-1"></i>字體:</span>
+                    <button @click="setFontSize('normal')" 
+                            :class="fontSize === 'normal' ? 'bg-amber-400 text-slate-950 font-bold shadow' : 'text-slate-300 hover:text-white'" 
+                            class="px-2 py-1 rounded-lg text-xs transition">標準</button>
+                    <button @click="setFontSize('large')" 
+                            :class="fontSize === 'large' ? 'bg-amber-400 text-slate-950 font-bold shadow' : 'text-slate-300 hover:text-white'" 
+                            class="px-2 py-1 rounded-lg text-xs font-semibold transition">大 A+</button>
+                    <button @click="setFontSize('xlarge')" 
+                            :class="fontSize === 'xlarge' ? 'bg-amber-400 text-slate-950 font-bold shadow' : 'text-slate-300 hover:text-white'" 
+                            class="px-2 py-1 rounded-lg text-xs font-bold transition">特大 A++</button>
                 </div>
             </div>
 
             <!-- Global Search Box -->
             <div class="mt-2.5 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-sm"></i>
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
                 <input type="text" x-model="searchQuery" placeholder="全站搜尋景點、拉麵、文具、地圖、公休日..." 
-                       class="w-full bg-slate-900/60 border border-slate-700/80 rounded-xl pl-9 pr-8 py-1.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400">
-                <button x-show="searchQuery" @click="searchQuery = ''" class="absolute right-3 top-2 text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-circle-xmark text-sm"></i>
+                       class="w-full bg-slate-900/70 border border-slate-700/80 rounded-xl pl-9 pr-8 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-inner">
+                <button x-show="searchQuery" @click="searchQuery = ''" class="absolute right-3 top-2.5 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-circle-xmark text-base"></i>
                 </button>
             </div>
         </div>
@@ -99,47 +132,47 @@
             <!-- Tab 1 -->
             <button @click="currentTab = 'itinerary'" 
                     :class="currentTab === 'itinerary' ? 'tab-btn-active' : 'bg-white/80 text-slate-700 hover:bg-white'" 
-                    class="flex flex-col sm:flex-row items-center justify-center py-1.5 sm:py-2 px-0.5 sm:px-2 rounded-xl transition-all text-center">
-                <i class="fa-solid fa-route text-sm sm:text-base sm:mr-1.5 text-amber-500"></i>
-                <span class="text-[11px] sm:text-xs md:text-sm font-bold tracking-tight">每日行程</span>
+                    class="flex flex-col sm:flex-row items-center justify-center py-2 px-1 rounded-xl transition-all text-center">
+                <i class="fa-solid fa-route text-base sm:text-lg sm:mr-1.5 text-amber-500"></i>
+                <span class="text-xs sm:text-sm font-bold tracking-tight">每日行程</span>
             </button>
 
             <!-- Tab 2 -->
             <button @click="currentTab = 'gourmet'" 
                     :class="currentTab === 'gourmet' ? 'tab-btn-active' : 'bg-white/80 text-slate-700 hover:bg-white'" 
-                    class="flex flex-col sm:flex-row items-center justify-center py-1.5 sm:py-2 px-0.5 sm:px-2 rounded-xl transition-all text-center">
-                <i class="fa-solid fa-utensils text-sm sm:text-base sm:mr-1.5 text-rose-500"></i>
-                <span class="text-[11px] sm:text-xs md:text-sm font-bold tracking-tight">私房名店</span>
+                    class="flex flex-col sm:flex-row items-center justify-center py-2 px-1 rounded-xl transition-all text-center">
+                <i class="fa-solid fa-utensils text-base sm:text-lg sm:mr-1.5 text-rose-500"></i>
+                <span class="text-xs sm:text-sm font-bold tracking-tight">私房名店</span>
             </button>
 
             <!-- Tab 3 -->
             <button @click="currentTab = 'anime'" 
                     :class="currentTab === 'anime' ? 'tab-btn-active' : 'bg-white/80 text-slate-700 hover:bg-white'" 
-                    class="flex flex-col sm:flex-row items-center justify-center py-1.5 sm:py-2 px-0.5 sm:px-2 rounded-xl transition-all text-center">
-                <i class="fa-solid fa-gamepad text-sm sm:text-base sm:mr-1.5 text-indigo-500"></i>
-                <span class="text-[11px] sm:text-xs md:text-sm font-bold tracking-tight">動漫採買</span>
+                    class="flex flex-col sm:flex-row items-center justify-center py-2 px-1 rounded-xl transition-all text-center">
+                <i class="fa-solid fa-gamepad text-base sm:text-lg sm:mr-1.5 text-indigo-500"></i>
+                <span class="text-xs sm:text-sm font-bold tracking-tight">動漫採買</span>
             </button>
 
             <!-- Tab 4 -->
             <button @click="currentTab = 'rain'" 
                     :class="currentTab === 'rain' ? 'tab-btn-active' : 'bg-white/80 text-slate-700 hover:bg-white'" 
-                    class="flex flex-col sm:flex-row items-center justify-center py-1.5 sm:py-2 px-0.5 sm:px-2 rounded-xl transition-all text-center">
-                <i class="fa-solid fa-umbrella text-sm sm:text-base sm:mr-1.5 text-cyan-600"></i>
-                <span class="text-[11px] sm:text-xs md:text-sm font-bold tracking-tight">雨天備案</span>
+                    class="flex flex-col sm:flex-row items-center justify-center py-2 px-1 rounded-xl transition-all text-center">
+                <i class="fa-solid fa-umbrella text-base sm:text-lg sm:mr-1.5 text-cyan-600"></i>
+                <span class="text-xs sm:text-sm font-bold tracking-tight">雨天備案</span>
             </button>
 
             <!-- Tab 5 -->
             <button @click="currentTab = 'checklist'" 
                     :class="currentTab === 'checklist' ? 'tab-btn-active' : 'bg-white/80 text-slate-700 hover:bg-white'" 
-                    class="flex flex-col sm:flex-row items-center justify-center py-1.5 sm:py-2 px-0.5 sm:px-2 rounded-xl transition-all text-center">
-                <i class="fa-solid fa-clipboard-check text-sm sm:text-base sm:mr-1.5 text-emerald-600"></i>
-                <span class="text-[11px] sm:text-xs md:text-sm font-bold tracking-tight">租車清單</span>
+                    class="flex flex-col sm:flex-row items-center justify-center py-2 px-1 rounded-xl transition-all text-center">
+                <i class="fa-solid fa-clipboard-check text-base sm:text-lg sm:mr-1.5 text-emerald-600"></i>
+                <span class="text-xs sm:text-sm font-bold tracking-tight">租車清單</span>
             </button>
         </nav>
 
         <!-- Global Search Results (Conditional) -->
         <section x-show="searchQuery" class="mb-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-sm font-bold text-slate-800 mb-3 flex items-center">
+            <h2 class="text-sm sm:text-base font-bold text-slate-800 mb-3 flex items-center">
                 <i class="fa-solid fa-magnifying-glass text-amber-500 mr-2"></i>
                 搜尋結果 (關鍵字: "<span x-text="searchQuery" class="text-kohaku"></span>")
             </h2>
@@ -148,12 +181,12 @@
             </template>
             <div class="space-y-2">
                 <template x-for="(res, idx) in searchResults" :key="idx">
-                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-sm">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                         <div class="flex items-center justify-between">
-                            <span class="font-bold text-slate-800" x-text="res.title"></span>
-                            <span class="text-xs px-2 py-0.5 bg-slate-200 text-slate-700 rounded-full" x-text="res.tag"></span>
+                            <span class="font-bold text-slate-800 text-sm sm:text-base" x-text="res.title"></span>
+                            <span class="text-xs px-2.5 py-0.5 bg-slate-200 text-slate-700 rounded-full font-semibold" x-text="res.tag"></span>
                         </div>
-                        <p class="text-xs text-slate-600 mt-1" x-text="res.desc"></p>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1" x-text="res.desc"></p>
                     </div>
                 </template>
             </div>
@@ -163,30 +196,30 @@
         <section x-show="currentTab === 'itinerary' && !searchQuery" class="space-y-3">
             
             <!-- 2nd Tier Day Selector: 7 Columns Grid -->
-            <div class="grid grid-cols-7 gap-1 sm:gap-1.5 p-1 bg-white rounded-xl shadow-sm border border-slate-200">
+            <div class="grid grid-cols-7 gap-1 sm:gap-1.5 p-1.5 bg-white rounded-xl shadow-sm border border-slate-200">
                 <template x-for="(d, idx) in days" :key="idx">
                     <button @click="currentDayIndex = idx" 
                             :class="currentDayIndex === idx ? 'day-btn-active' : 'bg-slate-50 text-slate-700 hover:bg-slate-100'"
-                            class="py-1.5 sm:py-2 rounded-lg text-center transition-all flex flex-col items-center">
-                        <span class="text-[10px] sm:text-xs font-semibold" x-text="'D' + (idx+1)"></span>
-                        <span class="text-[10px] sm:text-xs font-bold leading-tight" x-text="d.shortDate"></span>
+                            class="py-2 rounded-lg text-center transition-all flex flex-col items-center">
+                        <span class="text-xs font-semibold" x-text="'D' + (idx+1)"></span>
+                        <span class="text-xs sm:text-sm font-bold leading-tight" x-text="d.shortDate"></span>
                     </button>
                 </template>
             </div>
 
             <!-- Current Day Header Card -->
-            <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-sm border border-slate-200">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                     <div>
                         <div class="flex items-center space-x-2">
-                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full" :class="days[currentDayIndex].paceColor" x-text="days[currentDayIndex].pace"></span>
-                            <span class="text-xs text-slate-500 font-medium" x-text="days[currentDayIndex].fullDate"></span>
+                            <span class="text-xs sm:text-sm font-bold px-3 py-0.5 rounded-full" :class="days[currentDayIndex].paceColor" x-text="days[currentDayIndex].pace"></span>
+                            <span class="text-xs sm:text-sm text-slate-500 font-medium" x-text="days[currentDayIndex].fullDate"></span>
                         </div>
-                        <h2 class="text-base sm:text-lg font-bold text-slate-900 mt-1" x-text="days[currentDayIndex].title"></h2>
+                        <h2 class="text-base sm:text-xl font-bold text-slate-900 mt-1" x-text="days[currentDayIndex].title"></h2>
                     </div>
                     <button @click="toggleAllAccordions()" 
-                            class="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-lg border border-slate-300">
-                        <i class="fa-solid fa-arrows-up-down text-[10px] mr-1"></i>
+                            class="text-xs sm:text-sm font-bold px-3 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl border border-slate-300 transition shadow-xs">
+                        <i class="fa-solid fa-arrows-up-down text-xs mr-1 text-slate-500"></i>
                         <span x-text="allExpanded ? '全部收合' : '全部展開故事'"></span>
                     </button>
                 </div>
@@ -195,69 +228,69 @@
             <!-- Timeline Spots Cards -->
             <div class="space-y-3">
                 <template x-for="(item, sIdx) in days[currentDayIndex].timeline" :key="sIdx">
-                    <div class="bg-white rounded-2xl p-3.5 sm:p-4 shadow-sm border transition-all"
+                    <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border transition-all"
                          :class="item.highlight ? 'border-amber-300 bg-amber-50/20' : 'border-slate-200'">
                         
-                        <!-- Header Row: Time + Title + Dual Maps -->
+                        <!-- Header Row: Time + Title + Dual Maps (Google Logo G + 導航 & Apple) -->
                         <div class="flex flex-wrap items-start justify-between gap-2">
                             <div class="flex-1 min-w-[220px]">
                                 <div class="flex items-center space-x-2">
-                                    <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700" x-text="item.time"></span>
-                                    <span class="text-[11px] text-amber-700 font-medium" x-text="item.stay"></span>
+                                    <span class="font-mono text-xs sm:text-sm font-bold px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700" x-text="item.time"></span>
+                                    <span class="text-xs sm:text-sm text-amber-800 font-medium" x-text="item.stay"></span>
                                 </div>
-                                <h3 class="text-sm sm:text-base font-bold text-slate-900 mt-1" x-text="item.spot"></h3>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-900 mt-1" x-text="item.spot"></h3>
                             </div>
 
-                            <!-- Dual Navigation Buttons: Google G + Apple -->
-                            <div class="flex items-center space-x-1.5 shrink-0">
+                            <!-- Dual Navigation Buttons: Google G + 導航 (NO DUPLICATE G) & Apple -->
+                            <div class="flex items-center space-x-2 shrink-0">
                                 <a :href="item.googleUrl" target="_blank" 
-                                   class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors shadow-sm">
-                                    <i class="fa-brands fa-google text-emerald-600 mr-1"></i>
-                                    <span>Google</span>
+                                   class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors shadow-xs">
+                                    <i class="fa-brands fa-google text-emerald-600 mr-1.5"></i>
+                                    <span>導航</span>
                                 </a>
                                 <a :href="item.appleUrl" target="_blank" 
-                                   class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-800 border border-slate-300 hover:bg-slate-200 transition-colors shadow-sm">
-                                    <i class="fa-brands fa-apple text-slate-900 mr-1"></i>
+                                   class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-800 border border-slate-300 hover:bg-slate-200 transition-colors shadow-xs">
+                                    <i class="fa-brands fa-apple text-slate-900 mr-1.5"></i>
                                     <span>Apple</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- Outer Info: Transit & Quick Summary -->
-                        <div class="mt-2 text-xs sm:text-sm text-slate-700 space-y-1">
-                            <div class="flex items-start bg-slate-50 p-2 rounded-xl border border-slate-100">
-                                <i class="fa-solid fa-train-subway text-slate-500 mt-0.5 mr-2 shrink-0"></i>
-                                <span class="text-slate-600 font-medium" x-text="item.transit"></span>
+                        <div class="mt-2.5 text-sm sm:text-base text-slate-700 space-y-1.5">
+                            <div class="flex items-start bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <i class="fa-solid fa-train-subway text-slate-500 mt-1 mr-2 shrink-0"></i>
+                                <span class="text-slate-700 font-medium" x-text="item.transit"></span>
                             </div>
-                            <p class="pt-0.5" x-text="item.desc"></p>
+                            <p class="pt-0.5 leading-relaxed text-slate-800" x-text="item.desc"></p>
                         </div>
 
                         <!-- Accordion Drawer Toggle Button -->
-                        <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+                        <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                             <button @click="toggleDrawer(currentDayIndex, sIdx)" 
-                                    class="inline-flex items-center text-xs font-bold text-kohaku hover:text-amber-800 transition-colors py-1">
+                                    class="inline-flex items-center text-xs sm:text-sm font-bold text-kohaku hover:text-amber-800 transition-colors py-1">
                                 <i class="fa-solid mr-1.5" :class="isDrawerOpen(currentDayIndex, sIdx) ? 'fa-chevron-up' : 'fa-book-open-reader'"></i>
                                 <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? '收合景點故事 ＆ 營業公休' : '📜 展開見聞・故事 ＆ 營業公休'"></span>
                             </button>
                             <template x-if="item.cost">
-                                <span class="text-xs text-slate-500 font-medium" x-text="item.cost"></span>
+                                <span class="text-xs sm:text-sm text-slate-500 font-medium" x-text="item.cost"></span>
                             </template>
                         </div>
 
                         <!-- Inner Accordion Drawer (Expanded Content) -->
                         <div x-show="isDrawerOpen(currentDayIndex, sIdx)" x-collapse 
-                             class="mt-2.5 pt-3 border-t border-dashed border-amber-200 bg-amber-50/40 -mx-3.5 sm:-mx-4 -mb-3.5 sm:-mb-4 p-3.5 sm:p-4 rounded-b-2xl space-y-2.5 text-xs sm:text-sm text-slate-800">
+                             class="mt-2.5 pt-3.5 border-t border-dashed border-amber-200 bg-amber-50/40 -mx-4 sm:-mx-5 -mb-4 sm:-mb-5 p-4 sm:p-5 rounded-b-2xl space-y-3 text-sm sm:text-base text-slate-800">
                             
                             <!-- 1. Operating Hours & Holiday Verification Check -->
-                            <div class="bg-white p-2.5 rounded-xl border border-amber-200/80 shadow-xs">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
-                                    <div class="flex items-center text-slate-700">
-                                        <i class="fa-regular fa-clock text-amber-600 mr-1.5"></i>
+                            <div class="bg-white p-3 rounded-xl border border-amber-200/80 shadow-xs">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs sm:text-sm">
+                                    <div class="flex items-center text-slate-800">
+                                        <i class="fa-regular fa-clock text-amber-600 mr-2 text-base"></i>
                                         <span class="font-bold">營業時間：</span>
                                         <span x-text="item.hours"></span>
                                     </div>
                                     <div class="flex items-center" :class="item.holidayBadge || 'text-emerald-700 font-bold'">
-                                        <i class="fa-regular fa-calendar-check mr-1.5"></i>
+                                        <i class="fa-regular fa-calendar-check mr-2 text-base"></i>
                                         <span class="font-bold">店休公休查核：</span>
                                         <span x-text="item.holiday"></span>
                                     </div>
@@ -267,22 +300,22 @@
                             <!-- 2. Historical Lore & Wiki Story -->
                             <template x-if="item.history">
                                 <div>
-                                    <h4 class="font-bold text-slate-900 flex items-center text-xs sm:text-sm">
-                                        <i class="fa-solid fa-landmark text-amber-700 mr-1.5"></i>
+                                    <h4 class="font-bold text-slate-900 flex items-center text-sm sm:text-base">
+                                        <i class="fa-solid fa-landmark text-amber-700 mr-2"></i>
                                         文化見聞與維基歷史典故
                                     </h4>
-                                    <p class="text-slate-700 mt-1 leading-relaxed whitespace-pre-line text-xs sm:text-sm" x-text="item.history"></p>
+                                    <p class="text-slate-700 mt-1 leading-relaxed whitespace-pre-line text-sm sm:text-base" x-text="item.history"></p>
                                 </div>
                             </template>
 
                             <!-- 3. Must Try / Must Buy Highlights -->
                             <template x-if="item.mustTry">
-                                <div class="bg-emerald-50/70 p-2.5 rounded-xl border border-emerald-200/80">
-                                    <h4 class="font-bold text-emerald-900 flex items-center text-xs">
-                                        <i class="fa-solid fa-basket-shopping text-emerald-700 mr-1.5"></i>
+                                <div class="bg-emerald-50/80 p-3 rounded-xl border border-emerald-200">
+                                    <h4 class="font-bold text-emerald-900 flex items-center text-sm sm:text-base">
+                                        <i class="fa-solid fa-basket-shopping text-emerald-700 mr-2"></i>
                                         必吃必買 ＆ 達人推薦亮點
                                     </h4>
-                                    <p class="text-emerald-950 mt-0.5 text-xs sm:text-sm" x-text="item.mustTry"></p>
+                                    <p class="text-emerald-950 mt-1 text-sm sm:text-base leading-relaxed" x-text="item.mustTry"></p>
                                 </div>
                             </template>
 
@@ -291,8 +324,8 @@
                                 <div class="pt-1 flex flex-wrap gap-2">
                                     <template x-for="(lk, lIdx) in item.links" :key="lIdx">
                                         <a :href="lk.url" target="_blank" 
-                                           class="inline-flex items-center text-xs text-sky-700 hover:text-sky-900 bg-sky-50 px-2 py-1 rounded-lg border border-sky-200">
-                                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] mr-1"></i>
+                                           class="inline-flex items-center text-xs sm:text-sm text-sky-700 hover:text-sky-900 bg-sky-50 px-2.5 py-1.5 rounded-lg border border-sky-200 font-semibold">
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs mr-1.5"></i>
                                             <span x-text="lk.title"></span>
                                         </a>
                                     </template>
@@ -306,53 +339,51 @@
 
         <!-- ==================== TAB 2: 私房名店 (19 PLACES) ==================== -->
         <section x-show="currentTab === 'gourmet' && !searchQuery" class="space-y-3">
-            <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-2">
-                <div>
-                    <h2 class="text-base font-bold text-slate-900 flex items-center">
-                        <i class="fa-solid fa-utensils text-rose-500 mr-2"></i>
-                        精選私房名店 ＆ 必逛超市 (19選)
-                    </h2>
-                    <p class="text-xs text-slate-500 mt-0.5">全數確認營業時間、公休日與 Google/Apple 雙地圖導航</p>
-                </div>
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center">
+                    <i class="fa-solid fa-utensils text-rose-500 mr-2"></i>
+                    精選私房名店 ＆ 必逛超市 (19選)
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">全數確認營業時間、公休日與 Google / Apple 雙地圖導航</p>
             </div>
 
             <!-- Places Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <template x-for="(p, pIdx) in places" :key="pIdx">
-                    <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between">
                         <div>
                             <div class="flex items-start justify-between gap-2">
                                 <div>
-                                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200" x-text="p.category"></span>
-                                    <h3 class="text-sm font-bold text-slate-900 mt-1" x-text="p.name"></h3>
-                                    <div class="text-xs text-slate-500 mt-0.5" x-text="p.area"></div>
+                                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200" x-text="p.category"></span>
+                                    <h3 class="text-base font-bold text-slate-900 mt-1" x-text="p.name"></h3>
+                                    <div class="text-xs sm:text-sm text-slate-500 mt-0.5" x-text="p.area"></div>
                                 </div>
-                                <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200 shrink-0" x-text="p.score"></span>
+                                <span class="text-xs sm:text-sm font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200 shrink-0" x-text="p.score"></span>
                             </div>
 
-                            <p class="text-xs text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2 rounded-xl border border-slate-100" x-text="p.feature"></p>
+                            <p class="text-xs sm:text-sm text-slate-700 mt-2.5 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100" x-text="p.feature"></p>
                             
-                            <div class="mt-2 space-y-1 text-xs text-slate-600">
-                                <div><i class="fa-regular fa-clock text-slate-400 mr-1"></i> <span x-text="p.hours"></span></div>
-                                <div :class="p.holidayBadge || 'text-emerald-700 font-bold'"><i class="fa-regular fa-calendar-check mr-1"></i> <span x-text="p.holiday"></span></div>
+                            <div class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600">
+                                <div><i class="fa-regular fa-clock text-slate-400 mr-1.5"></i> <span x-text="p.hours"></span></div>
+                                <div :class="p.holidayBadge || 'text-emerald-700 font-bold'"><i class="fa-regular fa-calendar-check mr-1.5"></i> <span x-text="p.holiday"></span></div>
                             </div>
                         </div>
 
                         <!-- Bottom Action Links -->
-                        <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between gap-1">
+                        <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
                             <template x-if="p.tabelogUrl">
-                                <a :href="p.tabelogUrl" target="_blank" class="text-xs text-amber-700 font-bold hover:underline">
-                                    <i class="fa-solid fa-star text-[10px] mr-0.5"></i> Tabelog 評分
+                                <a :href="p.tabelogUrl" target="_blank" class="text-xs sm:text-sm text-amber-700 font-bold hover:underline">
+                                    <i class="fa-solid fa-star text-xs mr-0.5"></i> Tabelog 評分
                                 </a>
                             </template>
-                            <div class="flex items-center space-x-1.5 ml-auto">
+                            <div class="flex items-center space-x-2 ml-auto">
                                 <a :href="p.googleUrl" target="_blank" 
-                                   class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100">
-                                    <i class="fa-brands fa-google text-emerald-600 mr-1"></i> G 導航
+                                   class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100">
+                                    <i class="fa-brands fa-google text-emerald-600 mr-1.5"></i> 導航
                                 </a>
                                 <a :href="p.appleUrl" target="_blank" 
-                                   class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-800 border border-slate-300 hover:bg-slate-200">
-                                    <i class="fa-brands fa-apple text-slate-900 mr-1"></i> Apple
+                                   class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-800 border border-slate-300 hover:bg-slate-200">
+                                    <i class="fa-brands fa-apple text-slate-900 mr-1.5"></i> Apple
                                 </a>
                             </div>
                         </div>
@@ -365,41 +396,41 @@
         <section x-show="currentTab === 'anime' && !searchQuery" class="space-y-4">
             
             <!-- Highlight: Detective Conan Plaza 2026 -->
-            <div class="bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-950 text-white rounded-2xl p-4 shadow-md border border-indigo-700">
+            <div class="bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-950 text-white rounded-2xl p-4 sm:p-5 shadow-md border border-indigo-700">
                 <div class="flex flex-wrap items-start justify-between gap-2">
                     <div>
-                        <span class="bg-amber-400 text-slate-950 font-bold text-xs px-2.5 py-0.5 rounded-full">2026 年度旗艦限定展</span>
-                        <h2 class="text-base sm:text-lg font-bold mt-1 text-amber-200" x-text="anime.conan.title"></h2>
-                        <div class="text-xs text-slate-300 mt-0.5" x-text="anime.conan.location"></div>
+                        <span class="bg-amber-400 text-slate-950 font-bold text-xs px-3 py-0.5 rounded-full">2026 年度旗艦限定展</span>
+                        <h2 class="text-base sm:text-xl font-bold mt-1 text-amber-200" x-text="anime.conan.title"></h2>
+                        <div class="text-xs sm:text-sm text-slate-300 mt-0.5" x-text="anime.conan.location"></div>
                     </div>
-                    <div class="flex items-center space-x-1.5">
+                    <div class="flex items-center space-x-2">
                         <a :href="anime.conan.googleUrl" target="_blank" 
-                           class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-indigo-950 hover:bg-amber-100">
-                            <i class="fa-brands fa-google text-indigo-700 mr-1"></i> Google 導航
+                           class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-indigo-950 hover:bg-amber-100">
+                            <i class="fa-brands fa-google text-indigo-700 mr-1.5"></i> 導航
                         </a>
                         <a :href="anime.conan.appleUrl" target="_blank" 
-                           class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-800 text-white border border-indigo-600 hover:bg-indigo-700">
-                            <i class="fa-brands fa-apple mr-1"></i> Apple
+                           class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-indigo-800 text-white border border-indigo-600 hover:bg-indigo-700">
+                            <i class="fa-brands fa-apple mr-1.5"></i> Apple
                         </a>
                     </div>
                 </div>
 
-                <div class="mt-3 bg-indigo-950/60 p-3 rounded-xl border border-indigo-700/50 text-xs space-y-1.5">
+                <div class="mt-3.5 bg-indigo-950/60 p-3.5 rounded-xl border border-indigo-700/50 text-xs sm:text-sm space-y-1.5">
                     <div class="flex items-center text-amber-300 font-bold">
-                        <i class="fa-regular fa-calendar mr-1.5"></i>
+                        <i class="fa-regular fa-calendar mr-2"></i>
                         <span>展期：</span><span x-text="anime.conan.dates"></span>
                     </div>
-                    <div><i class="fa-regular fa-clock mr-1.5"></i> <span>時間：</span><span x-text="anime.conan.hours"></span></div>
-                    <div class="text-emerald-300 font-bold"><i class="fa-solid fa-circle-check mr-1.5"></i> <span x-text="anime.conan.holiday"></span></div>
+                    <div><i class="fa-regular fa-clock mr-2"></i> <span>時間：</span><span x-text="anime.conan.hours"></span></div>
+                    <div class="text-emerald-300 font-bold"><i class="fa-solid fa-circle-check mr-2"></i> <span x-text="anime.conan.holiday"></span></div>
                     <p class="text-slate-300 pt-1 leading-relaxed" x-text="anime.conan.history"></p>
                 </div>
 
-                <div class="mt-3">
-                    <h4 class="text-xs font-bold text-amber-300 mb-1.5"><i class="fa-solid fa-gift mr-1"></i> 必買必玩焦點：</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-200">
+                <div class="mt-3.5">
+                    <h4 class="text-xs sm:text-sm font-bold text-amber-300 mb-2"><i class="fa-solid fa-gift mr-1.5"></i> 必買必玩焦點：</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-200">
                         <template x-for="(hl, hIdx) in anime.conan.highlights" :key="hIdx">
-                            <div class="flex items-start bg-indigo-950/40 p-1.5 rounded-lg border border-indigo-800/40">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5 mr-1.5 shrink-0"></i>
+                            <div class="flex items-start bg-indigo-950/40 p-2 rounded-lg border border-indigo-800/40">
+                                <i class="fa-solid fa-check text-amber-400 mt-1 mr-2 shrink-0"></i>
                                 <span x-text="hl"></span>
                             </div>
                         </template>
@@ -409,29 +440,29 @@
 
             <!-- Claw Machine Hubs -->
             <div>
-                <h3 class="text-sm font-bold text-slate-900 mb-2.5 flex items-center">
+                <h3 class="text-base font-bold text-slate-900 mb-2.5 flex items-center">
                     <i class="fa-solid fa-gamepad text-indigo-600 mr-2"></i>
                     夾娃娃機遊戲中心旗艦店 (飯店對面 ＆ 景點順遊)
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <template x-for="(cm, cIdx) in anime.claw_machines" :key="cIdx">
-                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between">
                             <div>
                                 <div class="flex items-start justify-between gap-1">
-                                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200" x-text="cm.city"></span>
-                                    <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md" x-text="cm.scale"></span>
+                                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200" x-text="cm.city"></span>
+                                    <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md" x-text="cm.scale"></span>
                                 </div>
-                                <h4 class="text-sm font-bold text-slate-900 mt-1" x-text="cm.name"></h4>
-                                <div class="text-xs text-slate-500 mt-0.5" x-text="cm.location"></div>
-                                <p class="text-xs text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2 rounded-xl border border-slate-100" x-text="cm.desc"></p>
+                                <h4 class="text-base font-bold text-slate-900 mt-1" x-text="cm.name"></h4>
+                                <div class="text-xs sm:text-sm text-slate-500 mt-0.5" x-text="cm.location"></div>
+                                <p class="text-xs sm:text-sm text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100" x-text="cm.desc"></p>
                             </div>
-                            <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                                <span class="text-xs text-slate-600"><i class="fa-regular fa-clock mr-1"></i> <span x-text="cm.hours"></span></span>
-                                <div class="flex items-center space-x-1.5">
-                                    <a :href="cm.googleUrl" target="_blank" class="px-2 py-1 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-300">
-                                        <i class="fa-brands fa-google mr-1 text-emerald-600"></i> G 導航
+                            <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs sm:text-sm text-slate-600"><i class="fa-regular fa-clock mr-1"></i> <span x-text="cm.hours"></span></span>
+                                <div class="flex items-center space-x-2">
+                                    <a :href="cm.googleUrl" target="_blank" class="px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
+                                        <i class="fa-brands fa-google mr-1 text-emerald-600"></i> 導航
                                     </a>
-                                    <a :href="cm.appleUrl" target="_blank" class="px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-800 border border-slate-300">
+                                    <a :href="cm.appleUrl" target="_blank" class="px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-800 border border-slate-300">
                                         <i class="fa-brands fa-apple mr-1 text-slate-900"></i> Apple
                                     </a>
                                 </div>
@@ -443,26 +474,26 @@
 
             <!-- Stationery & 100-Yen Stores -->
             <div>
-                <h3 class="text-sm font-bold text-slate-900 mb-2.5 flex items-center">
+                <h3 class="text-base font-bold text-slate-900 mb-2.5 flex items-center">
                     <i class="fa-solid fa-pen-ruler text-amber-600 mr-2"></i>
                     頂級文具殿堂 ＆ 高質感百元生活館
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <template x-for="(st, sIdx) in anime.stationery_and_100yen" :key="sIdx">
-                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between">
                             <div>
-                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200" x-text="st.type"></span>
-                                <h4 class="text-sm font-bold text-slate-900 mt-1" x-text="st.name"></h4>
-                                <div class="text-xs text-slate-500 mt-0.5" x-text="st.location"></div>
-                                <p class="text-xs text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2 rounded-xl border border-slate-100" x-text="st.desc"></p>
+                                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200" x-text="st.type"></span>
+                                <h4 class="text-base font-bold text-slate-900 mt-1" x-text="st.name"></h4>
+                                <div class="text-xs sm:text-sm text-slate-500 mt-0.5" x-text="st.location"></div>
+                                <p class="text-xs sm:text-sm text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100" x-text="st.desc"></p>
                             </div>
-                            <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                                <span class="text-xs text-slate-600"><i class="fa-regular fa-clock mr-1"></i> <span x-text="st.hours"></span></span>
-                                <div class="flex items-center space-x-1.5">
-                                    <a :href="st.googleUrl" target="_blank" class="px-2 py-1 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-300">
-                                        <i class="fa-brands fa-google mr-1 text-emerald-600"></i> G 導航
+                            <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs sm:text-sm text-slate-600"><i class="fa-regular fa-clock mr-1"></i> <span x-text="st.hours"></span></span>
+                                <div class="flex items-center space-x-2">
+                                    <a :href="st.googleUrl" target="_blank" class="px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
+                                        <i class="fa-brands fa-google mr-1 text-emerald-600"></i> 導航
                                     </a>
-                                    <a :href="st.appleUrl" target="_blank" class="px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-800 border border-slate-300">
+                                    <a :href="st.appleUrl" target="_blank" class="px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-800 border border-slate-300">
                                         <i class="fa-brands fa-apple mr-1 text-slate-900"></i> Apple
                                     </a>
                                 </div>
@@ -475,57 +506,57 @@
 
         <!-- ==================== TAB 4: ☔ 雨天備案 (RAINY DAY BACKUPS) ==================== -->
         <section x-show="currentTab === 'rain' && !searchQuery" class="space-y-3">
-            <div class="bg-gradient-to-r from-sky-900 to-cyan-900 text-white p-4 rounded-2xl shadow-sm">
+            <div class="bg-gradient-to-r from-sky-900 to-cyan-900 text-white p-4 sm:p-5 rounded-2xl shadow-sm">
                 <div class="flex items-center space-x-2">
-                    <span class="bg-sky-400 text-slate-950 text-xs font-bold px-2.5 py-0.5 rounded-full">全天候室內備案</span>
-                    <span class="text-xs text-sky-200">雨天強風無憂動線</span>
+                    <span class="bg-sky-400 text-slate-950 text-xs font-bold px-3 py-0.5 rounded-full">全天候室內備案</span>
+                    <span class="text-xs sm:text-sm text-sky-200">雨天強風無憂動線</span>
                 </div>
-                <h2 class="text-base sm:text-lg font-bold mt-1 text-white">北海道 ＆ 東京 雨天/強風最佳室內景點</h2>
-                <p class="text-xs text-sky-200 mt-0.5">若遇降雨或藻岩山強風停駛，直接轉進以下全室內景點，全家行程依然好玩充實！</p>
+                <h2 class="text-base sm:text-xl font-bold mt-1 text-white">北海道 ＆ 東京 雨天/強風最佳室內景點</h2>
+                <p class="text-xs sm:text-sm text-sky-200 mt-0.5">若遇降雨或藻岩山強風停駛，直接轉進以下全室內景點，全家行程依然好玩充實！</p>
             </div>
 
             <!-- Rain Spots Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <template x-for="(r, rIdx) in rainSpots" :key="rIdx">
-                    <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between">
                         <div>
                             <div class="flex items-start justify-between gap-1">
-                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200" x-text="r.region"></span>
-                                <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md" x-text="r.dayRef"></span>
+                                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200" x-text="r.region"></span>
+                                <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md" x-text="r.dayRef"></span>
                             </div>
-                            <h3 class="text-sm font-bold text-slate-900 mt-1" x-text="r.name"></h3>
-                            <div class="text-xs text-slate-500 mt-0.5" x-text="r.location"></div>
+                            <h3 class="text-base font-bold text-slate-900 mt-1" x-text="r.name"></h3>
+                            <div class="text-xs sm:text-sm text-slate-500 mt-0.5" x-text="r.location"></div>
 
                             <!-- Why Rain Box -->
-                            <div class="mt-2 p-2.5 bg-cyan-50/60 rounded-xl border border-cyan-200/70 text-xs text-cyan-950">
-                                <div class="font-bold text-cyan-900 flex items-center mb-0.5">
-                                    <i class="fa-solid fa-cloud-showers-heavy text-cyan-700 mr-1.5"></i>
+                            <div class="mt-2.5 p-3 bg-cyan-50/70 rounded-xl border border-cyan-200/80 text-xs sm:text-sm text-cyan-950">
+                                <div class="font-bold text-cyan-900 flex items-center mb-1">
+                                    <i class="fa-solid fa-cloud-showers-heavy text-cyan-700 mr-2"></i>
                                     雨天優勢 ＆ 為何推薦：
                                 </div>
                                 <p class="leading-relaxed" x-text="r.whyRain"></p>
                             </div>
 
                             <!-- Must Try -->
-                            <div class="mt-2 text-xs text-slate-700">
+                            <div class="mt-2.5 text-xs sm:text-sm text-slate-700">
                                 <span class="font-bold text-slate-900">💡 亮點體驗：</span>
                                 <span x-text="r.mustTry"></span>
                             </div>
 
-                            <div class="mt-2 space-y-1 text-xs text-slate-600">
-                                <div><i class="fa-regular fa-clock text-slate-400 mr-1"></i> <span x-text="r.hours"></span></div>
-                                <div :class="r.holidayBadge || 'text-emerald-700 font-bold'"><i class="fa-regular fa-calendar-check mr-1"></i> <span x-text="r.holiday"></span></div>
+                            <div class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600">
+                                <div><i class="fa-regular fa-clock text-slate-400 mr-1.5"></i> <span x-text="r.hours"></span></div>
+                                <div :class="r.holidayBadge || 'text-emerald-700 font-bold'"><i class="fa-regular fa-calendar-check mr-1.5"></i> <span x-text="r.holiday"></span></div>
                             </div>
                         </div>
 
                         <!-- Action Links -->
-                        <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-end space-x-1.5">
+                        <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-end space-x-2">
                             <a :href="r.googleUrl" target="_blank" 
-                               class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-300">
-                                <i class="fa-brands fa-google text-emerald-600 mr-1"></i> G 導航
+                               class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
+                                <i class="fa-brands fa-google text-emerald-600 mr-1.5"></i> 導航
                             </a>
                             <a :href="r.appleUrl" target="_blank" 
-                               class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-800 border border-slate-300">
-                                <i class="fa-brands fa-apple text-slate-900 mr-1"></i> Apple
+                               class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-800 border border-slate-300">
+                                <i class="fa-brands fa-apple text-slate-900 mr-1.5"></i> Apple
                             </a>
                         </div>
                     </div>
@@ -537,58 +568,58 @@
         <section x-show="currentTab === 'checklist' && !searchQuery" class="space-y-4">
             
             <!-- NIPPON Rent-A-Car Voucher Card -->
-            <div class="bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 text-white rounded-2xl p-4 shadow-md border border-emerald-700">
+            <div class="bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 text-white rounded-2xl p-4 sm:p-5 shadow-md border border-emerald-700">
                 <div class="flex flex-wrap items-start justify-between gap-2">
                     <div>
-                        <span class="bg-amber-400 text-slate-950 font-bold text-xs px-2.5 py-0.5 rounded-full">8/25 (二) 全日自駕憑證</span>
-                        <h2 class="text-base sm:text-lg font-bold mt-1 text-amber-200" x-text="checklist.rental.company"></h2>
+                        <span class="bg-amber-400 text-slate-950 font-bold text-xs px-3 py-0.5 rounded-full">8/25 (二) 全日自駕憑證</span>
+                        <h2 class="text-base sm:text-xl font-bold mt-1 text-amber-200" x-text="checklist.rental.company"></h2>
                     </div>
-                    <div class="flex items-center space-x-1.5">
+                    <div class="flex items-center space-x-2">
                         <a :href="checklist.rental.googleUrl" target="_blank" 
-                           class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-emerald-950 hover:bg-amber-100">
-                            <i class="fa-brands fa-google text-emerald-700 mr-1"></i> 門市導航
+                           class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-emerald-950 hover:bg-amber-100">
+                            <i class="fa-brands fa-google text-emerald-700 mr-1.5"></i> 門市導航
                         </a>
                         <a :href="checklist.rental.appleUrl" target="_blank" 
-                           class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-800 text-white border border-emerald-600 hover:bg-emerald-700">
-                            <i class="fa-brands fa-apple mr-1"></i> Apple
+                           class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-800 text-white border border-emerald-600 hover:bg-emerald-700">
+                            <i class="fa-brands fa-apple mr-1.5"></i> Apple
                         </a>
                     </div>
                 </div>
 
                 <!-- Contract Info Grid -->
-                <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs bg-emerald-950/60 p-3 rounded-xl border border-emerald-700/50">
-                    <div><span class="text-emerald-300">預約號碼：</span><span class="font-mono font-bold text-white text-sm" x-text="checklist.rental.reservationNo"></span></div>
-                    <div><span class="text-emerald-300">預約密碼：</span><span class="font-mono font-bold text-white text-sm" x-text="checklist.rental.password"></span></div>
+                <div class="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm bg-emerald-950/60 p-3.5 rounded-xl border border-emerald-700/50">
+                    <div><span class="text-emerald-300">預約號碼：</span><span class="font-mono font-bold text-white text-sm sm:text-base" x-text="checklist.rental.reservationNo"></span></div>
+                    <div><span class="text-emerald-300">預約密碼：</span><span class="font-mono font-bold text-white text-sm sm:text-base" x-text="checklist.rental.password"></span></div>
                     <div><span class="text-emerald-300">取車時間：</span><span class="font-bold text-white" x-text="checklist.rental.pickupTime"></span></div>
                     <div><span class="text-emerald-300">還車時間：</span><span class="font-bold text-white" x-text="checklist.rental.returnTime"></span></div>
                     <div class="sm:col-span-2"><span class="text-emerald-300">取車地點：</span><span class="text-white" x-text="checklist.rental.pickupLocation"></span></div>
-                    <div class="sm:col-span-2"><span class="text-emerald-300">費用合計：</span><span class="font-bold text-amber-300 text-sm" x-text="checklist.rental.totalFee"></span> (<span x-text="checklist.rental.included"></span>)</div>
+                    <div class="sm:col-span-2"><span class="text-emerald-300">費用合計：</span><span class="font-bold text-amber-300 text-sm sm:text-base" x-text="checklist.rental.totalFee"></span> (<span x-text="checklist.rental.included"></span>)</div>
                 </div>
             </div>
 
             <!-- Interactive Checklist with LocalStorage -->
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex items-center justify-between mb-3">
                     <div>
-                        <h3 class="text-base font-bold text-slate-900 flex items-center">
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center">
                             <i class="fa-solid fa-list-check text-emerald-600 mr-2"></i>
                             出發前 ＆ 自駕隨身必備清單
                         </h3>
-                        <p class="text-xs text-slate-500 mt-0.5">點擊打勾自動儲存於本機手機瀏覽器</p>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">點擊打勾自動儲存於本機手機瀏覽器</p>
                     </div>
-                    <button @click="resetChecklist()" class="text-xs text-slate-500 hover:text-slate-800 underline">
+                    <button @click="resetChecklist()" class="text-xs sm:text-sm text-slate-500 hover:text-slate-800 underline font-medium">
                         重設
                     </button>
                 </div>
 
                 <div class="space-y-2">
                     <template x-for="(item, cIdx) in checklist.items" :key="item.id">
-                        <label class="flex items-center p-2.5 rounded-xl border transition-all cursor-pointer"
+                        <label class="flex items-center p-3 rounded-xl border transition-all cursor-pointer"
                                :class="checkedItems[item.id] ? 'bg-emerald-50/60 border-emerald-300 text-slate-400 line-through' : 'bg-slate-50 border-slate-200 text-slate-800 hover:bg-slate-100'">
                             <input type="checkbox" :checked="checkedItems[item.id]" @change="toggleCheckItem(item.id)" 
                                    class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500 mr-3">
-                            <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-600 mr-2" x-text="item.cat"></span>
-                            <span class="text-xs sm:text-sm font-medium flex-1" x-text="item.text"></span>
+                            <span class="text-xs sm:text-sm font-bold px-2.5 py-0.5 rounded-md bg-white border border-slate-200 text-slate-600 mr-2" x-text="item.cat"></span>
+                            <span class="text-sm sm:text-base font-medium flex-1" x-text="item.text"></span>
                         </label>
                     </template>
                 </div>
@@ -607,6 +638,7 @@
                 allExpanded: false,
                 openDrawers: {},
                 checkedItems: {},
+                fontSize: 'normal',
 
                 days: window.TRIP_DAYS || [],
                 places: window.TRIP_PLACES || [],
@@ -615,6 +647,14 @@
                 checklist: window.TRIP_CHECKLIST || { rental: {}, items: [] },
 
                 init() {
+                    // Load saved font size preference
+                    try {
+                        const savedFont = localStorage.getItem('tokyo_hokkaido_font_size');
+                        if (savedFont && ['normal', 'large', 'xlarge'].includes(savedFont)) {
+                            this.fontSize = savedFont;
+                        }
+                    } catch (e) {}
+
                     // Load saved checklist from localStorage
                     try {
                         const saved = localStorage.getItem('tokyo_hokkaido_checklist_v4');
@@ -624,6 +664,13 @@
                     } catch (e) {
                         console.error('Failed to load checklist', e);
                     }
+                },
+
+                setFontSize(size) {
+                    this.fontSize = size;
+                    try {
+                        localStorage.setItem('tokyo_hokkaido_font_size', size);
+                    } catch (e) {}
                 },
 
                 isDrawerOpen(dayIdx, spotIdx) {
