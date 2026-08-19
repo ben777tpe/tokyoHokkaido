@@ -675,23 +675,28 @@
       </div>
     </div>
 
-    <!-- SECTION 6: CHECKLIST -->
+    <!-- SECTION 6: CHECKLIST (WITH AUTO LOCALSTORAGE PERSISTENCE) -->
     <div x-show="activeMainTab === 'checklist' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-sumi flex items-center justify-center text-white text-lg">
-            <i class="fa-solid fa-list-check"></i>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EAE3D4] pb-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-sumi flex items-center justify-center text-white text-lg">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">出發前重點待辦與預約清單</h3>
+              <p class="text-xs md:text-sm text-emerald-700 font-bold">✨ 打勾狀態會自動儲存於手機/電腦瀏覽器，重新整理絕不消失！</p>
+            </div>
           </div>
-          <div>
-            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">出發前重點待辦與預約清單</h3>
-            <p class="text-sm md:text-base text-sumi-light font-maru">依時效性排序，點選方框可打勾紀錄</p>
-          </div>
+          <button @click="resetChecklist()" class="text-xs text-sumi-light hover:text-red-700 font-bold border border-[#D5CABB] px-3 py-1.5 rounded-lg bg-white shadow-xs transition self-start sm:self-auto">
+            <i class="fa-solid fa-rotate-left mr-1"></i> 重設所有打勾狀態
+          </button>
         </div>
 
         <div class="space-y-3.5">
           <template x-for="(todo, index) in checklist" :key="index">
-            <div class="p-4 rounded-xl border transition flex items-start space-x-3.5" :class="todo.done ? 'bg-washi/40 border-[#E8E2D5] opacity-60' : 'bg-white border-[#D8CEBC] shadow-xs'">
-              <input type="checkbox" x-model="todo.done" class="mt-1 w-5 h-5 rounded text-aizome focus:ring-aizome cursor-pointer shrink-0">
+            <div class="p-4 rounded-xl border transition flex items-start space-x-3.5 cursor-pointer" :class="todo.done ? 'bg-washi/40 border-[#E8E2D5] opacity-60' : 'bg-white border-[#D8CEBC] shadow-xs'" @click="todo.done = !todo.done">
+              <input type="checkbox" x-model="todo.done" @click.stop class="mt-1 w-5 h-5 rounded text-aizome focus:ring-aizome cursor-pointer shrink-0">
               <div class="flex-1">
                 <div class="flex items-center space-x-2">
                   <span class="text-xs px-2.5 py-0.5 rounded font-bold" :class="todo.badgeColor" x-text="todo.category"></span>
@@ -699,7 +704,7 @@
                 </div>
                 <p class="text-sm md:text-base text-sumi-light mt-1.5 leading-relaxed" x-text="todo.detail"></p>
                 <template x-if="todo.actionUrl">
-                  <a :href="todo.actionUrl" target="_blank" class="inline-block mt-2.5 text-sm font-bold text-kohaku hover:underline">
+                  <a :href="todo.actionUrl" target="_blank" @click.stop class="inline-block mt-2.5 text-sm font-bold text-kohaku hover:underline">
                     <i class="fa-solid fa-link mr-1"></i> 前往官方連結
                   </a>
                 </template>
@@ -730,6 +735,35 @@
           const savedSize = localStorage.getItem('benTrip_fontSize');
           if (savedSize) this.fontSize = savedSize;
           this.applyFontSize();
+
+          // 💾 Load persistent checklist from localStorage
+          const savedChecklist = localStorage.getItem('benTrip_checklist_state');
+          if (savedChecklist) {
+            try {
+              const states = JSON.parse(savedChecklist);
+              this.checklist.forEach((item, idx) => {
+                if (states[idx] !== undefined) {
+                  item.done = states[idx];
+                }
+              });
+            } catch(e) {}
+          }
+
+          // 💾 Auto-save whenever checklist changes
+          this.$watch('checklist', (newVal) => {
+            const states = newVal.map(i => i.done);
+            localStorage.setItem('benTrip_checklist_state', JSON.stringify(states));
+          }, { deep: true });
+        },
+
+        resetChecklist() {
+          if (confirm('確定要將清單的打勾狀態重設為預設值嗎？')) {
+            localStorage.removeItem('benTrip_checklist_state');
+            this.checklist[0].done = true; // 租車已完成
+            for (let i = 1; i < this.checklist.length; i++) {
+              this.checklist[i].done = false;
+            }
+          }
         },
 
         setFontSize(size) {
