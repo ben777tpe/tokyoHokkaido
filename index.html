@@ -134,7 +134,7 @@
       </div>
     </div>
 
-    <!-- 4 LARGE COMFORTABLE SEGMENTED TABS (NO HORIZONTAL SCROLL, BIG CLEAR FONT!) -->
+    <!-- 4 LARGE COMFORTABLE SEGMENTED TABS -->
     <div class="border-t border-[#EAE3D4] bg-[#FAF8F5] px-3 py-2">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2">
         
@@ -256,7 +256,7 @@
          ========================================== -->
     <div x-show="activeMainTab === 'itinerary' && !searchQuery" class="space-y-4">
 
-      <!-- 7-DAY CLEAN GRID SELECTOR (NO HORIZONTAL SCROLLBAR!) -->
+      <!-- 7-DAY CLEAN GRID SELECTOR -->
       <div class="grid grid-cols-7 gap-1 md:gap-2">
         <template x-for="(day, index) in days" :key="index">
           <button 
@@ -437,7 +437,7 @@
           </div>
         </div>
 
-        <!-- Filter Sub-Tabs (Responsive Grid, Zero Scroll!) -->
+        <!-- Filter Sub-Tabs -->
         <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
           <button @click="localFilter = 'all'" :class="localFilter === 'all' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="py-2 px-2 rounded-xl text-xs md:text-sm font-serif transition text-center col-span-2 sm:col-span-1">
             全部 (19)
@@ -468,7 +468,7 @@
                 <h4 class="font-serif font-black text-base md:text-lg text-sumi" x-text="p.name"></h4>
                 <p class="text-xs md:text-sm text-sumi-light leading-relaxed" x-text="p.desc"></p>
                 
-                <!-- Business Hours & Closed Days (店休情報) -->
+                <!-- Business Hours & Closed Days -->
                 <div class="p-2.5 rounded-xl bg-[#FAF7F0] border border-[#EADECB] text-xs md:text-sm space-y-1.5">
                   <div class="text-sumi flex items-start">
                     <span class="font-bold text-aizome shrink-0 mr-1.5"><i class="fa-regular fa-clock text-aizome"></i> 營業時間：</span>
@@ -481,7 +481,7 @@
                 </div>
               </div>
 
-              <!-- Action Buttons Row (Google Map + Tabelog) -->
+              <!-- Action Buttons Row -->
               <div class="grid grid-cols-2 gap-2 pt-1">
                 <a :href="p.googleMapUrl" target="_blank" class="py-2 text-center rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs md:text-sm font-bold shadow-xs flex items-center justify-center transition">
                   <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航
@@ -529,7 +529,7 @@
         </a>
       </div>
 
-      <!-- 分類區塊 1: 晚上回飯店放鬆（夾娃娃 ＆ 飯店周邊文具） -->
+      <!-- 晚上回飯店放鬆（夾娃娃 ＆ 飯店周邊文具） -->
       <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
         <div class="flex items-center space-x-2.5 border-b border-[#EAE3D4] pb-3">
           <div class="w-9 h-9 rounded-xl bg-purple-700 flex items-center justify-center text-white text-base shadow-xs">
@@ -584,7 +584,7 @@
         </div>
       </div>
 
-      <!-- 分類區塊 2: 白天行程旗艦聖地 (池袋、澀谷、原宿) -->
+      <!-- 白天行程旗艦聖地 (池袋、澀谷、原宿) -->
       <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
         <div class="flex items-center space-x-2.5 border-b border-[#EAE3D4] pb-3">
           <div class="w-9 h-9 rounded-xl bg-aizome-light flex items-center justify-center text-white text-base shadow-xs">
@@ -893,295 +893,9 @@
           });
         },
 
-        localPlaces: [
-                {
-                        "id": "t1",
-                        "category": "takadanobaba",
-                        "categoryLabel": "高田馬場飯店周邊",
-                        "badge": "生活百貨 ｜ 免稅一站買齊",
-                        "badgeColor": "bg-yellow-100 text-yellow-900 border border-yellow-300",
-                        "name": "唐吉訶德 高田馬場站前店 (Don Quijote)",
-                        "area": "飯店正對面 ｜ 徒步 1 分鐘",
-                        "desc": "24 小時免稅旗艦店！藥妝、伴手禮、日用品一應俱全，採買後直接提回對面飯店房間放，無痛免手提！",
-                        "hours": "24 小時營業",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/W8dHE1hkoWV1bvmg8",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "t2",
-                        "category": "takadanobaba",
-                        "categoryLabel": "高田馬場飯店周邊",
-                        "badge": "生鮮超市 ｜ AEON旗下優質超市",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300",
-                        "name": "Peacock Store 超市 高田馬場店",
-                        "area": "飯店隔壁 ｜ 徒步 2 分鐘",
-                        "desc": "品項豐富的高質感生鮮超市，買日本產鮮乳、當季水蜜桃、麝香葡萄與特價熟成生魚片首選！",
-                        "hours": "09:00～23:00",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/iRyLPPBinyJZwWE67",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "t3",
-                        "category": "takadanobaba",
-                        "categoryLabel": "高田馬場飯店周邊",
-                        "badge": "百圓商店 ｜ 人氣高質感日系雜貨",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300",
-                        "name": "Seria ピーコックストア高田馬場店",
-                        "area": "Peacock 超市 B1F ｜ 徒步 2 分鐘",
-                        "desc": "日本女性評選第一名百圓店！文具雜貨、廚房生活小物、動漫收納盒與日系精緻日用品極度齊全。",
-                        "hours": "10:00～21:00",
-                        "closedDays": "無休 (依Peacock商場公告為準)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/ZsE3QpcZ1Lw1L6Ry8",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "t4",
-                        "category": "takadanobaba",
-                        "categoryLabel": "高田馬場飯店周邊",
-                        "badge": "平價生鮮 ｜ 晨間晚間超值補給",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300",
-                        "name": "My Basket 高田馬場站北店 (まいばすけっと)",
-                        "area": "飯店旁 ｜ 徒步 3 分鐘",
-                        "desc": "AEON 旗下平價便利超市，採買 2L 大瓶礦泉水、大罐茶飲、優格、冰品與早餐麵包最划算。",
-                        "hours": "07:00～24:00",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/P73BPZ3DwoWqRS8g6",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "s1",
-                        "category": "sapporo",
-                        "categoryLabel": "札幌薄野飯店周邊",
-                        "badge": "北海道超商之魂 ｜ 必吃熱食",
-                        "badgeColor": "bg-orange-100 text-orange-900 border border-orange-300",
-                        "name": "Seicomart 南5條店 (セイコーマート)",
-                        "area": "飯店同條街 ｜ 徒步 30 秒",
-                        "desc": "北海道在地超商王者！必吃 Hot Chef 現做熱食便當、炸雞塊、香濃哈密瓜冰棒與北海道濃純生乳布丁。",
-                        "hours": "24 小時營業",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/M4wMfs5czaocmBY79",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "s2",
-                        "category": "sapporo",
-                        "categoryLabel": "札幌薄野飯店周邊",
-                        "badge": "大型生鮮超市 ｜ 十勝生乳哈密瓜",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300",
-                        "name": "Daiichi 超市 薄野店 (ダイイチ COCONO SUSUKINO店)",
-                        "area": "COCONO SUSUKINO B2F ｜ 徒步 3 分鐘",
-                        "desc": "薄野新地標！產地直送十勝鮮乳、現切夕張哈密瓜、厚切干貝生魚片壽司與道產熟食專賣。",
-                        "hours": "10:00～21:00",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/JMLyWhw3LHPP2UAv6",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "s3",
-                        "category": "sapporo",
-                        "categoryLabel": "札幌薄野飯店周邊",
-                        "badge": "平價超市 ｜ 飲品零食補給",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300",
-                        "name": "My Basket 南6條西7丁目店",
-                        "area": "飯店旁 ｜ 徒步 2 分鐘",
-                        "desc": "平價連鎖社區生鮮超市，採買大瓶飲用水、北海道限定茶飲與水果最省荷包。",
-                        "hours": "07:00～23:00",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/VXQLGULSAM9S8Xaj8",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "s4",
-                        "category": "sapporo",
-                        "categoryLabel": "札幌薄野飯店周邊",
-                        "badge": "24H 便利超商 ｜ 跨國 ATM 提款",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300",
-                        "name": "7-Eleven 札幌南4條西7丁目店",
-                        "area": "飯店斜對面 ｜ 徒步 2 分鐘",
-                        "desc": "設有跨國 Seven Bank ATM 提款機，半夜領日圓現金、列印或購買宵夜最方便。",
-                        "hours": "24 小時營業",
-                        "closedDays": "無休 (年中無休)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/pk1j6NwryBMeDacd9",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "s5",
-                        "category": "sapporo",
-                        "categoryLabel": "札幌薄野飯店周邊",
-                        "badge": "進口食品咖啡 ｜ 地下街順遊",
-                        "badgeColor": "bg-amber-100 text-amber-900 border border-amber-300",
-                        "name": "Jupiter 札幌 Pole Town 店",
-                        "area": "大通 ➔ 狸小路地下街 (Pole Town)",
-                        "desc": "大通往狸小路地下街必經！精選自家烘焙咖啡豆、各國零食點心、日本特色調味料與果乾專賣。",
-                        "hours": "10:00～20:00",
-                        "closedDays": "無休 (依地下街公告為準)",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://maps.app.goo.gl/YDe75P5whND5FXWbA",
-                        "tabelogUrl": ""
-                },
-                {
-                        "id": "g1",
-                        "category": "harajuku",
-                        "categoryLabel": "原宿・表參道私房",
-                        "badge": "Tabelog 3.74 ｜ 銘柄豬涮涮鍋・極上炸豬排",
-                        "badgeColor": "bg-red-100 text-red-800 border border-red-300 font-bold",
-                        "name": "PRETTY PORK FACTORY & KATSUプリポー",
-                        "area": "原宿・明治神宮前 (神宮前3-24-1 2F)",
-                        "desc": "嚴選日本頂級銘柄豬（TOKYO X、金豚王）涮涮鍋與低溫慢炸黃金豬排，肉質甘甜多汁，是東京豬肉料理的巔峰！",
-                        "hours": "午 11:30～15:00 ｜ 晚 17:30～22:30",
-                        "closedDays": "週一公休 (月曜日定休) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=PRETTY+PORK+FACTORY+KATSUプリポー+原宿",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13295369/"
-                },
-                {
-                        "id": "g2",
-                        "category": "harajuku",
-                        "categoryLabel": "原宿・表參道私房",
-                        "badge": "Tabelog 3.55+ ｜ 世界第一 Ricotta 鬆餅",
-                        "badgeColor": "bg-amber-100 text-amber-900 border border-amber-300 font-bold",
-                        "name": "bills 表参道 (東急Plaza 7F)",
-                        "area": "東急 Plaza 表參道原宿 7F (神宮前4-30-3)",
-                        "desc": "被譽為「世界第一早餐」！招牌 Ricotta 起司香蕉熱鬆餅與有機法式炒蛋，頂樓空中花園採光極佳，家庭早午餐首選。",
-                        "hours": "08:30～22:00 (L.O. 21:00)",
-                        "closedDays": "不定休 (依東急Plaza休館日為準) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=bills+表参道+東急プラザ",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13139698/"
-                },
-                {
-                        "id": "g3",
-                        "category": "harajuku",
-                        "categoryLabel": "原宿・表參道私房",
-                        "badge": "Tabelog 3.55+ ｜ 熟成牛舌燒肉・和牛肉壽司",
-                        "badgeColor": "bg-red-100 text-red-800 border border-red-300 font-bold",
-                        "name": "原宿焼肉 KINTAN",
-                        "area": "原宿 (神宮前1-10-37 CASCADE HARAJUKU B1F)",
-                        "desc": "東京極具人氣的時尚燒肉名店！以「30日間熟成牛舌（30日間熟成KINTAN）」與融化舌尖的和牛肉壽司聞名。",
-                        "hours": "午 11:30～15:00 ｜ 晚 17:30～23:00",
-                        "closedDays": "無休 (年中無休，年末年始除外) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=原宿焼肉+KINTAN+CASCADE",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13186036/"
-                },
-                {
-                        "id": "g4",
-                        "category": "harajuku",
-                        "categoryLabel": "原宿・表參道私房",
-                        "badge": "Tabelog 3.65+ (Top 5000) ｜ 炭火燒鳥・烤雞丼名店",
-                        "badgeColor": "bg-orange-100 text-orange-900 border border-orange-300 font-bold",
-                        "name": "鳥政 (Torimasa)",
-                        "area": "表參道/南青山 (南青山3-13-2 山江ビル 1F)",
-                        "desc": "表參道傳奇老字號炭火燒鳥！午間「炭烤燒鳥丼（焼き鳥丼）」份量驚人炭香濃郁，是青山一帶排隊名店。",
-                        "hours": "午 11:30～14:00 ｜ 晚 17:00～22:00",
-                        "closedDays": "週六、週日、國定假日公休 (土・日・祝日定休) ｜ 8/28(五) 避開公休，保證營業！",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=鳥政+南青山3-13-2",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130602/13001258/"
-                },
-                {
-                        "id": "g5",
-                        "category": "shibuya",
-                        "categoryLabel": "澀谷私房名店",
-                        "badge": "Tabelog 3.60 ｜ 神級炸豬排・低溫慢炸",
-                        "badgeColor": "bg-red-100 text-red-800 border border-red-300 font-bold",
-                        "name": "とんかつ梛 (Tonkatsu Nagi)",
-                        "area": "澀谷宇田川町 (宇田川町41-26 203)",
-                        "desc": "老名店かつ吉店長獨立店！嚴選岩中豚、あわ雪ポーク等頂級銘柄豬，低溫慢炸出酥脆白金麵衣與粉嫩多汁肉質。",
-                        "hours": "午 11:30～15:00 ｜ 晚 17:30～21:30",
-                        "closedDays": "不定休 ｜ 8/28(五) 通常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=とんかつ梛+渋谷区宇田川町41-26",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13319750/"
-                },
-                {
-                        "id": "g6",
-                        "category": "shibuya",
-                        "categoryLabel": "澀谷私房名店",
-                        "badge": "Tabelog 3.65+ (百名店) ｜ 厚切上牛舌・極品和牛",
-                        "badgeColor": "bg-red-100 text-red-800 border border-red-300 font-bold",
-                        "name": "焼肉ホルモン 新井屋 渋谷 (Arainya)",
-                        "area": "澀谷道玄坂 (道玄坂2-19-11 1F)",
-                        "desc": "預約困難的頂級燒肉百名店！招牌「厚切上牛舌」與極品和牛內臟、特選牛小排令人驚艷，深受老饕推崇。",
-                        "hours": "17:00～23:30 (L.O. 22:30)",
-                        "closedDays": "無休 (年中無休，年末年始除外) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=焼肉ホルモン+新井屋+渋谷+道玄坂",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13237382/"
-                },
-                {
-                        "id": "g7",
-                        "category": "shibuya",
-                        "categoryLabel": "澀谷私房名店",
-                        "badge": "Tabelog 3.50+ ｜ 宇治茶甜點・抹茶刨冰・茶泡飯",
-                        "badgeColor": "bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold",
-                        "name": "京都宇治 藤井茗縁 (東急Plaza 6F)",
-                        "area": "澀谷 FUKURAS (東急Plaza 6F)",
-                        "desc": "創業 480 年京都宇治茶園直營！招牌宇治抹茶刨冰、現刨焙茶蒙布朗、抹茶巴菲與清爽的宇治茶漬飯御膳。",
-                        "hours": "11:00～22:00 (L.O. 21:00)",
-                        "closedDays": "不定休 (依澀谷 FUKURAS 商場為準) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=京都宇治+藤井茗縁+東急プラザ渋谷",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13241439/"
-                },
-                {
-                        "id": "g8",
-                        "category": "shibuya",
-                        "categoryLabel": "澀谷私房名店",
-                        "badge": "Tabelog 3.45+ ｜ 究極天然高湯料理・茶漬飯御膳",
-                        "badgeColor": "bg-amber-100 text-amber-900 border border-amber-300 font-bold",
-                        "name": "出汁 林 (Dashi Hayashi 東急Plaza 6F)",
-                        "area": "澀谷 FUKURAS (東急Plaza 6F)",
-                        "desc": "以「日本第一天然出汁」為核心！每日以特選昆布與柴魚慢火熬煮高湯，搭配鮭魚卵厚蛋燒、極品出汁茶漬飯與旬彩定食。",
-                        "hours": "午 11:00～15:00 ｜ 晚 17:00～22:00",
-                        "closedDays": "不定休 (依澀谷 FUKURAS 商場為準) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=出汁+林+東急プラザ渋谷",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13298889/"
-                },
-                {
-                        "id": "g9",
-                        "category": "shibuya",
-                        "categoryLabel": "澀谷私房名店",
-                        "badge": "Tabelog 3.50+ ｜ 備長炭直火炭烤魚・一夜干定食",
-                        "badgeColor": "bg-orange-100 text-orange-900 border border-orange-300 font-bold",
-                        "name": "越後屋 三太夫",
-                        "area": "澀谷道玄坂 (道玄坂2-6-5 東京電燈ビル B1F)",
-                        "desc": "備長炭直火高溫燒烤！日本產花魚一夜干、大山雞香味燒與銀鱈西京燒定食，炭香四溢，平價高水準日式定食。",
-                        "hours": "午 11:00～15:30 ｜ 晚 17:00～23:00",
-                        "closedDays": "無休 (年中無休，年末年始除外) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=越後屋三太夫+渋谷道玄坂",
-                        "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13139798/"
-                },
-                {
-                        "id": "g10",
-                        "category": "shibuya",
-                        "categoryLabel": "惠比壽私房名店",
-                        "badge": "Tabelog 3.80+ (Top 1000) ｜ 紐約百年傳奇熟成牛排",
-                        "badgeColor": "bg-red-100 text-red-900 border border-red-400 font-bold",
-                        "name": "Peter Luger Steak House Tokyo",
-                        "area": "惠比壽 (澀谷旁 1 站，惠比壽4-19-19)",
-                        "desc": "紐約布魯克林 130 年傳奇熟成牛排海外首家旗艦店！招牌 USDA Prime 乾式熟成 T 骨牛排，外酥內嫩多汁。",
-                        "hours": "午 11:30～15:00 ｜ 晚 17:00～23:00",
-                        "closedDays": "無休 (年中無休) ｜ 8/28(五) 正常營業",
-                        "closedBadge": "text-emerald-700 font-bold",
-                        "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=Peter+Luger+Steak+House+Tokyo+恵比寿",
-                        "tabelogUrl": "https://tabelog.com/tw/tokyo/A1303/A130302/13258435/"
-                }
-        ],
+        localPlaces: [{"id": "t1", "category": "takadanobaba", "categoryLabel": "高田馬場生活超市", "badge": "24H 免稅大採買", "badgeColor": "bg-red-100 text-red-800", "name": "唐吉訶德 高田馬場站前店", "area": "飯店正對面徒步 1 分鐘 (新宿区高田馬場1-26-5)", "desc": "藥妝、日本零食、伴手禮、免稅品一站購足，買完直接走 1 分鐘回房間放，完全不用提重物！", "hours": "24 小時營業", "closedDays": "無休 (年中無休)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=ドン・キホーテ+高田馬場駅前店", "tabelogUrl": ""}, {"id": "t2", "category": "takadanobaba", "categoryLabel": "高田馬場生活超市", "badge": "大型生活生鮮超市", "badgeColor": "bg-emerald-100 text-emerald-800", "name": "Peacock Store 超市 高田馬場店", "area": "飯店旁徒步 2 分鐘 (新宿区高田馬場1-28-7)", "desc": "AEON 集團旗下生鮮超市，買當季水蜜桃、麝香葡萄、日本產鮮乳與熟食點心首選。", "hours": "09:00～23:00", "closedDays": "無休 (年中無休)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=ピーコックストア+高田馬場店", "tabelogUrl": ""}, {"id": "t3", "category": "takadanobaba", "categoryLabel": "高田馬場生活超市", "badge": "超人氣百圓店", "badgeColor": "bg-purple-100 text-purple-800", "name": "Seria ピーコックストア高田馬場店", "area": "Peacock 超市 B1F (徒步 2 分)", "desc": "日本公認質感最高的百圓店！專賣日系文具、廚房雜貨、收納小物與動漫周邊。", "hours": "10:00～21:00", "closedDays": "無休 (依Peacock營業日)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=Seria+ピーコックストア高田馬場店", "tabelogUrl": ""}, {"id": "t4", "category": "takadanobaba", "categoryLabel": "高田馬場生活超市", "badge": "平價都會超市", "badgeColor": "bg-blue-100 text-blue-800", "name": "My Basket 高田馬場站北店", "area": "飯店旁徒步 3 分鐘 (新宿区高田馬場2-13-2)", "desc": "平價便利超市，夜間買大罐茶水、飲料、冰棒優格最划算。", "hours": "07:00～24:00", "closedDays": "無休 (年中無休)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=まいばすけっと+高田馬場駅北店", "tabelogUrl": ""}, {"id": "s1", "category": "sapporo", "categoryLabel": "札幌薄野生活超商", "badge": "北海道超商靈魂", "badgeColor": "bg-amber-100 text-amber-800", "name": "Seicomart 南5條店", "area": "飯店同條街徒步 30 秒 (中央区南5条西6丁目)", "desc": "必吃 Hot Chef 現炸炸雞塊、北海道哈密瓜冰棒、濃純生乳布丁！", "hours": "24 小時營業", "closedDays": "無休 (年中無休)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=セイコーマート+南5条店", "tabelogUrl": ""}, {"id": "s2", "category": "sapporo", "categoryLabel": "札幌薄野生活超商", "badge": "薄野最強新超市", "badgeColor": "bg-emerald-100 text-emerald-800", "name": "Daiichi 超市 薄野店 (ダイイチ)", "area": "COCONO SUSUKINO B2F (徒步 3 分)", "desc": "薄野新地標地下大超市，產地直送十勝生乳、哈密瓜切片與豪華生魚片熟食。", "hours": "10:00～21:00", "closedDays": "無休 (依商場營業日)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=ダイイチ+すすきの店+COCONO+SUSUKINO", "tabelogUrl": ""}, {"id": "s3", "category": "sapporo", "categoryLabel": "札幌薄野生活超商", "badge": "平價生鮮超市", "badgeColor": "bg-blue-100 text-blue-800", "name": "My Basket 南6條西7丁目店", "area": "飯店旁徒步 2 分鐘 (中央区南6条西7丁目5-2)", "desc": "平價連鎖超市，買瓶裝水、大罐茶飲與水果最便宜。", "hours": "07:00～23:00", "closedDays": "無休 (年中無休)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=まいばすけっと+南6条西7丁目店", "tabelogUrl": ""}, {"id": "s4", "category": "sapporo", "categoryLabel": "札幌薄野生活超商", "badge": "24H 便利超商 ＋ ATM", "badgeColor": "bg-slate-100 text-slate-800", "name": "7-Eleven 南4條西7丁目店", "area": "飯店旁徒步 2 分鐘 (中央区南4条西7丁目6)", "desc": "設有跨國 ATM 提款機，急需領日幣現鈔或半夜採買最方便。", "hours": "24 小時營業", "closedDays": "無休 (年中無休)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=セブン-イレブン+札幌南4条西7丁目店", "tabelogUrl": ""}, {"id": "s5", "category": "sapporo", "categoryLabel": "札幌薄野生活超商", "badge": "進口食品與咖啡專賣", "badgeColor": "bg-amber-100 text-amber-900", "name": "Jupiter 札幌 Pole Town 店", "area": "大通 ➔ 狸小路地下街 (Day 2順遊)", "desc": "位於大通公園通往狸小路的地下街內，專賣精選咖啡豆、進口零食、日本特色調味料與果乾。", "hours": "10:00～20:00", "closedDays": "無休 (依地下街休館日)", "closedBadge": "text-emerald-700 font-bold", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=ジュピター+札幌ポールタウン店", "tabelogUrl": ""}, {"id": "h1", "category": "harajuku", "categoryLabel": "原宿・表參道私房", "badge": "★ 3.74 頂級銘柄豬涮涮鍋", "badgeColor": "bg-amber-100 text-amber-900 font-bold", "name": "PRETTY PORK FACTORY & KATSUプリポー", "area": "明治神宮前 / 原宿 (渋谷区神宮前3-24-1 2F)", "desc": "嚴選全日本極致銘柄豚（TOKYO X / 金豚王），極上清爽涮涮鍋、和風韓式五花肉與現炸金黃豬排！", "hours": "午餐(炸豬排) 11:30～15:00 (L.O. 14:00) ｜ 晚餐(涮涮鍋) 17:30～22:30 (L.O. 21:00)", "closedDays": "週一公休 (月曜日定休，祝日則隔日休) ｜ 8/28(五) 正常營業", "closedBadge": "text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded border border-amber-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=PRETTY+PORK+FACTORY+KATSUプリポー+神宮前", "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13295369/"}, {"id": "h2", "category": "harajuku", "categoryLabel": "原宿・表參道私房", "badge": "★ 3.55+ 世界第一早餐鬆餅", "badgeColor": "bg-blue-100 text-blue-900 font-bold", "name": "bills 表参道", "area": "東急 Plaza 表參道原宿 7F (渋谷区神宮前4-30-3)", "desc": "紐約時報評為「世界第一早餐」！經典 Ricotta 香蕉熱鬆餅與有機法式炒蛋，綠意空中花園美景。", "hours": "08:30～22:00 (餐點 L.O. 21:00, 飲料 21:30)", "closedDays": "無休 (不定休，依東急Plaza商場休館日為準) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=bills+表参道+東急プラザ", "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13139698/"}, {"id": "h3", "category": "harajuku", "categoryLabel": "原宿・表參道私房", "badge": "★ 3.55+ 熟成牛舌燒肉", "badgeColor": "bg-red-100 text-red-900 font-bold", "name": "原宿焼肉 KINTAN", "area": "原宿 CASCADE HARAJUKU B1F (渋谷区神宮前1-10-37)", "desc": "熟成 30 天的極致牛舌（30日間熟成KINTAN）、黑毛和牛肉壽司與時尚無煙燒肉體驗。", "hours": "午餐 11:30～15:00 (六日祝11:00~) ｜ 晚餐 17:30～23:00 (L.O. 22:15)", "closedDays": "無休 (年末年始除外) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=原宿焼肉+KINTAN+CASCADE+HARAJUKU", "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13186036/"}, {"id": "h4", "category": "harajuku", "categoryLabel": "原宿・表參道私房", "badge": "★ 3.65+ Top 5000 炭火燒鳥", "badgeColor": "bg-emerald-100 text-emerald-900 font-bold", "name": "鳥政 (Torimasa)", "area": "表參道 / 南青山 (港区南青山3-13-2 1F)", "desc": "南青山傳奇炭火燒鳥老店！現點現烤大蔥雞肉串、手工雞肉丸子與午間人氣燒鳥丼！", "hours": "午餐 11:30～14:00 (售完即止) ｜ 晚餐 17:00～22:00 (L.O. 21:00)", "closedDays": "週六、週日、國定假日公休 (土・日・祝日定休) ｜ 8/28(五) 正常營業！", "closedBadge": "text-red-700 font-bold bg-red-50 px-2 py-0.5 rounded border border-red-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=鳥政+南青山+港区", "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130602/13001258/"}, {"id": "b1", "category": "shibuya", "categoryLabel": "澀谷・惠比壽私房", "badge": "★ 3.60 神級銘柄豬炸豬排", "badgeColor": "bg-amber-100 text-amber-900 font-bold", "name": "とんかつ梛 (Nagi)", "area": "澀谷 / 宇田川町 (渋谷区宇田川町41-26 203)", "desc": "老牌名店「かつ吉」前店長獨立店！嚴選岩手縣岩中豚與あわ雪ポーク低溫慢炸，粉嫩多汁！", "hours": "午餐 11:30～15:00 (L.O. 14:30) ｜ 晚餐 17:30～21:30 (L.O. 20:30)", "closedDays": "不定休 (出發前可查閱 IG/Tabelog) ｜ 8/28(五) 通常營業", "closedBadge": "text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded border border-amber-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=とんかつ梛+渋谷区宇田川町", "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13319750/"}, {"id": "b2", "category": "shibuya", "categoryLabel": "澀谷・惠比壽私房", "badge": "★ 3.65+ 燒肉百名店", "badgeColor": "bg-red-100 text-red-900 font-bold", "name": "焼肉ホルモン 新井屋 渋谷", "area": "澀谷道玄坂 (渋谷区道玄坂2-19-11 1F)", "desc": "澀谷預約困難店！神級厚切上牛舌、特選和牛橫膈膜與新鮮內臟拼盤，肉質極致鮮美！", "hours": "平日 17:00～23:30 (L.O. 22:45) ｜ 六日祝 16:00～23:30", "closedDays": "無休 (年末年始除外) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=焼肉ホルモン+新井屋+渋谷+道玄坂", "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13237382/"}, {"id": "b3", "category": "shibuya", "categoryLabel": "澀谷・惠比壽私房", "badge": "★ 3.50+ 京都480年茶園", "badgeColor": "bg-emerald-100 text-emerald-900 font-bold", "name": "京都宇治 藤井茗縁", "area": "澀谷 FUKURAS (東急Plaza) 6F", "desc": "京都宇治老字號茶園直營！極致濃郁抹茶刨冰、焙茶蒙布朗、抹茶芭菲與茶泡飯御膳。", "hours": "11:00～22:00 (餐點 L.O. 21:00, 飲品 21:30)", "closedDays": "無休 (依澀谷 FUKURAS 商場休館日為準) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=京都宇治+藤井茗縁+渋谷フクラス", "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13241439/"}, {"id": "b4", "category": "shibuya", "categoryLabel": "澀谷・惠比壽私房", "badge": "★ 3.45+ 究極日式高湯料理", "badgeColor": "bg-blue-100 text-blue-900 font-bold", "name": "出汁 林 (Dashi Hayashi)", "area": "澀谷 FUKURAS (東急Plaza) 6F", "desc": "以「日本第一高湯」為靈魂！天然昆布柴魚高湯茶漬飯、鮭魚卵厚蛋燒與精緻和食御膳。", "hours": "午餐 11:00～15:30 (L.O. 14:30) ｜ 晚餐 17:00～22:00 (L.O. 21:00)", "closedDays": "無休 (依澀谷 FUKURAS 商場休館日為準) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=出汁+林+渋谷フクラス", "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13298889/"}, {"id": "b5", "category": "shibuya", "categoryLabel": "澀谷・惠比壽私房", "badge": "★ 3.50+ 備長炭直烤一夜干", "badgeColor": "bg-slate-100 text-slate-900 font-bold", "name": "越後屋 三太夫", "area": "澀谷道玄坂 (渋谷区道玄坂2-6-5 B1F)", "desc": "炭火高溫直烤日本產極品一夜干（花魚、鯖魚、銀鱈西京燒），外焦香肉多汁，白飯無限續！", "hours": "午餐 11:00～15:30 (L.O. 15:00) ｜ 晚餐 17:00～23:00 (L.O. 22:00)", "closedDays": "無休 (年中無休) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=越後屋三太夫+渋谷+道玄坂", "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13139798/"}, {"id": "b6", "category": "shibuya", "categoryLabel": "澀谷・惠比壽私房", "badge": "★ 3.80+ Top 1000 百年牛排", "badgeColor": "bg-red-100 text-red-800 font-bold", "name": "Peter Luger Steak House Tokyo", "area": "惠比壽 (渋谷区恵比寿4-19-19)", "desc": "紐約百年傳奇牛排館東京旗艦店！頂級乾式熟成 T 骨牛排（需提前預約，奢華大餐首選）。", "hours": "午餐 11:00～15:00 (L.O. 14:00) ｜ 晚餐 17:00～23:00 (L.O. 21:30)", "closedDays": "無休 (年末年始除外) ｜ 8/28(五) 正常營業", "closedBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "googleMapUrl": "https://www.google.com/maps/search/?api=1&query=Peter+Luger+Steak+House+Tokyo+恵比寿", "tabelogUrl": "https://tabelog.com/tw/tokyo/A1303/A130302/13258435/"}],
 
-        days: __DAYS_FULL_PLACEHOLDER__,
+        days: [{"shortDate": "8/23(日)", "shortName": "抵達千歲", "dayLabel": "Day 1 ｜ 抵達千歲", "fullDate": "2026年8月23日（週日）", "title": "松山飛羽田 ➔ T3 江戶小路美食 ➔ 飛抵新千歲", "pace": "充裕轉機 ｜ 美食享受", "paceColor": "bg-emerald-100 text-emerald-800", "timeline": [{"time": "13:30 – 17:45", "stay": "飛行 3h15m ｜ 17:45 抵達羽田 T3", "spot": "台北松山 (TSA) 啟程 ➔ 東京羽田 (HND) 第 3 航廈", "transit": "捷運文湖線松山機場站 ➔ 搭乘 ANA NH852 直飛羽田 T3", "desc": "預計 11:30 報到託運，17:45 準時抵達羽田機場第 3 航廈 (T3)。", "hours": "航班 13:30 起飛", "holiday": "全年無休 ｜ 8/23(日) 正常營運", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport"}, {"time": "17:45 – 18:30", "stay": "通關託運 45 分鐘", "spot": "羽田 T3 入境通關 ➔ 2F 國內線轉機行李託運", "transit": "T3 下機 ➔ 入境提行李 ➔ 2F 到達大廳「ANA 國內線轉機櫃台」", "desc": "【順暢撇步】一入境直接在 T3 2F 轉機櫃台將大行李掛上下段班機！全家只帶隨身小包上樓逛街。", "hours": "轉機櫃台 24 小時服務", "holiday": "全年無休 ｜ 8/23(日) 正常營運", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3"}, {"time": "18:30 – 19:35", "stay": "停留 1 小時 05 分", "spot": "羽田 T3 美食散策：4F 江戶小路 ＋ 5F 展望台", "transit": "T3 2F 搭電梯直達 4F 江戶小路、5F 展望台", "desc": "在江戶木造街景享用晚餐（六厘舍沾麵、炸豬排、壽司），帶孩子到 5F 動漫玩具旗艦店與觀景台看飛機。", "hours": "江戶小路多數店家 07:00～22:00 / 展望台 24H 開放", "holiday": "無休 (年中無休) ｜ 8/23(日) 保證營業", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=羽田空港第3ターミナル+江戸小路"}, {"time": "19:40 – 20:15", "stay": "移動 20 分鐘", "spot": "免費接駁巴士至 T2 ➔ 國內線安檢 ➔ 飛往札幌", "transit": "T3 1F 搭乘「航廈間無料連絡巴士（綠色車身）」10-15分直達 T2", "desc": "通過 T2 國內線安檢門，搭乘 20:15 起飛的 HD37 班機飛往札幌新千歲。", "hours": "接駁巴士每 4 分鐘一班", "holiday": "全年無休 ｜ 8/23(日) 正常營運", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2"}, {"time": "21:50 – 22:30", "stay": "移動 30 分鐘", "spot": "抵達新千歲機場 ➔ 計程車直達千歲旅驛", "transit": "千歳市東郊 1-12-21 旅驛", "desc": "領取行李後搭計程車直達旅驛辦理入住，徒步 5 分鐘至周邊 Seicomart 採買宵夜。", "hours": "24 小時入住 / 超商 24H 營業", "holiday": "無休 ｜ 8/23(日) 正常", "holidayBadge": "text-emerald-700 font-bold", "cost": "車資約 ¥1,500–2,000", "mapUrl": "https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21"}]}, {"shortDate": "8/24(一)", "shortName": "札幌夜景", "dayLabel": "Day 2 ｜ 札幌文史與夜景", "fullDate": "2026年8月24日（週一）", "title": "諏訪神社花手水 ➔ 白色戀人 ➔ 大通文具散策 ➔ 藻岩山夜景 ➔ 薄野夾娃娃", "pace": "順向充實 ｜ 文具與生活採買", "paceColor": "bg-blue-100 text-blue-800", "timeline": [{"time": "08:30 – 09:15", "stay": "車程 45 分鐘", "spot": "千歲 ➔ JR 快速 Airport ➔ 札幌站", "transit": "JR 千歲站搭快速 Airport 直達札幌站（約 35 分鐘）", "desc": "前往札幌市區。", "hours": "JR 班次密集 (約 12 分鐘一班)", "holiday": "無休", "cost": "JR ¥840 / 人", "mapUrl": "https://www.google.com/maps/search/?api=1&query=JR+千歳駅"}, {"time": "09:30 – 10:00", "stay": "停留 30 分鐘", "spot": "Vessel Campana 薄野飯店寄放行李", "transit": "地鐵南北線至「すすきの站」4 號出口步行 4 分鐘", "desc": "入住地址：中央区南5条西6丁目16-1。先寄放大件行李，輕裝出發。", "hours": "24 小時行李寄放服務", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルホテルカンパーナすすきの"}, {"time": "10:15 – 11:15", "stay": "停留 1 小時", "spot": "🌸 札幌諏訪神社 (絕美花手水 ＋ 透明御朱印)", "transit": "地鐵南北線直達「北12条站」1 號出口步行 8 分鐘 (東区北12条東1丁目1-10)", "desc": "參拜北海道極負盛名的花手水神社，抽限定水神籤與拍全家福。", "hours": "境內自由參拜 24H ｜ 社務所授與所 09:00～17:00", "holiday": "無休 (年中無休) ｜ 8/24(一) 保證開放！", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=札幌諏訪神社"}, {"time": "11:45 – 13:45", "stay": "停留 2 小時", "spot": "白色戀人公園 (白い恋人パーク)", "transit": "地鐵東西線終點「宮の沢站」5 號出口步行 7 分鐘", "desc": "英式都鐸城堡莊園，2026/7/30 全新升級工廠參觀線與餅乾手作 DIY。", "hours": "10:00～17:00 (付費設施最後入場 16:00)", "holiday": "無休 (年中無休) ｜ 8/24(一) 保證開園！", "holidayBadge": "text-emerald-700 font-bold", "cost": "4人約 ¥3,600 (大¥1200/小¥600)", "mapUrl": "https://www.google.com/maps/search/?api=1&query=白い恋人パーク"}, {"time": "14:15 – 15:15", "stay": "停留 1 小時", "spot": "午餐：札幌湯咖哩 (Suage+ 本店 / GARAKU 札幌本店)", "transit": "地鐵搭回大通站或薄野站步行 3 分鐘", "desc": "品嚐以藥膳香料與北海道產蔬菜慢熬的經典湯咖哩。", "hours": "Suage+ 本店 11:30～22:00 (L.O. 21:30)", "holiday": "無休 (年末年始除外) ｜ 8/24(一) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "cost": "人均約 ¥1,200", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Soup+Curry+Suage%2B+Sapporo"}, {"time": "15:30 – 18:00", "stay": "停留 2.5 小時", "spot": "大通公園 ＋ 電視塔 ＋ 狸小路文具與伴手禮散策", "transit": "大通公園往南步行 3 分進入南1条通，順遊地下街 Pole Town 直通狸小路商店街", "desc": "都心綠廊散策。途中特別順訪【大丸藤井セントラル（南1西3，整整 7 層樓的北海道百年文具聖殿！1~4F 鋼筆、手帳、紙膠帶、和紙極齊全）】；接著至狸小路 3 丁目路口的【moyuk SAPPORO（3F 是モユク札幌 Loft 文具雜貨，2F 是 Standard Products 無印風 300 円質感生活館）】與地下街 Jupiter 咖啡零食，一站式買齊伴手禮與文具！", "hours": "大丸藤井 10:00～19:00 / moyuk Loft 至 21:00 / 電視塔至 22:00", "holiday": "無休 (年中無休) ｜ 8/24(一) 正常營業", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=大丸藤井セントラル+札幌"}, {"time": "18:30 – 20:15", "stay": "停留 1 小時 45 分", "spot": "藻岩山空中纜車・日本新三大夜景", "transit": "薄野搭市電至「ロープウェイ入口站」轉免費接駁巴士", "desc": "搭乘空中纜車登上 531 公尺山頂，眺望石狩平原百萬夜景。", "hours": "夏季營運 10:30～22:00 (上行末班車 21:30)", "holiday": "夏季無休 (強風停駛除外) ｜ 8/24(一) 保證營運！", "holidayBadge": "text-emerald-700 font-bold", "cost": "纜車4人 ¥6,300", "mapUrl": "https://www.google.com/maps/search/?api=1&query=札幌もいわ山ロープウェイ"}, {"time": "20:30 – 22:00", "stay": "停留 1.5 小時", "spot": "晚餐：成吉思汗烤羊肉 (達摩 だるま 6.4店) ＋ 薄野夾娃娃放鬆", "transit": "市電返回薄野站周邊（中央区南6条西4丁目），吃飽順路走回飯店", "desc": "炭火鐵盔鍋烤羊肉。餐後回飯店前，順路到十字路口的【GiGO すすきの（全新整棟 120 台夾娃娃機旗艦店）】或狸小路 4 丁目【TAITO STATION（4層樓夾娃娃旗艦）】開心夾娃娃！玩完徒步 3 分鐘回飯店泡大浴場。", "hours": "だるま 至 05:00 / GiGO 至 23:00 / TAITO 至 23:30", "holiday": "無休 (年中無休) ｜ 8/24(一) 正常營業", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=GiGO+すすきの"}]}, {"shortDate": "8/25(二)", "shortName": "美瑛自駕", "dayLabel": "Day 3 ｜ 美瑛自駕與和牛", "fullDate": "2026年8月25日（週二）", "title": "NIPPON 租車 ➔ 旭山動物園 ➔ 美瑛青池 ➔ 炭火燒肉 羅山", "pace": "早起自駕 ➔ 頂級和牛晚餐", "paceColor": "bg-amber-100 text-amber-800", "timeline": [{"time": "07:45 – 08:15", "stay": "取車 15 分鐘", "spot": "札幌站東口 NIPPON 租車取車 ➔ 旭川 (行車約 1h50m)", "transit": "JR 札幌站東口步行 5 分抵達 NIPPON 札幌站前營業所（東区北7条東1-1-1）", "desc": "預約號 101851488，密碼 c60305a4。Ben 代表辦理手續，現場信用卡付款 ¥12,540。", "hours": "營業所營業時間 08:00～20:00", "holiday": "無休 (年中無休) ｜ 8/25(二) 保證取車！", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "cost": "租車費 ¥12,540 (含安心NOC+ETC卡)", "mapUrl": "https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号"}, {"time": "10:00 – 13:15", "stay": "停留 3 小時 15 分", "spot": "旭川市 旭山動物園", "transit": "自駕直達園區停車場", "desc": "觀賞海豹圓柱水槽、北極熊深潛水槽與企鵝水下隧道。", "hours": "夏季開園 09:30～17:15 (最後入園 16:00)", "holiday": "夏季無休 (4/26~10/15 天天開園！) ｜ 8/25(二) 保證開園！", "holidayBadge": "text-emerald-700 font-bold", "cost": "2大人 ¥2,000，國中以下全免", "mapUrl": "https://www.google.com/maps/search/?api=1&query=旭川市旭山動物園"}, {"time": "13:30 – 14:30", "stay": "停留 1 小時", "spot": "午餐：旭川醬油拉麵 (旭川拉麵村)", "transit": "動物園開車 15 分鐘至拉麵村 (旭川市永山11条4丁目119-48)", "desc": "品嚐中細捲麵與豬骨海鮮雙湯頭交織的道地旭川醬油拉麵。", "hours": "11:00～20:00 (村內 8 間拉麵名店)", "holiday": "無休 (年中無休) ｜ 8/25(二) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=あさひかわラーメン村"}, {"time": "15:15 – 16:15", "stay": "停留 1 小時", "spot": "美瑛・白金青池 ＋ 白鬚瀑布", "transit": "走國道 237 號往白金方向行車約 40 分鐘", "desc": "探訪鈷藍色水波與枯落葉松交織的仙境。", "hours": "青池停車場 07:00～19:00 / 白鬚瀑布 24H 開放", "holiday": "自然景觀無休 ｜ 8/25(二) 保證開放！", "holidayBadge": "text-emerald-700 font-bold", "cost": "停車費 ¥500", "mapUrl": "https://www.google.com/maps/search/?api=1&query=白金青い池"}, {"time": "16:35 – 17:15", "stay": "停留 40 分鐘", "spot": "四季彩之丘 ➔ 自駕返回札幌", "transit": "開車約 20 分鐘；隨後走道央道開車返札幌（約 2.2 小時）", "desc": "廣達 15 公頃的丘陵彩色花毯。拍照後啟程返札幌。", "hours": "8月花季 08:40～17:30", "holiday": "花季期間無休 ｜ 8/25(二) 保證開園！", "holidayBadge": "text-emerald-700 font-bold", "cost": "門票4人約 ¥2,600 ＋ 停車費 ¥500", "mapUrl": "https://www.google.com/maps/search/?api=1&query=展望花畑+四季彩の丘"}, {"time": "19:30 – 19:50", "stay": "還車 20 分鐘", "spot": "札幌站東口 NIPPON 還車 ➔ 回薄野", "transit": "加滿油，輸入 Map Code：9 553 092 返回門市。搭地鐵回薄野", "desc": "20:00 前順利完成還車手續，結束全日自駕行程。", "hours": "營業所營業至 20:00", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号"}, {"time": "20:00 – 21:45", "stay": "用餐 1 小時 45 分", "spot": "🥩 晚餐：炭火焼肉 羅山 (Razan) すすきの店", "transit": "中央区南5条西6丁目18（就在入住飯店正隔壁，走路僅 30 秒！）", "desc": "在包廂享用頂級炭火 A5 黑毛和牛、厚切極上牛舌與特選牛五花！吃完直接回飯店泡大浴場。", "hours": "17:00～24:00 (L.O. 23:00)", "holiday": "週一公休 (月曜日定休) ｜ 8/25(二) 避開公休，保證正常營業！", "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=札幌市中央区南5条西6丁目18+炭火焼肉+Razan"}]}, {"shortDate": "8/26(三)", "shortName": "小樽運河", "dayLabel": "Day 4 ｜ 小樽海風與蟹", "fullDate": "2026年8月26日（週三）", "title": "小樽運河 ➔ 堺町通玻璃工藝 ➔ 帝王蟹宴", "pace": "悠閒漫步", "paceColor": "bg-emerald-100 text-emerald-800", "timeline": [{"time": "09:30 – 10:15", "stay": "車程 45 分鐘", "spot": "札幌站搭 JR 快速 Airport ➔ 小樽站", "transit": "JR 札幌站搭乘 JR 快速 Airport 直達小樽站（約 35 分鐘）", "desc": "沿途右側車窗飽覽石狩灣海岸線美景。", "hours": "JR 約 15 分鐘一班", "holiday": "無休", "cost": "JR 4人來回約 ¥6,000", "mapUrl": "https://www.google.com/maps/search/?api=1&query=JR+小樽駅"}, {"time": "10:30 – 11:30", "stay": "停留 1 小時", "spot": "小樽運河 散步拍照", "transit": "JR 小樽站正門沿中央通步行 8 分鐘抵達淺草橋", "desc": "漫步於石造倉庫與復古煤氣燈旁。", "hours": "24 小時自由漫步", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=小樽運河"}, {"time": "11:30 – 13:00", "stay": "停留 1.5 小時", "spot": "堺町通：北一硝子 × 小樽音樂盒堂", "transit": "沿堺町通步行至童話十字路口", "desc": "欣賞玻璃工藝與蒸氣鐘，品嚐 LeTAO 雙層乳酪蛋糕與北菓樓大泡芙。", "hours": "09:00～18:00", "holiday": "無休 (年中無休) ｜ 8/26(三) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=小樽オルゴール堂+本館"}, {"time": "13:15 – 14:45", "stay": "停留 1.5 小時", "spot": "午餐：小樽三角市場 海鮮丼", "transit": "JR 小樽站正門左側階梯上樓 1 分鐘即達市場入口", "desc": "品嚐現點現切生海膽、干貝與鮭魚卵三色海鮮丼。", "hours": "市場 06:00～17:00 (餐廳 07:00～16:00)", "holiday": "無休 (年中無休) ｜ 8/26(三) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "cost": "人均約 ¥2,500", "mapUrl": "https://www.google.com/maps/search/?api=1&query=小樽三角市場"}, {"time": "15:30 – 18:00", "stay": "停留 2.5 小時", "spot": "返札幌 ＋ 大丸百貨伴手禮採買 ＋ 飯店周邊超商", "transit": "JR 小樽站搭快速回札幌站", "desc": "採買北海道限定伴手禮，回飯店順逛 Daiichi 超市買北海道水果。", "hours": "大丸百貨 10:00～20:00 / 超市 10:00～21:00", "holiday": "無休 (年中無休) ｜ 8/26(三) 正常", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=大丸札幌店"}, {"time": "18:30 – 20:30", "stay": "用餐 2 小時", "spot": "晚餐：北海道帝王蟹 • 毛蟹饗宴 (かに本家 札幌站前本店)", "transit": "かに本家 札幌站前本店（札幌站南口步行 5 分，中央区北3条西2丁目1-18）", "desc": "包廂享用活帝王蟹火鍋、炭烤蟹腳與蟹膏刺身料理。", "hours": "11:30～22:00 (L.O. 21:30)", "holiday": "無休 (年中無休) ｜ 8/26(三) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=札幌かに本家+札幌駅前本店"}]}, {"shortDate": "8/27(四)", "shortName": "飛東京巨蛋", "dayLabel": "Day 5 ｜ 飛東京・巨蛋柯南", "fullDate": "2026年8月27日（週四）", "title": "札幌飛羽田 ➔ 直奔高田馬場 Check-in ➔ 東京巨蛋城柯南 Plaza ＋ 巨蛋晚餐", "pace": "行李直接進房 ｜ 順暢無壓", "paceColor": "bg-emerald-100 text-emerald-800", "timeline": [{"time": "09:30 – 10:30", "stay": "車程 45 分鐘", "spot": "退房 ➔ JR 快速 Airport ➔ 新千歲機場", "transit": "札幌站搭乘 JR 快速 Airport 直達新千歲機場地下月台（約 37 分鐘）", "desc": "10:45 前抵達國內線櫃台報到託運。昨晚打包好的北海道戰利品全數裝箱託運！", "hours": "JR 約 12 分鐘一班", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=新千歳空港"}, {"time": "12:00 – 13:35", "stay": "飛行 1h35m ｜ 13:35 抵達東京羽田", "spot": "新千歲 (CTS) 飛往 羽田 (HND T2)", "transit": "搭乘全日空 NH60 班機，13:35 準時抵達羽田機場第 2 航廈 (T2)", "desc": "領取行李出關，帶所有大行李直奔高田馬場飯店！", "hours": "航班 12:00 準時起飛", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2"}, {"time": "13:45 – 14:45", "stay": "車程約 45 分鐘", "spot": "羽田機場 ➔ 直奔高田馬場 Vessel Inn 飯店", "transit": "羽田搭「東京單軌電車」至濱松町轉「JR山手線」直達高田馬場站；或 4 人搭大計程車（約 35 分鐘，¥9,000–11,000）直達飯店門口。", "desc": "【省下運費神操作】免花黑貓寄件費，大行李直接帶回飯店！", "hours": "單軌+山手線班次極密 (2~3分鐘一班)", "holiday": "無休", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前"}, {"time": "15:00 – 15:40", "stay": "停留 40 分鐘", "spot": "🏨 Vessel Inn 高田馬場 Check-in ＋ 大行李直接進房", "transit": "高田馬場站 4 號出口電梯直通飯店 B1 (新宿区高田馬場2-17-4)", "desc": "準時 Check-in！大行李直接推進房間，上洗手間、換穿輕便衣物，一身輕鬆準備出門！", "hours": "14:00 起開放入住", "holiday": "無休", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前"}, {"time": "15:45 – 18:00", "stay": "停留 2 小時 15 分", "spot": "🕵️‍♂️ 東京巨蛋城：名偵探柯南廣場 (Detective Conan Plaza)", "transit": "高田馬場搭 JR 山手線至新宿轉「JR 中央・總武線」只要 12 分鐘直達水道橋站西口（步行 3 分即達 Central Park）。", "desc": "【柯南年度最大快閃】挑選 2026 最新劇場版限定周邊、角色立牌、特典與拍貼機（營業至 19:00），時間超充裕完全不趕！", "hours": "11:00～19:00 (展期 2026/04/01 ～ 09/27)", "holiday": "展期內無休 ｜ 8/27(四) 保證正常營運！", "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=Tokyo+Dome+City+Central+Park"}, {"time": "18:00 – 19:30", "stay": "用餐逛街 1.5 小時", "spot": "東京巨蛋城商場散策 ＋ 後樂園 Loft ＋ 巨蛋晚餐", "transit": "東京巨蛋城 LaQua / Meets Port", "desc": "在巨蛋城享用豐盛晚餐（敘敘苑燒肉、一蘭拉麵、和牛定食）。晚餐前後可順逛【LaQua 3F 的後樂園 Loft（文具生活雜貨）】、JUMP SHOP 與對面遊樂區的【GiGO 東京巨蛋城（最新動漫夾娃娃機）】！", "hours": "LaQua 商場 11:00～21:00 / 餐廳至 23:00", "holiday": "無休 (年中無休) ｜ 8/27(四) 正常營業", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=LaQua+東京ドームシティ"}, {"time": "19:45 – 21:30", "stay": "移動放鬆", "spot": "回高田馬場 ＋ BIGBOX 6F 夾娃娃 / 4F 文具館 ＋ 門口超市補給", "transit": "水道橋搭 JR 總武線回高田馬場站（僅 12 分鐘）", "desc": "吃飽早早回飯店！回房前直接走進飯店正對面的【BIGBOX 6F タイトーステーション（高田馬場最大夾娃娃機遊戲中心，營業至 24:00）】與【BIGBOX 4F 芳林堂書店文具館】逛逛，或在隔壁【Peacock 超市 B1F 的 Seria 百元店】採買。玩完 1 分鐘進房休息，大人不累小孩超開心！", "hours": "BIGBOX 遊戲中心至 24:00 / 唐吉訶德 24H / Peacock至 23:00", "holiday": "無休", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=BIGBOX+高田馬場"}]}, {"shortDate": "8/28(五)", "shortName": "池袋澀谷", "dayLabel": "Day 6 ｜ 池袋動漫・澀谷原宿", "fullDate": "2026年8月28日（週五）", "title": "池袋太陽城 ➔ アニメイト本店 ➔ Google 澀谷 35F景觀午餐 ➔ 澀谷原宿 ➔ 炸豬排/燒肉", "pace": "動漫採買 ｜ 頂級景觀午餐 ｜ 極度順暢", "paceColor": "bg-kohaku-light text-kohaku border border-kohaku/30", "timeline": [{"time": "08:30 – 09:30", "stay": "用餐 1 小時", "spot": "飯店早餐 ＋ 悠閒出發", "transit": "Vessel Inn 2F 餐廳享用早餐", "desc": "在飯店享用早餐，9:45 悠閒搭電梯下樓搭車。", "hours": "早餐 06:00～09:30", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前"}, {"time": "09:45 – 10:00", "stay": "車程 4 分鐘", "spot": "高田馬場 ➔ JR 山手線 ➔ 池袋站東口", "transit": "高田馬場搭 JR 山手線（外環方向）只要 2 站 4 分鐘 直達池袋站東口（35 號出口步行 6 分鐘直達太陽城通道）！", "desc": "距離飯店超近！免除以往轉車長途跋涉的辛苦。", "hours": "山手線約 2 分鐘一班", "holiday": "無休", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=JR+池袋駅"}, {"time": "10:00 – 11:15", "stay": "停留 1 小時 15 分", "spot": "✨ 池袋 Sunshine City 太陽城 (Pokemon Center & 3000台扭蛋+夾娃娃 & Seria)", "transit": "池袋站東口沿 Sunshine 60 通步行 6 分鐘即達 (豊島区東池袋3-1-2)", "desc": "朝聖 ALPA 2F 的【Pokemon Center MEGA TOKYO】與 Pikachu Sweets；接著至 3F【萬代 Namco Cross Store（擁有超過 3,000 台扭蛋機與巨型夾娃娃機專區！）】；商場 ALTA 1F 還有【Seria 百元店】可順逛！", "hours": "專賣店街 10:00～20:00 / 扭蛋與遊樂區 10:00～21:00", "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！", "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=サンシャインシティ+池袋"}, {"time": "11:15 – 12:30", "stay": "停留 1 小時 15 分", "spot": "🔥 アニメイト池袋本店 (Animate 世界最大 9 層樓動漫旗艦館)", "transit": "太陽城步行 3 分鐘即達（豊島区東池袋1-20-7）", "desc": "全球最大規模的動漫聖殿（金氏世界紀錄認證）！整整 9 層樓，專賣各大人氣動漫周邊（堀與宮村、咒術迴戰、柯南、排球少年等）、漫畫畫冊、角色模型與 4F/5F 官方動漫文具收納用品。", "hours": "平日 11:00～21:00 / 六日祝 10:00～20:00", "holiday": "無休 (年中無休) ｜ 8/28(五) 11:00 準時開門，保證營業！", "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店"}, {"time": "12:35 – 12:55", "stay": "車程 15 分鐘", "spot": "池袋 ➔ 地鐵副都心線急行 ➔ 澀谷 Stream (直通 Google 大樓)", "transit": "池袋站搭「東京地下鐵副都心線（急行/F-liner）」只要 11 分鐘直達澀谷站，出站走 C2 出口地下直通 Shibuya Stream 大樓！", "desc": "極速直達澀谷！完全不受戶外天氣與塞車影響。", "hours": "地下鐵急行約 5 分鐘一班", "holiday": "無休", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Stream"}, {"time": "13:00 – 14:15", "stay": "停留 1 小時 15 分", "spot": "🍴 Google 澀谷 Stream 辦公室午餐 (35F PAUSA / Hachi)", "transit": "L5 接待處刷證報到 ➔ 搭電梯直達 35F 頂樓景觀餐廳", "desc": "Ben 帶全家進入體驗 Google 辦公室！在 35F 享用手工義大利麵、現烤披薩與 Hachi 拉麵，點現做 Affogato，飯後漫步至 29F 藍瓶咖啡廳。", "hours": "辦公室上班日開放 11:30～14:30", "holiday": "工作日正常 ｜ 8/28(五) 正常開放！", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Stream"}, {"time": "14:30 – 16:00", "stay": "停留 1.5 小時", "spot": "SHIBUYA SKY 展望台 ＋ 澀谷 PARCO 6F (任天堂/寶可夢) ＋ 澀谷 Loft 文具", "transit": "Shibuya Stream 2F 天橋步行 2 分直通 Scramble Square 14F 上展望台；下樓後步行 5 分至 PARCO 6F 與 澀谷 Loft", "desc": "360 度俯瞰東京全景與十字路口；隨後朝聖【澀谷 PARCO 6F Nintendo TOKYO】與【澀谷 Loft（整棟 6 層樓旗艦店，B1F 是文具控必逛的頂級文具館）】！", "hours": "SHIBUYA SKY 10:00～22:30 / PARCO 10:00～21:00 / Loft 11:00～21:00", "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "cost": "4人約 ¥10,000", "mapUrl": "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY"}, {"time": "16:15 – 18:00", "stay": "停留 1 小時 45 分", "spot": "原宿竹下通 ＋ Kiddy Land 原宿旗艦店 (蠟筆小新與卡通文具)", "transit": "澀谷搭 JR 山手線 1 站至原宿站東口，穿過竹下通走至表參道 Kiddy Land", "desc": "Kiddy Land 2F/3F 採購蠟筆小新、吉卜力、卡娜赫拉、三麗鷗與日本精緻卡通文具。傍晚漫步表參道，動線極為悠閒！", "hours": "Kiddy Land 11:00～20:00 / 竹下通 10:00～20:00", "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！", "holidayBadge": "text-emerald-700 font-bold", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=キデイランド+原宿店"}, {"time": "18:15 – 20:30", "stay": "用餐放鬆", "spot": "晚餐：高田馬場 とんかつ ひなた（或原宿 KINTAN/プリポー、澀谷新井屋/とんかつ梛）", "transit": "原宿搭山手線返回高田馬場站（約 10 分鐘）或於原宿/澀谷就地享用私房大餐", "desc": "享用神級炸豬排「ひなた」或私房清單名店！回高田馬場後還可在 BIGBOX 6F 夾娃娃或在房間開箱整理北海道與東京採買的戰利品打包裝箱。", "hours": "ひなた 晚餐 17:00～20:30 (L.O.)", "holiday": "週日公休 (日曜日定休) ｜ 8/28(五) 避開公休，保證營業！", "holidayBadge": "text-emerald-700 font-bold", "mapUrl": "https://www.google.com/maps/search/?api=1&query=とんかつひなた+高田馬場"}]}, {"shortDate": "8/29(六)", "shortName": "滿載返台", "dayLabel": "Day 7 ｜ 滿載返台", "fullDate": "2026年8月29日（週六）", "title": "Vessel 招牌海鮮早餐 ➔ 羽田機場搭機回松山", "pace": "從容順利", "paceColor": "bg-emerald-100 text-emerald-800", "timeline": [{"time": "08:00 – 09:30", "stay": "用餐整理 1.5 小時", "spot": "Vessel Inn 極上海鮮自助早餐 ＋ 整理退房", "transit": "飯店 2F 餐廳享用", "desc": "品嚐高田馬場 Vessel 招牌鮭魚卵、生魚片海鮮丼，分裝託運行李與免稅品。", "hours": "06:00～09:30 (11:00 前退房)", "holiday": "每日正常供應", "mapUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前"}, {"time": "09:45 – 10:45", "stay": "車程 45 分鐘", "spot": "退房 ➔ 前往羽田機場第 3 航廈", "transit": "高田馬場搭 JR 山手線至濱松町站轉東京單軌電車（空港快速）直達羽田 T3", "desc": "目標 10:50 前抵達國際線航廈報到。", "hours": "班次密集", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3"}, {"time": "10:50 – 13:00", "stay": "停留 2 小時 10 分", "spot": "羽田機場報到、出關、免稅店最後採購", "transit": "羽田第 3 航廈 3F 出境大廳", "desc": "過安檢後在免稅店採買伴手禮。", "hours": "免稅店 24 小時 / 全日營業", "holiday": "無休", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3"}, {"time": "13:20 – 15:50", "stay": "飛行 3h30m", "spot": "搭乘 ANA NH853 返回台北松山 (TSA)", "transit": "預計 15:50 抵達台北松山機場，搭乘捷運文湖線直達返家", "desc": "結束充實精彩的 7 天 6 夜北海道東京家庭行，平安返抵台灣。", "hours": "航班 13:20 準時起飛", "holiday": "正常營運", "highlight": true, "mapUrl": "https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport"}]}],
 
         checklist: [
           { done: true, category: '已完成・租車', badgeColor: 'bg-emerald-100 text-emerald-800', title: '✅ 8/25 NIPPON 租車已完成預約！', detail: '預約號：101851488 ｜ 密碼：c60305a4 ｜ 取車點：JR 札幌站東口步行 5 分 (札幌市東区北7条東1丁目1番1号) ｜ Map Code：9 553 092 ｜ 費用：¥12,540 (現場付款，含 CDW+安心NOC+ETC卡)。', actionUrl: 'https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488' },
