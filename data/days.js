@@ -1,0 +1,854 @@
+// data/days.js - 7 Days Detailed Itinerary with Historical Lore, Must-Eat/Buy, YT links, Rain Backups, and Dual Maps (Google G + Apple)
+window.TRIP_DAYS = [
+  {
+    "shortDate": "8/23(日)",
+    "shortName": "抵達千歲",
+    "dayLabel": "Day 1 ｜ 抵達千歲",
+    "fullDate": "2026年8月23日（週日）",
+    "title": "松山飛羽田 ➔ T3 江戶小路美食 ➔ 飛抵新千歲",
+    "pace": "充裕轉機 ｜ 美食享受",
+    "paceColor": "bg-emerald-100 text-emerald-800",
+    "rainBackup": {
+      "title": "☔ Day 1 轉機雨天無憂備案",
+      "desc": "松山機場、羽田機場 T3/T2 以及千歲抵達全程皆為全室內空調與航廈接駁巴士，完全不受戶外降雨影響；如遇羽田天候陣雨，5F 展望台可轉至 5F 室內「Planetarium Starry Cafe 星空咖啡館」或 4F 江戶小路室內茶寮品茶。"
+    },
+    "timeline": [
+      {
+        "time": "13:30 – 17:45",
+        "stay": "飛行 3h15m ｜ 17:45 抵達羽田 T3",
+        "spot": "台北松山 (TSA) 啟程 ➔ 東京羽田 (HND) 第 3 航廈",
+        "transit": "捷運文湖線松山機場站 ➔ 搭乘 ANA NH852 直飛羽田 T3",
+        "desc": "預計 11:30 報到託運，17:45 準時抵達羽田機場第 3 航廈 (T3)。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport",
+        "appleUrl": "https://maps.apple.com/?q=Taipei+Songshan+Airport",
+        "hours": "航班 13:30 起飛",
+        "holiday": "全年無休 ｜ 8/23(日) 正常營運",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【台日雙首都歷史門戶】台北松山機場建於 1936 年（日治時期台北飛行場），而羽田機場則自 1931 年（東京飛行場）啟用至今，兩座機場皆座落於首都蛋黃區核心，是台日商務與頂級自由行最省時便利的黃金航線。",
+        "mustTry": "松山機場出境前可於免稅店採買隨身點心；機上提供 ANA 全日空經典和風機上餐與 Kabosu 綠野柑橘香汁。",
+        "links": [
+          {
+            "title": "ANA 全日空官方航班動態",
+            "url": "https://www.ana.co.jp/zh/tw/"
+          }
+        ]
+      },
+      {
+        "time": "17:45 – 18:30",
+        "stay": "通關託運 45 分鐘",
+        "spot": "羽田 T3 入境通關 ➔ 2F 國內線轉機行李託運",
+        "transit": "T3 下機 ➔ 入境提行李 ➔ 2F 到達大廳「ANA 國內線轉機櫃台」",
+        "desc": "【順暢撇步】一入境直接在 T3 2F 轉機櫃台將大行李掛上下段班機！全家只帶隨身小包上樓逛街。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3",
+        "appleUrl": "https://maps.apple.com/?q=Haneda+Airport+Terminal+3",
+        "hours": "轉機櫃台 24 小時服務",
+        "holiday": "全年無休 ｜ 8/23(日) 正常營運",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【航廈直轉神級設計】羽田機場 T3 於 2010 年正式啟用，設有極具效率的國內線轉機專用行李托運櫃台與專用安檢通道，免去拖著沉重大行李跨航廈奔波的負擔。",
+        "mustTry": "在此完成託運後，全家僅需攜帶隨身小包，即可輕鬆搭乘電梯直達 4F 江戶小路與 5F 觀景台！"
+      },
+      {
+        "time": "18:30 – 19:35",
+        "stay": "停留 1 小時 05 分",
+        "spot": "羽田 T3 美食散策：4F 江戶小路 ＋ 5F 展望台",
+        "transit": "T3 2F 搭電梯直達 4F 江戶小路、5F 展望台",
+        "desc": "在江戶木造街景享用晚餐（六厘舍沾麵、炸豬排、壽司），帶孩子到 5F 動漫玩具旗艦店與觀景台看飛機。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=羽田空港第3ターミナル+江戸小路",
+        "appleUrl": "https://maps.apple.com/?q=羽田空港第3ターミナル+江戸小路",
+        "hours": "江戶小路多數店家 07:00～22:00 / 展望台 24H 開放",
+        "holiday": "無休 (年中無休) ｜ 8/23(日) 保證營業",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【江戶長屋與動漫太空城】4F「江戶小路」以江戶時代末期城下町與木造長屋建築為原型，使用日本傳統數寄屋造與吉野檜木打造，江戶舞台更是傳統歌舞伎祭典造景；5F「TOKYO POP TOWN」分為 HOT ZONE (動漫公仔扭蛋) 與 COOL ZONE (博品館玩具旗艦)，戶外即為全開放式木棧展望台。",
+        "mustTry": "【必吃必買】4F「六厘舍」特濃豚骨魚介沾麵、伊藤園抹茶冰淇淋；5F 觀景台欣賞東京灣夕照與博品館模型遙控賽車道！",
+        "links": [
+          {
+            "title": "羽田機場 T3 江戶小路官網介紹",
+            "url": "https://tokyo-haneda.com/zh-TW/floor/terminal3/4th_floor.html"
+          }
+        ]
+      },
+      {
+        "time": "19:40 – 20:15",
+        "stay": "移動 20 分鐘",
+        "spot": "免費接駁巴士至 T2 ➔ 國內線安檢 ➔ 飛往札幌",
+        "transit": "T3 1F 搭乘「航廈間無料連絡巴士（綠色車身）」10-15分直達 T2",
+        "desc": "通過 T2 國內線安檢門，搭乘 20:15 起飛的 HD37 班機飛往札幌新千歲。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2",
+        "appleUrl": "https://maps.apple.com/?q=Haneda+Airport+Terminal+2",
+        "hours": "接駁巴士每 4 分鐘一班",
+        "holiday": "全年無休 ｜ 8/23(日) 正常營運",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "羽田第 2 航廈（T2）為 ANA 全日空及 AIRDO 國內線樞紐，航廈內設有極具現代感的挑高流線型候機大廳與各色限定甜點專賣店。",
+        "mustTry": "搭乘北海道在地航空 AIRDO 聯名班機，機上提供北海道產香濃洋蔥湯與可愛的「白熊（Bear Do）」周邊。"
+      },
+      {
+        "time": "21:50 – 22:30",
+        "stay": "移動 30 分鐘",
+        "spot": "抵達新千歲機場 ➔ 計程車直達千歲旅驛",
+        "transit": "千歳市東郊 1-12-21 旅驛",
+        "desc": "領取行李後搭計程車直達旅驛辦理入住，徒步 5 分鐘至周邊 Seicomart 採買宵夜。",
+        "cost": "車資約 ¥1,500–2,000",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=千歳市東郊1-12-21",
+        "appleUrl": "https://maps.apple.com/?q=千歳市東郊1-12-21",
+        "hours": "24 小時入住 / 超商 24H 營業",
+        "holiday": "無休 ｜ 8/23(日) 正常",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【千歲地名由來】千歲市原為愛努語「Shikotsu」（大窪地/死骨），江戶時期因諧音不祥，見當地棲息許多長壽白鶴，取「鶴生千歲」之古詩改名為千歲。",
+        "mustTry: ": "【必買宵夜】徒步 5 分鐘到北海道獨家超商 Seicomart 買「Hot Chef」現做溫熱炸雞塊與北海道十勝生乳布丁！"
+      }
+    ]
+  },
+  {
+    "shortDate": "8/24(一)",
+    "shortName": "札幌夜景",
+    "dayLabel": "Day 2 ｜ 札幌文史與夜景",
+    "fullDate": "2026年8月24日（週一）",
+    "title": "諏訪神社花手水 ➔ 白色戀人 ➔ 大通文具散策 ➔ 藻岩山夜景 ➔ 薄野夾娃娃",
+    "pace": "順向充實 ｜ 文具與生活採買",
+    "paceColor": "bg-blue-100 text-blue-800",
+    "rainBackup": {
+      "title": "☔ Day 2 札幌雨天 / 強風備案",
+      "desc": "若遇強風或大雨導致藻岩山纜車停駛：\n1. 🏙️【JR Tower 38F 展望室 T38】：札幌站直通，全室內 360 度俯瞰札幌市區百萬夜景（營業至 22:00）。\n2. 🐧【AOAO SAPPORO 都市型水族館】：狸小路 3 丁目 moyuk SAPPORO 4F~6F，全室內近距離看企鵝跳水與水母燈光秀（營業至 22:00）。\n3. 🛍️【大通 ➔ 狸小路全天候地下街 (Pole Town / Aurora Town)】：全室內無縫直通大丸藤井文具與各大商場，完全不用淋雨。"
+    },
+    "timeline": [
+      {
+        "time": "08:30 – 09:15",
+        "stay": "車程 45 分鐘",
+        "spot": "千歲 ➔ JR 快速 Airport ➔ 札幌站",
+        "transit": "JR 千歲站搭快速 Airport 直達札幌站（約 35 分鐘）",
+        "desc": "前往札幌市區。",
+        "cost": "JR ¥840 / 人",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=JR+千歳駅",
+        "appleUrl": "https://maps.apple.com/?q=JR+千歳駅",
+        "hours": "JR 班次密集 (約 12 分鐘一班)",
+        "holiday": "無休",
+        "history": "JR 快速 Airport 線連接新千歲機場與札幌市區，沿途飽覽石狩平原與北海道綠意原野風光。",
+        "mustTry": "札幌站南口有北海道各地名產總匯，沿途可欣賞札幌棋盤式街道景觀。"
+      },
+      {
+        "time": "09:30 – 10:00",
+        "stay": "停留 30 分鐘",
+        "spot": "Vessel Campana 薄野飯店寄放行李",
+        "transit": "地鐵南北線至「すすきの站」4 號出口步行 4 分鐘",
+        "desc": "入住地址：中央区南5条西6丁目16-1。先寄放大件行李，輕裝出發。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルホテルカンパーナすすきの",
+        "appleUrl": "https://maps.apple.com/?q=ベッセルホテルカンパーナすすきの",
+        "hours": "24 小時行李寄放服務",
+        "holiday": "無休",
+        "history": "Vessel Hotel Campana 薄野設有天然男女大浴場與極受歡迎的家庭友善設施，距離狸小路商店街與薄野十字路口僅幾步之遙。",
+        "mustTry": "飯店 1F 迎賓大廳提供北海道迎賓飲料與冰品，大廳備品區可自由挑選兒童專用浴衣與牙刷。"
+      },
+      {
+        "time": "10:15 – 11:15",
+        "stay": "停留 1 小時",
+        "spot": "🌸 札幌諏訪神社 (絕美花手水 ＋ 透明御朱印)",
+        "transit": "地鐵南北線直達「北12条站」1 號出口步行 8 分鐘 (東区北12条東1丁目1-10)",
+        "desc": "參拜北海道極負盛名的花手水神社，抽限定水神籤與拍全家福。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌諏訪神社",
+        "appleUrl": "https://maps.apple.com/?q=札幌諏訪神社",
+        "hours": "境內自由參拜 24H ｜ 社務所授與所 09:00～17:00",
+        "holiday": "無休 (年中無休) ｜ 8/24(一) 保證開放！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【歷史見聞與花手水起源】札幌諏訪神社建立於明治 30 年（1897 年），由信濃國（長野縣）一之宮「諏訪大社」分靈而來。奉祀建御名方命與八坂刀賣命二柱夫婦神，是北海道祈求「家庭圓滿・子孫繁榮・安產」三大名社。近年神職人員將手水舍鋪滿當季盛開的繡球花與向日葵，引爆社群話題，成為全北海道第一的花手水神社名所。",
+        "mustTry": "【必買必抽】夏日限定「透明透光水神御朱印」（迎著陽光拍超美！）、放入手水舍水中才會浮現吉凶的「水神籤（水みくじ）」，以及精緻的花手水蕾絲御守。",
+        "links": [
+          {
+            "title": "札幌諏訪神社 官方網站 (花手水最新花況)",
+            "url": "https://sapporo-suwajinja.jp/"
+          }
+        ]
+      },
+      {
+        "time": "11:45 – 13:45",
+        "stay": "停留 2 小時",
+        "spot": "白色戀人公園 (白い恋人パーク)",
+        "transit": "地鐵東西線終點「宮の沢站」5 號出口步行 7 分鐘",
+        "desc": "英式都鐸城堡莊園，2026/7/30 全新升級工廠參觀線與餅乾手作 DIY。",
+        "cost": "4人約 ¥3,600 (大¥1200/小¥600)",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=白い恋人パーク",
+        "appleUrl": "https://maps.apple.com/?q=白い恋人パーク",
+        "hours": "10:00～17:00 (付費設施最後入場 16:00)",
+        "holiday": "無休 (年中無休) ｜ 8/24(一) 保證開園！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【歷史與品牌故事】石屋製菓（ISHIYA）創立於 1947 年，1976 年研發出以法式貓舌餅（Langue de chat）夾入濃郁白巧克力的「白色戀人」。命名由來是創辦人走在滑雪場看著漫天飄雪，脫口說出「白色的戀人們降臨了（白い恋人たちがでてきたよ）」。莊園以英國都鐸式紅磚城堡打造，戶外有會動的人偶時鐘塔與整點泡泡秀。",
+        "mustTry": "【必吃必玩】現烤「白色戀人熱熔岩起司塔」、雙色霜淇淋；付費區 2026 最新互動工廠線，還能現場拍照印製「全家福限定白色戀人鐵盒」！",
+        "links": [
+          {
+            "title": "白色戀人公園 繁體中文官方導覽",
+            "url": "https://www.shiroikoibitopark.jp/zh-hant/"
+          }
+        ]
+      },
+      {
+        "time": "14:15 – 15:15",
+        "stay": "停留 1 小時",
+        "spot": "午餐：札幌湯咖哩 (Suage+ 本店 / GARAKU 札幌本店)",
+        "transit": "地鐵搭回大通站或薄野站步行 3 分鐘",
+        "desc": "品嚐以藥膳香料與北海道產蔬菜慢熬的經典湯咖哩。",
+        "cost": "人均約 ¥1,200",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Soup+Curry+Suage%2B+Sapporo",
+        "appleUrl": "https://maps.apple.com/?q=Soup+Curry+Suage%2B+Sapporo",
+        "hours": "Suage+ 本店 11:30～22:00 (L.O. 21:30)",
+        "holiday": "無休 (年末年始除外) ｜ 8/24(一) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【札幌湯咖哩文化】湯咖哩源自 1970 年代札幌的「藥膳咖哩」，融合印度辛香料、東南亞濃郁高湯與北海道豐饒的根莖蔬菜。Suage 的名稱源自日語「素揚げ（不裹粉直接油炸）」，能完美鎖住知床雞與男爵馬鈴薯的鮮甜原汁。",
+        "mustTry": "【必吃推薦】知床雞肉串脆皮湯咖哩、炙燒牛舌角煮湯咖哩；白飯滴入檸檬汁後浸入高湯一起入口，風味層次絕佳！"
+      },
+      {
+        "time": "15:30 – 18:00",
+        "stay": "停留 2.5 小時",
+        "spot": "大通公園 ＋ 電視塔 ＋ 狸小路文具與伴手禮散策",
+        "transit": "大通公園往南步行 3 分進入南1条通，順遊地下街 Pole Town 直通狸小路商店街",
+        "desc": "都心綠廊散策。途中特別順訪【大丸藤井セントラル（南1西3，整整 7 層樓的北海道百年文具聖殿！1~4F 鋼筆、手帳、紙膠帶、和紙極齊全）】；接著至狸小路 3 丁目路口的【moyuk SAPPORO（3F 是モユク札幌 Loft 文具雜貨，2F 是 Standard Products 無印風 300 円質感生活館）】與地下街 Jupiter 咖啡零食，一站式買齊伴手禮與文具！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=大丸藤井セントラル+札幌",
+        "appleUrl": "https://maps.apple.com/?q=大丸藤井セントラル+札幌",
+        "hours": "大丸藤井 10:00～19:00 / moyuk Loft 至 21:00 / 電視塔至 22:00",
+        "holiday": "無休 (年中無休) ｜ 8/24(一) 正常營業",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【百年文具聖殿與狸小路】\n• 大丸藤井セントラル：創立於 1892 年（明治 25 年），是北海道地位最崇高的 7 層樓百年文具百貨！1F~4F 專賣日本頂級筆類、紙膠帶、和紙與動漫聯名文具。\n• 狸小路商店街：創立於 1873 年（明治 6 年），北海道最悠久的商店街，全長近 1 公里，設有全天候採光遮雨棚。\n• moyuk SAPPORO：2023 年全新落成地標，3F 設有極大 Loft 文具美妝館，2F 設有大創旗下 Standard Products 質感日雜。",
+        "mustTry": "【必逛必買】大丸藤井 1F 北海道限定鋼筆墨水與紙膠帶、moyuk 2F Standard Products 300円極簡日雜、狸小路 4 丁目採買六花亭奶油夾心餅乾與薯條三兄弟。"
+      },
+      {
+        "time": "18:30 – 20:15",
+        "stay": "停留 1 小時 45 分",
+        "spot": "藻岩山空中纜車・日本新三大夜景",
+        "transit": "薄野搭市電至「ロープウェイ入口站」轉免費接駁巴士",
+        "desc": "搭乘空中纜車登上 531 公尺山頂，眺望石狩平原百萬夜景。",
+        "cost": "纜車4人 ¥6,300",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌もいわ山ロープウェイ",
+        "appleUrl": "https://maps.apple.com/?q=札幌もいわ山ロープウェイ",
+        "hours": "夏季營運 10:30～22:00 (上行末班車 21:30)",
+        "holiday": "夏季無休 (強風停駛除外) ｜ 8/24(一) 保證營運！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【日本新三大夜景】藻岩山海拔 531 公尺，在愛努語中稱為「Inkar-ush-pe」（登高遠眺之地）。2015 年起與長崎、北九州一同獲選為「日本新三大夜景」。全家人將先搭乘大型空中纜車（Ropeway），再轉乘世界首創以森林為靈感的迷你驅動纜車「Maurice Car」直達山頂。",
+        "mustTry": "【必拍亮點】山頂展望台的「幸福之鐘（幸せの鐘）」、鎖上全家祝福的愛情鎖牆，俯瞰札幌如寶石般閃耀的棋盤狀璀璨燈海。",
+        "links": [
+          {
+            "title": "札幌藻岩山纜車 即時天候與運行資訊",
+            "url": "https://mt-moiwa.jp/"
+          }
+        ]
+      },
+      {
+        "time": "20:30 – 22:00",
+        "stay": "停留 1.5 小時",
+        "spot": "晚餐：成吉思汗烤羊肉 (達摩 だるま 6.4店) ＋ 薄野夾娃娃放鬆",
+        "transit": "市電返回薄野站周邊（中央区南6条西4丁目），吃飽順路走回飯店",
+        "desc": "炭火鐵盔鍋烤羊肉。餐後回飯店前，順路到十字路口的【GiGO すすきの（全新整棟 120 台夾娃娃機旗艦店）】或狸小路 4 丁目【TAITO STATION（4層樓夾娃娃旗艦）】開心夾娃娃！玩完徒步 3 分鐘回飯店泡大浴場。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=GiGO+すすきの",
+        "appleUrl": "https://maps.apple.com/?q=GiGO+すすきの",
+        "hours": "だるま 至 05:00 / GiGO 至 23:00 / TAITO 至 23:30",
+        "holiday": "無休 (年中無休) ｜ 8/24(一) 正常營業",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【成吉思汗烤肉文化】昭和 29 年（1954 年）創立的「だるま（達摩）」是成吉思汗烤肉的鼻祖老店！特製中央凸起的鑄鐵盔鍋，上方鋪滿鮮嫩無羊羶味的生羊肉，下方鋪滿洋蔥與蔥段，羊肉油脂順著鐵盤流下將洋蔥炒至焦糖甘甜。",
+        "mustTry": "【必吃必玩】每日限量「ヒレ（菲力羊肉）」與「上肉」；烤肉沾上特調蒜蓉醬油無敵下飯！餐後徒步 2 分鐘到全新整棟「GiGO すすきの」夾最新寶可夢大娃娃！"
+      }
+    ]
+  },
+  {
+    "shortDate": "8/25(二)",
+    "shortName": "美瑛自駕",
+    "dayLabel": "Day 3 ｜ 美瑛自駕與和牛",
+    "fullDate": "2026年8月25日（週二）",
+    "title": "NIPPON 租車 ➔ 旭山動物園 ➔ 美瑛青池 ➔ 炭火燒肉 羅山",
+    "pace": "早起自駕 ➔ 頂級和牛晚餐",
+    "paceColor": "bg-amber-100 text-amber-800",
+    "rainBackup": {
+      "title": "☔ Day 3 美瑛自駕雨天備案",
+      "desc": "自駕雨天依然舒適，旭山動物園各大明星館（企鵝水下隧道、海豹館、北極熊館、河馬館）皆為全室內全天候參觀，完全不受降雨影響。\n若午後戶外花田降雨偏大：\n1. 🍈【美瑛選果 (Main Store)】：美瑛市區全室內高級農產市集與甜點店，採買限定鮮奶布丁與玉米（營業至 17:00）。\n2. 🧀【富良野起司工房 (Furano Cheese Factory)】：全室內起司製作見學、手工 Pizza DIY 與濃郁黑起司冰淇淋。"
+    },
+    "timeline": [
+      {
+        "time": "07:45 – 08:15",
+        "stay": "取車 15 分鐘",
+        "spot": "札幌站東口 NIPPON 租車取車 ➔ 旭川 (行車約 1h50m)",
+        "transit": "JR 札幌站東口步行 5 分抵達 NIPPON 札幌站前營業所（東区北7条東1-1-1）",
+        "desc": "預約號 101851488，密碼 c60305a4。Ben 代表辦理手續，現場信用卡付款 ¥12,540。",
+        "cost": "租車費 ¥12,540 (含安心NOC+ETC卡)",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号",
+        "appleUrl": "https://maps.apple.com/?q=北海道札幌市東区北7条東1丁目1番1号",
+        "hours": "營業所營業時間 08:00～20:00",
+        "holiday": "無休 (年中無休) ｜ 8/25(二) 保證取車！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "NIPPON 租車是日本歷史悠久的連鎖租車品牌，提供全新日系油電車與全中文車載 GPS 導航系統。",
+        "mustTry": "【取車準備】出示台灣駕照正本 ＋ 日文駕照譯本 ＋ 預約確認單；工作人員會完成車況檢查與 ETC 晶片卡安裝。"
+      },
+      {
+        "time": "10:00 – 13:15",
+        "stay": "停留 3 小時 15 分",
+        "spot": "旭川市 旭山動物園",
+        "transit": "自駕直達園區停車場",
+        "desc": "觀賞海豹圓柱水槽、北極熊深潛水槽與企鵝水下隧道。",
+        "cost": "2大人 ¥2,000，國中以下全免",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=旭川市旭山動物園",
+        "appleUrl": "https://maps.apple.com/?q=旭川市旭山動物園",
+        "hours": "夏季開園 09:30～17:15 (最後入園 16:00)",
+        "holiday": "夏季無休 (4/26~10/15 天天開園！) ｜ 8/25(二) 保證開園！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【動物園逆轉奇蹟】旭山動物園曾因入園人數銳減面臨廢園危機，後任園長小菅正夫首創「行動展示（Behavioral Exhibition）」理念，打破傳統牢籠，設計讓動物展現天性的空間（如海豹垂直圓柱水槽、企鵝水下全景隧道、北極熊跳水深槽），一舉超越上野動物園成為全日本入園人數第一的奇蹟！",
+        "mustTry": "【必看必買】企鵝館 360 度水下飛翔隧道、海豹館 Marine-way 垂直水槽；紀念品店必買「旭山動物園限定動物扭蛋」與企鵝玩偶！",
+        "links": [
+          {
+            "title": "旭川市旭山動物園 繁中官方網站",
+            "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/index.html"
+          }
+        ]
+      },
+      {
+        "time": "13:30 – 14:30",
+        "stay": "停留 1 小時",
+        "spot": "午餐：旭川醬油拉麵 (旭川拉麵村)",
+        "transit": "動物園開車 15 分鐘至拉麵村 (旭川市永山11条4丁目119-48)",
+        "desc": "品嚐中細捲麵與豬骨海鮮雙湯頭交織的道地旭川醬油拉麵。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=あさひかわラーメン村",
+        "appleUrl": "https://maps.apple.com/?q=あさひかわラーメン村",
+        "hours": "11:00～20:00 (村內 8 間拉麵名店)",
+        "holiday": "無休 (年中無休) ｜ 8/25(二) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【北海道三大拉麵之一】旭川地處盆地，冬季極度酷寒，因此傳統旭川拉麵在豬骨與海鮮熬煮的雙高湯表面覆蓋一層薄薄的豬油以防散熱，並使用低加水中細捲麵充分吸附濃郁甘醇的醬油香氣。",
+        "mustTry": "【必吃名店】昭和 22 年創立的元祖「青葉」、得過第一名拉麵大賞的「梅光軒」，湯頭濃郁而不死鹹！"
+      },
+      {
+        "time": "15:15 – 16:15",
+        "stay": "停留 1 小時",
+        "spot": "美瑛・白金青池 ＋ 白鬚瀑布",
+        "transit": "走國道 237 號往白金方向行車約 40 分鐘",
+        "desc": "探訪鈷藍色水波與枯落葉松交織的仙境。",
+        "cost": "停車費 ¥500",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=白金青い池",
+        "appleUrl": "https://maps.apple.com/?q=白金青い池",
+        "hours": "青池停車場 07:00～19:00 / 白鬚瀑布 24H 開放",
+        "holiday": "自然景觀無休 ｜ 8/25(二) 保證開放！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【Apple 桌布傳奇美景】1988 年十勝岳火山爆發後，政府為防止泥流修築堤防，美瑛川富含鋁等礦物質的湧泉在此匯聚成池。當陽光照射水中膠體顆粒時產生「瑞利散射」，折射出如夢似幻的鈷藍色。2012 年被 Apple 選為 MacBook Pro 官方預設桌布而舉世聞名。",
+        "mustTry": "【必吃必拍】青池限定「藍色蘇打霜淇淋」（清爽白葡萄乳酸汽水風味！）、白鬚瀑布藍色溪流全景。"
+      },
+      {
+        "time": "16:35 – 17:15",
+        "stay": "停留 40 分鐘",
+        "spot": "四季彩之丘 ➔ 自駕返回札幌",
+        "transit": "開車約 20 分鐘；隨後走道央道開車返札幌（約 2.2 小時）",
+        "desc": "廣達 15 公頃的丘陵彩色花毯。拍照後啟程返札幌。",
+        "cost": "門票4人約 ¥2,600 ＋ 停車費 ¥500",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=展望花畑+四季彩の丘",
+        "appleUrl": "https://maps.apple.com/?q=展望花畑+四季彩の丘",
+        "hours": "8月花季 08:40～17:30",
+        "holiday": "花季期間無休 ｜ 8/25(二) 保證開園！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【美瑛拼布花毯之冠】四季彩之丘佔地廣達 15 公頃，巧妙利用美瑛特有的波浪起伏丘陵地形，種植數十種彩色花卉（向日葵、薰衣草、金魚草、大波斯菊等），整座山丘如同一張巨大的彩色條紋絨毯。",
+        "mustTry": "【必玩必吃】搭乘拖拉機巡迴花田「NOROKKO 號」、羊駝牧場互動餵食；販賣部必吃「美瑛產男爵馬鈴薯現炸可樂餅」！",
+        "links": [
+          {
+            "title": "美瑛 四季彩之丘 官網即時花況",
+            "url": "https://www.shikisainooka.jp/"
+          }
+        ]
+      },
+      {
+        "time": "19:30 – 19:50",
+        "stay": "還車 20 分鐘",
+        "spot": "札幌站東口 NIPPON 還車 ➔ 回薄野",
+        "transit": "加滿油，輸入 Map Code：9 553 092 返回門市。搭地鐵回薄野",
+        "desc": "20:00 前順利完成還車手續，結束全日自駕行程。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号",
+        "appleUrl": "https://maps.apple.com/?q=北海道札幌市東区北7条東1丁目1番1号",
+        "hours": "營業所營業至 20:00",
+        "holiday": "無休",
+        "history": "還車前於營業所周邊加油站告知「レギュラー、満タン（Regular 汽油加滿）」，保留加油發票供工作人員核對即可順暢完成還車手續。"
+      },
+      {
+        "time": "20:00 – 21:45",
+        "stay": "用餐 1 小時 45 分",
+        "spot": "🥩 晚餐：炭火焼肉 羅山 (Razan) すすきの店",
+        "transit": "中央区南5条西6丁目18（就在入住飯店正隔壁，走路僅 30 秒！）",
+        "desc": "在包廂享用頂級炭火 A5 黑毛和牛、厚切極上牛舌與特選牛五花！吃完直接回飯店泡大浴場。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌市中央区南5条西6丁目18+炭火焼肉+Razan",
+        "appleUrl": "https://maps.apple.com/?q=札幌市中央区南5条西6丁目18+炭火焼肉+Razan",
+        "hours": "17:00～24:00 (L.O. 23:00)",
+        "holiday": "週一公休 (月曜日定休) ｜ 8/25(二) 避開公休，保證正常營業！",
+        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
+        "history": "【札幌頂級燒肉名店】炭火焼肉 羅山嚴選北海道自產 A5 等級黑毛和牛與極品牛舌，採用特製備長炭直火炭烤，肉質油花分佈如大理石般細緻，入口即化。",
+        "mustTry": "【必點極品】厚切極上生牛舌、特選 A5 和牛五花（カルビ）、羅山招牌盛岡冷麵；吃完過馬路 30 秒立刻回到飯店房間泡大浴場！",
+        "links": [
+          {
+            "title": "炭火焼肉 羅山 すすきの店 官方菜單",
+            "url": "https://razan.gorp.jp/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "shortDate": "8/26(三)",
+    "shortName": "小樽運河",
+    "dayLabel": "Day 4 ｜ 小樽海風與蟹",
+    "fullDate": "2026年8月26日（週三）",
+    "title": "小樽運河 ➔ 堺町通玻璃工藝 ➔ 帝王蟹宴",
+    "pace": "悠閒漫步",
+    "paceColor": "bg-emerald-100 text-emerald-800",
+    "rainBackup": {
+      "title": "☔ Day 4 小樽雨天備案",
+      "desc": "小樽堺町通沿途全部都是大型室內歷史建築展館（北一硝子三號館煤油燈大廳、小樽音樂盒堂本館/二號館、大正硝子館、LeTAO 總店茶沙龍），大雨天完全都在室內參觀與品嚐甜點！\n如想增加室內親子活動：\n1. 🐬【小樽水族館 (Otaru Aquarium)】：大型室內水族館與海豚/海獅表演（JR 小樽站轉乘公車 20 分鐘）。\n2. 🏢【大丸百貨札幌店 ＆ 札幌地下街】：傍晚回札幌後全天候室內採買伴手禮與免稅品。"
+    },
+    "timeline": [
+      {
+        "time": "09:30 – 10:15",
+        "stay": "車程 45 分鐘",
+        "spot": "札幌站搭 JR 快速 Airport ➔ 小樽站",
+        "transit": "JR 札幌站搭乘 JR 快速 Airport 直達小樽站（約 35 分鐘）",
+        "desc": "沿途右側車窗飽覽石狩灣海岸線美景。",
+        "cost": "JR 4人來回約 ¥6,000",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=JR+小樽駅",
+        "appleUrl": "https://maps.apple.com/?q=JR+小樽駅",
+        "hours": "JR 約 15 分鐘一班",
+        "holiday": "無休",
+        "history": "小樽站興建於 1903 年，車站大廳保留了昭和時期的煤氣吊燈與復古木造月台，充滿大正至昭和初期的懷舊港都氛圍。",
+        "mustTry": "搭乘列車時請坐在「列車前進方向右側」，在錢函至小樽築港段可近距離欣賞日本海石狩灣的蔚藍海景！"
+      },
+      {
+        "time": "10:30 – 11:30",
+        "stay": "停留 1 小時",
+        "spot": "小樽運河 散步拍照",
+        "transit": "JR 小樽站正門沿中央通步行 8 分鐘抵達淺草橋",
+        "desc": "漫步於石造倉庫與復古煤氣燈旁。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=小樽運河",
+        "appleUrl": "https://maps.apple.com/?q=小樽運河",
+        "hours": "24 小時自由漫步",
+        "holiday": "無休",
+        "history": "【百年運河興衰史】小樽運河完工於 1923 年（大正 12 年），全長 1.3 公里，是北海道開拓時期將大型貨船物資駁運至倉庫的生命線。岸邊保存了完整的石造與紅磚倉庫群，散步道上設有 63 盞傳統雙火煤氣燈，是大正浪漫情懷的代表象徵。",
+        "mustTry": "【必拍角度】站在「淺草橋（あさくさばし）」往運河倉庫方向拍經典全家福角度；參觀運河遊客中心索取精美小樽手繪散步地圖。"
+      },
+      {
+        "time": "11:30 – 13:00",
+        "stay": "停留 1.5 小時",
+        "spot": "堺町通：北一硝子 × 小樽音樂盒堂",
+        "transit": "沿堺町通步行至童話十字路口",
+        "desc": "欣賞玻璃工藝與蒸氣鐘，品嚐 LeTAO 雙層乳酪蛋糕與北菓樓大泡芙。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=小樽オルゴール堂+本館",
+        "appleUrl": "https://maps.apple.com/?q=小樽オルゴール堂+本館",
+        "hours": "09:00～18:00",
+        "holiday": "無休 (年中無休) ｜ 8/26(三) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【玻璃與音樂盒之都】\n• 玻璃（硝子）工藝：小樽早期鯡魚捕撈極盛，需大量玻璃浮玉與煤油燈，造就了小樽出神入化的玻璃吹製藝術。北一硝子三號館原為漁業倉庫，現為 167 盞煤油燈點綴的浪漫大廳。\n• 小樽音樂盒堂本館：建於 1912 年的紅磚文藝復興建築，門口設有全世界唯二的英國蒸氣鐘，每 15 分鐘會噴出白煙並演奏悅耳鐘聲。",
+        "mustTry": "【必吃甜點名物】LeTAO 總店雙層乳酪蛋糕（Double Fromage）、北菓樓「夢不思議」巨型脆皮卡士達泡芙、六花亭葡萄奶油夾心酥餅。",
+        "links": [
+          {
+            "title": "小樽音樂盒堂 官方繁體中文網站",
+            "url": "https://www.otaru-orgel.co.jp/zh-tw"
+          }
+        ]
+      },
+      {
+        "time": "13:15 – 14:45",
+        "stay": "停留 1.5 小時",
+        "spot": "午餐：小樽三角市場 海鮮丼",
+        "transit": "JR 小樽站正門左側階梯上樓 1 分鐘即達市場入口",
+        "desc": "品嚐現點現切生海膽、干貝與鮭魚卵三色海鮮丼。",
+        "cost": "人均約 ¥2,500",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=小樽三角市場",
+        "appleUrl": "https://maps.apple.com/?q=小樽三角市場",
+        "hours": "市場 06:00～17:00 (餐廳 07:00～16:00)",
+        "holiday": "無休 (年中無休) ｜ 8/26(三) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【小樽最鮮海鮮市場】三角市場建於昭和 23 年（1948 年），因土地形狀如三角形而得名。市場狹長通道兩側擺滿了生猛活帝王蟹、毛蟹、現剖生海膽與生干貝，是小樽在地人與老饕的海鮮寶庫。",
+        "mustTry": "【必點名物】「瀧波食堂」或「味處 武田」的特選三色丼（爆量鮭魚卵、生甜蝦、北海道生海膽）與現煮螃蟹味噌湯！"
+      },
+      {
+        "time": "15:30 – 18:00",
+        "stay": "停留 2.5 小時",
+        "spot": "返札幌 ＋ 大丸百貨伴手禮採買 ＋ 飯店周邊超商",
+        "transit": "JR 小樽站搭快速回札幌站",
+        "desc": "採買北海道限定伴手禮，回飯店順逛 Daiichi 超市買北海道水果。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=大丸札幌店",
+        "appleUrl": "https://maps.apple.com/?q=大丸札幌店",
+        "hours": "大丸百貨 10:00～20:00 / 超市 10:00～21:00",
+        "holiday": "無休 (年中無休) ｜ 8/26(三) 正常",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "大丸百貨札幌店 B1F 的「ほっぺタウン（Hoppetown）」是全北海道甜點名產最齊全的超級戰區，匯聚了北菓樓、柳月三方六蛋糕、SNOW CHEESE 與 Royce 巧克力。",
+        "mustTry": "【必買伴手禮】排隊名物 SNOW CHEESE 生起司脆餅、白色雷神巧克力、夕張哈密瓜果凍禮盒。"
+      },
+      {
+        "time": "18:30 – 20:30",
+        "stay": "用餐 2 小時",
+        "spot": "晚餐：北海道帝王蟹 • 毛蟹饗宴 (かに本家 札幌站前本店)",
+        "transit": "かに本家 札幌站前本店（札幌站南口步行 5 分，中央区北3条西2丁目1-18）",
+        "desc": "包廂享用活帝王蟹火鍋、炭烤蟹腳與蟹膏刺身料理。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌かに本家+札幌駅前本店",
+        "appleUrl": "https://maps.apple.com/?q=札幌かに本家+札幌駅前本店",
+        "hours": "11:30～22:00 (L.O. 21:30)",
+        "holiday": "無休 (年中無休) ｜ 8/26(三) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【全日本蟹料理名門】創立於昭和 46 年的「札幌かに本家」，整棟建築仿造日本傳統數寄屋造與庭園造景，店內巨大的活蟹生簀水槽供應最新鮮的帝王蟹、松葉蟹與北海道毛蟹。",
+        "mustTry": "【必點套餐】「本家活蟹會席料理」：包含蟹肉刺身、炭烤巨型帝王蟹腳、螃蟹甲羅燒（蟹膏）、蟹肉天婦羅，最後以吸收所有螃蟹精華的雜炊黃金粥畫下完美句點！",
+        "links": [
+          {
+            "title": "札幌かに本家 繁體中文官方會席菜單",
+            "url": "https://www.kani-honke.co.jp/zh-tw/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "shortDate": "8/27(四)",
+    "shortName": "飛東京巨蛋",
+    "dayLabel": "Day 5 ｜ 飛東京・巨蛋柯南",
+    "fullDate": "2026年8月27日（週四）",
+    "title": "札幌飛羽田 ➔ 直奔高田馬場 Check-in ➔ 東京巨蛋城柯南 Plaza ＋ 巨蛋晚餐",
+    "pace": "行李直接進房 ｜ 順暢無壓",
+    "paceColor": "bg-emerald-100 text-emerald-800",
+    "rainBackup": {
+      "title": "☔ Day 5 東京巨蛋城雨天備案",
+      "desc": "高田馬場至水道橋搭乘 JR 電車僅 12 分鐘，東京巨蛋城為全天候大型綜合城，LaQua 百貨、後樂園 Loft、JUMP SHOP、美食街以及 Central Park 柯南快閃展區皆有完整採光防雨遮棚，雨天完全不濕鞋！\n室內備選設施：【Asobono! (アソボ～ノ！)】東京最大型室內兒童遊樂王國（LaQua 旁）。"
+    },
+    "timeline": [
+      {
+        "time": "09:30 – 10:30",
+        "stay": "車程 45 分鐘",
+        "spot": "退房 ➔ JR 快速 Airport ➔ 新千歲機場",
+        "transit": "札幌站搭乘 JR 快速 Airport 直達新千歲機場地下月台（約 37 分鐘）",
+        "desc": "10:45 前抵達國內線櫃台報到託運。昨晚打包好的北海道戰利品全數裝箱託運！",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=新千歳空港",
+        "appleUrl": "https://maps.apple.com/?q=新千歳空港",
+        "hours": "JR 約 12 分鐘一班",
+        "holiday": "無休",
+        "history": "新千歲機場國內線 2F/3F 是被譽為全日本最像主題樂園的機場，擁有超過 100 間北海道名產店、拉麵道場與 Royce 巧克力工廠。",
+        "mustTry": "入關前可在國內線出發大廳買「Kinotoya 現烤極上乳酪塔」與「十勝牛奶霜淇淋」帶上飛機吃！"
+      },
+      {
+        "time": "12:00 – 13:35",
+        "stay": "飛行 1h35m ｜ 13:35 抵達東京羽田",
+        "spot": "新千歲 (CTS) 飛往 羽田 (HND T2)",
+        "transit": "搭乘全日空 NH60 班機，13:35 準時抵達羽田機場第 2 航廈 (T2)",
+        "desc": "領取行李出關，帶所有大行李直奔高田馬場飯店！",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+2",
+        "appleUrl": "https://maps.apple.com/?q=Haneda+Airport+Terminal+2",
+        "hours": "航班 12:00 準時起飛",
+        "holiday": "無休",
+        "history": "搭乘 ANA 國內線波音 787 / 777 客機，航程僅需 1 小時 35 分鐘即可極速抵達東京市區門戶羽田機場。"
+      },
+      {
+        "time": "13:45 – 14:45",
+        "stay": "車程約 45 分鐘",
+        "spot": "羽田機場 ➔ 直奔高田馬場 Vessel Inn 飯店",
+        "transit": "羽田搭「東京單軌電車」至濱松町轉「JR山手線」直達高田馬場站；或 4 人搭大計程車（約 35 分鐘，¥9,000–11,000）直達飯店門口。",
+        "desc": "【省下運費神操作】免花黑貓寄件費，大行李直接帶回飯店！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前",
+        "appleUrl": "https://maps.apple.com/?q=ベッセルイン高田馬場駅前",
+        "hours": "單軌+山手線班次極密 (2~3分鐘一班)",
+        "holiday": "無休",
+        "history": "東京單軌電車（Tokyo Monorail）建於 1964 年東京奧運，沿著東京灣高架行駛，濱松町站可無縫轉乘 JR 山手線環狀線。",
+        "mustTry": "全家直接將北海道戰利品與行李推回飯店，省下寄送行李等待的時間與高昂黑貓運費！"
+      },
+      {
+        "time": "15:00 – 15:40",
+        "stay": "停留 40 分鐘",
+        "spot": "🏨 Vessel Inn 高田馬場 Check-in ＋ 大行李直接進房",
+        "transit": "高田馬場站 4 號出口電梯直通飯店 B1 (新宿区高田馬場2-17-4)",
+        "desc": "準時 Check-in！大行李直接推進房間，上洗手間、換穿輕便衣物，一身輕鬆準備出門！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前",
+        "appleUrl": "https://maps.apple.com/?q=ベッセルイン高田馬場駅前",
+        "hours": "14:00 起開放入住",
+        "holiday": "無休",
+        "history": "Vessel Inn 高田馬場於 2020 年全新開幕，直通東京地下鐵東西線 4 號出口電梯，下雨完全不用撐傘；飯店以全東京排名前茅的極上海鮮自助早餐聞名。",
+        "mustTry": "大廳提供免費迎賓咖啡與茶水，孩子可挑選專屬兒童備品與卡通拖鞋。"
+      },
+      {
+        "time": "15:45 – 18:00",
+        "stay": "停留 2 小時 15 分",
+        "spot": "🕵️‍♂️ 東京巨蛋城：名偵探柯南廣場 (Detective Conan Plaza)",
+        "transit": "高田馬場搭 JR 山手線至新宿轉「JR 中央・總武線」只要 12 分鐘直達水道橋站西口（步行 3 分即達 Central Park）。",
+        "desc": "【柯南年度最大快閃】挑選 2026 最新劇場版限定周邊、角色立牌、特典與拍貼機（營業至 19:00），時間超充裕完全不趕！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Tokyo+Dome+City+Central+Park",
+        "appleUrl": "https://maps.apple.com/?q=Tokyo+Dome+City+Central+Park",
+        "hours": "11:00～19:00 (展期 2026/04/01 ～ 09/27)",
+        "holiday": "展期內無休 ｜ 8/27(四) 保證正常營運！",
+        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
+        "history": "【柯南年度巡迴最大聖地】Detective Conan Plaza 是每年伴隨劇場版上映舉辦的官方旗艦限定活動。2026 配合最新劇場版《名偵探柯南：高速公路的墮天使》，在東京巨蛋城 Central Park 設置超大規模展區，提供全國最齊全的角色立牌、徽章、特典壓克力磚與巨型拍照打卡牆。",
+        "mustTry": "【必買必玩】2026 劇場版限定全套角色立牌、柯南專屬拍貼機、滿額贈送之限定雷射透卡、限定文具與隨機徽章！",
+        "links": [
+          {
+            "title": "名偵探柯南 Plaza 官方 X/Twitter 最新商品情報",
+            "url": "https://twitter.com/conan_plaza"
+          }
+        ]
+      },
+      {
+        "time": "18:00 – 19:30",
+        "stay": "用餐逛街 1.5 小時",
+        "spot": "東京巨蛋城商場散策 ＋ 後樂園 Loft ＋ 巨蛋晚餐",
+        "transit": "東京巨蛋城 LaQua / Meets Port",
+        "desc": "在巨蛋城享用豐盛晚餐（敘敘苑燒肉、一蘭拉麵、和牛定食）。晚餐前後可順逛【LaQua 3F 的後樂園 Loft（文具生活雜貨）】、JUMP SHOP 與對面遊樂區的【GiGO 東京巨蛋城（最新動漫夾娃娃機）】！",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=LaQua+東京ドームシティ",
+        "appleUrl": "https://maps.apple.com/?q=LaQua+東京ドームシティ",
+        "hours": "LaQua 商場 11:00～21:00 / 餐廳至 23:00",
+        "holiday": "無休 (年中無休) ｜ 8/27(四) 正常營業",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "東京巨蛋城（Tokyo Dome City）前身為 1937 年啟用的後樂園球場，是日本第一座全天候多功能巨蛋球場。商場 LaQua 集結了天然溫泉、景觀摩天輪、Loft 文具雜貨與數十家人氣餐廳。",
+        "mustTry": "【必逛必吃】LaQua 3F 後樂園 Loft 日系文具美妝、JUMP SHOP 動漫專賣；晚餐推薦敘敘苑燒肉或和食定食。"
+      },
+      {
+        "time": "19:45 – 21:30",
+        "stay": "移動放鬆",
+        "spot": "回高田馬場 ＋ BIGBOX 6F 夾娃娃 / 4F 文具館 ＋ 門口超市補給",
+        "transit": "水道橋搭 JR 總武線回高田馬場站（僅 12 分鐘）",
+        "desc": "吃飽早早回飯店！回房前直接走進飯店正對面的【BIGBOX 6F タイトーステーション（高田馬場最大夾娃娃機遊戲中心，營業至 24:00）】與【BIGBOX 4F 芳林堂書店文具館】逛逛，或在隔壁【Peacock 超市 B1F 的 Seria 百元店】採買。玩完 1 分鐘進房休息，大人不累小孩超開心！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=BIGBOX+高田馬場",
+        "appleUrl": "https://maps.apple.com/?q=BIGBOX+高田馬場",
+        "hours": "BIGBOX 遊戲中心至 24:00 / 唐吉訶德 24H / Peacock至 23:00",
+        "holiday": "無休",
+        "history": "【手塚治虫與原子小金剛的故鄉】高田馬場是手塚治虫「蟲製作公司」發源地，《原子小金剛》中小金剛的誕生地即設定在高田馬場（JR 高田馬場站的發車音樂即為原子小金剛主題曲！）。BIGBOX 更是高田馬場自 1974 年以來的指標地標建築。",
+        "mustTry": "【必玩亮點】BIGBOX 6F Taito 上百台夾娃娃機（夾寶可夢與動漫景品超容易）、4F 芳林堂專業文具館、Peacock 超市 B1F Seria 百元日雜！"
+      }
+    ]
+  },
+  {
+    "shortDate": "8/28(五)",
+    "shortName": "池袋澀谷",
+    "dayLabel": "Day 6 ｜ 池袋動漫・澀谷原宿",
+    "fullDate": "2026年8月28日（週五）",
+    "title": "池袋太陽城 ➔ アニメイト本店 ➔ Google 澀谷 35F景觀午餐 ➔ 澀谷原宿 ➔ 炸豬排/燒肉",
+    "pace": "動漫採買 ｜ 頂級景觀午餐 ｜ 極度順暢",
+    "paceColor": "bg-kohaku-light text-kohaku border border-kohaku/30",
+    "rainBackup": {
+      "title": "☔ Day 6 池袋與澀谷全天候室內動線",
+      "desc": "Day 6 全天近 90% 行程皆為全室內或地下直通：\n• 池袋站 ➔ 太陽城（地下通道直通）、Animate 9 層樓旗艦店為全室內。\n• 池袋 ➔ 澀谷搭副都心線，出站地下 C2 出口直接電梯直通 Google Shibuya Stream 大樓 35F！\n• 澀谷 Stream ➔ Scramble Square (SHIBUYA SKY) ➔ PARCO 6F (任天堂/寶可夢) ➔ 澀谷 Loft 全程皆為高架室內空橋與百貨商場連接，雨天完全無阻！"
+    },
+    "timeline": [
+      {
+        "time": "08:30 – 09:30",
+        "stay": "用餐 1 小時",
+        "spot": "飯店早餐 ＋ 悠閒出發",
+        "transit": "Vessel Inn 2F 餐廳享用早餐",
+        "desc": "在飯店享用早餐，9:45 悠閒搭電梯下樓搭車。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前",
+        "appleUrl": "https://maps.apple.com/?q=ベッセルイン高田馬場駅前",
+        "hours": "早餐 06:00～09:30",
+        "holiday": "無休",
+        "history": "Vessel Inn 高田馬場提供全東京排名前列的生魚片勝手丼自助早餐，無限供應鮮美鮭魚卵與生干貝。",
+        "mustTry": "自製滿溢鮭魚卵海鮮丼、和牛咖哩飯與現烤日式鬆餅。"
+      },
+      {
+        "time": "09:45 – 10:00",
+        "stay": "車程 4 分鐘",
+        "spot": "高田馬場 ➔ JR 山手線 ➔ 池袋站東口",
+        "transit": "高田馬場搭 JR 山手線（外環方向）只要 2 站 4 分鐘 直達池袋站東口（35 號出口步行 6 分鐘直達太陽城通道）！",
+        "desc": "距離飯店超近！免除以往轉車長途跋涉的辛苦。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=JR+池袋駅",
+        "appleUrl": "https://maps.apple.com/?q=JR+池袋駅",
+        "hours": "山手線約 2 分鐘一班",
+        "holiday": "無休",
+        "history": "高田馬場與池袋同屬 JR 山手線西北核心，僅隔 2 站 4 分鐘車程，是東京移動最順暢黃金區段之一。"
+      },
+      {
+        "time": "10:00 – 11:15",
+        "stay": "停留 1 小時 15 分",
+        "spot": "✨ 池袋 Sunshine City 太陽城 (Pokemon Center & 3000台扭蛋+夾娃娃 & Seria)",
+        "transit": "池袋站東口沿 Sunshine 60 通步行 6 分鐘即達 (豊島区東池袋3-1-2)",
+        "desc": "朝聖 ALPA 2F 的【Pokemon Center MEGA TOKYO】與 Pikachu Sweets；接著至 3F【萬代 Namco Cross Store（擁有超過 3,000 台扭蛋機與巨型夾娃娃機專區！）】；商場 ALTA 1F 還有【Seria 百元店】可順逛！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=サンシャインシティ+池袋",
+        "appleUrl": "https://maps.apple.com/?q=サンシャインシティ+池袋",
+        "hours": "專賣店街 10:00～20:00 / 扭蛋與遊樂區 10:00～21:00",
+        "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
+        "history": "【世界級動漫娛樂地標】Sunshine City 太陽城於 1978 年落成，ALPA 2F 設有全日本旗艦級的「Pokemon Center MEGA TOKYO」，店內有超大型噴火龍與皮卡丘雕像，旁邊附設「Pikachu Sweets」甜點外帶店；3F「Bandai Namco Cross Store」擁有超過 3,000 台扭蛋機的驚人扭蛋百貨與巨型夾娃娃專區！",
+        "mustTry": "【必買必吃】Pokemon Center 限定皮卡丘玩偶、Pikachu Sweets 造型鬆餅杯；3F 扭蛋專區狂扭最新動漫吊飾；ALTA 1F Seria 百元店挖寶！",
+        "links": [
+          {
+            "title": "Pokemon Center MEGA TOKYO 官方店鋪資訊",
+            "url": "https://www.pokemon.co.jp/shop/pokecen/megatokyo/"
+          }
+        ]
+      },
+      {
+        "time": "11:15 – 12:30",
+        "stay": "停留 1 小時 15 分",
+        "spot": "🔥 アニメイト池袋本店 (Animate 世界最大 9 層樓動漫旗艦館)",
+        "transit": "太陽城步行 3 分鐘即達（豊島区東池袋1-20-7）",
+        "desc": "全球最大規模的動漫聖殿（金氏世界紀錄認證）！整整 9 層樓，專賣各大人氣動漫周邊（堀與宮村、咒術迴戰、柯南、排球少年等）、漫畫畫冊、角色模型與 4F/5F 官方動漫文具收納用品。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店",
+        "appleUrl": "https://maps.apple.com/?q=アニメイト池袋本店",
+        "hours": "平日 11:00～21:00 / 六日祝 10:00～20:00",
+        "holiday": "無休 (年中無休) ｜ 8/28(五) 11:00 準時開門，保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
+        "history": "【金氏世界紀錄認證・世界最大動漫旗艦】アニメイト（Animate）創立於 1983 年，2023 年 40 週年重新擴建為佔地最廣、樓層最高（整整 9 層樓）的全球動漫總本店，獲金氏世界紀錄官方認證！1F~3F 為漫畫與畫冊輕小說，4F~6F 為各大人氣動漫周邊、痛包與收納文具，7F/8F 為限定展覽與 Animate Cafe Gratte 角色拉花飲品。",
+        "mustTry": "【必買必逛】《堀與宮村》、《名偵探柯南》、《排球少年》、《咒術迴戰》最新官方限定立牌、徽章、4F 動漫卡片保護套與推活收納文具；1F 可點限定角色奶泡拉花 Gratte！",
+        "links": [
+          {
+            "title": "Animate 池袋本店 官方樓層導覽",
+            "url": "https://www.animate.co.jp/shop/ikebukuro/"
+          }
+        ]
+      },
+      {
+        "time": "12:35 – 12:55",
+        "stay": "車程 15 分鐘",
+        "spot": "池袋 ➔ 地鐵副都心線急行 ➔ 澀谷 Stream (直通 Google 大樓)",
+        "transit": "池袋站搭「東京地下鐵副都心線（急行/F-liner）」只要 11 分鐘直達澀谷站，出站走 C2 出口地下直通 Shibuya Stream 大樓！",
+        "desc": "極速直達澀谷！完全不受戶外天氣與塞車影響。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Stream",
+        "appleUrl": "https://maps.apple.com/?q=Shibuya+Stream",
+        "hours": "地下鐵急行約 5 分鐘一班",
+        "holiday": "無休",
+        "history": "東京地下鐵副都心線於 2008 年全線通車，串聯池袋、新宿三丁目與澀谷三大都會核心，急行班次速度極快。"
+      },
+      {
+        "time": "13:00 – 14:15",
+        "stay": "停留 1 小時 15 分",
+        "spot": "🍴 Google 澀谷 Stream 辦公室午餐 (35F PAUSA / Hachi)",
+        "transit": "L5 接待處刷證報到 ➔ 搭電梯直達 35F 頂樓景觀餐廳",
+        "desc": "Ben 帶全家進入體驗 Google 辦公室！在 35F 享用手工義大利麵、現烤披薩與 Hachi 拉麵，點現做 Affogato，飯後漫步至 29F 藍瓶咖啡廳。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Stream",
+        "appleUrl": "https://maps.apple.com/?q=Shibuya+Stream",
+        "hours": "辦公室上班日開放 11:30～14:30",
+        "holiday": "工作日正常 ｜ 8/28(五) 正常開放！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【Google 日本總部】位於澀谷地標 Shibuya Stream 高樓層，35F 為景觀員工餐廳「PAUSA」，擁有俯瞰東京鐵塔、晴空塔與富士山的極致視角。",
+        "mustTry": "【必吃亮點】PAUSA 現做手工義大利麵與拿坡里現烤窯烤披薩、Hachi 經典叉燒拉麵、現壓義式濃縮 Affogato 冰淇淋；29F 設有免費微型廚房與 Google 紀念商品展示區！"
+      },
+      {
+        "time": "14:30 – 16:00",
+        "stay": "停留 1.5 小時",
+        "spot": "SHIBUYA SKY 展望台 ＋ 澀谷 PARCO 6F (任天堂/寶可夢) ＋ 澀谷 Loft 文具",
+        "transit": "Shibuya Stream 2F 天橋步行 2 分直通 Scramble Square 14F 上展望台；下樓後步行 5 分至 PARCO 6F 與 澀谷 Loft",
+        "desc": "360 度俯瞰東京全景與十字路口；隨後朝聖【澀谷 PARCO 6F Nintendo TOKYO】與【澀谷 Loft（整棟 6 層樓旗艦店，B1F 是文具控必逛的頂級文具館）】！",
+        "cost": "4人約 ¥10,000",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY",
+        "appleUrl": "https://maps.apple.com/?q=SHIBUYA+SKY",
+        "hours": "SHIBUYA SKY 10:00～22:30 / PARCO 10:00～21:00 / Loft 11:00～21:00",
+        "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【澀谷三大朝聖地標】\n• SHIBUYA SKY：海拔 229 公尺頂樓無邊框露天展望台，直視全世界最繁忙的「澀谷十字路口（Scramble Crossing）」。\n• 澀谷 PARCO 6F (CYBERSPACE SHIBUYA)：全日本首間任天堂直營旗艦店「Nintendo TOKYO」與「Pokemon Center Shibuya」（中央有沉睡超夢育成槽！）。\n• 澀谷 Loft：整整 6 層樓的日本生活設計與文具殿堂，B1F「文具館」是全東京最齊全的筆類、紙膠帶、貼紙與設計文具聖地！",
+        "mustTry": "【必拍必買】SHIBUYA SKY「Sky Edge」角落拍照、Nintendo TOKYO 限定瑪利歐/薩爾達/動物森友會商品、澀谷 Loft B1F 採買日本設計文具！",
+        "links": [
+          {
+            "title": "SHIBUYA SKY 展望台 官方預約購票",
+            "url": "https://www.shibuya-scramble-square.com/sky/"
+          },
+          {
+            "title": "Nintendo TOKYO 澀谷官方資訊",
+            "url": "https://www.nintendo.co.jp/officialstore/"
+          }
+        ]
+      },
+      {
+        "time": "16:15 – 18:00",
+        "stay": "停留 1 小時 45 分",
+        "spot": "原宿竹下通 ＋ Kiddy Land 原宿旗艦店 (蠟筆小新與卡通文具)",
+        "transit": "澀谷搭 JR 山手線 1 站至原宿站東口，穿過竹下通走至表參道 Kiddy Land",
+        "desc": "Kiddy Land 2F/3F 採購蠟筆小新、吉卜力、卡娜赫拉、三麗鷗與日本精緻卡通文具。傍晚漫步表參道，動線極為悠閒！",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=キデイランド+原宿店",
+        "appleUrl": "https://maps.apple.com/?q=キデイランド+原宿店",
+        "hours": "Kiddy Land 11:00～20:00 / 竹下通 10:00～20:00",
+        "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【原宿流行與玩具殿堂】Kiddy Land 原宿店創立於 1950 年代，是表參道最具歷史代表性的角色玩具百貨。全棟地下 1 樓至地上 4 樓，完整劃分吉卜力橡子共和國、Snoopy Town、卡娜赫拉、迪士尼、三麗鷗與超人氣的蠟筆小新專屬專櫃。",
+        "mustTry": "【必買亮點】2F 蠟筆小新睡衣系列周邊、小白玩偶、精緻卡通文具印章；竹下通可順道品嚐現烤法式可麗餅（Marion Crepes）。",
+        "links": [
+          {
+            "title": "Kiddy Land 原宿旗艦店 樓層與品牌介紹",
+            "url": "https://www.kiddyland.co.jp/harajuku/"
+          }
+        ]
+      },
+      {
+        "time": "18:15 – 20:30",
+        "stay": "用餐放鬆",
+        "spot": "晚餐：高田馬場 とんかつ ひなた（或原宿 KINTAN/プリポー、澀谷新井屋/とんかつ梛）",
+        "transit": "原宿搭山手線返回高田馬場站（約 10 分鐘）或於原宿/澀谷就地享用私房大餐",
+        "desc": "享用神級炸豬排「ひなた」或私房清單名店！回高田馬場後還可在 BIGBOX 6F 夾娃娃或在房間開箱整理北海道與東京採買的戰利品打包裝箱。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=とんかつひなた+高田馬場",
+        "appleUrl": "https://maps.apple.com/?q=とんかつひなた+高田馬場",
+        "hours": "ひなた 晚餐 17:00～20:30 (L.O.)",
+        "holiday": "週日公休 (日曜日定休) ｜ 8/28(五) 避開公休，保證營業！",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "【高田馬場炸豬排激戰區之王】高田馬場是全東京公認的炸豬排激戰區，ひなた（Hinata）曾連續多年榮獲 Tabelog 百名店與米其林必比登推薦，嚴選宮城縣漢方豚等頂級豬肉，以精準油溫炸出金黃薄脆麵衣與多汁粉嫩肉質。",
+        "mustTry": "【必點極品】特選里肌（ロースカツ）、腰內肉（ヒレカツ）、特選肋眼部位；搭配喜馬拉雅玫瑰鹽與高知縣柚子胡椒，極致美味！"
+      }
+    ]
+  },
+  {
+    "shortDate": "8/29(六)",
+    "shortName": "滿載返台",
+    "dayLabel": "Day 7 ｜ 滿載返台",
+    "fullDate": "2026年8月29日（週六）",
+    "title": "Vessel 招牌海鮮早餐 ➔ 羽田機場搭機回松山",
+    "pace": "從容順利",
+    "paceColor": "bg-emerald-100 text-emerald-800",
+    "rainBackup": {
+      "title": "☔ Day 7 返台雨天無憂備案",
+      "desc": "高田馬場飯店 B1 電梯直達地鐵與山手線，轉乘東京單軌電車直達羽田 T3 航廈，全程室內不受風雨影響；提早至機場出境大廳 4F 江戶小路與免稅店舒適採買。"
+    },
+    "timeline": [
+      {
+        "time": "08:00 – 09:30",
+        "stay": "用餐整理 1.5 小時",
+        "spot": "Vessel Inn 極上海鮮自助早餐 ＋ 整理退房",
+        "transit": "飯店 2F 餐廳享用",
+        "desc": "品嚐高田馬場 Vessel 招牌鮭魚卵、生魚片海鮮丼，分裝託運行李與免稅品。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前",
+        "appleUrl": "https://maps.apple.com/?q=ベッセルイン高田馬場駅前",
+        "hours": "06:00～09:30 (11:00 前退房)",
+        "holiday": "每日正常供應",
+        "history": "Vessel Inn 飯店以「把在地美味搬進早餐」聞名全日本，高田馬場店每日供應產地直送的生魚片、鮭魚卵、深川飯等江戶道地美食。",
+        "mustTry": "把握最後機會狂舀一碗滿滿鮭魚卵生魚片勝手丼！"
+      },
+      {
+        "time": "09:45 – 10:45",
+        "stay": "車程 45 分鐘",
+        "spot": "退房 ➔ 前往羽田機場第 3 航廈",
+        "transit": "高田馬場搭 JR 山手線至濱松町站轉東京單軌電車（空港快速）直達羽田 T3",
+        "desc": "目標 10:50 前抵達國際線航廈報到。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3",
+        "appleUrl": "https://maps.apple.com/?q=Haneda+Airport+Terminal+3",
+        "hours": "班次密集",
+        "holiday": "無休",
+        "history": "東京單軌電車（空港快速）從濱松町出發僅需 13 分鐘即可直達羽田第 3 航廈出境大廳。"
+      },
+      {
+        "time": "10:50 – 13:00",
+        "stay": "停留 2 小時 10 分",
+        "spot": "羽田機場報到、出關、免稅店最後採購",
+        "transit": "羽田第 3 航廈 3F 出境大廳",
+        "desc": "過安檢後在免稅店採買伴手禮。",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3",
+        "appleUrl": "https://maps.apple.com/?q=Haneda+Airport+Terminal+3",
+        "hours": "免稅店 24 小時 / 全日營業",
+        "holiday": "無休",
+        "history": "羽田 T3 出境免稅區匯聚了日本各大機場限定點心名產（銀座千疋屋水果夾心、NY Perfect Cheese、Sugar Butter Sand Tree）。",
+        "mustTry": "免稅店採買日本名酒、Royce 巧克力與東京限定伴手禮禮盒。"
+      },
+      {
+        "time": "13:20 – 15:50",
+        "stay": "飛行 3h30m",
+        "spot": "搭乘 ANA NH853 返回台北松山 (TSA)",
+        "transit": "預計 15:50 抵達台北松山機場，搭乘捷運文湖線直達返家",
+        "desc": "結束充實精彩的 7 天 6 夜北海道東京家庭行，平安返抵台灣。",
+        "highlight": true,
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Taipei+Songshan+Airport",
+        "appleUrl": "https://maps.apple.com/?q=Taipei+Songshan+Airport",
+        "hours": "航班 13:20 準時起飛",
+        "holiday": "正常營運",
+        "history": "松山羽田航線自 2010 年重啟對飛，實現了台北與東京兩大首都蛋黃區「一日生活圈」的最速直達！"
+      }
+    ]
+  }
+];
