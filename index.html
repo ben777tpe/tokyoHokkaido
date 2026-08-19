@@ -76,18 +76,19 @@
 <body class="font-sans antialiased selection:bg-kohaku selection:text-white pb-16" x-data="tripApp()" x-init="initApp()">
 
   <!-- Top Alert Bar -->
-  <div class="bg-aizome text-white px-4 py-2 text-sm font-medium tracking-wide">
-    <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
+  <div class="bg-aizome text-white px-4 py-2.5 text-sm font-medium tracking-wide border-b border-[#0F2236]">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2.5">
       <div class="flex items-center space-x-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium text-xs sm:text-sm">8/28 池袋動漫聖地（Animate本店 ＋ 太陽城）➔ Google 澀谷 35F景觀午餐 ➔ 原宿澀谷私房名店！</span>
+        <span class="font-bold text-xs sm:text-sm bg-emerald-700/80 px-2 py-0.5 rounded text-white font-mono">v3.2 最新版</span>
+        <span class="text-xs sm:text-sm">8/28 池袋動漫（太陽城＋Animate本店）➔ Google 35F午餐 ➔ 原宿澀谷私房名店全收錄！</span>
       </div>
       <div class="flex items-center space-x-2 text-xs sm:text-sm font-maru text-slate-200">
-        <a href="https://docs.google.com/spreadsheets/d/1lVNaPRfiBOdjmr10eEd4-ZJ8b-OUsHZ739rJoieQ-Qk/edit" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-2.5 py-0.5 rounded text-xs font-bold transition flex items-center shadow-xs">
-          <i class="fa-solid fa-table-cells mr-1.5"></i> 開啟 Google Sheet 行事曆
+        <a href="https://docs.google.com/spreadsheets/d/1lVNaPRfiBOdjmr10eEd4-ZJ8b-OUsHZ739rJoieQ-Qk/edit" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center shadow-xs">
+          <i class="fa-solid fa-table-cells mr-1.5"></i> Google Sheet 行事曆
         </a>
-        <button @click="forceBustCache()" class="bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded text-[11px] font-mono" title="強制跳過快取重新載入最新版本">
-          <i class="fa-solid fa-rotate mr-1"></i>重載
+        <button @click="forceBustCache()" class="bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition" title="強制跳過瀏覽器快取重載最新版本">
+          <i class="fa-solid fa-rotate mr-1"></i>重載最新
         </button>
       </div>
     </div>
@@ -119,15 +120,15 @@
       </div>
     </div>
 
-    <!-- Global Search Bar -->
+    <!-- Global Universal Search Bar -->
     <div class="max-w-5xl mx-auto px-4 pb-2.5">
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-sumi-light text-sm"></i>
         <input 
           type="text" 
           x-model="searchQuery" 
-          placeholder="快速搜尋景點/美食/超市 (如: KINTAN, bills, 鳥政, とんかつ梛, 新井屋, 藤井茗縁, Animate...)" 
-          class="w-full pl-10 pr-10 py-2 rounded-xl bg-washi border border-[#D5CABB] text-sm md:text-base text-sumi placeholder-sumi-light/60 focus:outline-none focus:ring-2 focus:ring-aizome focus:bg-white transition">
+          placeholder="全域搜尋：可搜行程、超市、私房名店 (如: KINTAN, bills, 鳥政, とんかつ梛, 新井屋, 藤井茗縁, Animate, 太陽城, 租車...)" 
+          class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-washi border border-[#D5CABB] text-sm md:text-base text-sumi placeholder-sumi-light/60 focus:outline-none focus:ring-2 focus:ring-aizome focus:bg-white transition shadow-inner">
         <button x-show="searchQuery" @click="searchQuery = ''" class="absolute right-3 top-1/2 -translate-y-1/2 text-sumi-light hover:text-sumi text-sm p-1">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -140,19 +141,19 @@
         <button @click="activeMainTab = 'itinerary'; searchQuery = ''" :class="activeMainTab === 'itinerary' && !searchQuery ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-map-location-dot mr-1.5 text-base"></i> 每日行程 & 導航
         </button>
-        <button @click="activeMainTab = 'localTrends'; searchQuery = ''" :class="activeMainTab === 'localTrends' ? 'bg-kohaku text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
-          <i class="fa-solid fa-utensils mr-1.5 text-base"></i> 飯店周邊超市 ＆ 私房名店
+        <button @click="activeMainTab = 'localTrends'; searchQuery = ''" :class="activeMainTab === 'localTrends' && !searchQuery ? 'bg-kohaku text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+          <i class="fa-solid fa-utensils mr-1.5 text-base"></i> 飯店周邊超市 ＆ 私房名店 (19選)
         </button>
-        <button @click="activeMainTab = 'shopping'; searchQuery = ''" :class="activeMainTab === 'shopping' ? 'bg-aizome-light text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'shopping'; searchQuery = ''" :class="activeMainTab === 'shopping' && !searchQuery ? 'bg-aizome-light text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-bag-shopping mr-1.5 text-base"></i> 動漫採買地圖
         </button>
-        <button @click="activeMainTab = 'carRental'; searchQuery = ''" :class="activeMainTab === 'carRental' ? 'bg-emerald-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'carRental'; searchQuery = ''" :class="activeMainTab === 'carRental' && !searchQuery ? 'bg-emerald-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-car mr-1.5 text-base text-emerald-400"></i> 8/25 租車憑證資訊
         </button>
-        <button @click="activeMainTab = 'conanSpecial'; searchQuery = ''" :class="activeMainTab === 'conanSpecial' ? 'bg-blue-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'conanSpecial'; searchQuery = ''" :class="activeMainTab === 'conanSpecial' && !searchQuery ? 'bg-blue-800 text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-magnifying-glass mr-1.5 text-base text-amber-400"></i> 東京巨蛋城 柯南 Plaza
         </button>
-        <button @click="activeMainTab = 'checklist'; searchQuery = ''" :class="activeMainTab === 'checklist' ? 'bg-sumi text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
+        <button @click="activeMainTab = 'checklist'; searchQuery = ''" :class="activeMainTab === 'checklist' && !searchQuery ? 'bg-sumi text-white font-bold shadow-xs' : 'bg-white text-sumi border border-[#D8CEBC] hover:bg-washi-dark'" class="px-4 py-2 rounded-xl text-sm md:text-base whitespace-nowrap transition flex items-center">
           <i class="fa-solid fa-list-check mr-1.5 text-base"></i> 預約待辦清單
         </button>
       </div>
@@ -176,19 +177,30 @@
           <div class="washi-card rounded-2xl p-5 md:p-6 space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAE3D4] pb-3">
               <div class="flex flex-wrap items-center gap-2">
-                <span class="text-xs font-bold px-2.5 py-1 rounded bg-aizome text-white font-serif" x-text="res.dayLabel"></span>
-                <span class="font-mono text-sm font-bold text-aizome bg-aizome/10 px-2 py-0.5 rounded" x-text="res.time"></span>
+                <span class="text-xs font-bold px-2.5 py-1 rounded bg-aizome text-white font-serif" x-text="res.sourceLabel || res.dayLabel"></span>
+                <template x-if="res.time">
+                  <span class="font-mono text-sm font-bold text-aizome bg-aizome/10 px-2 py-0.5 rounded" x-text="res.time"></span>
+                </template>
+                <template x-if="res.badge">
+                  <span class="text-xs font-bold px-2.5 py-0.5 rounded" :class="res.badgeColor" x-text="res.badge"></span>
+                </template>
                 <template x-if="res.stay">
                   <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200" x-text="res.stay"></span>
                 </template>
-                <h4 class="font-serif font-black text-lg md:text-xl text-sumi" x-text="res.spot"></h4>
+                <h4 class="font-serif font-black text-lg md:text-xl text-sumi" x-text="res.name || res.spot"></h4>
               </div>
-              <template x-if="res.mapUrl">
-                <a :href="res.mapUrl" target="_blank" class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-lg bg-white border border-[#CFBFAB] text-aizome hover:bg-aizome hover:text-white font-bold text-xs md:text-sm transition shadow-xs">
-                  <i class="fa-solid fa-location-arrow mr-1.5 text-kohaku"></i> Google 導航
+              <template x-if="res.link || res.mapUrl">
+                <a :href="res.link || res.mapUrl" target="_blank" class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-lg bg-white border border-[#CFBFAB] text-aizome hover:bg-aizome hover:text-white font-bold text-xs md:text-sm transition shadow-xs">
+                  <i class="fa-solid mr-1.5 text-kohaku" :class="res.linkType === 'tabelog' ? 'fa-arrow-up-right-from-square' : 'fa-location-arrow'"></i>
+                  <span x-text="res.btnText || 'Google 導航'"></span>
                 </a>
               </template>
             </div>
+            <template x-if="res.area">
+              <div class="text-xs md:text-sm font-bold text-aizome">
+                <i class="fa-solid fa-map-pin mr-1 text-kohaku"></i> <span x-text="res.area"></span>
+              </div>
+            </template>
             <template x-if="res.transit">
               <div class="p-3.5 rounded-xl bg-[#F7F4EE] border border-[#E7DFC0] text-sm md:text-base">
                 <span class="font-bold text-aizome mr-1"><i class="fa-solid fa-train-subway mr-1"></i>交通：</span>
@@ -196,6 +208,11 @@
               </div>
             </template>
             <p class="text-sm md:text-base text-sumi-light" x-text="res.desc"></p>
+            <template x-if="res.budget">
+              <div class="text-xs text-sumi-light font-medium pt-1">
+                <span class="bg-[#EFE9DD] px-2 py-0.5 rounded">預算 / 時間：<span x-text="res.budget"></span></span>
+              </div>
+            </template>
           </div>
         </template>
       </div>
@@ -349,313 +366,63 @@
 
     </div>
 
-    <!-- SECTION 2: 飯店周邊超市 ＆ 私房名店 (FULL CATALOG 19 PLACES) -->
+    <!-- SECTION 2: 飯店周邊超市 ＆ 私房名店 (DYNAMIC FILTERABLE 19 PLACES) -->
     <div x-show="activeMainTab === 'localTrends' && !searchQuery" class="space-y-6">
       <div class="washi-card rounded-2xl p-6 md:p-8 space-y-6">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-kohaku flex items-center justify-center text-white text-lg">
-            <i class="fa-solid fa-utensils"></i>
-          </div>
-          <div>
-            <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">飯店周邊生活補給 ＆ 私房名店指南 (全 19 選)</h3>
-            <p class="text-sm md:text-base text-sumi-light font-maru">精選住宿徒步 3 分鐘超市超商 ＋ 原宿、表參道、澀谷 Tabelog 高分私房名店！</p>
-          </div>
-        </div>
-
-        <!-- Group A: Tokyo Takadanobaba Hotel Vicinity -->
-        <div class="space-y-3">
-          <h4 class="font-serif font-black text-lg text-aizome flex items-center border-b border-[#EAE3D4] pb-2">
-            <i class="fa-solid fa-hotel mr-2 text-kohaku"></i>
-            <span>東京高田馬場 Vessel 飯店周邊（徒步 1～3 分鐘生活補給）</span>
-          </h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-            
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-red-100 text-red-800 rounded text-xs font-bold">24H 免稅大採買</span>
-                  <span class="text-xs text-sumi-light font-bold">飯店對面徒步 1 分</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">唐吉訶德 高田馬場站前店</h5>
-                <p class="text-xs text-sumi-light">藥妝、日本零食、伴手禮、免稅品一站購足，買完直接走 1 分鐘回房間放，完全不用提重物！</p>
-              </div>
-              <a href="https://maps.app.goo.gl/W8dHE1hkoWV1bvmg8" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAE3D4] pb-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-kohaku flex items-center justify-center text-white text-lg">
+              <i class="fa-solid fa-utensils"></i>
             </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded text-xs font-bold">大型生活超市</span>
-                  <span class="text-xs text-sumi-light font-bold">徒步 2 分鐘</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">Peacock Store 超市 高田馬場店</h5>
-                <p class="text-xs text-sumi-light">AEON 集團旗下生鮮超市，買當季水蜜桃、麝香葡萄、日本產鮮乳與熟食點心首選。</p>
-              </div>
-              <a href="https://maps.app.goo.gl/iRyLPPBinyJZwWE67" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
+            <div>
+              <h3 class="text-xl md:text-2xl font-serif font-black text-sumi">飯店周邊生活補給 ＆ 私房名店指南 (全 19 選)</h3>
+              <p class="text-sm md:text-base text-sumi-light font-maru">精選住宿徒步 3 分鐘超市超商 ＋ 原宿、表參道、澀谷 Tabelog 高分私房名店！</p>
             </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-purple-100 text-purple-800 rounded text-xs font-bold">超人氣百圓店</span>
-                  <span class="text-xs text-sumi-light font-bold">Peacock B1F (徒步2分)</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">Seria ピーコックストア高田馬場店</h5>
-                <p class="text-xs text-sumi-light">日本公認質感最高的百圓店！專賣日系文具、廚房雜貨、收納小物與動漫周邊。</p>
-              </div>
-              <a href="https://maps.app.goo.gl/ZsE3QpcZ1Lw1L6Ry8" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded text-xs font-bold">平價都會超市</span>
-                  <span class="text-xs text-sumi-light font-bold">徒步 3 分鐘 (至24:00)</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">My Basket 高田馬場站北店</h5>
-                <p class="text-xs text-sumi-light">平價便利超市，夜間買大罐茶水、飲料、冰棒優格最划算。</p>
-              </div>
-              <a href="https://maps.app.goo.gl/P73BPZ3DwoWqRS8g6" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
-            </div>
-
           </div>
         </div>
 
-        <!-- Group B: Sapporo Hotel Vicinity -->
-        <div class="space-y-3 pt-2">
-          <h4 class="font-serif font-black text-lg text-aizome flex items-center border-b border-[#EAE3D4] pb-2">
-            <i class="fa-solid fa-hotel mr-2 text-kohaku"></i>
-            <span>札幌 Vessel 薄野飯店周邊（徒步 30 秒～3 分鐘）</span>
-          </h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-            
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded text-xs font-bold">北海道超商靈魂</span>
-                  <span class="text-xs text-sumi-light font-bold">同條街徒步 30 秒</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">Seicomart 南5條店</h5>
-                <p class="text-xs text-sumi-light">必吃 Hot Chef 現炸炸雞塊、北海道哈密瓜冰棒、濃純生乳布丁！</p>
-              </div>
-              <a href="https://maps.app.goo.gl/M4wMfs5czaocmBY79" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded text-xs font-bold">薄野最強新超市</span>
-                  <span class="text-xs text-sumi-light font-bold">COCONO B2F (徒步3分)</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">Daiichi 超市 薄野店 (ダイイチ)</h5>
-                <p class="text-xs text-sumi-light">薄野新地標地下大超市，產地直送十勝生乳、哈密瓜切片與豪華生魚片熟食。</p>
-              </div>
-              <a href="https://maps.app.goo.gl/JMLyWhw3LHPP2UAv6" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded text-xs font-bold">平價生鮮超市</span>
-                  <span class="text-xs text-sumi-light font-bold">徒步 2 分鐘</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">My Basket 南6條西7丁目店</h5>
-                <p class="text-xs text-sumi-light">平價連鎖超市，買瓶裝水、大罐茶飲與水果最便宜。</p>
-              </div>
-              <a href="https://maps.app.goo.gl/VXQLGULSAM9S8Xaj8" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-slate-100 text-slate-800 rounded text-xs font-bold">24H 便利超商</span>
-                  <span class="text-xs text-sumi-light font-bold">徒步 2 分鐘</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">7-Eleven 南4條西7丁目店</h5>
-                <p class="text-xs text-sumi-light">設有跨國 ATM 提款機，急需領日幣現鈔或半夜採買最方便。</p>
-              </div>
-              <a href="https://maps.app.goo.gl/pk1j6NwryBMeDacd9" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-location-arrow mr-1 text-kohaku"></i> 開啟 Google 導航
-              </a>
-            </div>
-
-          </div>
+        <!-- Filter Sub-Tabs -->
+        <div class="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none">
+          <button @click="localFilter = 'all'" :class="localFilter === 'all' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="px-3.5 py-2 rounded-xl text-xs md:text-sm font-serif transition whitespace-nowrap">
+            全部名單 (19)
+          </button>
+          <button @click="localFilter = 'takadanobaba'" :class="localFilter === 'takadanobaba' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="px-3.5 py-2 rounded-xl text-xs md:text-sm font-serif transition whitespace-nowrap">
+            高田馬場生活超市 (4)
+          </button>
+          <button @click="localFilter = 'sapporo'" :class="localFilter === 'sapporo' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="px-3.5 py-2 rounded-xl text-xs md:text-sm font-serif transition whitespace-nowrap">
+            札幌薄野生活超商 (5)
+          </button>
+          <button @click="localFilter = 'harajuku'" :class="localFilter === 'harajuku' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="px-3.5 py-2 rounded-xl text-xs md:text-sm font-serif transition whitespace-nowrap">
+            原宿・表參道私房 (4)
+          </button>
+          <button @click="localFilter = 'shibuya'" :class="localFilter === 'shibuya' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="px-3.5 py-2 rounded-xl text-xs md:text-sm font-serif transition whitespace-nowrap">
+            澀谷・惠比壽私房 (6)
+          </button>
         </div>
 
-        <!-- Group C: Harajuku & Omotesando Tabelog Gourmet -->
-        <div class="space-y-3 pt-2">
-          <h4 class="font-serif font-black text-lg text-aizome flex items-center border-b border-[#EAE3D4] pb-2">
-            <i class="fa-solid fa-star mr-2 text-amber-500"></i>
-            <span>原宿・表參道 精選私房名店 (Tabelog 高分精選)</span>
-          </h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-            
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-amber-100 text-amber-900 rounded text-xs font-bold">★ 3.74 頂級銘柄豬涮涮鍋</span>
-                  <span class="text-xs text-sumi-light font-bold">明治神宮前/原宿</span>
+        <!-- Places Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+          <template x-for="p in filteredLocalPlaces" :key="p.id">
+            <div class="p-4 md:p-5 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs space-y-2.5 flex flex-col justify-between hover:border-kohaku transition">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start gap-2">
+                  <span class="px-2.5 py-0.5 rounded text-xs font-bold" :class="p.badgeColor" x-text="p.badge"></span>
+                  <span class="text-xs text-sumi-light font-bold" x-text="p.area"></span>
                 </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">PRETTY PORK FACTORY & KATSUプリポー</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">嚴選全日本極致銘柄豚（TOKYO X/金豚王），極上清爽涮涮鍋、和風韓式五花肉與現炸金黃豬排！(預算: 晚 ¥8,000~¥9,999)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1306/A130601/13295369/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 線上預約
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-blue-100 text-blue-900 rounded text-xs font-bold">★ 3.55+ 世界第一早餐鬆餅</span>
-                  <span class="text-xs text-sumi-light font-bold">東急Plaza 7F</span>
+                <h4 class="font-serif font-black text-lg md:text-xl text-sumi" x-text="p.name"></h4>
+                <p class="text-xs md:text-sm text-sumi-light leading-relaxed" x-text="p.desc"></p>
+                <div class="text-xs text-sumi-light font-medium">
+                  <span class="bg-[#EFE9DD] px-2 py-0.5 rounded">預算 / 時間：<span x-text="p.budget"></span></span>
                 </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">bills 表参道</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">紐約時報評為「世界第一早餐」！經典 Ricotta 香蕉熱鬆餅與有機法式炒蛋，綠意空中花園美景。(預算: ¥2,000~¥3,500)</p>
               </div>
-              <a href="https://tabelog.com/tokyo/A1306/A130601/13139698/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-red-100 text-red-900 rounded text-xs font-bold">★ 3.55+ 熟成牛舌燒肉</span>
-                  <span class="text-xs text-sumi-light font-bold">原宿 CASCADE B1F</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">原宿焼肉 KINTAN</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">熟成 30 天的極致牛舌（30日間熟成KINTAN）、黑毛和牛肉壽司與時尚無煙燒肉體驗。(預算: 晚 ¥6,000~¥8,000 / 午 ¥1,800)</p>
+              <div class="pt-2">
+                <a :href="p.link" target="_blank" class="w-full py-2.5 text-center rounded-xl bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs md:text-sm font-bold border border-[#CFBFAB] shadow-xs flex items-center justify-center transition">
+                  <i class="fa-solid mr-1.5 text-kohaku" :class="p.linkType === 'tabelog' ? 'fa-arrow-up-right-from-square' : 'fa-location-arrow'"></i>
+                  <span x-text="p.btnText"></span>
+                </a>
               </div>
-              <a href="https://tabelog.com/tokyo/A1306/A130601/13186036/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
             </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-900 rounded text-xs font-bold">★ 3.65+ Top5000 炭火燒鳥</span>
-                  <span class="text-xs text-sumi-light font-bold">表參道/南青山</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">鳥政 (Torimasa)</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">南青山傳奇炭火燒鳥老店！現點現烤大蔥雞肉串、手工雞肉丸子與午間人氣燒鳥丼！(預算: 晚 ¥6,000~¥7,999 / 午 ¥1,600)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1306/A130602/13001258/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 菜單
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Group D: Shibuya & Ebisu Tabelog Gourmet -->
-        <div class="space-y-3 pt-2">
-          <h4 class="font-serif font-black text-lg text-aizome flex items-center border-b border-[#EAE3D4] pb-2">
-            <i class="fa-solid fa-star mr-2 text-amber-500"></i>
-            <span>澀谷・惠比壽 頂級燒肉・炸豬排・抹茶出汁名店 (Tabelog 高分精選)</span>
-          </h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-            
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-amber-100 text-amber-900 rounded text-xs font-bold">★ 3.60 神級銘柄豬炸豬排</span>
-                  <span class="text-xs text-sumi-light font-bold">澀谷/宇田川町</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">とんかつ梛 (Nagi)</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">老牌名店「かつ吉」前店長獨立店！嚴選岩手縣岩中豚與あわ雪ポーク低溫慢炸，粉嫩多汁！(預算: 晚 ¥5,000~¥5,999 / 午 ¥2,800)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1303/A130301/13319750/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-red-100 text-red-900 rounded text-xs font-bold">★ 3.65+ 燒肉百名店</span>
-                  <span class="text-xs text-sumi-light font-bold">澀谷道玄坂</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">焼肉ホルモン 新井屋 渋谷</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">澀谷預約困難店！神級厚切上牛舌、特選和牛橫膈膜與新鮮內臟拼盤，肉質極致鮮美！(預算: 晚 ¥6,000~¥7,999)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1303/A130301/13237382/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-900 rounded text-xs font-bold">★ 3.50+ 京都480年茶園</span>
-                  <span class="text-xs text-sumi-light font-bold">澀谷 FUKURAS 6F</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">京都宇治 藤井茗縁</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">京都宇治老字號茶園直營！極致濃郁抹茶刨冰、焙茶蒙布朗、抹茶芭菲與茶泡飯御膳。(預算: ¥1,200~¥2,000)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1303/A130301/13241439/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 菜單
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-blue-100 text-blue-900 rounded text-xs font-bold">★ 3.45+ 究極日式高湯料理</span>
-                  <span class="text-xs text-sumi-light font-bold">澀谷 FUKURAS 6F</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">出汁 林 (Dashi Hayashi)</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">以「日本第一高湯」為靈魂！天然昆布柴魚高湯茶漬飯、鮭魚卵厚蛋燒與精緻和食御膳。(預算: 晚 ¥4,000~¥5,000 / 午 ¥2,000)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1303/A130301/13298889/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-slate-100 text-slate-900 rounded text-xs font-bold">★ 3.50+ 備長炭直烤一夜干</span>
-                  <span class="text-xs text-sumi-light font-bold">澀谷道玄坂 B1F</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">越後屋 三太夫</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">炭火高溫直烤日本產極品一夜干（花魚、鯖魚、銀鱈西京燒），外焦香肉多汁，白飯無限續！(預算: 晚 ¥3,000~¥4,000 / 午 ¥1,200)</p>
-              </div>
-              <a href="https://tabelog.com/tokyo/A1303/A130301/13139798/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start">
-                  <span class="px-2 py-0.5 bg-red-100 text-red-800 rounded text-xs font-bold">★ 3.80+ Top1000 百年牛排</span>
-                  <span class="text-xs text-sumi-light font-bold">惠比壽 (澀谷旁1站)</span>
-                </div>
-                <h5 class="font-serif font-black text-lg text-sumi mt-1">Peter Luger Steak House Tokyo</h5>
-                <p class="text-xs text-sumi-light leading-relaxed">紐約百年傳奇牛排館東京旗艦店！頂級乾式熟成 T 骨牛排（需提前預約，奢華大餐首選）。(預算: 晚 ¥20,000~¥30,000)</p>
-              </div>
-              <a href="https://tabelog.com/tw/tokyo/A1303/A130302/13258435/" target="_blank" class="w-full py-2 text-center rounded-lg bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs">
-                <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-kohaku"></i> 查看 Tabelog 介紹 / 預約
-              </a>
-            </div>
-
-          </div>
+          </template>
         </div>
 
       </div>
@@ -871,6 +638,7 @@
       return {
         activeMainTab: 'itinerary',
         selectedDay: 0,
+        localFilter: 'all',
         showBudget: false,
         fontSize: 'large',
         searchQuery: '',
@@ -929,14 +697,40 @@
           window.location.href = url.toString();
         },
 
+        get filteredLocalPlaces() {
+          if (this.localFilter === 'all') return this.localPlaces;
+          return this.localPlaces.filter(p => p.category === this.localFilter);
+        },
+
         get allSpots() {
           const list = [];
+          // 1. Itinerary spots
           this.days.forEach((day, dIdx) => {
             if (day.timeline) {
               day.timeline.forEach(item => {
-                list.push({ ...item, dayLabel: day.dayLabel, dayIdx: dIdx });
+                list.push({ 
+                  ...item, 
+                  sourceLabel: day.dayLabel, 
+                  dayIdx: dIdx 
+                });
               });
             }
+          });
+          // 2. All 19 Local & Gourmet places
+          this.localPlaces.forEach(p => {
+            list.push({
+              sourceLabel: p.categoryLabel,
+              spot: p.name,
+              name: p.name,
+              desc: p.desc,
+              area: p.area,
+              badge: p.badge,
+              badgeColor: p.badgeColor,
+              budget: p.budget,
+              link: p.link,
+              linkType: p.linkType,
+              btnText: p.btnText
+            });
           });
           return list;
         },
@@ -945,12 +739,283 @@
           if (!this.searchQuery || !this.searchQuery.trim()) return [];
           const q = this.searchQuery.trim().toLowerCase();
           return this.allSpots.filter(item => {
-            const s = (item.spot || '').toLowerCase();
+            const s = (item.spot || item.name || '').toLowerCase();
             const d = (item.desc || '').toLowerCase();
             const t = (item.transit || '').toLowerCase();
-            return s.includes(q) || d.includes(q) || t.includes(q);
+            const a = (item.area || '').toLowerCase();
+            const b = (item.badge || '').toLowerCase();
+            return s.includes(q) || d.includes(q) || t.includes(q) || a.includes(q) || b.includes(q);
           });
         },
+
+        localPlaces: [
+          {
+            "id": "t1",
+            "category": "takadanobaba",
+            "categoryLabel": "高田馬場飯店周邊",
+            "badge": "24H 免稅大採買",
+            "badgeColor": "bg-red-100 text-red-800",
+            "name": "唐吉訶德 高田馬場站前店",
+            "area": "飯店正對面徒步 1 分鐘",
+            "desc": "藥妝、日本零食、伴手禮、免稅品一站購足，買完直接走 1 分鐘回房間放，完全不用提重物！",
+            "budget": "24 小時營業",
+            "link": "https://maps.app.goo.gl/W8dHE1hkoWV1bvmg8",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "t2",
+            "category": "takadanobaba",
+            "categoryLabel": "高田馬場飯店周邊",
+            "badge": "大型生活生鮮超市",
+            "badgeColor": "bg-emerald-100 text-emerald-800",
+            "name": "Peacock Store 超市 高田馬場店",
+            "area": "飯店旁徒步 2 分鐘",
+            "desc": "AEON 集團旗下生鮮超市，買當季水蜜桃、麝香葡萄、日本產鮮乳與熟食點心首選。",
+            "budget": "09:00～23:00",
+            "link": "https://maps.app.goo.gl/iRyLPPBinyJZwWE67",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "t3",
+            "category": "takadanobaba",
+            "categoryLabel": "高田馬場飯店周邊",
+            "badge": "超人氣百圓店",
+            "badgeColor": "bg-purple-100 text-purple-800",
+            "name": "Seria ピーコックストア高田馬場店",
+            "area": "Peacock 超市 B1F (徒步 2 分)",
+            "desc": "日本公認質感最高的百圓店！專賣日系文具、廚房雜貨、收納小物與動漫周邊。",
+            "budget": "10:00～21:00",
+            "link": "https://maps.app.goo.gl/ZsE3QpcZ1Lw1L6Ry8",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "t4",
+            "category": "takadanobaba",
+            "categoryLabel": "高田馬場飯店周邊",
+            "badge": "平價都會超市",
+            "badgeColor": "bg-blue-100 text-blue-800",
+            "name": "My Basket 高田馬場站北店",
+            "area": "飯店旁徒步 3 分鐘",
+            "desc": "平價便利超市，夜間買大罐茶水、飲料、冰棒優格最划算。",
+            "budget": "07:00～24:00",
+            "link": "https://maps.app.goo.gl/P73BPZ3DwoWqRS8g6",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "s1",
+            "category": "sapporo",
+            "categoryLabel": "札幌薄野飯店周邊",
+            "badge": "北海道超商靈魂",
+            "badgeColor": "bg-amber-100 text-amber-800",
+            "name": "Seicomart 南5條店",
+            "area": "飯店同條街徒步 30 秒",
+            "desc": "必吃 Hot Chef 現炸炸雞塊、北海道哈密瓜冰棒、濃純生乳布丁！",
+            "budget": "24 小時營業",
+            "link": "https://maps.app.goo.gl/M4wMfs5czaocmBY79",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "s2",
+            "category": "sapporo",
+            "categoryLabel": "札幌薄野飯店周邊",
+            "badge": "薄野最強新超市",
+            "badgeColor": "bg-emerald-100 text-emerald-800",
+            "name": "Daiichi 超市 薄野店 (ダイイチ)",
+            "area": "COCONO SUSUKINO B2F (徒步 3 分)",
+            "desc": "薄野新地標地下大超市，產地直送十勝生乳、哈密瓜切片與豪華生魚片熟食。",
+            "budget": "10:00～21:00",
+            "link": "https://maps.app.goo.gl/JMLyWhw3LHPP2UAv6",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "s3",
+            "category": "sapporo",
+            "categoryLabel": "札幌薄野飯店周邊",
+            "badge": "平價生鮮超市",
+            "badgeColor": "bg-blue-100 text-blue-800",
+            "name": "My Basket 南6條西7丁目店",
+            "area": "飯店旁徒步 2 分鐘",
+            "desc": "平價連鎖超市，買瓶裝水、大罐茶飲與水果最便宜。",
+            "budget": "07:00～23:00",
+            "link": "https://maps.app.goo.gl/VXQLGULSAM9S8Xaj8",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "s4",
+            "category": "sapporo",
+            "categoryLabel": "札幌薄野飯店周邊",
+            "badge": "24H 便利超商 ＋ ATM",
+            "badgeColor": "bg-slate-100 text-slate-800",
+            "name": "7-Eleven 南4條西7丁目店",
+            "area": "飯店旁徒步 2 分鐘",
+            "desc": "設有跨國 ATM 提款機，急需領日幣現鈔或半夜採買最方便。",
+            "budget": "24 小時營業",
+            "link": "https://maps.app.goo.gl/pk1j6NwryBMeDacd9",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "s5",
+            "category": "sapporo",
+            "categoryLabel": "札幌薄野飯店周邊",
+            "badge": "進口食品與咖啡專賣",
+            "badgeColor": "bg-amber-100 text-amber-900",
+            "name": "Jupiter 札幌 Pole Town 店",
+            "area": "大通 ➔ 狸小路地下街 (Day 2順遊)",
+            "desc": "位於大通公園通往狸小路的地下街內，專賣精選咖啡豆、進口零食、日本特色調味料與果乾。",
+            "budget": "10:00～20:00",
+            "link": "https://maps.app.goo.gl/YDe75P5whND5FXWbA",
+            "linkType": "map",
+            "btnText": "開啟 Google 導航"
+          },
+          {
+            "id": "h1",
+            "category": "harajuku",
+            "categoryLabel": "原宿・表參道私房",
+            "badge": "★ 3.74 頂級銘柄豬涮涮鍋",
+            "badgeColor": "bg-amber-100 text-amber-900 font-bold",
+            "name": "PRETTY PORK FACTORY & KATSUプリポー",
+            "area": "明治神宮前 / 原宿 (神宮前3-24-1 2F)",
+            "desc": "嚴選全日本極致銘柄豚（TOKYO X / 金豚王），極上清爽涮涮鍋、和風韓式五花肉與現炸金黃豬排！",
+            "budget": "晚 ¥8,000~¥9,999 ｜ 午 ¥2,500",
+            "link": "https://tabelog.com/tokyo/A1306/A130601/13295369/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 線上預約"
+          },
+          {
+            "id": "h2",
+            "category": "harajuku",
+            "categoryLabel": "原宿・表參道私房",
+            "badge": "★ 3.55+ 世界第一早餐鬆餅",
+            "badgeColor": "bg-blue-100 text-blue-900 font-bold",
+            "name": "bills 表参道",
+            "area": "東急 Plaza 表參道原宿 7F",
+            "desc": "紐約時報評為「世界第一早餐」！經典 Ricotta 香蕉熱鬆餅與有機法式炒蛋，綠意空中花園美景。",
+            "budget": "08:30～22:00 ｜ ¥2,000~¥3,500",
+            "link": "https://tabelog.com/tokyo/A1306/A130601/13139698/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          },
+          {
+            "id": "h3",
+            "category": "harajuku",
+            "categoryLabel": "原宿・表參道私房",
+            "badge": "★ 3.55+ 熟成牛舌燒肉",
+            "badgeColor": "bg-red-100 text-red-900 font-bold",
+            "name": "原宿焼肉 KINTAN",
+            "area": "原宿 CASCADE HARAJUKU B1F",
+            "desc": "熟成 30 天的極致牛舌（30日間熟成KINTAN）、黑毛和牛肉壽司與時尚無煙燒肉體驗。",
+            "budget": "晚 ¥6,000~¥8,000 ｜ 午 ¥1,800",
+            "link": "https://tabelog.com/tokyo/A1306/A130601/13186036/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          },
+          {
+            "id": "h4",
+            "category": "harajuku",
+            "categoryLabel": "原宿・表參道私房",
+            "badge": "★ 3.65+ Top 5000 炭火燒鳥",
+            "badgeColor": "bg-emerald-100 text-emerald-900 font-bold",
+            "name": "鳥政 (Torimasa)",
+            "area": "表參道 / 南青山 (南青山3-13-2 1F)",
+            "desc": "南青山傳奇炭火燒鳥老店！現點現烤大蔥雞肉串、手工雞肉丸子與午間人氣燒鳥丼！",
+            "budget": "晚 ¥6,000~¥7,999 ｜ 午 ¥1,600",
+            "link": "https://tabelog.com/tokyo/A1306/A130602/13001258/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 菜單"
+          },
+          {
+            "id": "b1",
+            "category": "shibuya",
+            "categoryLabel": "澀谷・惠比壽私房",
+            "badge": "★ 3.60 神級銘柄豬炸豬排",
+            "badgeColor": "bg-amber-100 text-amber-900 font-bold",
+            "name": "とんかつ梛 (Nagi)",
+            "area": "澀谷 / 宇田川町 (宇田川町41-26 203)",
+            "desc": "老牌名店「かつ吉」前店長獨立店！嚴選岩手縣岩中豚與あわ雪ポーク低溫慢炸，粉嫩多汁！",
+            "budget": "晚 ¥5,000~¥5,999 ｜ 午 ¥2,800",
+            "link": "https://tabelog.com/tokyo/A1303/A130301/13319750/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          },
+          {
+            "id": "b2",
+            "category": "shibuya",
+            "categoryLabel": "澀谷・惠比壽私房",
+            "badge": "★ 3.65+ 燒肉百名店",
+            "badgeColor": "bg-red-100 text-red-900 font-bold",
+            "name": "焼肉ホルモン 新井屋 渋谷",
+            "area": "澀谷道玄坂 (道玄坂2-19-11 1F)",
+            "desc": "澀谷預約困難店！神級厚切上牛舌、特選和牛橫膈膜與新鮮內臟拼盤，肉質極致鮮美！",
+            "budget": "晚 ¥6,000~¥7,999",
+            "link": "https://tabelog.com/tokyo/A1303/A130301/13237382/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          },
+          {
+            "id": "b3",
+            "category": "shibuya",
+            "categoryLabel": "澀谷・惠比壽私房",
+            "badge": "★ 3.50+ 京都480年茶園",
+            "badgeColor": "bg-emerald-100 text-emerald-900 font-bold",
+            "name": "京都宇治 藤井茗縁",
+            "area": "澀谷 FUKURAS (東急Plaza) 6F",
+            "desc": "京都宇治老字號茶園直營！極致濃郁抹茶刨冰、焙茶蒙布朗、抹茶芭菲與茶泡飯御膳。",
+            "budget": "11:00～22:00 ｜ ¥1,200~¥2,000",
+            "link": "https://tabelog.com/tokyo/A1303/A130301/13241439/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 菜單"
+          },
+          {
+            "id": "b4",
+            "category": "shibuya",
+            "categoryLabel": "澀谷・惠比壽私房",
+            "badge": "★ 3.45+ 究極日式高湯料理",
+            "badgeColor": "bg-blue-100 text-blue-900 font-bold",
+            "name": "出汁 林 (Dashi Hayashi)",
+            "area": "澀谷 FUKURAS (東急Plaza) 6F",
+            "desc": "以「日本第一高湯」為靈魂！天然昆布柴魚高湯茶漬飯、鮭魚卵厚蛋燒與精緻和食御膳。",
+            "budget": "晚 ¥4,000~¥5,000 ｜ 午 ¥2,000",
+            "link": "https://tabelog.com/tokyo/A1303/A130301/13298889/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          },
+          {
+            "id": "b5",
+            "category": "shibuya",
+            "categoryLabel": "澀谷・惠比壽私房",
+            "badge": "★ 3.50+ 備長炭直烤一夜干",
+            "badgeColor": "bg-slate-100 text-slate-900 font-bold",
+            "name": "越後屋 三太夫",
+            "area": "澀谷道玄坂 (道玄坂2-6-5 B1F)",
+            "desc": "炭火高溫直烤日本產極品一夜干（花魚、鯖魚、銀鱈西京燒），外焦香肉多汁，白飯無限續！",
+            "budget": "晚 ¥3,000~¥4,000 ｜ 午 ¥1,200",
+            "link": "https://tabelog.com/tokyo/A1303/A130301/13139798/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          },
+          {
+            "id": "b6",
+            "category": "shibuya",
+            "categoryLabel": "澀谷・惠比壽私房",
+            "badge": "★ 3.80+ Top 1000 百年牛排",
+            "badgeColor": "bg-red-100 text-red-800 font-bold",
+            "name": "Peter Luger Steak House Tokyo",
+            "area": "惠比壽 (澀谷旁 1 站)",
+            "desc": "紐約百年傳奇牛排館東京旗艦店！頂級乾式熟成 T 骨牛排（需提前預約，奢華大餐首選）。",
+            "budget": "晚 ¥20,000~¥30,000",
+            "link": "https://tabelog.com/tw/tokyo/A1303/A130302/13258435/",
+            "linkType": "tabelog",
+            "btnText": "查看 Tabelog 介紹 / 預約"
+          }
+        ],
 
         days: [
           {
