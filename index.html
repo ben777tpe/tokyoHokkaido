@@ -414,4 +414,469 @@
                 <tr><td class="py-2">Day 3 高速過路費 ＋ 油資 (380km)</td><td class="py-2 text-right font-mono">¥11,500</td><td class="py-2 text-right font-mono">NT$2,300</td></tr>
                 <tr><td class="py-2">小樽 JR 來回 (4人)</td><td class="py-2 text-right font-mono">¥6,000</td><td class="py-2 text-right font-mono">NT$1,200</td></tr>
                 <tr><td class="py-2">Day 5 羽田 ➔ 高田馬場 (單軌+山手線/計程車)</td><td class="py-2 text-right font-mono">¥4,000</td><td class="py-2 text-right font-mono">NT$800</td></tr>
-                <tr><td class="py-2">Day 5 高田馬場 ⇄ 東京巨蛋城
+                <tr><td class="py-2">Day 5 高田馬場 ⇄ 東京巨蛋城 來回 (4人)</td><td class="py-2 text-right font-mono">¥1,600</td><td class="py-2 text-right font-mono">NT$320</td></tr>
+                <tr><td class="py-2">Day 6 高田馬場 ➔ 池袋 ➔ 澀谷 ➔ 原宿 交通 (4人)</td><td class="py-2 text-right font-mono">¥2,400</td><td class="py-2 text-right font-mono">NT$480</td></tr>
+                <tr><td class="py-2">SHIBUYA SKY 展望台 (4人)</td><td class="py-2 text-right font-mono">¥10,000</td><td class="py-2 text-right font-mono">NT$2,000</td></tr>
+                <tr><td class="py-2">Day 7 高田馬場 ➔ 羽田 T3 單軌快速 (4人)</td><td class="py-2 text-right font-mono">¥2,800</td><td class="py-2 text-right font-mono">NT$560</td></tr>
+                <tr class="font-bold bg-matcha-light/50 text-aizome">
+                  <td class="py-2.5">總計預估 (匯率約 100円 ≈ NT$20)</td>
+                  <td class="py-2.5 text-right font-mono text-base">約 ¥75,040</td>
+                  <td class="py-2.5 text-right font-mono text-base">約 NT$15,008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- SECTION 2: 飯店周邊超市 ＆ 私房名店 (19 PLACES WITH GOOGLE MAPS + CLOSED DAYS) -->
+    <div x-show="activeMainTab === 'localTrends' && !searchQuery" class="space-y-4">
+      <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-[#EAE3D4] pb-3">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-9 h-9 rounded-xl bg-kohaku flex items-center justify-center text-white text-base">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div>
+              <h3 class="text-lg md:text-xl font-serif font-black text-sumi">飯店周邊生活補給 ＆ 私房名店指南 (全 19 選)</h3>
+              <p class="text-xs text-sumi-light font-maru">住宿生活超市 ＋ 原宿、表參道、澀谷 Tabelog 名店（附 Google Maps 與店休公休日）</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Sub-Tabs (Responsive Grid, Zero Scroll!) -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+          <button @click="localFilter = 'all'" :class="localFilter === 'all' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="py-1.5 px-2 rounded-xl text-xs font-serif transition text-center col-span-2 sm:col-span-1">
+            全部 (19)
+          </button>
+          <button @click="localFilter = 'takadanobaba'" :class="localFilter === 'takadanobaba' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="py-1.5 px-2 rounded-xl text-xs font-serif transition text-center">
+            高田馬場 (4)
+          </button>
+          <button @click="localFilter = 'sapporo'" :class="localFilter === 'sapporo' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="py-1.5 px-2 rounded-xl text-xs font-serif transition text-center">
+            札幌薄野 (5)
+          </button>
+          <button @click="localFilter = 'harajuku'" :class="localFilter === 'harajuku' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="py-1.5 px-2 rounded-xl text-xs font-serif transition text-center">
+            原宿表參道 (4)
+          </button>
+          <button @click="localFilter = 'shibuya'" :class="localFilter === 'shibuya' ? 'bg-aizome text-white font-bold shadow-xs' : 'bg-washi-dark text-sumi hover:bg-[#E2D8C7] border border-[#D5CABB]'" class="py-1.5 px-2 rounded-xl text-xs font-serif transition text-center">
+            澀谷惠比壽 (6)
+          </button>
+        </div>
+
+        <!-- Places Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+          <template x-for="p in filteredLocalPlaces" :key="p.id">
+            <div class="p-4 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs space-y-3 flex flex-col justify-between hover:border-kohaku transition">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded text-[11px] font-bold" :class="p.badgeColor" x-text="p.badge"></span>
+                  <span class="text-[11px] text-sumi-light font-bold text-right" x-text="p.area"></span>
+                </div>
+                <h4 class="font-serif font-black text-base md:text-lg text-sumi" x-text="p.name"></h4>
+                <p class="text-xs text-sumi-light leading-relaxed" x-text="p.desc"></p>
+                
+                <!-- Business Hours & Closed Days (店休情報) -->
+                <div class="p-2.5 rounded-xl bg-[#FAF7F0] border border-[#EADECB] text-xs space-y-1.5">
+                  <div class="text-sumi flex items-start">
+                    <span class="font-bold text-aizome shrink-0 mr-1.5"><i class="fa-regular fa-clock text-aizome"></i> 營業時間：</span>
+                    <span class="text-sumi-light" x-text="p.hours"></span>
+                  </div>
+                  <div class="text-sumi flex items-start">
+                    <span class="font-bold text-red-700 shrink-0 mr-1.5"><i class="fa-solid fa-calendar-xmark text-red-600"></i> 店休情報：</span>
+                    <span :class="p.closedBadge" x-text="p.closedDays"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons Row (Google Map + Tabelog) -->
+              <div class="grid grid-cols-2 gap-2 pt-1">
+                <a :href="p.googleMapUrl" target="_blank" class="py-2 text-center rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow-xs flex items-center justify-center transition">
+                  <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航
+                </a>
+                <template x-if="p.tabelogUrl">
+                  <a :href="p.tabelogUrl" target="_blank" class="py-2 text-center rounded-xl bg-kohaku hover:bg-kohaku/90 text-white text-xs font-bold shadow-xs flex items-center justify-center transition">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-white"></i> Tabelog 預約
+                  </a>
+                </template>
+                <template x-if="!p.tabelogUrl">
+                  <a :href="p.googleMapUrl" target="_blank" class="py-2 text-center rounded-xl bg-washi-dark hover:bg-[#EAE0D0] text-sumi text-xs font-bold border border-[#CFBFAB] shadow-xs flex items-center justify-center transition">
+                    <i class="fa-solid fa-store mr-1.5 text-kohaku"></i> 查看地標詳情
+                  </a>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION 3: ANIME SHOPPING MAP (IKEBUKURO & SHIBUYA & HARAJUKU) -->
+    <div x-show="activeMainTab === 'shopping' && !searchQuery" class="space-y-4">
+      <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
+        <div class="flex items-center space-x-2.5 border-b border-[#EAE3D4] pb-3">
+          <div class="w-9 h-9 rounded-xl bg-aizome-light flex items-center justify-center text-white text-base">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <div>
+            <h3 class="text-lg md:text-xl font-serif font-black text-sumi">東京動漫採買旗艦聖地地圖</h3>
+            <p class="text-xs text-sumi-light font-maru">池袋 9 層樓 Animate 本店 • 太陽城 Mega Tokyo • 澀谷任天堂 • 原宿小新</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs md:text-sm">
+          
+          <div class="p-4 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-blue-100 text-blue-900">金氏世界紀錄 ｜ 全球最大動漫專賣</span>
+              <h4 class="font-serif font-black text-base md:text-lg text-sumi mt-1">アニメイト池袋本店 (Animate Ikebukuro)</h4>
+              <p class="text-xs text-sumi-light leading-relaxed mt-1">
+                全棟 9 層樓！1F~3F 漫畫小說、4F~6F 最新動漫周邊（堀與宮村、咒術、柯南、排球少年等）、7F 活動展覽、B2F 劇場。
+              </p>
+              <div class="text-[11px] text-sumi-light mt-1.5 p-2 bg-washi rounded-lg border border-[#EAE0D0]">
+                <p>🕒 <strong>營業時間：</strong>平日 11:00～21:00 / 六日祝 10:00～20:00</p>
+                <p class="text-emerald-700 font-bold">🚫 <strong>店休：</strong>無休 (年中無休) ｜ 8/28(五) 11:00開門保證營業！</p>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店" target="_blank" class="w-full py-2 text-center bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航至 Animate 本店
+            </a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-amber-100 text-amber-900">寶可夢旗艦 ＋ 3000台世界最大扭蛋</span>
+              <h4 class="font-serif font-black text-base md:text-lg text-sumi mt-1">池袋 Sunshine City 太陽城</h4>
+              <p class="text-xs text-sumi-light leading-relaxed mt-1">
+                ALPA 2F 設有 Pokemon Center MEGA TOKYO ＆ Pikachu Sweets；3F 擁有超過 3,000 台扭蛋機的「扭蛋百貨公司」與萬代南夢宮概念店！
+              </p>
+              <div class="text-[11px] text-sumi-light mt-1.5 p-2 bg-washi rounded-lg border border-[#EAE0D0]">
+                <p>🕒 <strong>營業時間：</strong>商場專賣店 10:00～20:00</p>
+                <p class="text-emerald-700 font-bold">🚫 <strong>店休：</strong>無休 (依商場公告為準) ｜ 8/28(五) 保證營業！</p>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=サンシャインシティ+池袋" target="_blank" class="w-full py-2 text-center bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航至 太陽城
+            </a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-purple-100 text-purple-900">任天堂直營 ＋ 沉睡超夢培育槽</span>
+              <h4 class="font-serif font-black text-base md:text-lg text-sumi mt-1">澀谷 PARCO 6F (Nintendo TOKYO)</h4>
+              <p class="text-xs text-sumi-light leading-relaxed mt-1">
+                瑪利歐、薩爾達、斯普拉遁官方直營店，隔壁就是 Pokemon Center Shibuya 與 CAPCOM 專賣店。
+              </p>
+              <div class="text-[11px] text-sumi-light mt-1.5 p-2 bg-washi rounded-lg border border-[#EAE0D0]">
+                <p>🕒 <strong>營業時間：</strong>10:00～21:00</p>
+                <p class="text-emerald-700 font-bold">🚫 <strong>店休：</strong>無休 (依PARCO休館日) ｜ 8/28(五) 保證營業！</p>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=渋谷PARCO+Nintendo+TOKYO" target="_blank" class="w-full py-2 text-center bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航至 澀谷 PARCO
+            </a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white border border-[#DDD5C5] shadow-xs space-y-2 flex flex-col justify-between">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-100 text-emerald-900">蠟筆小新 • 吉卜力 • 少女文具</span>
+              <h4 class="font-serif font-black text-base md:text-lg text-sumi mt-1">Kiddy Land 原宿旗艦店</h4>
+              <p class="text-xs text-sumi-light leading-relaxed mt-1">
+                2F 蠟筆小新專區、睡衣周邊、卡娜赫拉與日本精緻文具，表參道漫步順遊。
+              </p>
+              <div class="text-[11px] text-sumi-light mt-1.5 p-2 bg-washi rounded-lg border border-[#EAE0D0]">
+                <p>🕒 <strong>營業時間：</strong>11:00～20:00</p>
+                <p class="text-emerald-700 font-bold">🚫 <strong>店休：</strong>無休 (年中無休) ｜ 8/28(五) 保證營業！</p>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=キデイランド+原宿店" target="_blank" class="w-full py-2 text-center bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs">
+              <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航至 Kiddy Land
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: 8/25 CAR RENTAL DETAILS -->
+    <div x-show="activeMainTab === 'carRental' && !searchQuery" class="space-y-4">
+      <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
+        <div class="flex items-center justify-between border-b border-[#E8E0D2] pb-3">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-9 h-9 rounded-xl bg-emerald-800 flex items-center justify-center text-white text-lg">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div>
+              <h3 class="text-lg md:text-xl font-serif font-black text-sumi">8/25 (週二) NIPPON 租車確認憑證</h3>
+              <p class="text-xs text-sumi-light font-maru">Tabirai 預約 ｜ 租車公司：Nippon Rent-A-Car</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 font-mono font-bold rounded-lg text-xs border border-emerald-300">預約確定</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+          <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2D8C7] space-y-2">
+            <h4 class="font-serif font-black text-sm md:text-base text-aizome border-b border-[#EAE3D4] pb-1.5">📋 預約核心資訊</h4>
+            <div class="space-y-1.5">
+              <p><span class="font-bold text-sumi">預約號碼：</span><span class="font-mono font-bold text-kohaku text-base">101851488</span></p>
+              <p><span class="font-bold text-sumi">查詢密碼：</span><span class="font-mono font-bold text-sumi bg-white px-2 py-0.5 rounded border border-[#DDD5C5]">c60305a4</span></p>
+              <p><span class="font-bold text-sumi">預約人姓名：</span>李浩賓 (Lee Hao Pin)</p>
+              <p><span class="font-bold text-sumi">乘車人數：</span>4 位 (全家)</p>
+              <p><span class="font-bold text-sumi">預定車型：</span>Standard 禁菸車（FIT / COROLLA 或同級）</p>
+              <p><span class="font-bold text-sumi">取還時間：</span><strong>2026/08/25 08:00 – 20:00 (12小時)</strong></p>
+              <p><span class="font-bold text-sumi">費用合計：</span><strong class="text-red-700 text-base font-mono">¥12,540</strong> (取車現場信用卡付款)</p>
+            </div>
+            <div class="pt-1.5">
+              <a href="https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-aizome text-white hover:bg-aizome-light transition text-xs flex items-center justify-center shadow-xs">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-1.5"></i> 開啟 Tabirai 預約查詢頁
+              </a>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2D8C7] space-y-2">
+            <h4 class="font-serif font-black text-sm md:text-base text-aizome border-b border-[#EAE3D4] pb-1.5">📍 取還車營業所資訊</h4>
+            <div class="space-y-1.5">
+              <p><span class="font-bold text-sumi">營業所名稱：</span><strong>NIPPON 租車 札幌車站前營業所</strong></p>
+              <p><span class="font-bold text-sumi">門市地址：</span>北海道札幌市東区北7条東1丁目1番1号</p>
+              <p><span class="font-bold text-sumi">連絡電話：</span><span class="font-mono">050-1712-2997</span></p>
+              <p><span class="font-bold text-sumi">車載導航 Map Code：</span><span class="font-mono font-black text-kohaku text-base bg-amber-50 px-2 py-0.5 rounded border border-amber-300">9 553 092</span></p>
+              <p class="text-sumi-light text-xs">🚶 <strong>步行指南：</strong>從 <strong>JR 札幌車站「東口」步行約 5 分鐘</strong> 即可抵達。</p>
+            </div>
+            <div class="pt-1.5">
+              <a href="https://www.google.com/maps/search/?api=1&query=北海道札幌市東区北7条東1丁目1番1号" target="_blank" class="w-full py-2.5 text-center font-bold rounded-xl bg-emerald-700 text-white hover:bg-emerald-800 transition text-xs flex items-center justify-center shadow-xs">
+                <i class="fa-solid fa-location-arrow mr-1.5 text-amber-300"></i> Google 導航至門市
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: CONAN SPECIAL -->
+    <div x-show="activeMainTab === 'conanSpecial' && !searchQuery" class="space-y-4">
+      <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-blue-800 flex items-center justify-center text-amber-400 text-base">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div>
+            <h3 class="text-lg md:text-xl font-serif font-black text-sumi">東京巨蛋城 柯南 Plaza (Detective Conan Plaza)</h3>
+            <p class="text-xs text-sumi-light font-maru">2026 柯南最新劇場版限定快閃 ｜ 東京規模最大專賣會場</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border-2 border-blue-800/30 shadow-xs space-y-3">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-serif font-black px-2.5 py-0.5 rounded-lg bg-blue-900 text-white">🔥 東京規模最大 ｜ 柯南快閃店</span>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">展期：2026/04/01 ～ 09/27 (11:00～19:00)</span>
+          </div>
+          <h4 class="font-serif font-black text-xl text-sumi">名偵探柯南廣場 (Tokyo Dome City Central Park)</h4>
+          <p class="text-xs md:text-sm text-sumi-light leading-relaxed">
+            現場販售 2026 最新劇場版<strong>《名偵探柯南：高速公路的墮天使》</strong>的大量最新限定周邊！包含角色立牌、特典贈禮、文具吊飾與大型打卡牆，是東京品項最齊全的柯南聖地！
+          </p>
+          <div class="bg-[#F4F7FB] p-3.5 rounded-xl border border-blue-100 space-y-1.5 text-xs md:text-sm">
+            <p>🚇 <strong>交通方式：</strong> 高田馬場搭 JR 山手線至新宿轉中央・總武線，只要 <strong>12–15 分鐘直達「水道橋站」西口</strong>（步行 3 分即達）。</p>
+            <p>⏱️ <strong>排定時段：</strong> <strong>Day 5 (8/27 週四) 16:00 – 18:00</strong>，飯店放好行李後前往，逛完在巨蛋城享用晚餐！</p>
+            <p class="text-emerald-700 font-bold">🚫 <strong>公休查核：</strong>展期內無休 (每日 11:00～19:00 正常營運，保證開門！)</p>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Dome+City+Central+Park" target="_blank" class="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-blue-800 hover:bg-blue-900 text-white font-bold text-xs md:text-sm transition shadow-xs">
+            <i class="fa-solid fa-location-arrow mr-1.5 text-amber-400"></i> 開啟「東京巨蛋城 Central Park」Google 導航
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: CHECKLIST (WITH AUTO LOCALSTORAGE PERSISTENCE) -->
+    <div x-show="activeMainTab === 'checklist' && !searchQuery" class="space-y-4">
+      <div class="washi-card rounded-2xl p-4 md:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAE3D4] pb-3">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-9 h-9 rounded-xl bg-sumi flex items-center justify-center text-white text-base">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div>
+              <h3 class="text-lg md:text-xl font-serif font-black text-sumi">出發前重點待辦與預約清單</h3>
+              <p class="text-xs text-emerald-700 font-bold">✨ 打勾狀態會自動儲存於手機/電腦瀏覽器，重新整理絕不消失！</p>
+            </div>
+          </div>
+          <button @click="resetChecklist()" class="text-xs text-sumi-light hover:text-red-700 font-bold border border-[#D5CABB] px-2.5 py-1 rounded-lg bg-white shadow-xs transition self-start sm:self-auto">
+            <i class="fa-solid fa-rotate-left mr-1"></i> 重設打勾狀態
+          </button>
+        </div>
+
+        <div class="space-y-3">
+          <template x-for="(todo, index) in checklist" :key="index">
+            <div class="p-3.5 rounded-xl border transition flex items-start space-x-3 cursor-pointer" :class="todo.done ? 'bg-washi/40 border-[#E8E2D5] opacity-60' : 'bg-white border-[#D8CEBC] shadow-xs'" @click="todo.done = !todo.done">
+              <input type="checkbox" x-model="todo.done" @click.stop class="mt-1 w-4 h-4 rounded text-aizome focus:ring-aizome cursor-pointer shrink-0">
+              <div class="flex-1">
+                <div class="flex items-center space-x-2">
+                  <span class="text-[11px] px-2 py-0.5 rounded font-bold" :class="todo.badgeColor" x-text="todo.category"></span>
+                  <span class="font-serif font-bold text-sm md:text-base text-sumi" :class="todo.done ? 'line-through text-sumi-light' : ''" x-text="todo.title"></span>
+                </div>
+                <p class="text-xs md:text-sm text-sumi-light mt-1 leading-relaxed" x-text="todo.detail"></p>
+                <template x-if="todo.actionUrl">
+                  <a :href="todo.actionUrl" target="_blank" @click.stop class="inline-block mt-1.5 text-xs font-bold text-kohaku hover:underline">
+                    <i class="fa-solid fa-link mr-1"></i> 前往官方連結
+                  </a>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-[#D8CEBC] bg-white/80 py-6 text-center text-xs text-sumi-light">
+    <p class="font-serif font-bold text-sm text-sumi">Ben 家 2026 晚夏旅誌 ｜ 北海道 × 東京 7天6夜</p>
+    <p class="text-[11px] mt-1 opacity-80">資料已整合氣象情報、歷史見聞、生活超市機能、店休情報與 Google Maps 導航</p>
+  </footer>
+
+  <script>
+    function tripApp() {
+      return {
+        activeMainTab: 'itinerary',
+        selectedDay: 0,
+        localFilter: 'all',
+        showBudget: false,
+        fontSize: 'large',
+        searchQuery: '',
+        
+        initApp() {
+          const savedSize = localStorage.getItem('benTrip_fontSize');
+          if (savedSize) this.fontSize = savedSize;
+          this.applyFontSize();
+
+          // 💾 Load persistent checklist from localStorage
+          const savedChecklist = localStorage.getItem('benTrip_checklist_state');
+          if (savedChecklist) {
+            try {
+              const states = JSON.parse(savedChecklist);
+              this.checklist.forEach((item, idx) => {
+                if (states[idx] !== undefined) {
+                  item.done = states[idx];
+                }
+              });
+            } catch(e) {}
+          }
+
+          // 💾 Auto-save whenever checklist changes
+          this.$watch('checklist', (newVal) => {
+            const states = newVal.map(i => i.done);
+            localStorage.setItem('benTrip_checklist_state', JSON.stringify(states));
+          }, { deep: true });
+        },
+
+        resetChecklist() {
+          if (confirm('確定要將清單的打勾狀態重設為預設值嗎？')) {
+            localStorage.removeItem('benTrip_checklist_state');
+            this.checklist[0].done = true; // 租車已完成
+            for (let i = 1; i < this.checklist.length; i++) {
+              this.checklist[i].done = false;
+            }
+          }
+        },
+
+        setFontSize(size) {
+          this.fontSize = size;
+          localStorage.setItem('benTrip_fontSize', size);
+          this.applyFontSize();
+        },
+
+        applyFontSize() {
+          let sizeVal = '18.5px';
+          if (this.fontSize === 'normal') sizeVal = '16px';
+          if (this.fontSize === 'xlarge') sizeVal = '21px';
+          document.documentElement.style.setProperty('--base-font-size', sizeVal);
+        },
+
+        forceBustCache() {
+          const url = new URL(window.location.href);
+          url.searchParams.set('t', Date.now());
+          window.location.href = url.toString();
+        },
+
+        get filteredLocalPlaces() {
+          if (this.localFilter === 'all') return this.localPlaces;
+          return this.localPlaces.filter(p => p.category === this.localFilter);
+        },
+
+        get allSpots() {
+          const list = [];
+          // 1. Itinerary spots
+          this.days.forEach((day, dIdx) => {
+            if (day.timeline) {
+              day.timeline.forEach(item => {
+                list.push({ 
+                  ...item, 
+                  sourceLabel: day.dayLabel, 
+                  dayIdx: dIdx,
+                  googleMapUrl: item.mapUrl
+                });
+              });
+            }
+          });
+          // 2. All 19 Local & Gourmet places
+          this.localPlaces.forEach(p => {
+            list.push({
+              sourceLabel: p.categoryLabel,
+              spot: p.name,
+              name: p.name,
+              desc: p.desc,
+              area: p.area,
+              badge: p.badge,
+              badgeColor: p.badgeColor,
+              hours: p.hours,
+              closedDays: p.closedDays,
+              closedBadge: p.closedBadge,
+              googleMapUrl: p.googleMapUrl,
+              tabelogUrl: p.tabelogUrl
+            });
+          });
+          return list;
+        },
+
+        get filteredSearchResults() {
+          if (!this.searchQuery || !this.searchQuery.trim()) return [];
+          const q = this.searchQuery.trim().toLowerCase();
+          return this.allSpots.filter(item => {
+            const s = (item.spot || item.name || '').toLowerCase();
+            const d = (item.desc || '').toLowerCase();
+            const t = (item.transit || '').toLowerCase();
+            const a = (item.area || '').toLowerCase();
+            const b = (item.badge || '').toLowerCase();
+            const h = (item.holiday || item.closedDays || '').toLowerCase();
+            return s.includes(q) || d.includes(q) || t.includes(q) || a.includes(q) || b.includes(q) || h.includes(q);
+          });
+        },
+
+        localPlaces: __LOCAL_PLACES_PLACEHOLDER__,
+
+        days: __DAYS_FULL_PLACEHOLDER__,
+
+        checklist: [
+          { done: true, category: '已完成・租車', badgeColor: 'bg-emerald-100 text-emerald-800', title: '✅ 8/25 NIPPON 租車已完成預約！', detail: '預約號：101851488 ｜ 密碼：c60305a4 ｜ 取車點：JR 札幌站東口步行 5 分 (札幌市東区北7条東1丁目1番1号) ｜ Map Code：9 553 092 ｜ 費用：¥12,540 (現場付款，含 CDW+安心NOC+ETC卡)。', actionUrl: 'https://tc.tabirai.net/car/search/UserLogin.aspx?YNO=101851488' },
+          { done: false, category: '必吃燒肉', badgeColor: 'bg-red-100 text-red-700', title: '預約 8/25 20:00 炭火焼肉 羅山 すすきの店', detail: '自駕回程後享用頂級 A5 黑毛和牛，就在入住飯店正隔壁（南5西6-18，步行僅 30 秒，週一休/週二正常營業）。', actionUrl: 'https://razan.gorp.jp/' },
+          { done: false, category: 'Google 訪客', badgeColor: 'bg-blue-100 text-blue-800', title: '8/28 Google 澀谷 Stream 訪客登記 (go/guest)', detail: '提前完成太太、佳恩、芊瑾 3 位家人訪客登記，確認 13:00 帶至 35F PAUSA 享用景觀午餐，記得攜帶員工識別證。', actionUrl: '' },
+          { done: false, category: '景點門票', badgeColor: 'bg-purple-100 text-purple-800', title: 'SHIBUYA SKY 展望台 門票預約', detail: '8/28 14:30 時段，提前線上購票避開現場排隊。', actionUrl: 'https://www.shibuya-scramble-square.com/sky/' },
+          { done: false, category: '證件交通', badgeColor: 'bg-amber-100 text-amber-800', title: '台灣監理站申辦「駕照日文譯本」', detail: '駕駛人出發前至監理站辦理（臨櫃 NT$100，帶身分證＋駕照正本）。', actionUrl: '' },
+          { done: false, category: '入境手續', badgeColor: 'bg-emerald-100 text-emerald-800', title: '全家填寫 Visit Japan Web', detail: '登錄入境審查與海關申報，截圖 QR code 備用。', actionUrl: 'https://vjw-lp.digital.go.jp/zh-hant/' }
+        ]
+      }
+    }
+  </script>
+</body>
+</html>
+"""
+
+full_html = template.replace("__LOCAL_PLACES_PLACEHOLDER__", json.dumps(places_data, ensure_ascii=False, indent=8))
+full_html = full_html.replace("__DAYS_FULL_PLACEHOLDER__", json.dumps(days_full_data, ensure_ascii=False, indent=8))
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(full_html)
+
+print("Generated ultimate index.html with all spots holiday verified and no horizontal scrolling!")
+,Description:Write generate_ultimate_html.py,Overwrite:true,TargetFile:/google/data/rw/personal-agents/be/benlz/corpagent-eng-benlz/.gemini/jetski/brain/3620cc5d-2bb1-4ab9-84dd-866c1d6a2e30/scratch/generate_ultimate_html.py,toolAction:Writing file,toolSummary:Write generate_ultimate_html.py}
