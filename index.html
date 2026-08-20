@@ -73,7 +73,7 @@
                     </div>
                     <h1 class="text-lg sm:text-2xl font-bold tracking-tight mt-0.5 flex items-center">
                         <span>北海道・東京 盛夏家庭旅</span>
-                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.1</span>
+                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.2 冒險版</span>
                     </h1>
                 </div>
 
@@ -200,7 +200,7 @@
                     <button @click="toggleAllAccordions()" 
                             class="text-xs sm:text-sm font-bold px-3 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl border border-slate-300 transition shadow-xs">
                         <i class="fa-solid fa-arrows-up-down text-xs mr-1 text-slate-500"></i>
-                        <span x-text="allExpanded ? '全部收合' : '全部展開故事'"></span>
+                        <span x-text="allExpanded ? '全部收合' : '全部展開任務與故事'"></span>
                     </button>
                 </div>
             </div>
@@ -249,8 +249,8 @@
                         <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                             <button @click="toggleDrawer(currentDayIndex, sIdx)" 
                                     class="inline-flex items-center text-xs sm:text-sm font-bold text-kohaku hover:text-amber-800 transition-colors py-1">
-                                <i class="fa-solid mr-1.5" :class="isDrawerOpen(currentDayIndex, sIdx) ? 'fa-chevron-up' : 'fa-book-open-reader'"></i>
-                                <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? '收合景點故事 ＆ 營業公休' : '📜 展開見聞・故事 ＆ 營業公休'"></span>
+                                <i class="fa-solid mr-1.5" :class="isDrawerOpen(currentDayIndex, sIdx) ? 'fa-chevron-up' : 'fa-compass'"></i>
+                                <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? '收合景點故事 ＆ 冒險任務' : '🎯 展開冒險任務・故事 ＆ 營業公休'"></span>
                             </button>
                             <template x-if="item.cost">
                                 <span class="text-xs sm:text-sm text-slate-500 font-medium" x-text="item.cost"></span>
@@ -259,9 +259,35 @@
 
                         <!-- Inner Accordion Drawer (Expanded Content) -->
                         <div x-show="isDrawerOpen(currentDayIndex, sIdx)" x-collapse 
-                             class="mt-2.5 pt-3.5 border-t border-dashed border-amber-200 bg-amber-50/40 -mx-4 sm:-mx-5 -mb-4 sm:-mb-5 p-4 sm:p-5 rounded-b-2xl space-y-3 text-sm sm:text-base text-slate-800">
+                             class="mt-2.5 pt-3.5 border-t border-dashed border-amber-200 bg-amber-50/40 -mx-4 sm:-mx-5 -mb-4 sm:-mb-5 p-4 sm:p-5 rounded-b-2xl space-y-3.5 text-sm sm:text-base text-slate-800">
                             
-                            <!-- 1. Operating Hours & Holiday Verification Check -->
+                            <!-- 1. Kids Adventure Quests (佳恩・芊瑾 專屬冒險任務) -->
+                            <template x-if="item.quests && item.quests.length > 0">
+                                <div class="bg-gradient-to-r from-amber-100/90 to-orange-100/80 p-3.5 sm:p-4 rounded-xl border border-amber-300/80 shadow-xs space-y-2.5">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-black text-amber-950 flex items-center text-sm sm:text-base">
+                                            <i class="fa-solid fa-compass text-amber-600 mr-2 text-base"></i>
+                                            🎯 佳恩 ＆ 芊瑾 專屬冒險任務
+                                        </h4>
+                                        <span class="text-[11px] sm:text-xs font-bold text-amber-800 bg-white/80 px-2 py-0.5 rounded-full border border-amber-300/60">今晚與媽媽對答案</span>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <template x-for="(q, qIdx) in item.quests" :key="qIdx">
+                                            <div class="bg-white/95 p-2.5 rounded-lg border border-amber-200/80">
+                                                <div class="flex items-start space-x-2">
+                                                    <span class="text-xs font-bold px-2 py-0.5 rounded-md shrink-0 mt-0.5" :class="q.badge || 'bg-amber-100 text-amber-800'">
+                                                        <i class="fa-solid mr-1" :class="q.icon || 'fa-star'"></i>
+                                                        <span x-text="q.type"></span>
+                                                    </span>
+                                                    <p class="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed" x-text="q.q"></p>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <!-- 2. Operating Hours & Holiday Verification Check -->
                             <div class="bg-white p-3 rounded-xl border border-amber-200/80 shadow-xs">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs sm:text-sm">
                                     <div class="flex items-center text-slate-800">
@@ -277,7 +303,7 @@
                                 </div>
                             </div>
 
-                            <!-- 2. Historical Lore & Wiki Story -->
+                            <!-- 3. Historical Lore & Wiki Story -->
                             <template x-if="item.history">
                                 <div>
                                     <h4 class="font-bold text-slate-900 flex items-center text-sm sm:text-base">
@@ -288,7 +314,7 @@
                                 </div>
                             </template>
 
-                            <!-- 3. Must Try / Must Buy Highlights -->
+                            <!-- 4. Must Try / Must Buy Highlights -->
                             <template x-if="item.mustTry">
                                 <div class="bg-emerald-50/80 p-3 rounded-xl border border-emerald-200">
                                     <h4 class="font-bold text-emerald-900 flex items-center text-sm sm:text-base">
@@ -299,7 +325,7 @@
                                 </div>
                             </template>
 
-                            <!-- 4. Reference Links / Video Guides -->
+                            <!-- 5. Reference Links / Video Guides -->
                             <template x-if="item.links && item.links.length > 0">
                                 <div class="pt-1 flex flex-wrap gap-2">
                                     <template x-for="(lk, lIdx) in item.links" :key="lIdx">
@@ -324,7 +350,7 @@
                     <i class="fa-solid fa-utensils text-rose-500 mr-2"></i>
                     精選私房名店 ＆ 必逛超市 (19選)
                 </h2>
-                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">全數確認營業時間、公休日與 Google / Apple 雙地圖導航</p>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">點擊各卡片展開美食特色 ＆ 小朋友美食任務</p>
             </div>
 
             <!-- Places Grid -->
@@ -347,13 +373,28 @@
                                 <div><i class="fa-regular fa-clock text-slate-400 mr-1.5"></i> <span x-text="p.hours"></span></div>
                                 <div :class="p.holidayBadge || 'text-emerald-700 font-bold'"><i class="fa-regular fa-calendar-check mr-1.5"></i> <span x-text="p.holiday"></span></div>
                             </div>
+
+                            <!-- Quests Inside Places -->
+                            <template x-if="p.quests && p.quests.length > 0">
+                                <div class="mt-3 p-3 bg-amber-50/60 rounded-xl border border-amber-200/80 space-y-2">
+                                    <h4 class="text-xs sm:text-sm font-bold text-amber-900 flex items-center">
+                                        <i class="fa-solid fa-compass text-amber-600 mr-1.5"></i> 🎯 姊妹美食任務
+                                    </h4>
+                                    <template x-for="(pq, pqIdx) in p.quests" :key="pqIdx">
+                                        <div class="bg-white/90 p-2 rounded-lg border border-amber-200/60 text-xs">
+                                            <span class="font-bold text-amber-800 mr-1" x-text="'[' + pq.type + ']'"></span>
+                                            <span class="text-slate-800" x-text="pq.q"></span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
                         </div>
 
                         <!-- Bottom Action Links -->
                         <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
                             <template x-if="p.tabelogUrl">
                                 <a :href="p.tabelogUrl" target="_blank" class="text-xs sm:text-sm text-amber-700 font-bold hover:underline">
-                                    <i class="fa-solid fa-star text-xs mr-0.5"></i> Tabelog 評分
+                                    <i class="fa-solid fa-star text-xs mr-0.5"></i> Tabelog
                                 </a>
                             </template>
                             <div class="flex items-center space-x-2 ml-auto">
@@ -405,6 +446,21 @@
                     <p class="text-slate-300 pt-1 leading-relaxed" x-text="anime.conan.history"></p>
                 </div>
 
+                <!-- Conan Quests -->
+                <template x-if="anime.conan.quests && anime.conan.quests.length > 0">
+                    <div class="mt-3.5 p-3.5 bg-indigo-950/80 rounded-xl border border-amber-400/60 space-y-2">
+                        <h4 class="text-xs sm:text-sm font-bold text-amber-300 flex items-center">
+                            <i class="fa-solid fa-compass text-amber-400 mr-2"></i> 🎯 柯南冒險尋寶任務
+                        </h4>
+                        <template x-for="(cq, cqIdx) in anime.conan.quests" :key="cqIdx">
+                            <div class="bg-indigo-900/60 p-2.5 rounded-lg border border-indigo-700/50 text-xs sm:text-sm">
+                                <span class="font-bold text-amber-300 mr-1" x-text="'[' + cq.type + ']'"></span>
+                                <span class="text-slate-200" x-text="cq.q"></span>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
                 <div class="mt-3.5">
                     <h4 class="text-xs sm:text-sm font-bold text-amber-300 mb-2"><i class="fa-solid fa-gift mr-1.5"></i> 必買必玩焦點：</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-200">
@@ -435,6 +491,18 @@
                                 <h4 class="text-base font-bold text-slate-900 mt-1" x-text="cm.name"></h4>
                                 <div class="text-xs sm:text-sm text-slate-500 mt-0.5" x-text="cm.location"></div>
                                 <p class="text-xs sm:text-sm text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100" x-text="cm.desc"></p>
+
+                                <template x-if="cm.quests && cm.quests.length > 0">
+                                    <div class="mt-3 p-3 bg-purple-50/70 rounded-xl border border-purple-200/80 space-y-1.5">
+                                        <h5 class="text-xs font-bold text-purple-900"><i class="fa-solid fa-compass text-purple-600 mr-1"></i> 🎯 夾娃娃小任務</h5>
+                                        <template x-for="(cq, cqIdx) in cm.quests" :key="cqIdx">
+                                            <div class="text-xs text-purple-950 bg-white/80 p-1.5 rounded border border-purple-200/50">
+                                                <span class="font-bold text-purple-800" x-text="'[' + cq.type + '] '"></span>
+                                                <span x-text="cq.q"></span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </template>
                             </div>
                             <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                                 <span class="text-xs sm:text-sm text-slate-600"><i class="fa-regular fa-clock mr-1"></i> <span x-text="cm.hours"></span></span>
@@ -466,6 +534,18 @@
                                 <h4 class="text-base font-bold text-slate-900 mt-1" x-text="st.name"></h4>
                                 <div class="text-xs sm:text-sm text-slate-500 mt-0.5" x-text="st.location"></div>
                                 <p class="text-xs sm:text-sm text-slate-700 mt-2 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100" x-text="st.desc"></p>
+
+                                <template x-if="st.quests && st.quests.length > 0">
+                                    <div class="mt-3 p-3 bg-amber-50/70 rounded-xl border border-amber-200/80 space-y-1.5">
+                                        <h5 class="text-xs font-bold text-amber-900"><i class="fa-solid fa-compass text-amber-600 mr-1"></i> 🎯 文具尋寶小任務</h5>
+                                        <template x-for="(sq, sqIdx) in st.quests" :key="sqIdx">
+                                            <div class="text-xs text-amber-950 bg-white/80 p-1.5 rounded border border-amber-200/50">
+                                                <span class="font-bold text-amber-800" x-text="'[' + sq.type + '] '"></span>
+                                                <span x-text="sq.q"></span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </template>
                             </div>
                             <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                                 <span class="text-xs sm:text-sm text-slate-600"><i class="fa-regular fa-clock mr-1"></i> <span x-text="st.hours"></span></span>
