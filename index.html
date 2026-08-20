@@ -55,32 +55,12 @@
             box-shadow: 0 4px 10px rgba(192, 86, 33, 0.3);
             font-weight: 700;
         }
-        
-        /* Font Scale Mode Classes */
-        body.font-normal-mode {
-            --base-text: 0.9375rem; /* 15px */
-            --title-text: 1.125rem;  /* 18px */
-            --small-text: 0.8125rem; /* 13px */
-        }
-        body.font-large-mode {
-            --base-text: 1.0625rem; /* 17px */
-            --title-text: 1.25rem;   /* 20px */
-            --small-text: 0.9375rem; /* 15px */
-        }
-        body.font-xlarge-mode {
-            --base-text: 1.1875rem; /* 19px */
-            --title-text: 1.375rem;  /* 22px */
-            --small-text: 1.0625rem; /* 17px */
+        html {
+            transition: font-size 0.2s ease;
         }
     </style>
 </head>
-<body class="bg-[#f8f9fa] text-slate-800 min-h-screen pb-16 font-sans antialiased" 
-      :class="{
-          'font-normal-mode': fontSize === 'normal',
-          'font-large-mode': fontSize === 'large',
-          'font-xlarge-mode': fontSize === 'xlarge'
-      }"
-      x-data="tripApp()" x-cloak>
+<body class="bg-[#f8f9fa] text-slate-800 min-h-screen pb-16 font-sans antialiased" x-data="tripApp()" x-cloak>
 
     <!-- Top Header -->
     <header class="bg-gradient-to-r from-[#1a365d] via-[#2a4365] to-[#1a365d] text-white shadow-lg sticky top-0 z-40">
@@ -93,7 +73,7 @@
                     </div>
                     <h1 class="text-lg sm:text-2xl font-bold tracking-tight mt-0.5 flex items-center">
                         <span>北海道・東京 盛夏家庭旅</span>
-                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.1 旗艦版</span>
+                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.1</span>
                     </h1>
                 </div>
 
@@ -102,13 +82,13 @@
                     <span class="text-xs font-bold text-slate-300 px-1.5 hidden sm:inline"><i class="fa-solid fa-text-height mr-1"></i>字體:</span>
                     <button @click="setFontSize('normal')" 
                             :class="fontSize === 'normal' ? 'bg-amber-400 text-slate-950 font-bold shadow' : 'text-slate-300 hover:text-white'" 
-                            class="px-2 py-1 rounded-lg text-xs transition">標準</button>
+                            class="px-2.5 py-1 rounded-lg text-xs transition">標準</button>
                     <button @click="setFontSize('large')" 
                             :class="fontSize === 'large' ? 'bg-amber-400 text-slate-950 font-bold shadow' : 'text-slate-300 hover:text-white'" 
-                            class="px-2 py-1 rounded-lg text-xs font-semibold transition">大 A+</button>
+                            class="px-2.5 py-1 rounded-lg text-xs font-semibold transition">大 A+</button>
                     <button @click="setFontSize('xlarge')" 
                             :class="fontSize === 'xlarge' ? 'bg-amber-400 text-slate-950 font-bold shadow' : 'text-slate-300 hover:text-white'" 
-                            class="px-2 py-1 rounded-lg text-xs font-bold transition">特大 A++</button>
+                            class="px-2.5 py-1 rounded-lg text-xs font-bold transition">特大 A++</button>
                 </div>
             </div>
 
@@ -241,7 +221,7 @@
                                 <h3 class="text-base sm:text-lg font-bold text-slate-900 mt-1" x-text="item.spot"></h3>
                             </div>
 
-                            <!-- Dual Navigation Buttons: Google G + 導航 (NO DUPLICATE G) & Apple -->
+                            <!-- Dual Navigation Buttons: Google G + 導航 & Apple -->
                             <div class="flex items-center space-x-2 shrink-0">
                                 <a :href="item.googleUrl" target="_blank" 
                                    class="inline-flex items-center px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors shadow-xs">
@@ -647,13 +627,17 @@
                 checklist: window.TRIP_CHECKLIST || { rental: {}, items: [] },
 
                 init() {
-                    // Load saved font size preference
+                    // Load and apply saved font size preference
                     try {
                         const savedFont = localStorage.getItem('tokyo_hokkaido_font_size');
                         if (savedFont && ['normal', 'large', 'xlarge'].includes(savedFont)) {
-                            this.fontSize = savedFont;
+                            this.setFontSize(savedFont);
+                        } else {
+                            this.setFontSize('normal');
                         }
-                    } catch (e) {}
+                    } catch (e) {
+                        this.setFontSize('normal');
+                    }
 
                     // Load saved checklist from localStorage
                     try {
@@ -671,6 +655,15 @@
                     try {
                         localStorage.setItem('tokyo_hokkaido_font_size', size);
                     } catch (e) {}
+                    
+                    // Direct HTML Root Font Scaling (Instant & works on all rem units!)
+                    if (size === 'large') {
+                        document.documentElement.style.fontSize = '118%';
+                    } else if (size === 'xlarge') {
+                        document.documentElement.style.fontSize = '135%';
+                    } else {
+                        document.documentElement.style.fontSize = '100%';
+                    }
                 },
 
                 isDrawerOpen(dayIdx, spotIdx) {
