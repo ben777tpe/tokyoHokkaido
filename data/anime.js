@@ -1,4 +1,4 @@
-// data/anime.js - Conan Plaza, Claw Machines, Mega Stationery, and 100-Yen Shops
+// data/anime.js - Verified Official Links
 window.TRIP_ANIME = {
   "conan": {
     "title": "🕵️‍♂️ 名偵探柯南 2026 年度旗艦快閃：Detective Conan Plaza",
@@ -17,7 +17,7 @@ window.TRIP_ANIME = {
       "滿額限定贈送：2026 劇場版雷射角色透卡特典",
       "會場限定柯南聯名手帳、原子筆與收納文具"
     ],
-    "officialUrl": "https://twitter.com/conan_plaza"
+    "officialUrl": "https://x.com/conanplaza"
   },
   "claw_machines": [
     {
