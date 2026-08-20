@@ -1,6 +1,33 @@
 // data/places.js - 19 Gourmet & Supermarket with Quests
 window.TRIP_PLACES = [
   {
+    "name": "ステーキ＆ハンバーグ ひげ 札幌南5条本店",
+    "category": "牛排漢堡排百名店",
+    "area": "薄野 (飯店步行 3 分鐘)",
+    "score": "★ 3.63 (百名店)",
+    "feature": "超人氣排隊名店！刀子切開瞬間肉汁如噴泉般爆發的粗絞黑毛和牛漢堡排 ＋ 爆漿巧達起司 ＋ 鮮嫩牛排。",
+    "hours": "11:00 - 16:30 / 17:30 - 22:00",
+    "holiday": "年中無休 (2026/8 當日營業)",
+    "holidayBadge": "text-emerald-700 font-bold",
+    "googleUrl": "https://www.google.com/maps/search/?api=1&query=ステーキ＆ハンバーグ+ひげ+札幌南5条本店",
+    "appleUrl": "https://maps.apple.com/?q=ステーキ＆ハンバーグ+ひげ+札幌南5条本店",
+    "tabelogUrl": "https://tabelog.com/hokkaido/A0101/A010103/1047150/",
+    "quests": [
+      {
+        "icon": "fa-droplet",
+        "type": "肉汁大噴發觀察",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "當熱騰騰的鐵板漢堡排端上桌，用刀子切開中央時，會看到什麼驚人的畫面？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "起司漢堡排算術",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "點一份招牌巧達起司粗絞漢堡排 ¥1,980 日圓，換算成台幣大約是多少錢？"
+      }
+    ]
+  },
+  {
     "name": "Suage+ 本店 (すあげプラス)",
     "category": "札幌湯咖哩",
     "area": "札幌市中央区南4条西5丁目",
