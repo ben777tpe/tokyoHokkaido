@@ -1,4 +1,4 @@
-// data/places.js - 19 Gourmet & Supermarket with Quests
+// data/places.js - Gourmet & Supermarket with Quests
 window.TRIP_PLACES = [
   {
     "name": "ステーキ＆ハンバーグ ひげ 札幌南5条本店",
@@ -548,6 +548,33 @@ window.TRIP_PLACES = [
         "type": "禮貌結帳挑戰",
         "badge": "bg-emerald-100 text-emerald-800",
         "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
+  },
+  {
+    "name": "鳥政 (Torimasa 表參道炭火燒鳥老店)",
+    "category": "昭和老牌炭火燒鳥",
+    "area": "表參道・南青山 (表參道站 A4 步行 4 分鐘 / Kiddy Land 步行 10 分鐘)",
+    "score": "★ 3.49 (913則好評)",
+    "feature": "昭和 51 年 (1976年) 創業近 50 年傳奇燒鳥老店！現串現烤鮮嫩土雞肉串燒、秘傳醬汁つくね (雞肉丸)、炭火香氣四溢、最後必來一碗濃郁雞湯拉麵。",
+    "hours": "午餐 11:30 - 14:00 / 晚餐 17:00 - 22:00 (LO 21:30)",
+    "holiday": "星期日公休 (2026/8/28 週五正常營業)",
+    "holidayBadge": "text-emerald-700 font-bold",
+    "googleUrl": "https://www.google.com/maps/search/?api=1&query=鳥政+表参道",
+    "appleUrl": "https://maps.apple.com/?q=鳥政+表参道",
+    "tabelogUrl": "https://tabelog.com/tw/tokyo/A1306/A130602/13001258/",
+    "quests": [
+      {
+        "icon": "fa-drumstick-bite",
+        "type": "日式串燒解謎",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "菜單上用竹籤串著一顆顆圓形肉丸子的招牌串燒，日語叫作什麼？"
+      },
+      {
+        "icon": "fa-bowl-rice",
+        "type": "收尾拉麵大驚喜",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "吃完所有香噴噴的烤雞肉串後，店裡最受歡迎的收尾熱湯麵是什麼口味？"
       }
     ]
   }

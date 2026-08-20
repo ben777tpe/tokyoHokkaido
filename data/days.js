@@ -940,246 +940,178 @@ window.TRIP_DAYS = [
     },
     "timeline": [
       {
-        "time": "08:30 – 09:30",
-        "stay": "用餐 1 小時",
-        "spot": "飯店早餐 ＋ 悠閒出發",
-        "transit": "Vessel Inn 2F 餐廳享用早餐",
-        "desc": "在飯店享用早餐，9:45 悠閒搭電梯下樓搭車。",
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ベッセルイン高田馬場駅前",
-        "appleUrl": "https://maps.apple.com/?q=ベッセルイン高田馬場駅前",
-        "hours": "早餐 06:00～09:30",
-        "holiday": "無休",
-        "history": "Vessel Inn 高田馬場提供全東京排名前列的生魚片勝手丼自助早餐，無限供應鮮美鮭魚卵與生干貝。",
-        "mustTry": "自製滿溢鮭魚卵海鮮丼、和牛咖哩飯與現烤日式鬆餅。"
-      },
-      {
-        "time": "09:45 – 10:00",
-        "stay": "車程 4 分鐘",
-        "spot": "高田馬場 ➔ JR 山手線 ➔ 池袋站東口",
-        "transit": "高田馬場搭 JR 山手線（外環方向）只要 2 站 4 分鐘 直達池袋站東口（35 號出口步行 6 分鐘直達太陽城通道）！",
-        "desc": "距離飯店超近！免除以往轉車長途跋涉的辛苦。",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=JR+池袋駅",
-        "appleUrl": "https://maps.apple.com/?q=JR+池袋駅",
-        "hours": "山手線約 2 分鐘一班",
-        "holiday": "無休",
-        "history": "高田馬場與池袋同屬 JR 山手線西北核心，僅隔 2 站 4 分鐘車程，是東京移動最順暢黃金區段之一。",
-        "quests": [
-          {
-            "icon": "fa-ticket",
-            "type": "登機證大偵探",
-            "badge": "bg-blue-100 text-blue-800",
-            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
-          },
-          {
-            "icon": "fa-headphones",
-            "type": "發車音樂彩蛋",
-            "badge": "bg-purple-100 text-purple-800",
-            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
-          }
-        ]
-      },
-      {
-        "time": "10:00 – 11:15",
-        "stay": "停留 1 小時 15 分",
-        "spot": "✨ 池袋 Sunshine City 太陽城 (Pokemon Center & 3000台扭蛋+夾娃娃 & Seria)",
-        "transit": "池袋站東口沿 Sunshine 60 通步行 6 分鐘即達 (豊島区東池袋3-1-2)",
-        "desc": "朝聖 ALPA 2F 的【Pokemon Center MEGA TOKYO】與 Pikachu Sweets；接著至 3F【萬代 Namco Cross Store（擁有超過 3,000 台扭蛋機與巨型夾娃娃機專區！）】；商場 ALTA 1F 還有【Seria 百元店】可順逛！",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=サンシャインシティ+池袋",
-        "appleUrl": "https://maps.apple.com/?q=サンシャインシティ+池袋",
-        "hours": "專賣店街 10:00～20:00 / 扭蛋與遊樂區 10:00～21:00",
-        "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！",
-        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
-        "history": "【世界級動漫娛樂地標】Sunshine City 太陽城於 1978 年落成，ALPA 2F 設有全日本旗艦級的「Pokemon Center MEGA TOKYO」，店內有超大型噴火龍與皮卡丘雕像，旁邊附設「Pikachu Sweets」甜點外帶店；3F「Bandai Namco Cross Store」擁有超過 3,000 台扭蛋機的驚人扭蛋百貨與巨型夾娃娃專區！",
-        "mustTry": "【必買必吃】Pokemon Center 限定皮卡丘玩偶、Pikachu Sweets 造型鬆餅杯；3F 扭蛋專區狂扭最新動漫吊飾；ALTA 1F Seria 百元店挖寶！",
+        "time": "10:00 - 13:00",
+        "stay": "3 小時",
+        "spot": "池袋太陽城 Sunshine City (Pokemon MEGA TOKYO + Gashapon 扭蛋 + Seria)",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Sunshine+City+池袋",
+        "appleUrl": "https://maps.apple.com/?q=Sunshine+City+池袋",
+        "transit": "JR 山手線直達池袋站東口，步行 8 分鐘",
+        "desc": "全日本最大規模 Pokemon 寶可夢中心旗艦店、金氏世界紀錄扭蛋總部與質感百元店 Seria 大採買。",
+        "hours": "10:00 - 20:00",
+        "holiday": "全年無休 (2026/8/28 正常營業)",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "Sunshine City 於 1978 年開業，為池袋地標複合商場，集結動漫旗艦店、展望台與世界頂級扭蛋館。",
+        "mustTry": "噴火龍騎乘皮卡丘合影、限定寶可夢布偶、百元文具貼紙。",
         "links": [
           {
-            "title": "Pokemon Center MEGA TOKYO 官方店鋪資訊",
+            "title": "Pokemon Center MEGA TOKYO 官方資訊",
             "url": "https://www.pokemon.co.jp/shop/pokecen/megatokyo/"
-          },
-          {
-            "title": "池袋 Sunshine City 太陽城官方網站",
-            "url": "https://sunshinecity.jp/zh-tw/"
           }
         ],
         "quests": [
           {
             "icon": "fa-bolt",
-            "type": "噴火龍與皮卡丘",
+            "type": "噴火龍背上的皮卡丘",
             "badge": "bg-amber-100 text-amber-800",
-            "q": "走進 Pokemon Center MEGA TOKYO 門口，騎在噴火龍背上的皮卡丘頭上戴著什麼？"
+            "q": "在 Pokemon Center MEGA TOKYO 入口，騎在巨大噴火龍背上的皮卡丘，頭上戴著什麼造型的斗篷帽子？"
           },
           {
             "icon": "fa-calculator",
-            "type": "扭蛋達人算術",
-            "badge": "bg-rose-100 text-rose-800",
-            "q": "在 3000 台扭蛋牆中找到自己最想轉的扭蛋，投幣轉一顆，算算看 ¥400 日圓等於台幣多少錢？"
+            "type": "扭蛋達人實戰算術",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "在全日本最大扭蛋百貨轉一顆 ¥400 日圓的限定扭蛋，換算成台幣大約是多少錢？（提示：除以 4.6）"
           }
         ]
       },
       {
-        "time": "11:15 – 12:30",
-        "stay": "停留 1 小時 15 分",
-        "spot": "🔥 アニメイト池袋本店 (Animate 世界最大 9 層樓動漫旗艦館)",
-        "transit": "太陽城步行 3 分鐘即達（豊島区東池袋1-20-7）",
-        "desc": "全球最大規模的動漫聖殿（金氏世界紀錄認證）！整整 9 層樓，專賣各大人氣動漫周邊（堀與宮村、咒術迴戰、柯南、排球少年等）、漫畫畫冊、角色模型與 4F/5F 官方動漫文具收納用品。",
-        "highlight": true,
+        "time": "13:00 - 14:30",
+        "stay": "1.5 小時",
+        "spot": "Animate 池袋本店 (9層樓金氏世界紀錄世界最大動漫旗艦殿堂)",
         "googleUrl": "https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店",
         "appleUrl": "https://maps.apple.com/?q=アニメイト池袋本店",
-        "hours": "平日 11:00～21:00 / 六日祝 10:00～20:00",
-        "holiday": "無休 (年中無休) ｜ 8/28(五) 11:00 準時開門，保證營業！",
-        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
-        "history": "【金氏世界紀錄認證・世界最大動漫旗艦】アニメイト（Animate）創立於 1983 年，2023 年 40 週年重新擴建為佔地最廣、樓層最高（整整 9 層樓）的全球動漫總本店，獲金氏世界紀錄官方認證！1F~3F 為漫畫與畫冊輕小說，4F~6F 為各大人氣動漫周邊、痛包與收納文具，7F/8F 為限定展覽與 Animate Cafe Gratte 角色拉花飲品。",
-        "mustTry": "【必買必逛】《堀與宮村》、《名偵探柯南》、《排球少年》、《咒術迴戰》最新官方限定立牌、徽章、4F 動漫卡片保護套與推活收納文具；1F 可點限定角色奶泡拉花 Gratte！",
+        "transit": "Sunshine City 步行 3 分鐘",
+        "desc": "金氏世界紀錄認證『世界最大動漫專賣店』，9層樓滿滿動漫周邊、文具、扭蛋與限定商品。",
+        "hours": "平日 11:00 - 21:00 / 假日 10:00 - 20:00",
+        "holiday": "全年無休 (2026/8/28 正常營業)",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "Animate 池袋本店於 2023 年全新擴建完工，榮獲金氏世界紀錄『世界最大動漫專門店』認證，樓高 9 層。",
+        "mustTry": "1~5 樓動漫周邊角色立牌、文具館限定筆記本。",
         "links": [
           {
-            "title": "Animate 池袋本店 官方 9 層樓導覽",
+            "title": "Animate 池袋本店 官方樓層指南",
             "url": "https://www.animate.co.jp/shop/ikebukuro/"
           }
         ],
         "quests": [
           {
-            "icon": "fa-trophy",
-            "type": "世界最大紀錄",
-            "badge": "bg-yellow-100 text-yellow-800",
-            "q": "這棟全球最大的動漫總部，從 1 樓動漫新刊一直到頂樓活動廳，一共有幾層樓？"
+            "icon": "fa-building",
+            "type": "金氏世界紀錄最大",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "這棟世界最大的動漫旗艦館，從 1 樓到頂樓一共有幾層樓？"
           },
           {
             "icon": "fa-magnifying-glass",
-            "type": "角色大搜查",
-            "badge": "bg-indigo-100 text-indigo-800",
-            "q": "在館內各樓層找找看：能不能找到《排球少年》、《咒術迴戰》、《名偵探柯南》或《吉伊卡哇 (Chiikawa)》的專區？"
+            "type": "動漫角色大搜查",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "在館內找找看有沒有你最喜歡的卡通角色（例如排球少年、咒術迴戰或吉伊卡哇）？"
           }
         ]
       },
       {
-        "time": "12:35 – 12:55",
-        "stay": "車程 15 分鐘",
-        "spot": "池袋 ➔ 地鐵副都心線急行 ➔ 澀谷 Stream (直通 Google 大樓)",
-        "transit": "池袋站搭「東京地下鐵副都心線（急行/F-liner）」只要 11 分鐘直達澀谷站，出站走 C2 出口地下直通 Shibuya Stream 大樓！",
-        "desc": "極速直達澀谷！完全不受戶外天氣與塞車影響。",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Stream",
-        "appleUrl": "https://maps.apple.com/?q=Shibuya+Stream",
-        "hours": "地下鐵急行約 5 分鐘一班",
-        "holiday": "無休",
-        "history": "東京地下鐵副都心線於 2008 年全線通車，串聯池袋、新宿三丁目與澀谷三大都會核心，急行班次速度極快。"
-      },
-      {
-        "time": "13:00 – 14:15",
-        "stay": "停留 1 小時 15 分",
-        "spot": "🍴 Google 澀谷 Stream 辦公室午餐 (35F PAUSA / Hachi)",
-        "transit": "L5 接待處刷證報到 ➔ 搭電梯直達 35F 頂樓景觀餐廳",
-        "desc": "Ben 帶全家進入體驗 Google 辦公室！在 35F 享用手工義大利麵、現烤披薩與 Hachi 拉麵，點現做 Affogato，飯後漫步至 29F 藍瓶咖啡廳。",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Stream",
-        "appleUrl": "https://maps.apple.com/?q=Shibuya+Stream",
-        "hours": "辦公室上班日開放 11:30～14:30",
-        "holiday": "工作日正常 ｜ 8/28(五) 正常開放！",
-        "holidayBadge": "text-emerald-700 font-bold",
-        "history": "【Google 日本總部】位於澀谷地標 Shibuya Stream 高樓層，35F 為景觀員工餐廳「PAUSA」，擁有俯瞰東京鐵塔、晴空塔與富士山的極致視角。",
-        "mustTry": "【必吃亮點】PAUSA 現做手工義大利麵與拿坡里現烤窯烤披薩、Hachi 經典叉燒拉麵、現壓義式濃縮 Affogato 冰淇淋；29F 設有免費微型廚房與 Google 紀念商品展示區！"
-      },
-      {
-        "time": "14:30 – 16:00",
-        "stay": "停留 1.5 小時",
-        "spot": "SHIBUYA SKY 展望台 ＋ 澀谷 PARCO 6F (任天堂/寶可夢) ＋ 澀谷 Loft 文具",
-        "transit": "Shibuya Stream 2F 天橋步行 2 分直通 Scramble Square 14F 上展望台；下樓後步行 5 分至 PARCO 6F 與 澀谷 Loft",
-        "desc": "360 度俯瞰東京全景與十字路口；隨後朝聖【澀谷 PARCO 6F Nintendo TOKYO】與【澀谷 Loft（整棟 6 層樓旗艦店，B1F 是文具控必逛的頂級文具館）】！",
-        "cost": "4人約 ¥10,000",
+        "time": "15:15 - 17:30",
+        "stay": "2 小時 15 分",
+        "spot": "SHIBUYA SKY 展望台 (黃金夕陽場) ＋ 澀谷 PARCO 6F (Nintendo TOKYO)",
         "googleUrl": "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY",
         "appleUrl": "https://maps.apple.com/?q=SHIBUYA+SKY",
-        "hours": "SHIBUYA SKY 10:00～22:30 / PARCO 10:00～21:00 / Loft 11:00～21:00",
-        "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！",
+        "transit": "JR 山手線直達澀谷站，直通 Shibuya Scramble Square",
+        "desc": "站在 229 公尺高空露天展望台飽覽 360 度夕陽與富士山遠景，順遊 PARCO 6F 任天堂與寶可夢旗艦店。",
+        "hours": "10:00 - 22:30 (最終入場 21:20)",
+        "holiday": "年中無休 (2026/8/28 正常開放，需預約)",
         "holidayBadge": "text-emerald-700 font-bold",
-        "history": "【澀谷三大朝聖地標】\n• SHIBUYA SKY：海拔 229 公尺頂樓無邊框露天展望台，直視全世界最繁忙的「澀谷十字路口（Scramble Crossing）」。\n• 澀谷 PARCO 6F (CYBERSPACE SHIBUYA)：全日本首間任天堂直營旗艦店「Nintendo TOKYO」與「Pokemon Center Shibuya」（中央有沉睡超夢育成槽！）。\n• 澀谷 Loft：整整 6 層樓的日本生活設計與文具殿堂，B1F「文具館」是全東京最齊全的筆類、紙膠帶、貼紙與設計文具聖地！",
-        "mustTry": "【必拍必買】SHIBUYA SKY「Sky Edge」角落拍照、Nintendo TOKYO 限定瑪利歐/薩爾達/動物森友會商品、澀谷 Loft B1F 採買日本設計文具！",
+        "history": "位於 Shibuya Scramble Square 頂樓，標高 229 公尺，擁有日本最大規模的屋頂露天展望空間「SKY STAGE」。",
+        "mustTry": "SKY EDGE 邊角打卡、GEO COMPASS 地面羅盤、Nintendo TOKYO 限定瑪利歐周邊。",
         "links": [
           {
-            "title": "SHIBUYA SKY 展望台 繁體中文官方預約",
+            "title": "SHIBUYA SKY 官方訂票與最新即時情報",
             "url": "https://www.shibuya-scramble-square.com/sky/"
-          },
-          {
-            "title": "Nintendo TOKYO 澀谷官方資訊",
-            "url": "https://www.nintendo.com/jp/officialstore/index.html"
           }
         ],
         "quests": [
           {
-            "icon": "fa-arrows-split-up-and-left",
-            "type": "十字路口視角",
-            "badge": "bg-purple-100 text-purple-800",
-            "q": "站在 229 公尺頂樓「SKY EDGE」玻璃角落往下看，正下方那個號稱全球最繁忙的十字路口叫什麼名字？"
+            "icon": "fa-street-view",
+            "type": "十字路口空拍視角",
+            "badge": "bg-sky-100 text-sky-800",
+            "q": "站在 229 公尺頂樓往下看，正下方全世界最繁忙的十字路口叫什麼名字？"
           },
           {
             "icon": "fa-gamepad",
             "type": "任天堂超級巨星",
-            "badge": "bg-rose-100 text-rose-800",
-            "q": "在澀谷 PARCO 6 樓 Nintendo TOKYO 門口，有一尊超巨大的電玩主角雕像，他是哪一位水管工大明星？"
+            "badge": "bg-red-100 text-red-800",
+            "q": "在澀谷 PARCO 6F Nintendo TOKYO 門口，站著一位巨大的紅色衣服水管工雕像是誰？"
           }
         ]
       },
       {
-        "time": "16:15 – 18:00",
-        "stay": "停留 1 小時 45 分",
-        "spot": "原宿竹下通 ＋ Kiddy Land 原宿旗艦店 (蠟筆小新與卡通文具)",
-        "transit": "澀谷搭 JR 山手線 1 站至原宿站東口，穿過竹下通走至表參道 Kiddy Land",
-        "desc": "Kiddy Land 2F/3F 採購蠟筆小新、吉卜力、卡娜赫拉、三麗鷗與日本精緻卡通文具。傍晚漫步表參道，動線極為悠閒！",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=キデイランド+原宿店",
-        "appleUrl": "https://maps.apple.com/?q=キデイランド+原宿店",
-        "hours": "Kiddy Land 11:00～20:00 / 竹下通 10:00～20:00",
-        "holiday": "無休 (年中無休) ｜ 8/28(五) 保證營業！",
+        "time": "17:45 - 19:15",
+        "stay": "1.5 小時",
+        "spot": "原宿竹下通潮流散策 ＋ Kiddy Land 原宿旗艦店",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=キデイランド原宿店",
+        "appleUrl": "https://maps.apple.com/?q=キデイランド原宿店",
+        "transit": "澀谷步行 12 分鐘或地鐵 1 站至原宿/明治神宮前",
+        "desc": "東京可愛文化發源地！逛竹下通、Kiddy Land 全棟 Snoopy、吉伊卡哇、迪士尼與吉卜力周邊。",
+        "hours": "11:00 - 20:00",
+        "holiday": "全年無休 (2026/8/28 正常營業)",
         "holidayBadge": "text-emerald-700 font-bold",
-        "history": "【原宿流行與玩具殿堂】Kiddy Land 原宿店創立於 1950 年代，是表參道最具歷史代表性的角色玩具百貨。全棟地下 1 樓至地上 4 樓，完整劃分吉卜力橡子共和國、Snoopy Town、卡娜赫拉、迪士尼、三麗鷗與超人氣的蠟筆小新專屬專櫃。",
-        "mustTry": "【必買亮點】2F 蠟筆小新睡衣系列周邊、小白玩偶、精緻卡通文具印章；竹下通可順道品嚐現烤法式可麗餅（Marion Crepes）。",
+        "history": "Kiddy Land 原宿店自 1950 年代開業以來即為日本玩具與卡通肖像的殿堂級地標，地下 1 樓至 4 樓每層皆為專屬角色王國。",
+        "mustTry": "Kiddy Land 地下 1 樓 Snoopy Town、1 樓吉伊卡哇、竹下通可麗餅。",
         "links": [
           {
-            "title": "Kiddy Land 原宿旗艦店 樓層與品牌介紹",
+            "title": "Kiddy Land 原宿旗艦店 官方樓層介紹",
             "url": "https://www.kiddyland.co.jp/harajuku/"
           }
         ],
         "quests": [
           {
-            "icon": "fa-dove",
+            "icon": "fa-feather",
             "type": "史努比的小跟班",
-            "badge": "bg-yellow-100 text-yellow-800",
-            "q": "在地下 1 樓 Snoopy Town 裡，史努比身邊黃色的小鳥朋友叫什麼名字？"
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "在 Kiddy Land B1 Snoopy Town 裡，史努比身邊總是飛著一隻黃色的小鳥，牠叫什麼名字？"
           },
           {
-            "icon": "fa-credit-card",
+            "icon": "fa-cash-register",
             "type": "日語結帳挑戰",
             "badge": "bg-emerald-100 text-emerald-800",
-            "q": "在 Kiddy Land 選好文具或吊飾到櫃檯時，對店員說：「お会計をお願いします (Okaikei o onegaishimasu / 請幫我結帳)」！"
+            "q": "在櫃檯結帳時，試著對店員說：「お会計をお願いします (Okaikei o onegaishimasu / 請幫我結帳)」！"
           }
         ]
       },
       {
-        "time": "18:15 – 20:30",
-        "stay": "用餐放鬆",
-        "spot": "晚餐：高田馬場 とんかつ ひなた（或原宿 KINTAN/プリポー、澀谷新井屋/とんかつ梛）",
-        "transit": "原宿搭山手線返回高田馬場站（約 10 分鐘）或於原宿/澀谷就地享用私房大餐",
-        "desc": "享用神級炸豬排「ひなた」或私房清單名店！回高田馬場後還可在 BIGBOX 6F 夾娃娃或在房間開箱整理北海道與東京採買的戰利品打包裝箱。",
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=とんかつひなた+高田馬場",
-        "appleUrl": "https://maps.apple.com/?q=とんかつひなた+高田馬場",
-        "hours": "ひなた 晚餐 17:00～20:30 (L.O.)",
-        "holiday": "週日公休 (日曜日定休) ｜ 8/28(五) 避開公休，保證營業！",
+        "time": "19:30 - 21:30",
+        "stay": "2 小時",
+        "spot": "🍢 晚餐：鳥政 (Torimasa 表參道炭火燒鳥老店)",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=鳥政+表参道",
+        "appleUrl": "https://maps.apple.com/?q=鳥政+表参道",
+        "transit": "Kiddy Land 沿表參道林蔭大道漫步 10 分鐘 (表參道站 A4 步行 4 分)",
+        "desc": "食べログ 3.49 昭和 51 年創業近 50 年老牌名店！大啖炭火現烤鮮嫩土雞肉串燒、秘傳つくね雞肉丸、特選烤野菜，收尾必吃一碗濃郁雞白湯拉麵！",
+        "hours": "17:00 - 22:00 (LO 21:30)",
+        "holiday": "2026/8/28 (五) 正常營業 (週日公休)",
         "holidayBadge": "text-emerald-700 font-bold",
-        "history": "【高田馬場炸豬排激戰區之王】高田馬場是全東京公認的炸豬排激戰區，ひなた（Hinata）曾連續多年榮獲 Tabelog 百名店與米其林必比登推薦，嚴選宮城縣漢方豚等頂級豬肉，以精準油溫炸出金黃薄脆麵衣與多汁粉嫩肉質。",
-        "mustTry": "【必點極品】特選里肌（ロースカツ）、腰內肉（ヒレカツ）、特選肋眼部位；搭配喜馬拉雅玫瑰鹽與高知縣柚子胡椒，極致美味！",
+        "history": "鳥政自 1976 年（昭和 51 年）在南青山開業至今近半世紀，深受青山名流與在地家庭喜愛。店內堅持使用優質日本國產土雞與特選備長炭，炭烤火候極具功力，肉汁鮮甜飽滿。",
+        "mustTry": "燒鳥半套餐 (焼き鳥盛り合わせ)、つくね (炭烤雞肉丸)、手羽先 (烤雞翅)、最後的特製雞湯拉麵 (ラーメン)。",
+        "links": [
+          {
+            "title": "鳥政 食べログ 3.49 官方頁面",
+            "url": "https://tabelog.com/tw/tokyo/A1306/A130602/13001258/"
+          }
+        ],
         "quests": [
           {
-            "icon": "fa-ticket",
-            "type": "登機證大偵探",
-            "badge": "bg-blue-100 text-blue-800",
-            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
+            "icon": "fa-drumstick-bite",
+            "type": "日式串燒解謎",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "菜單上用竹籤串著一顆顆圓形肉丸子的招牌串燒，日語叫作什麼？（提示：つくね）"
           },
           {
-            "icon": "fa-headphones",
-            "type": "發車音樂彩蛋",
-            "badge": "bg-purple-100 text-purple-800",
-            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
+            "icon": "fa-bowl-rice",
+            "type": "收尾拉麵大驚喜",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "吃完所有香噴噴的烤雞肉串後，店裡最受歡迎的收尾熱湯麵是什麼口味？（提示：濃郁雞湯拉麵）"
+          },
+          {
+            "icon": "fa-clock",
+            "type": "老店歷史尋寶",
+            "badge": "bg-slate-100 text-slate-800",
+            "q": "鳥政是從昭和哪一年（西元 1976 年）創業至今的傳奇老店？"
           }
         ]
       }
