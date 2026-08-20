@@ -1,4 +1,4 @@
-// data/days.js - 7 Days Detailed Itinerary with Historical Lore, Must-Eat/Buy, YT links, Rain Backups, and Dual Maps (Google G + Apple)
+// data/days.js - 7 Days Detailed Itinerary with Verified Official Links
 window.TRIP_DAYS = [
   {
     "shortDate": "8/23(日)",
@@ -64,8 +64,8 @@ window.TRIP_DAYS = [
         "mustTry": "【必吃必買】4F「六厘舍」特濃豚骨魚介沾麵、伊藤園抹茶冰淇淋；5F 觀景台欣賞東京灣夕照與博品館模型遙控賽車道！",
         "links": [
           {
-            "title": "羽田機場 T3 江戶小路官網介紹",
-            "url": "https://tokyo-haneda.com/zh-TW/floor/terminal3/4th_floor.html"
+            "title": "羽田機場 T3 樓層與江戶小路官方導覽",
+            "url": "https://tokyo-haneda.com/zh-TW/floor/terminal3/index.html"
           }
         ]
       },
@@ -156,8 +156,12 @@ window.TRIP_DAYS = [
         "mustTry": "【必買必抽】夏日限定「透明透光水神御朱印」（迎著陽光拍超美！）、放入手水舍水中才會浮現吉凶的「水神籤（水みくじ）」，以及精緻的花手水蕾絲御守。",
         "links": [
           {
-            "title": "札幌諏訪神社 官方網站 (花手水最新花況)",
-            "url": "https://sapporo-suwajinja.jp/"
+            "title": "札幌諏訪神社 官方網站 (年間行事・花手水)",
+            "url": "https://www.sapporo-suwajinja.com/"
+          },
+          {
+            "title": "札幌諏訪神社 官方 Instagram (每日花手水最新花況)",
+            "url": "https://www.instagram.com/sapporo_suwajinja/"
           }
         ]
       },
@@ -228,7 +232,7 @@ window.TRIP_DAYS = [
         "mustTry": "【必拍亮點】山頂展望台的「幸福之鐘（幸せの鐘）」、鎖上全家祝福的愛情鎖牆，俯瞰札幌如寶石般閃耀的棋盤狀璀璨燈海。",
         "links": [
           {
-            "title": "札幌藻岩山纜車 即時天候與運行資訊",
+            "title": "札幌藻岩山空中纜車 即時天候與運行資訊",
             "url": "https://mt-moiwa.jp/"
           }
         ]
@@ -295,7 +299,7 @@ window.TRIP_DAYS = [
         "mustTry": "【必看必買】企鵝館 360 度水下飛翔隧道、海豹館 Marine-way 垂直水槽；紀念品店必買「旭山動物園限定動物扭蛋」與企鵝玩偶！",
         "links": [
           {
-            "title": "旭川市旭山動物園 繁中官方網站",
+            "title": "旭川市旭山動物園 官方網站 (繁體中文)",
             "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/index.html"
           }
         ]
@@ -378,7 +382,7 @@ window.TRIP_DAYS = [
         "mustTry": "【必點極品】厚切極上生牛舌、特選 A5 和牛五花（カルビ）、羅山招牌盛岡冷麵；吃完過馬路 30 秒立刻回到飯店房間泡大浴場！",
         "links": [
           {
-            "title": "炭火焼肉 羅山 すすきの店 官方菜單",
+            "title": "炭火焼肉 羅山 すすきの店 官方菜單與資訊",
             "url": "https://razan.gorp.jp/"
           }
         ]
@@ -440,8 +444,12 @@ window.TRIP_DAYS = [
         "mustTry": "【必吃甜點名物】LeTAO 總店雙層乳酪蛋糕（Double Fromage）、北菓樓「夢不思議」巨型脆皮卡士達泡芙、六花亭葡萄奶油夾心酥餅。",
         "links": [
           {
-            "title": "小樽音樂盒堂 官方繁體中文網站",
+            "title": "小樽音樂盒堂 繁體中文官方網站",
             "url": "https://www.otaru-orgel.co.jp/zh-tw"
+          },
+          {
+            "title": "北一硝子 官方網站",
+            "url": "https://kitaichiglass.co.jp/"
           }
         ]
       },
@@ -472,7 +480,13 @@ window.TRIP_DAYS = [
         "holiday": "無休 (年中無休) ｜ 8/26(三) 正常",
         "holidayBadge": "text-emerald-700 font-bold",
         "history": "大丸百貨札幌店 B1F 的「ほっぺタウン（Hoppetown）」是全北海道甜點名產最齊全的超級戰區，匯聚了北菓樓、柳月三方六蛋糕、SNOW CHEESE 與 Royce 巧克力。",
-        "mustTry": "【必買伴手禮】排隊名物 SNOW CHEESE 生起司脆餅、白色雷神巧克力、夕張哈密瓜果凍禮盒。"
+        "mustTry": "【必買伴手禮】排隊名物 SNOW CHEESE 生起司脆餅、白色雷神巧克力、夕張哈密瓜果凍禮盒。",
+        "links": [
+          {
+            "title": "大丸百貨札幌店 官方樓層導覽與免稅資訊",
+            "url": "https://www.daimaru.co.jp/sapporo/"
+          }
+        ]
       },
       {
         "time": "18:30 – 20:30",
@@ -579,8 +593,8 @@ window.TRIP_DAYS = [
         "mustTry": "【必買必玩】2026 劇場版限定全套角色立牌、柯南專屬拍貼機、滿額贈送之限定雷射透卡、限定文具與隨機徽章！",
         "links": [
           {
-            "title": "名偵探柯南 Plaza 官方 X/Twitter 最新商品情報",
-            "url": "https://twitter.com/conan_plaza"
+            "title": "名偵探柯南 Plaza 官方 X (即時限定周邊與展況)",
+            "url": "https://x.com/conanplaza"
           }
         ]
       },
@@ -671,6 +685,10 @@ window.TRIP_DAYS = [
           {
             "title": "Pokemon Center MEGA TOKYO 官方店鋪資訊",
             "url": "https://www.pokemon.co.jp/shop/pokecen/megatokyo/"
+          },
+          {
+            "title": "池袋 Sunshine City 太陽城官方網站",
+            "url": "https://sunshinecity.jp/zh-tw/"
           }
         ]
       },
@@ -690,7 +708,7 @@ window.TRIP_DAYS = [
         "mustTry": "【必買必逛】《堀與宮村》、《名偵探柯南》、《排球少年》、《咒術迴戰》最新官方限定立牌、徽章、4F 動漫卡片保護套與推活收納文具；1F 可點限定角色奶泡拉花 Gratte！",
         "links": [
           {
-            "title": "Animate 池袋本店 官方樓層導覽",
+            "title": "Animate 池袋本店 官方 9 層樓導覽",
             "url": "https://www.animate.co.jp/shop/ikebukuro/"
           }
         ]
@@ -739,12 +757,12 @@ window.TRIP_DAYS = [
         "mustTry": "【必拍必買】SHIBUYA SKY「Sky Edge」角落拍照、Nintendo TOKYO 限定瑪利歐/薩爾達/動物森友會商品、澀谷 Loft B1F 採買日本設計文具！",
         "links": [
           {
-            "title": "SHIBUYA SKY 展望台 官方預約購票",
+            "title": "SHIBUYA SKY 展望台 繁體中文官方預約",
             "url": "https://www.shibuya-scramble-square.com/sky/"
           },
           {
             "title": "Nintendo TOKYO 澀谷官方資訊",
-            "url": "https://www.nintendo.co.jp/officialstore/"
+            "url": "https://www.nintendo.com/jp/officialstore/index.html"
           }
         ]
       },
