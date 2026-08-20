@@ -1,4 +1,4 @@
-// data/places.js - 19 Handpicked Gourmet & Living Places
+// data/places.js - 19 Gourmet & Supermarket with Quests
 window.TRIP_PLACES = [
   {
     "name": "Suage+ 本店 (すあげプラス)",
@@ -12,7 +12,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=Soup+Curry+Suage%2B+Sapporo",
     "appleUrl": "https://maps.apple.com/?q=Soup+Curry+Suage%2B+Sapporo",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0101/A010103/1000029/",
-    "feature": "素炸知床雞串，特製紅高湯清甜濃郁，札幌湯咖哩最具代表性的朝聖第一站。"
+    "feature": "素炸知床雞串，特製紅高湯清甜濃郁，札幌湯咖哩最具代表性的朝聖第一站。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "Soup Curry GARAKU 札幌本店",
@@ -26,7 +40,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=Soup+Curry+GARAKU+Sapporo",
     "appleUrl": "https://maps.apple.com/?q=Soup+Curry+GARAKU+Sapporo",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0101/A010102/1068994/",
-    "feature": "以鰹魚等天然日式高湯與 21 種秘傳辛香料融合，炙燒嫩雞腿與炸蔬菜風味絕佳。"
+    "feature": "以鰹魚等天然日式高湯與 21 種秘傳辛香料融合，炙燒嫩雞腿與炸蔬菜風味絕佳。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "成吉思汗 達摩 だるま 6.4店",
@@ -40,7 +68,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=成吉思汗だるま6.4店",
     "appleUrl": "https://maps.apple.com/?q=成吉思汗だるま6.4店",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0101/A010103/1000007/",
-    "feature": "昭和 29 年創立，厚重凸起鑄鐵盔鍋現烤鮮嫩無羶生羊肉，搭配特製蒜蓉沾醬與焦甜洋蔥。"
+    "feature": "昭和 29 年創立，厚重凸起鑄鐵盔鍋現烤鮮嫩無羶生羊肉，搭配特製蒜蓉沾醬與焦甜洋蔥。",
+    "quests": [
+      {
+        "icon": "fa-fire",
+        "type": "燒肉部位大考驗",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "我們今天烤的肉裡面，哪一個吃起來最軟嫩？牛舌上面放了什麼調味香料？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "加點算術題",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "加點一杯可樂或果汁 ¥380 日圓，換算成台幣大約是多少錢？"
+      }
+    ]
   },
   {
     "name": "炭火焼肉 羅山 (Razan) すすきの店",
@@ -54,7 +96,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=炭火焼肉+Razan+すすきの店",
     "appleUrl": "https://maps.apple.com/?q=炭火焼肉+Razan+すすきの店",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0101/A010103/1045233/",
-    "feature": "札幌頂級備長炭燒肉，特選厚切黑毛和牛牛舌、特選和牛牛五花與盛岡冷麵。"
+    "feature": "札幌頂級備長炭燒肉，特選厚切黑毛和牛牛舌、特選和牛牛五花與盛岡冷麵。",
+    "quests": [
+      {
+        "icon": "fa-fire",
+        "type": "燒肉部位大考驗",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "我們今天烤的肉裡面，哪一個吃起來最軟嫩？牛舌上面放了什麼調味香料？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "加點算術題",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "加點一杯可樂或果汁 ¥380 日圓，換算成台幣大約是多少錢？"
+      }
+    ]
   },
   {
     "name": "札幌かに本家 札幌站前本店",
@@ -68,7 +124,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌かに本家+札幌駅前本店",
     "appleUrl": "https://maps.apple.com/?q=札幌かに本家+札幌駅前本店",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0101/A010101/1000109/",
-    "feature": "傳統日式數寄屋包廂，活帝王蟹火鍋、炭烤蟹腳、蟹肉刺身與黃金雜炊粥。"
+    "feature": "傳統日式數寄屋包廂，活帝王蟹火鍋、炭烤蟹腳、蟹肉刺身與黃金雜炊粥。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "小樽三角市場 瀧波食堂",
@@ -82,7 +152,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=小樽三角市場+滝波食堂",
     "appleUrl": "https://maps.apple.com/?q=小樽三角市場+滝波食堂",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0106/A010601/1000971/",
-    "feature": "自選三色海鮮丼（爆量鮭魚卵、生甜蝦、北海道生海膽），份量極澎湃且鮮度破表。"
+    "feature": "自選三色海鮮丼（爆量鮭魚卵、生甜蝦、北海道生海膽），份量極澎湃且鮮度破表。",
+    "quests": [
+      {
+        "icon": "fa-fish",
+        "type": "海味辨識大師",
+        "badge": "bg-sky-100 text-sky-800",
+        "q": "今天吃的海鮮丼或壽司裡，你認得出哪幾種海鮮？（鮭魚、干貝、甜蝦、鮭魚卵？）"
+      },
+      {
+        "icon": "fa-heart",
+        "type": "最愛的一口",
+        "badge": "bg-pink-100 text-pink-800",
+        "q": "哪一顆壽司吃起來最鮮甜？在心裡給它打幾顆星？"
+      }
+    ]
   },
   {
     "name": "旭川拉麵 青葉 本店",
@@ -96,7 +180,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=旭川らぅめん青葉+本店",
     "appleUrl": "https://maps.apple.com/?q=旭川らぅめん青葉+本店",
     "tabelogUrl": "https://tabelog.com/hokkaido/A0104/A010401/1000103/",
-    "feature": "昭和 22 年創業，豬骨與海鮮雙高湯覆蓋香濃豬油保溫，低加水捲麵吸飽甘醇醬油精華。"
+    "feature": "昭和 22 年創業，豬骨與海鮮雙高湯覆蓋香濃豬油保溫，低加水捲麵吸飽甘醇醬油精華。",
+    "quests": [
+      {
+        "icon": "fa-bowl-food",
+        "type": "美味拉麵觀察",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這碗拉麵的湯頭是什麼風味？（味噌、醬油、還是豚骨？）碗裡的叉燒肉有幾片？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "吃飽讚美日語",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "吃完把碗放到吧檯上，對老闆說一句：「美味しかったです！(Oishikatta desu / 很好吃！)」"
+      }
+    ]
   },
   {
     "name": "とんかつ ひなた (Hinata)",
@@ -110,7 +208,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=とんかつひなた+高田馬場",
     "appleUrl": "https://maps.apple.com/?q=とんかつひなた+高田馬場",
     "tabelogUrl": "https://tabelog.com/tokyo/A1305/A130503/13204368/",
-    "feature": "高田馬場炸豬排激戰區王者，漢方豚特選里肌與腰內肉，薄脆金黃麵衣搭配玫瑰鹽。"
+    "feature": "高田馬場炸豬排激戰區王者，漢方豚特選里肌與腰內肉，薄脆金黃麵衣搭配玫瑰鹽。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "敘敘苑 東京巨蛋城店 (Jojoen)",
@@ -124,7 +236,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=叙々苑+東京ドームシティラクーア店",
     "appleUrl": "https://maps.apple.com/?q=叙々苑+東京ドームシティラクーア店",
     "tabelogUrl": "https://tabelog.com/tokyo/A1310/A131003/13003847/",
-    "feature": "9F 高空俯瞰東京巨蛋城夜景，特選和牛牛五花、極上牛舌與招牌敘敘苑沙拉。"
+    "feature": "9F 高空俯瞰東京巨蛋城夜景，特選和牛牛五花、極上牛舌與招牌敘敘苑沙拉。",
+    "quests": [
+      {
+        "icon": "fa-fire",
+        "type": "燒肉部位大考驗",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "我們今天烤的肉裡面，哪一個吃起來最軟嫩？牛舌上面放了什麼調味香料？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "加點算術題",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "加點一杯可樂或果汁 ¥380 日圓，換算成台幣大約是多少錢？"
+      }
+    ]
   },
   {
     "name": "KINTAN 原宿燒肉",
@@ -138,7 +264,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=原宿焼肉+KINTAN",
     "appleUrl": "https://maps.apple.com/?q=原宿焼肉+KINTAN",
     "tabelogUrl": "https://tabelog.com/tokyo/A1306/A130601/13186259/",
-    "feature": "30 天熟成 KINTAN 牛舌、生牛肉和牛握壽司與綠意森林系用餐環境。"
+    "feature": "30 天熟成 KINTAN 牛舌、生牛肉和牛握壽司與綠意森林系用餐環境。",
+    "quests": [
+      {
+        "icon": "fa-fire",
+        "type": "燒肉部位大考驗",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "我們今天烤的肉裡面，哪一個吃起來最軟嫩？牛舌上面放了什麼調味香料？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "加點算術題",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "加點一杯可樂或果汁 ¥380 日圓，換算成台幣大約是多少錢？"
+      }
+    ]
   },
   {
     "name": "炭火焼肉 新井屋 渋谷 (Ariya)",
@@ -152,7 +292,21 @@ window.TRIP_PLACES = [
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=炭火焼肉+新井屋+渋谷",
     "appleUrl": "https://maps.apple.com/?q=炭火焼肉+新井屋+渋谷",
     "tabelogUrl": "https://tabelog.com/tokyo/A1303/A130301/13237190/",
-    "feature": "老饕推崇厚切上牛舌、特選橫膈膜（ハラミ）與鮮甜和牛牛五花。"
+    "feature": "老饕推崇厚切上牛舌、特選橫膈膜（ハラミ）與鮮甜和牛牛五花。",
+    "quests": [
+      {
+        "icon": "fa-fire",
+        "type": "燒肉部位大考驗",
+        "badge": "bg-rose-100 text-rose-800",
+        "q": "我們今天烤的肉裡面，哪一個吃起來最軟嫩？牛舌上面放了什麼調味香料？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "加點算術題",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "加點一杯可樂或果汁 ¥380 日圓，換算成台幣大約是多少錢？"
+      }
+    ]
   },
   {
     "name": "Seicomart 千歲東郊店",
@@ -165,7 +319,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=セイコーマート+千歳東郊店",
     "appleUrl": "https://maps.apple.com/?q=セイコーマート+千歳東郊店",
-    "feature": "北海道限定超商！店內現做「Hot Chef」溫熱炸雞塊、大飯糰與十勝牛乳霜淇淋。"
+    "feature": "北海道限定超商！店內現做「Hot Chef」溫熱炸雞塊、大飯糰與十勝牛乳霜淇淋。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "Daiichi (ダイイチ) すすきの店",
@@ -178,7 +346,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=ダイイチ+すすきの店",
     "appleUrl": "https://maps.apple.com/?q=ダイイチ+すすきの店",
-    "feature": "薄野全新地標地下大型生鮮超市，採買北海道夕張哈密瓜、十勝生乳與在地熟食。"
+    "feature": "薄野全新地標地下大型生鮮超市，採買北海道夕張哈密瓜、十勝生乳與在地熟食。",
+    "quests": [
+      {
+        "icon": "fa-cart-shopping",
+        "type": "超市尋寶獵人",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "在生鮮水果區找找看北海道產的哈密瓜或水蜜桃一盒標價多少日圓？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "零食購物預算",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "挑一盒自己最想吃的日式軟糖或洋芋片，算算看換算成台幣約多少錢？"
+      }
+    ]
   },
   {
     "name": "Peacock Store 高田馬場店",
@@ -191,7 +373,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=ピーコックストア+高田馬場店",
     "appleUrl": "https://maps.apple.com/?q=ピーコックストア+高田馬場店",
-    "feature": "高田馬場站前大型生鮮超市，水果、熟食便當、日本牛奶茶水極齊全，B1F 有 Seria 百元店。"
+    "feature": "高田馬場站前大型生鮮超市，水果、熟食便當、日本牛奶茶水極齊全，B1F 有 Seria 百元店。",
+    "quests": [
+      {
+        "icon": "fa-cart-shopping",
+        "type": "超市尋寶獵人",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "在生鮮水果區找找看北海道產的哈密瓜或水蜜桃一盒標價多少日圓？"
+      },
+      {
+        "icon": "fa-calculator",
+        "type": "零食購物預算",
+        "badge": "bg-indigo-100 text-indigo-800",
+        "q": "挑一盒自己最想吃的日式軟糖或洋芋片，算算看換算成台幣約多少錢？"
+      }
+    ]
   },
   {
     "name": "唐吉訶德 高田馬場站前店",
@@ -204,7 +400,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=ドン・キホーテ+高田馬場駅前店",
     "appleUrl": "https://maps.apple.com/?q=ドン・キホーテ+高田馬場駅前店",
-    "feature": "24 小時營業，零食、藥妝、伴手禮、旅行箱與生活雜貨，深夜隨時下樓免稅採購。"
+    "feature": "24 小時營業，零食、藥妝、伴手禮、旅行箱與生活雜貨，深夜隨時下樓免稅採購。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "大丸藤井セントラル (Daimaru Central)",
@@ -217,7 +427,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=大丸藤井セントラル+札幌",
     "appleUrl": "https://maps.apple.com/?q=大丸藤井セントラル+札幌",
-    "feature": "創立於 1892 年的北海道文具總殿堂！1~4F 鋼筆手帳、紙膠帶、和紙、動漫文具全日本最齊全。"
+    "feature": "創立於 1892 年的北海道文具總殿堂！1~4F 鋼筆手帳、紙膠帶、和紙、動漫文具全日本最齊全。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "moyuk SAPPORO (Loft ＆ Standard Products)",
@@ -230,7 +454,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=moyuk+SAPPORO",
     "appleUrl": "https://maps.apple.com/?q=moyuk+SAPPORO",
-    "feature": "3F 為モユク札幌 Loft 文具美妝館，2F 為大創旗下 Standard Products 300 円質感生活館。"
+    "feature": "3F 為モユク札幌 Loft 文具美妝館，2F 為大創旗下 Standard Products 300 円質感生活館。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "澀谷 Loft (Shibuya Loft)",
@@ -243,7 +481,21 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=渋谷ロフト",
     "appleUrl": "https://maps.apple.com/?q=渋谷ロフト",
-    "feature": "全東京最具代表性的生活設計與文具殿堂，B1F「文具館」是文具迷一生必訪的朝聖地。"
+    "feature": "全東京最具代表性的生活設計與文具殿堂，B1F「文具館」是文具迷一生必訪的朝聖地。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   },
   {
     "name": "Kiddy Land 原宿旗艦店",
@@ -256,6 +508,20 @@ window.TRIP_PLACES = [
     "holidayBadge": "text-emerald-700 font-bold",
     "googleUrl": "https://www.google.com/maps/search/?api=1&query=キデイランド+原宿店",
     "appleUrl": "https://maps.apple.com/?q=キデイランド+原宿店",
-    "feature": "B1F~4F 匯聚蠟筆小新、吉卜力橡子共和國、Snoopy、三麗鷗與日本限定卡通文具。"
+    "feature": "B1F~4F 匯聚蠟筆小新、吉卜力橡子共和國、Snoopy、三麗鷗與日本限定卡通文具。",
+    "quests": [
+      {
+        "icon": "fa-utensils",
+        "type": "招牌特色探尋",
+        "badge": "bg-amber-100 text-amber-800",
+        "q": "這間店最熱門的招牌必點料理叫什麼名字？"
+      },
+      {
+        "icon": "fa-comments",
+        "type": "禮貌結帳挑戰",
+        "badge": "bg-emerald-100 text-emerald-800",
+        "q": "結帳時向店員說：「ごちそうさまでした (Gochisousama deshita / 多謝款待)」！"
+      }
+    ]
   }
 ];
