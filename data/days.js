@@ -328,25 +328,42 @@ window.TRIP_DAYS = [
         ]
       },
       {
-        "time": "20:30 – 22:00",
-        "stay": "停留 1.5 小時",
-        "spot": "晚餐：成吉思汗烤羊肉 (達摩 だるま 6.4店) ＋ 薄野夾娃娃放鬆",
-        "transit": "市電返回薄野站周邊（中央区南6条西4丁目），吃飽順路走回飯店",
-        "desc": "炭火鐵盔鍋烤羊肉。餐後回飯店前，順路到十字路口的【GiGO すすきの（全新整棟 120 台夾娃娃機旗艦店）】或狸小路 4 丁目【TAITO STATION（4層樓夾娃娃旗艦）】開心夾娃娃！玩完徒步 3 分鐘回飯店泡大浴場。",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=GiGO+すすきの",
-        "appleUrl": "https://maps.apple.com/?q=GiGO+すすきの",
-        "hours": "だるま 至 05:00 / GiGO 至 23:00 / TAITO 至 23:30",
-        "holiday": "無休 (年中無休) ｜ 8/24(一) 正常營業",
+        "time": "19:00 - 21:00",
+        "stay": "2 小時",
+        "spot": "🥩 晚餐：炭火焼肉 羅山 (Razan) すすきの店",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=炭火焼肉+羅山+すすきの店",
+        "appleUrl": "https://maps.apple.com/?q=炭火焼肉+羅山+すすきの店",
+        "transit": "藻岩山搭市電返回薄野，步行 4 分鐘 (飯店步行 5 分鐘)",
+        "desc": "薄野頂級燒肉名店！品嚐白老牛和牛、厚切極上牛舌與韓式生拌牛肉，慶祝札幌美好夜晚。",
+        "hours": "17:00 - 01:00 (LO 00:30)",
+        "holiday": "2026/8/24 (一) 正常營業",
         "holidayBadge": "text-emerald-700 font-bold",
-        "history": "【成吉思汗烤肉文化】昭和 29 年（1954 年）創立的「だるま（達摩）」是成吉思汗烤肉的鼻祖老店！特製中央凸起的鑄鐵盔鍋，上方鋪滿鮮嫩無羊羶味的生羊肉，下方鋪滿洋蔥與蔥段，羊肉油脂順著鐵盤流下將洋蔥炒至焦糖甘甜。",
-        "mustTry": "【必吃必玩】每日限量「ヒレ（菲力羊肉）」與「上肉」；烤肉沾上特調蒜蓉醬油無敵下飯！餐後徒步 2 分鐘到全新整棟「GiGO すすきの」夾最新寶可夢大娃娃！",
+        "history": "羅山為札幌極具口碑的高評價燒肉名店，選用北海道頂級黑毛和牛（白老牛、富良野和牛），搭配秘傳醬汁與最高級備長炭燒烤。",
+        "mustTry": "極上厚切牛舌、特選白老牛五花、盛岡冷麵。",
+        "links": [
+          {
+            "title": "炭火焼肉 羅山 すすきの店 官方菜單與資訊",
+            "url": "https://razan.gorp.jp/"
+          }
+        ],
         "quests": [
           {
-            "icon": "fa-hotel",
-            "type": "生活大探索",
-            "badge": "bg-blue-100 text-blue-800",
-            "q": "走進飯店大廳，找找看免費迎賓飲料吧有提供哪幾種冷熱飲？免費迎賓冰棒今天有什麼口味？"
+            "icon": "fa-fire",
+            "type": "最高級黑木炭",
+            "badge": "bg-slate-100 text-slate-800",
+            "q": "我們烤肉爐子裡燒得紅通通的木炭敲起來像金屬一樣硬，它是日本最高級的什麼炭？"
+          },
+          {
+            "icon": "fa-map-pin",
+            "type": "和牛的家鄉",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "今晚菜單上的招牌和牛「白老牛」，產自北海道哪一個風景優美的溫泉鎮？"
+          },
+          {
+            "icon": "fa-utensils",
+            "type": "餐後禮貌日語",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "吃飽走出餐廳前，對老闆和店員大聲說一句：「ごちそうさまでした (Gochisousama deshita / 謝謝招待，真好吃)」！"
           }
         ]
       }
@@ -507,43 +524,42 @@ window.TRIP_DAYS = [
         ]
       },
       {
-        "time": "20:00 – 21:45",
-        "stay": "用餐 1 小時 45 分",
-        "spot": "🥩 晚餐：炭火焼肉 羅山 (Razan) すすきの店",
-        "transit": "中央区南5条西6丁目18（就在入住飯店正隔壁，走路僅 30 秒！）",
-        "desc": "在包廂享用頂級炭火 A5 黑毛和牛、厚切極上牛舌與特選牛五花！吃完直接回飯店泡大浴場。",
-        "highlight": true,
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌市中央区南5条西6丁目18+炭火焼肉+Razan",
-        "appleUrl": "https://maps.apple.com/?q=札幌市中央区南5条西6丁目18+炭火焼肉+Razan",
-        "hours": "17:00～24:00 (L.O. 23:00)",
-        "holiday": "週一公休 (月曜日定休) ｜ 8/25(二) 避開公休，保證正常營業！",
-        "holidayBadge": "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
-        "history": "【札幌頂級燒肉名店】炭火焼肉 羅山嚴選北海道自產 A5 等級黑毛和牛與極品牛舌，採用特製備長炭直火炭烤，肉質油花分佈如大理石般細緻，入口即化。",
-        "mustTry": "【必點極品】厚切極上生牛舌、特選 A5 和牛五花（カルビ）、羅山招牌盛岡冷麵；吃完過馬路 30 秒立刻回到飯店房間泡大浴場！",
+        "time": "19:00 - 21:00",
+        "stay": "2 小時",
+        "spot": "🥩 晚餐：ステーキ＆ハンバーグ ひげ 札幌南5条本店 (STEAK & HAMBURG HIGE)",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=ステーキ＆ハンバーグ+ひげ+札幌南5条本店",
+        "appleUrl": "https://maps.apple.com/?q=ステーキ＆ハンバーグ+ひげ+札幌南5条本店",
+        "transit": "美瑛自駕返札幌還車後，薄野站步行 5 分鐘 (飯店步行 3 分鐘)",
+        "desc": "食べログ 3.63 洋食百名店！大啖切開瞬間肉汁如噴泉般爆發的「炭烤粗挽黑毛和牛漢堡排 ＋ 爆漿巧達起司 ＋ 頂級牛排」！",
+        "hours": "11:00 - 16:30 (LO 15:30) / 17:30 - 22:00 (LO 21:00)",
+        "holiday": "年中無休 (2026/8/25 週二正常營業)",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "HIGE 是札幌薄野無人不知的傳奇漢堡排與牛排專門店（榮獲食べログ洋食百名店）。主廚在吧檯鐵板前大火現煎，將肉汁緊緊鎖在粗絞黑毛和牛肉餅中，切開時肉汁在鐵板上滋滋作響，被日本老饕封為『肉汁大劇場』！",
+        "mustTry": "チェダーチーズ粗挽きハンバーグ (巧達起司粗絞漢堡排)、ラムバーグ (特選羊肉漢堡排)、北海道產頂級牛排。",
         "links": [
           {
-            "title": "炭火焼肉 羅山 すすきの店 官方菜單與資訊",
-            "url": "https://razan.gorp.jp/"
+            "title": "ステーキ＆ハンバーグ ひげ 食べログ 3.63 官方頁面",
+            "url": "https://tabelog.com/hokkaido/A0101/A010103/1047150/"
           }
         ],
         "quests": [
           {
-            "icon": "fa-fire",
-            "type": "最高級黑木炭",
-            "badge": "bg-slate-100 text-slate-800",
-            "q": "我們烤肉爐子裡燒得紅通通的木炭敲起來像金屬一樣硬，它是日本最高級的什麼炭？"
+            "icon": "fa-droplet",
+            "type": "肉汁大噴發觀察",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "當熱騰騰的鐵板漢堡排端上桌，用刀子切開中央時，會看到什麼驚人的畫面？"
           },
           {
-            "icon": "fa-map-pin",
-            "type": "和牛的家鄉",
+            "icon": "fa-calculator",
+            "type": "起司漢堡排算術",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "點一份招牌巧達起司粗絞漢堡排 ¥1,980 日圓，換算成台幣大約是多少錢？（提示：除以 4.6）"
+          },
+          {
+            "icon": "fa-comments",
+            "type": "主廚美味讚美",
             "badge": "bg-amber-100 text-amber-800",
-            "q": "今晚菜單上的招牌和牛「白老牛」，產自北海道哪一個風景優美的溫泉鎮？"
-          },
-          {
-            "icon": "fa-utensils",
-            "type": "餐後禮貌日語",
-            "badge": "bg-emerald-100 text-emerald-800",
-            "q": "吃飽走出餐廳前，對老闆和店員大聲說一句：「ごちそうさまでした (Gochisousama deshita / 謝謝招待，真好吃)」！"
+            "q": "吃完鮮嫩多汁的漢堡排，對主廚說一句：「美味しかったです！(Oishikatta desu / 真的太好吃了！)」"
           }
         ]
       }
