@@ -1,4 +1,4 @@
-// data/rain.js - Dedicated Rainy Day Backup Spots and Plans
+// data/rain.js - Verified Official Links
 window.TRIP_RAIN = [
   {
     "region": "札幌市區",
@@ -13,7 +13,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=AOAO+SAPPORO",
     "history": "2023 年全新落成的都市型現代水族館，巧妙結合數位藝術、自然生態與白熊麵包房（BAKERY），是札幌市中心最受歡迎的室內景點。",
     "whyRain": "位於狸小路 3 丁目 moyuk SAPPORO 大樓 4~6 樓，地下街直通，完全不需要撐傘即可在室內近距離觀察跳岩企鵝跳水與水母夢幻光影！",
-    "mustTry": "4F 現烤牛角可頌麵包 ＋ 抹茶拿鐵，邊看企鵝悠游邊享受下午茶。"
+    "mustTry": "4F 現烤牛角可頌麵包 ＋ 抹茶拿鐵，邊看企鵝悠游邊享受下午茶。",
+    "officialUrl": "https://aoao-sapporo.blue/"
   },
   {
     "region": "札幌市區",
@@ -28,7 +29,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=JR+タワー展望室+T38",
     "history": "海拔 160 公尺高空，直通 JR 札幌站。若藻岩山因強風停駛或大雨起霧，T38 是全室內俯瞰札幌棋盤狀市街燈海的最佳替代方案！",
     "whyRain": "JR 札幌站直達電梯上樓，100% 全室內空調玻璃帷幕，雨天依然能舒適飽覽璀璨夜景。",
-    "mustTry": "南側全景高空玻璃景觀、T'CAFE 甜點與著名的景觀洗手間。"
+    "mustTry": "南側全景高空玻璃景觀、T'CAFE 甜點與著名的景觀洗手間。",
+    "officialUrl": "http://www.jr-tower.com/t38"
   },
   {
     "region": "札幌市區",
@@ -43,7 +45,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=サッポロファクトリー",
     "history": "由日本第一座官營啤酒釀造所「開拓使麥酒釀造所」改建而成，中央設有全日本最大型的挑高五層樓全天候溫室玻璃中庭（Atrium）。",
     "whyRain": "室內綠意盎然如同一座室內森林公園，雨天在巨大玻璃穹頂下逛戶外登山名品、無印良品、玩具店與享用美食。",
-    "mustTry": "開拓使麥酒見學所品嚐現釀生啤酒、戶外品牌旗艦店與紅磚館歷史展示。"
+    "mustTry": "開拓使麥酒見學所品嚐現釀生啤酒、戶外品牌旗艦店與紅磚館歷史展示。",
+    "officialUrl": "https://sapporofactory.jp/"
   },
   {
     "region": "美瑛 / 旭川",
@@ -58,7 +61,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=旭川市旭山動物園",
     "history": "旭山動物園核心明星館（企鵝水下隧道、海豹圓柱水槽、北極熊深潛水槽、河馬水底館）全數為全室內設計，下雨完全不影響參觀體驗！",
     "whyRain": "各主要展館之間距離短，進入室內水下隧道即可舒適觀賞動物生態。",
-    "mustTry": "企鵝水下飛翔隧道、北極熊跳水餵食秀、旭山動物園限定動物扭蛋。"
+    "mustTry": "企鵝水下飛翔隧道、北極熊跳水餵食秀、旭山動物園限定動物扭蛋。",
+    "officialUrl": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/index.html"
   },
   {
     "region": "美瑛 / 旭川",
@@ -73,7 +77,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=美瑛選果+本店",
     "history": "美瑛 JA 官方直營的頂級農產旗艦館，匯集美瑛產地直送甜玉米、哈密瓜、男爵馬鈴薯與美瑛小麥手工麵包。",
     "whyRain": "美瑛市區全室內建築，若四季彩之丘戶外雨勢較大，可在此採買頂級農產與品嚐限定甜點。",
-    "mustTry": "美瑛產限定鮮奶布丁、現烤黑豆麵包、超甜生食級黃金玉米。"
+    "mustTry": "美瑛產限定鮮奶布丁、現烤黑豆麵包、超甜生食級黃金玉米。",
+    "officialUrl": "https://bieisenka.jp/"
   },
   {
     "region": "美瑛 / 旭川",
@@ -88,7 +93,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=富良野チーズ工房",
     "history": "座落於白樺林中的起司專門研究所，擁有透明玻璃起司熟成庫、手工 Pizza 窯烤餐廳與起司手作體驗教室。",
     "whyRain": "全室內環境，全家可一起報名製作奶油或起司，並品嚐全日本唯一的墨魚黑起司冰淇淋。",
-    "mustTry": "窯烤瑪格麗特現烤披薩、富良野起司雙球霜淇淋。"
+    "mustTry": "窯烤瑪格麗特現烤披薩、富良野起司雙球霜淇淋。",
+    "officialUrl": "http://www.furano-cheese.jp/"
   },
   {
     "region": "小樽港都",
@@ -103,7 +109,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=北一硝子三号館",
     "history": "小樽堺町通兩側皆為石造與木造歷史建築（北一硝子 1~8 號館、小樽音樂盒堂本館/二號館古董博物館、大正硝子館、LeTAO 總店茶沙龍）。",
     "whyRain": "每一座展館皆為大型室內空間，館與館之間步行僅數十步，雨天完全可在各館內悠閒欣賞玻璃工藝、聽蒸汽鐘演奏與品嚐雙層乳酪蛋糕。",
-    "mustTry": "北一硝子三號館 167 盞煤油燈咖啡廳、小樽音樂盒堂 2 號館百年管風琴演奏、LeTAO 本店限定生乳酪蛋糕。"
+    "mustTry": "北一硝子三號館 167 盞煤油燈咖啡廳、小樽音樂盒堂 2 號館百年管風琴演奏、LeTAO 本店限定生乳酪蛋糕。",
+    "officialUrl": "https://www.otaru-orgel.co.jp/zh-tw"
   },
   {
     "region": "東京市區",
@@ -118,7 +125,8 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=ASOBono!+東京ドームシティ",
     "history": "全東京市中心最大規模的室內兒童遊樂園！以「海・島・街・森」四大主題打造，擁有巨型球池海盜船、軌道火車王國與超市角色扮演專區。",
     "whyRain": "全天候大型室內冷氣空調設施，雨天孩子可在此盡情放電，大人舒適休息。",
-    "mustTry": "海之球池巨型冒險船、Plarail 鐵道軌道積木區、森林桌上遊戲區。"
+    "mustTry": "海之球池巨型冒險船、Plarail 鐵道軌道積木區、森林桌上遊戲區。",
+    "officialUrl": "https://www.tokyo-dome.co.jp/asobono/"
   },
   {
     "region": "東京市區",
@@ -133,6 +141,7 @@ window.TRIP_RAIN = [
     "appleUrl": "https://maps.apple.com/?q=サンシャイン水族館",
     "history": "日本首創的都市高樓型水族館，「天空綠洲」戶外透明弧形水槽讓企鵝宛如在東京大樓天際線間飛翔。",
     "whyRain": "池袋站有全天候地下連通道直通太陽城，Pokemon Center、3000台扭蛋與 Animate 本店全部在室內！",
-    "mustTry": "天空企鵝透明穹頂、水母沉浸隧道、水族館限定水獺周邊。"
+    "mustTry": "天空企鵝透明穹頂、水母沉浸隧道、水族館限定水獺周邊。",
+    "officialUrl": "https://sunshinecity.jp/aquarium/"
   }
 ];
