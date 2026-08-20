@@ -73,7 +73,7 @@
                     </div>
                     <h1 class="text-lg sm:text-2xl font-bold tracking-tight mt-0.5 flex items-center">
                         <span>北海道・東京 盛夏家庭旅</span>
-                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.2 冒險版</span>
+                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.4 點餐升級版</span>
                     </h1>
                 </div>
 
@@ -145,8 +145,8 @@
             <button @click="currentTab = 'checklist'" 
                     :class="currentTab === 'checklist' ? 'tab-btn-active' : 'bg-white/80 text-slate-700 hover:bg-white'" 
                     class="flex flex-col sm:flex-row items-center justify-center py-2 px-1 rounded-xl transition-all text-center">
-                <i class="fa-solid fa-clipboard-check text-base sm:text-lg sm:mr-1.5 text-emerald-600"></i>
-                <span class="text-xs sm:text-sm font-bold tracking-tight">租車清單</span>
+                <i class="fa-solid fa-receipt text-base sm:text-lg sm:mr-1.5 text-emerald-600"></i>
+                <span class="text-xs sm:text-sm font-bold tracking-tight">憑證清單</span>
             </button>
         </nav>
 
@@ -250,7 +250,7 @@
                             <button @click="toggleDrawer(currentDayIndex, sIdx)" 
                                     class="inline-flex items-center text-xs sm:text-sm font-bold text-kohaku hover:text-amber-800 transition-colors py-1">
                                 <i class="fa-solid mr-1.5" :class="isDrawerOpen(currentDayIndex, sIdx) ? 'fa-chevron-up' : 'fa-compass'"></i>
-                                <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? '收合景點故事 ＆ 冒險任務' : '🎯 展開冒險任務・故事 ＆ 營業公休'"></span>
+                                <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? '收合景點故事 ＆ 冒險任務' : '🎯 展開冒險任務・故事 ＆ 點餐小抄'"></span>
                             </button>
                             <template x-if="item.cost">
                                 <span class="text-xs sm:text-sm text-slate-500 font-medium" x-text="item.cost"></span>
@@ -261,6 +261,30 @@
                         <div x-show="isDrawerOpen(currentDayIndex, sIdx)" x-collapse 
                              class="mt-2.5 pt-3.5 border-t border-dashed border-amber-200 bg-amber-50/40 -mx-4 sm:-mx-5 -mb-4 sm:-mb-5 p-4 sm:p-5 rounded-b-2xl space-y-3.5 text-sm sm:text-base text-slate-800">
                             
+                            <!-- 0. Pre-selected Japanese Ordering Card (If available for this dinner) -->
+                            <template x-if="item.orderList && item.orderList.length > 0">
+                                <div class="bg-white p-4 rounded-xl border-2 border-rose-300 shadow-sm space-y-2 text-slate-800">
+                                    <div class="flex items-center justify-between pb-2 border-b border-dashed border-slate-200">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-base">📱</span>
+                                            <h5 class="font-black text-rose-950 text-sm sm:text-base">【注文をお願いします】直接出示給店員點餐</h5>
+                                        </div>
+                                        <span class="text-[11px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full" x-text="'共 ' + item.orderList.length + ' 品'"></span>
+                                    </div>
+                                    <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+                                        <template x-for="(oItem, oIdx) in item.orderList" :key="oIdx">
+                                            <div class="py-2 flex items-center justify-between">
+                                                <div>
+                                                    <div class="font-bold text-slate-900 text-sm" x-text="oItem.jp"></div>
+                                                    <div class="text-[11px] text-slate-500" x-text="oItem.zh"></div>
+                                                </div>
+                                                <div class="font-mono font-black text-rose-700 text-sm bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200 shrink-0 ml-2" x-text="'× ' + oItem.qty"></div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+
                             <!-- 1. Kids Adventure Quests (佳恩・芊瑾 專屬冒險任務) -->
                             <template x-if="item.quests && item.quests.length > 0">
                                 <div class="bg-gradient-to-r from-amber-100/90 to-orange-100/80 p-3.5 sm:p-4 rounded-xl border border-amber-300/80 shadow-xs space-y-2.5">
@@ -275,7 +299,7 @@
                                         <template x-for="(q, qIdx) in item.quests" :key="qIdx">
                                             <div class="bg-white/95 p-2.5 rounded-lg border border-amber-200/80">
                                                 <div class="flex items-start space-x-2">
-                                                    <span class="text-xs font-bold px-2 py-0.5 rounded-md shrink-0 mt-0.5" :class="q.badge || 'bg-amber-100 text-amber-800'">
+                                                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-md shrink-0 mt-0.5" :class="q.badge || 'bg-amber-100 text-amber-800'">
                                                         <i class="fa-solid mr-1" :class="q.icon || 'fa-star'"></i>
                                                         <span x-text="q.type"></span>
                                                     </span>
@@ -348,7 +372,7 @@
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
                 <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center">
                     <i class="fa-solid fa-utensils text-rose-500 mr-2"></i>
-                    精選私房名店 ＆ 必逛超市 (19選)
+                    精選私房名店 ＆ 必逛超市
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-500 mt-0.5">點擊各卡片展開美食特色 ＆ 小朋友美食任務</p>
             </div>
@@ -624,10 +648,69 @@
             </div>
         </section>
 
-        <!-- ==================== TAB 5: 8/25 租車 & 互動清單 ==================== -->
+        <!-- ==================== TAB 5: 📋 重要預約憑證 ＆ 隨身清單 ==================== -->
         <section x-show="currentTab === 'checklist' && !searchQuery" class="space-y-4">
             
-            <!-- NIPPON Rent-A-Car Voucher Card -->
+            <!-- 1. 8/24 (一) 羅山炭火燒肉 預約憑證卡片 ＋ 點餐小抄 -->
+            <div class="bg-gradient-to-br from-rose-900 via-amber-950 to-stone-900 text-white rounded-2xl p-4 sm:p-5 shadow-md border border-rose-700">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                    <div>
+                        <span class="bg-amber-400 text-slate-950 font-bold text-xs px-3 py-0.5 rounded-full">8/24 (一) 19:00 餐廳預約已確認</span>
+                        <h2 class="text-base sm:text-xl font-bold mt-1 text-amber-200" x-text="checklist.razan_booking.restaurant"></h2>
+                        <p class="text-xs text-rose-200" x-text="checklist.razan_booking.address"></p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <a :href="checklist.razan_booking.googleUrl" target="_blank" 
+                           class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-rose-950 hover:bg-amber-100">
+                            <i class="fa-brands fa-google text-rose-700 mr-1.5"></i> 導航
+                        </a>
+                        <a :href="checklist.razan_booking.appleUrl" target="_blank" 
+                           class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-rose-800 text-white border border-rose-600 hover:bg-rose-700">
+                            <i class="fa-brands fa-apple mr-1.5"></i> Apple
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Razan Voucher Grid -->
+                <div class="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm bg-black/40 p-3.5 rounded-xl border border-rose-700/50">
+                    <div><span class="text-rose-300">訂單 ID：</span><span class="font-mono font-bold text-white text-sm sm:text-base" x-text="checklist.razan_booking.orderId"></span></div>
+                    <div><span class="text-rose-300">電子憑證 ID：</span><span class="font-mono font-bold text-white text-sm sm:text-base" x-text="checklist.razan_booking.voucherId"></span></div>
+                    <div><span class="text-rose-300">預約時間：</span><span class="font-bold text-amber-300" x-text="checklist.razan_booking.dateTime"></span></div>
+                    <div><span class="text-rose-300">預約人姓名：</span><span class="font-bold text-white" x-text="checklist.razan_booking.name"></span></div>
+                    <div><span class="text-rose-300">預約人數：</span><span class="font-bold text-white" x-text="checklist.razan_booking.guests"></span></div>
+                    <div><span class="text-rose-300">聯絡電話：</span><span class="font-mono text-white" x-text="checklist.razan_booking.phone"></span></div>
+                    <div class="sm:col-span-2 pt-1 border-t border-rose-800/40 flex items-center justify-between">
+                        <span class="text-rose-200">憑證狀態：<span class="text-emerald-400 font-bold">預約保證金已完成支付</span></span>
+                        <a href="data/razan_qr.png" target="_blank" class="inline-flex items-center text-xs font-bold text-amber-300 hover:text-white underline">
+                            <i class="fa-solid fa-qrcode mr-1"></i> 查看預約 QR Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pre-selected Japanese Ordering Card inside Tab 5 -->
+                <div class="mt-3.5 bg-white p-4 rounded-xl text-slate-800 shadow-inner">
+                    <div class="flex items-center justify-between pb-2 border-b border-dashed border-slate-200">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-base">📱</span>
+                            <h5 class="font-black text-rose-950 text-sm sm:text-base">【注文をお願いします】直接出示給店員點餐</h5>
+                        </div>
+                        <span class="text-[11px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full" x-text="'共 ' + (checklist.razan_booking.orderList ? checklist.razan_booking.orderList.length : 0) + ' 品'"></span>
+                    </div>
+                    <div class="divide-y divide-slate-100 text-xs sm:text-sm max-h-64 overflow-y-auto pr-1 mt-1">
+                        <template x-for="(oItem, oIdx) in checklist.razan_booking.orderList" :key="oIdx">
+                            <div class="py-2 flex items-center justify-between">
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm" x-text="oItem.jp"></div>
+                                    <div class="text-[11px] text-slate-500" x-text="oItem.zh"></div>
+                                </div>
+                                <div class="font-mono font-black text-rose-700 text-sm bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200 shrink-0 ml-2" x-text="'× ' + oItem.qty"></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 8/25 (二) NIPPON 租車憑證卡片 -->
             <div class="bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 text-white rounded-2xl p-4 sm:p-5 shadow-md border border-emerald-700">
                 <div class="flex flex-wrap items-start justify-between gap-2">
                     <div>
@@ -646,7 +729,7 @@
                     </div>
                 </div>
 
-                <!-- Contract Info Grid -->
+                <!-- Rental Contract Info Grid -->
                 <div class="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm bg-emerald-950/60 p-3.5 rounded-xl border border-emerald-700/50">
                     <div><span class="text-emerald-300">預約號碼：</span><span class="font-mono font-bold text-white text-sm sm:text-base" x-text="checklist.rental.reservationNo"></span></div>
                     <div><span class="text-emerald-300">預約密碼：</span><span class="font-mono font-bold text-white text-sm sm:text-base" x-text="checklist.rental.password"></span></div>
@@ -657,7 +740,7 @@
                 </div>
             </div>
 
-            <!-- Interactive Checklist with LocalStorage -->
+            <!-- 3. Interactive Checklist with LocalStorage -->
             <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex items-center justify-between mb-3">
                     <div>
@@ -704,7 +787,7 @@
                 places: window.TRIP_PLACES || [],
                 anime: window.TRIP_ANIME || { conan: {}, claw_machines: [], stationery_and_100yen: [] },
                 rainSpots: window.TRIP_RAIN || [],
-                checklist: window.TRIP_CHECKLIST || { rental: {}, items: [] },
+                checklist: window.TRIP_CHECKLIST || { rental: {}, razan_booking: {}, items: [] },
 
                 init() {
                     // Load and apply saved font size preference
