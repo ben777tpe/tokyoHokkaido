@@ -73,7 +73,7 @@
                     </div>
                     <h1 class="text-lg sm:text-2xl font-bold tracking-tight mt-0.5 flex items-center">
                         <span>北海道・東京 盛夏家庭旅</span>
-                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.4 點餐升級版</span>
+                        <span class="ml-2 text-xs sm:text-sm font-normal text-amber-200">v4.7</span>
                     </h1>
                 </div>
 
@@ -245,12 +245,14 @@
                             <p class="pt-0.5 leading-relaxed text-slate-800" x-text="item.desc"></p>
                         </div>
 
-                        <!-- Accordion Drawer Toggle Button -->
+                        <!-- Accordion Drawer Toggle Button (Conditionally labelled) -->
                         <div class="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                             <button @click="toggleDrawer(currentDayIndex, sIdx)" 
                                     class="inline-flex items-center text-xs sm:text-sm font-bold text-kohaku hover:text-amber-800 transition-colors py-1">
-                                <i class="fa-solid mr-1.5" :class="isDrawerOpen(currentDayIndex, sIdx) ? 'fa-chevron-up' : 'fa-compass'"></i>
-                                <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? '收合景點故事 ＆ 冒險任務' : '🎯 展開冒險任務・故事 ＆ 點餐小抄'"></span>
+                                <i class="fa-solid mr-1.5" :class="isDrawerOpen(currentDayIndex, sIdx) ? 'fa-chevron-up' : (item.orderList ? 'fa-receipt' : 'fa-compass')"></i>
+                                <span x-text="isDrawerOpen(currentDayIndex, sIdx) ? 
+                                              (item.orderList ? '收合點餐小抄 ＆ 冒險任務' : '收合景點故事 ＆ 冒險任務') : 
+                                              (item.orderList ? '📱 展開點餐小抄・冒險任務 ＆ 營業資訊' : '🎯 展開冒險任務・景點故事 ＆ 營業公休')"></span>
                             </button>
                             <template x-if="item.cost">
                                 <span class="text-xs sm:text-sm text-slate-500 font-medium" x-text="item.cost"></span>
@@ -261,7 +263,7 @@
                         <div x-show="isDrawerOpen(currentDayIndex, sIdx)" x-collapse 
                              class="mt-2.5 pt-3.5 border-t border-dashed border-amber-200 bg-amber-50/40 -mx-4 sm:-mx-5 -mb-4 sm:-mb-5 p-4 sm:p-5 rounded-b-2xl space-y-3.5 text-sm sm:text-base text-slate-800">
                             
-                            <!-- 0. Pre-selected Japanese Ordering Card (If available for this dinner) -->
+                            <!-- 0. Pre-selected Japanese Ordering Card (ONLY for spots with orderList) -->
                             <template x-if="item.orderList && item.orderList.length > 0">
                                 <div class="bg-white p-4 rounded-xl border-2 border-rose-300 shadow-sm space-y-2 text-slate-800">
                                     <div class="flex items-center justify-between pb-2 border-b border-dashed border-slate-200">
@@ -367,7 +369,7 @@
             </div>
         </section>
 
-        <!-- ==================== TAB 2: 私房名店 (19 PLACES) ==================== -->
+        <!-- ==================== TAB 2: 私房名店 ==================== -->
         <section x-show="currentTab === 'gourmet' && !searchQuery" class="space-y-3">
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
                 <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center">
@@ -588,7 +590,7 @@
             </div>
         </section>
 
-        <!-- ==================== TAB 4: ☔ 雨天備案 (RAINY DAY BACKUPS) ==================== -->
+        <!-- ==================== TAB 4: ☔ 雨天備案 ==================== -->
         <section x-show="currentTab === 'rain' && !searchQuery" class="space-y-3">
             <div class="bg-gradient-to-r from-sky-900 to-cyan-900 text-white p-4 sm:p-5 rounded-2xl shadow-sm">
                 <div class="flex items-center space-x-2">
