@@ -1,4 +1,4 @@
-// data/days.js - 7 Days Detailed Itinerary with Verified Official Links
+// data/days.js - 7 Days Detailed Itinerary with Quests & Lore
 window.TRIP_DAYS = [
   {
     "shortDate": "8/23(日)",
@@ -30,6 +30,26 @@ window.TRIP_DAYS = [
           {
             "title": "ANA 全日空官方航班動態",
             "url": "https://www.ana.co.jp/zh/tw/"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-plane",
+            "type": "色彩大偵探",
+            "badge": "bg-sky-100 text-sky-800",
+            "q": "仔細觀察 ANA 飛機的垂直尾翼與機身，除了白色外有「深藍」與「淺藍」兩種顏色，這兩種藍色在日本官方的名字分別代表什麼自然景觀？"
+          },
+          {
+            "icon": "fa-comments",
+            "type": "實用日語實戰",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "在飛機上空服員送飲料時，試著用日語禮貌說：「これをお願いします (Kore o onegaishimasu / 請給我這個)」或「ありがとう (Arigatou / 謝謝)」。"
+          },
+          {
+            "icon": "fa-mountain",
+            "type": "地理眼力題",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "飛機接近東京降落前，往窗外看，能不能看見日本第一高峰「富士山」？"
           }
         ]
       },
@@ -66,6 +86,20 @@ window.TRIP_DAYS = [
           {
             "title": "羽田機場 T3 樓層與江戶小路官方導覽",
             "url": "https://tokyo-haneda.com/zh-TW/floor/terminal3/index.html"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-landmark",
+            "type": "歷史建築尋寶",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "在 4 樓江戶小路抬頭找找看，有一座用吉野檜木打造的迷你古代木拱橋，它是複製東京最有名的哪一座名橋？"
+          },
+          {
+            "icon": "fa-calculator",
+            "type": "匯率小達人",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "在江戶小路看到一串美味的烤糰子標價 ¥350 日圓，換算成台幣大約是多少錢？（提示：除以 4.6 或是乘以 0.22）"
           }
         ]
       },
@@ -138,7 +172,15 @@ window.TRIP_DAYS = [
         "hours": "24 小時行李寄放服務",
         "holiday": "無休",
         "history": "Vessel Hotel Campana 薄野設有天然男女大浴場與極受歡迎的家庭友善設施，距離狸小路商店街與薄野十字路口僅幾步之遙。",
-        "mustTry": "飯店 1F 迎賓大廳提供北海道迎賓飲料與冰品，大廳備品區可自由挑選兒童專用浴衣與牙刷。"
+        "mustTry": "飯店 1F 迎賓大廳提供北海道迎賓飲料與冰品，大廳備品區可自由挑選兒童專用浴衣與牙刷。",
+        "quests": [
+          {
+            "icon": "fa-hotel",
+            "type": "生活大探索",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "走進飯店大廳，找找看免費迎賓飲料吧有提供哪幾種冷熱飲？免費迎賓冰棒今天有什麼口味？"
+          }
+        ]
       },
       {
         "time": "10:15 – 11:15",
@@ -163,6 +205,20 @@ window.TRIP_DAYS = [
             "title": "札幌諏訪神社 官方 Instagram (每日花手水最新花況)",
             "url": "https://www.instagram.com/sapporo_suwajinja/"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-wand-magic-sparkles",
+            "type": "花手水尋寶",
+            "badge": "bg-pink-100 text-pink-800",
+            "q": "走到洗手的水盤（花手水）前，數數看今天水面上漂浮著幾把精緻小和傘？水裡今天放了哪幾種顏色的花朵？"
+          },
+          {
+            "icon": "fa-sun",
+            "type": "御朱印魔法",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "拿著神社著名的透明御朱印，對著藍天或陽光照看，會看見什麼美麗的剪紙與金箔圖案？"
+          }
         ]
       },
       {
@@ -183,6 +239,26 @@ window.TRIP_DAYS = [
           {
             "title": "白色戀人公園 繁體中文官方導覽",
             "url": "https://www.shiroikoibitopark.jp/zh-hant/"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-clock",
+            "type": "鐘塔動物點名",
+            "badge": "bg-cyan-100 text-cyan-800",
+            "q": "在整點時站在戶外廣場看巨大「機械鐘塔 (からくり時計)」，數數看有幾隻北海道動物（棕熊、兔子、鳥兒）出來吹喇叭遊行？"
+          },
+          {
+            "icon": "fa-mountain-sun",
+            "type": "神秘名山密碼",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "白色戀人經典藍色鐵盒包裝上，畫著一座覆蓋白雪的夢幻山峰，它是北海道北邊哪一座島上的名山？"
+          },
+          {
+            "icon": "fa-ice-cream",
+            "type": "日語實戰",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "在甜點吧買冰淇淋時，試著對店員說：「ソフトクリームをひとつ、お願いします (Soft-cream o hitotsu, onegaishimasu / 請給我一支霜淇淋)」。"
           }
         ]
       },
@@ -235,6 +311,20 @@ window.TRIP_DAYS = [
             "title": "札幌藻岩山空中纜車 即時天候與運行資訊",
             "url": "https://mt-moiwa.jp/"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-paw",
+            "type": "吉祥物大搜查",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "在纜車站找找看藻岩山的黑色吉祥物「もーりす (Maurice)」，牠是一隻什麼動物？"
+          },
+          {
+            "icon": "fa-bell",
+            "type": "幸福之鐘秘密",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "登上 531 公尺山頂展望台，幸福之鐘周圍的鐵欄杆上，鎖滿了情侶和家庭掛上的什麼東西？"
+          }
         ]
       },
       {
@@ -250,7 +340,15 @@ window.TRIP_DAYS = [
         "holiday": "無休 (年中無休) ｜ 8/24(一) 正常營業",
         "holidayBadge": "text-emerald-700 font-bold",
         "history": "【成吉思汗烤肉文化】昭和 29 年（1954 年）創立的「だるま（達摩）」是成吉思汗烤肉的鼻祖老店！特製中央凸起的鑄鐵盔鍋，上方鋪滿鮮嫩無羊羶味的生羊肉，下方鋪滿洋蔥與蔥段，羊肉油脂順著鐵盤流下將洋蔥炒至焦糖甘甜。",
-        "mustTry": "【必吃必玩】每日限量「ヒレ（菲力羊肉）」與「上肉」；烤肉沾上特調蒜蓉醬油無敵下飯！餐後徒步 2 分鐘到全新整棟「GiGO すすきの」夾最新寶可夢大娃娃！"
+        "mustTry": "【必吃必玩】每日限量「ヒレ（菲力羊肉）」與「上肉」；烤肉沾上特調蒜蓉醬油無敵下飯！餐後徒步 2 分鐘到全新整棟「GiGO すすきの」夾最新寶可夢大娃娃！",
+        "quests": [
+          {
+            "icon": "fa-hotel",
+            "type": "生活大探索",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "走進飯店大廳，找找看免費迎賓飲料吧有提供哪幾種冷熱飲？免費迎賓冰棒今天有什麼口味？"
+          }
+        ]
       }
     ]
   },
@@ -302,6 +400,26 @@ window.TRIP_DAYS = [
             "title": "旭川市旭山動物園 官方網站 (繁體中文)",
             "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/index.html"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-stopwatch",
+            "type": "海豹穿梭計時",
+            "badge": "bg-sky-100 text-sky-800",
+            "q": "在海豹館盯著垂直的「透明圓柱水槽」，當一隻斑海豹由下往上穿過水槽時，幫牠計時花了幾秒鐘？"
+          },
+          {
+            "icon": "fa-feather",
+            "type": "企鵝飛行姿態",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "在水中隧道抬頭看，企鵝在水裡游泳像不像在空中飛？動物園每天最受歡迎的動物餵食秀日語叫什麼？"
+          },
+          {
+            "icon": "fa-snowflake",
+            "type": "北極熊大解密",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "北極熊的大腳掌底部長滿了毛，請問這些毛有什麼神奇的功能？"
+          }
         ]
       },
       {
@@ -352,6 +470,20 @@ window.TRIP_DAYS = [
             "title": "美瑛 四季彩之丘 官網即時花況",
             "url": "https://www.shikisainooka.jp/"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-user-tie",
+            "type": "巨型稻草人",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "在花田入口找找看用牧草卷堆成的超巨大吉祥物「Roll 君」，他的脖子上繫著什麼顏色的領結？"
+          },
+          {
+            "icon": "fa-shield-halved",
+            "type": "羊駝趣味觀察",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "在草泥馬（羊駝）牧場餵草時，草泥馬如果心情不好生氣時，會做出什麼讓人大笑的防衛動作？"
+          }
         ]
       },
       {
@@ -364,7 +496,15 @@ window.TRIP_DAYS = [
         "appleUrl": "https://maps.apple.com/?q=北海道札幌市東区北7条東1丁目1番1号",
         "hours": "營業所營業至 20:00",
         "holiday": "無休",
-        "history": "還車前於營業所周邊加油站告知「レギュラー、満タン（Regular 汽油加滿）」，保留加油發票供工作人員核對即可順暢完成還車手續。"
+        "history": "還車前於營業所周邊加油站告知「レギュラー、満タン（Regular 汽油加滿）」，保留加油發票供工作人員核對即可順暢完成還車手續。",
+        "quests": [
+          {
+            "icon": "fa-hotel",
+            "type": "生活大探索",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "走進飯店大廳，找找看免費迎賓飲料吧有提供哪幾種冷熱飲？免費迎賓冰棒今天有什麼口味？"
+          }
+        ]
       },
       {
         "time": "20:00 – 21:45",
@@ -384,6 +524,26 @@ window.TRIP_DAYS = [
           {
             "title": "炭火焼肉 羅山 すすきの店 官方菜單與資訊",
             "url": "https://razan.gorp.jp/"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-fire",
+            "type": "最高級黑木炭",
+            "badge": "bg-slate-100 text-slate-800",
+            "q": "我們烤肉爐子裡燒得紅通通的木炭敲起來像金屬一樣硬，它是日本最高級的什麼炭？"
+          },
+          {
+            "icon": "fa-map-pin",
+            "type": "和牛的家鄉",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "今晚菜單上的招牌和牛「白老牛」，產自北海道哪一個風景優美的溫泉鎮？"
+          },
+          {
+            "icon": "fa-utensils",
+            "type": "餐後禮貌日語",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "吃飽走出餐廳前，對老闆和店員大聲說一句：「ごちそうさまでした (Gochisousama deshita / 謝謝招待，真好吃)」！"
           }
         ]
       }
@@ -427,7 +587,21 @@ window.TRIP_DAYS = [
         "hours": "24 小時自由漫步",
         "holiday": "無休",
         "history": "【百年運河興衰史】小樽運河完工於 1923 年（大正 12 年），全長 1.3 公里，是北海道開拓時期將大型貨船物資駁運至倉庫的生命線。岸邊保存了完整的石造與紅磚倉庫群，散步道上設有 63 盞傳統雙火煤氣燈，是大正浪漫情懷的代表象徵。",
-        "mustTry": "【必拍角度】站在「淺草橋（あさくさばし）」往運河倉庫方向拍經典全家福角度；參觀運河遊客中心索取精美小樽手繪散步地圖。"
+        "mustTry": "【必拍角度】站在「淺草橋（あさくさばし）」往運河倉庫方向拍經典全家福角度；參觀運河遊客中心索取精美小樽手繪散步地圖。",
+        "quests": [
+          {
+            "icon": "fa-lightbulb",
+            "type": "復古瓦斯燈計數",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "沿著運河石板路走，數數看你經過了幾盞黑色的雙頭古典瓦斯燈？"
+          },
+          {
+            "icon": "fa-gem",
+            "type": "倉庫家紋解謎",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "對面紅磚與石造倉庫的牆上，畫著大大的漢字或圓圈符號（例如「◯」），在古代這些圖案是用來做什麼的？"
+          }
+        ]
       },
       {
         "time": "11:30 – 13:00",
@@ -450,6 +624,26 @@ window.TRIP_DAYS = [
           {
             "title": "北一硝子 官方網站",
             "url": "https://kitaichiglass.co.jp/"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-smog",
+            "type": "蒸氣鐘整點噴煙",
+            "badge": "bg-sky-100 text-sky-800",
+            "q": "站在小樽音樂盒堂門口看那座巨大的蒸氣鐘，它是每隔幾分鐘會發出汽笛聲、噴出白色蒸氣報時？"
+          },
+          {
+            "icon": "fa-music",
+            "type": "音樂盒獵人",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "走進木造音樂盒城堡，找找看全館「最可愛的小動物造型」和「最特別的旋轉壽司造型」音樂盒在哪裡？"
+          },
+          {
+            "icon": "fa-calculator",
+            "type": "LeTAO 匯率算術",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "在 LeTAO 本店買一顆經典雙層乳酪蛋糕 ¥2,160 日圓，換算成台幣約多少錢？"
           }
         ]
       },
@@ -507,6 +701,20 @@ window.TRIP_DAYS = [
             "title": "札幌かに本家 繁體中文官方會席菜單",
             "url": "https://www.kani-honke.co.jp/zh-tw/"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-eye",
+            "type": "大螃蟹眼力題",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "抬頭看大門口上方那隻巨大的紅螃蟹招牌，它的眼睛和大螯會不會動？它一共有幾隻腳？"
+          },
+          {
+            "icon": "fa-egg",
+            "type": "蟹膏雜炊魔法",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "吃到最後一道「蟹膏雜炊粥」時，店員阿姨在金黃色的鍋子裡打了什麼顏色的新鮮生雞蛋？"
+          }
         ]
       }
     ]
@@ -561,7 +769,21 @@ window.TRIP_DAYS = [
         "hours": "單軌+山手線班次極密 (2~3分鐘一班)",
         "holiday": "無休",
         "history": "東京單軌電車（Tokyo Monorail）建於 1964 年東京奧運，沿著東京灣高架行駛，濱松町站可無縫轉乘 JR 山手線環狀線。",
-        "mustTry": "全家直接將北海道戰利品與行李推回飯店，省下寄送行李等待的時間與高昂黑貓運費！"
+        "mustTry": "全家直接將北海道戰利品與行李推回飯店，省下寄送行李等待的時間與高昂黑貓運費！",
+        "quests": [
+          {
+            "icon": "fa-ticket",
+            "type": "登機證大偵探",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
+          },
+          {
+            "icon": "fa-headphones",
+            "type": "發車音樂彩蛋",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
+          }
+        ]
       },
       {
         "time": "15:00 – 15:40",
@@ -575,7 +797,21 @@ window.TRIP_DAYS = [
         "hours": "14:00 起開放入住",
         "holiday": "無休",
         "history": "Vessel Inn 高田馬場於 2020 年全新開幕，直通東京地下鐵東西線 4 號出口電梯，下雨完全不用撐傘；飯店以全東京排名前茅的極上海鮮自助早餐聞名。",
-        "mustTry": "大廳提供免費迎賓咖啡與茶水，孩子可挑選專屬兒童備品與卡通拖鞋。"
+        "mustTry": "大廳提供免費迎賓咖啡與茶水，孩子可挑選專屬兒童備品與卡通拖鞋。",
+        "quests": [
+          {
+            "icon": "fa-ticket",
+            "type": "登機證大偵探",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
+          },
+          {
+            "icon": "fa-headphones",
+            "type": "發車音樂彩蛋",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
+          }
+        ]
       },
       {
         "time": "15:45 – 18:00",
@@ -595,6 +831,20 @@ window.TRIP_DAYS = [
           {
             "title": "名偵探柯南 Plaza 官方 X (即時限定周邊與展況)",
             "url": "https://x.com/conanplaza"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-glasses",
+            "type": "怪盜基德鏡片",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "在柯南廣場入口找怪盜基德的等身大立牌合照，仔細看他戴在眼上的單片眼鏡垂著什麼墜飾？"
+          },
+          {
+            "icon": "fa-screwdriver-wrench",
+            "type": "柯南秘密發明",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "阿笠博士發明給柯南的道具中，哪一個可以變換各種人的聲音？哪一個可以追蹤嫌疑犯的位置？"
           }
         ]
       },
@@ -624,7 +874,21 @@ window.TRIP_DAYS = [
         "hours": "BIGBOX 遊戲中心至 24:00 / 唐吉訶德 24H / Peacock至 23:00",
         "holiday": "無休",
         "history": "【手塚治虫與原子小金剛的故鄉】高田馬場是手塚治虫「蟲製作公司」發源地，《原子小金剛》中小金剛的誕生地即設定在高田馬場（JR 高田馬場站的發車音樂即為原子小金剛主題曲！）。BIGBOX 更是高田馬場自 1974 年以來的指標地標建築。",
-        "mustTry": "【必玩亮點】BIGBOX 6F Taito 上百台夾娃娃機（夾寶可夢與動漫景品超容易）、4F 芳林堂專業文具館、Peacock 超市 B1F Seria 百元日雜！"
+        "mustTry": "【必玩亮點】BIGBOX 6F Taito 上百台夾娃娃機（夾寶可夢與動漫景品超容易）、4F 芳林堂專業文具館、Peacock 超市 B1F Seria 百元日雜！",
+        "quests": [
+          {
+            "icon": "fa-ticket",
+            "type": "登機證大偵探",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
+          },
+          {
+            "icon": "fa-headphones",
+            "type": "發車音樂彩蛋",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
+          }
+        ]
       }
     ]
   },
@@ -665,7 +929,21 @@ window.TRIP_DAYS = [
         "appleUrl": "https://maps.apple.com/?q=JR+池袋駅",
         "hours": "山手線約 2 分鐘一班",
         "holiday": "無休",
-        "history": "高田馬場與池袋同屬 JR 山手線西北核心，僅隔 2 站 4 分鐘車程，是東京移動最順暢黃金區段之一。"
+        "history": "高田馬場與池袋同屬 JR 山手線西北核心，僅隔 2 站 4 分鐘車程，是東京移動最順暢黃金區段之一。",
+        "quests": [
+          {
+            "icon": "fa-ticket",
+            "type": "登機證大偵探",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
+          },
+          {
+            "icon": "fa-headphones",
+            "type": "發車音樂彩蛋",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
+          }
+        ]
       },
       {
         "time": "10:00 – 11:15",
@@ -690,6 +968,20 @@ window.TRIP_DAYS = [
             "title": "池袋 Sunshine City 太陽城官方網站",
             "url": "https://sunshinecity.jp/zh-tw/"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-bolt",
+            "type": "噴火龍與皮卡丘",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "走進 Pokemon Center MEGA TOKYO 門口，騎在噴火龍背上的皮卡丘頭上戴著什麼？"
+          },
+          {
+            "icon": "fa-calculator",
+            "type": "扭蛋達人算術",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "在 3000 台扭蛋牆中找到自己最想轉的扭蛋，投幣轉一顆，算算看 ¥400 日圓等於台幣多少錢？"
+          }
         ]
       },
       {
@@ -710,6 +1002,20 @@ window.TRIP_DAYS = [
           {
             "title": "Animate 池袋本店 官方 9 層樓導覽",
             "url": "https://www.animate.co.jp/shop/ikebukuro/"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-trophy",
+            "type": "世界最大紀錄",
+            "badge": "bg-yellow-100 text-yellow-800",
+            "q": "這棟全球最大的動漫總部，從 1 樓動漫新刊一直到頂樓活動廳，一共有幾層樓？"
+          },
+          {
+            "icon": "fa-magnifying-glass",
+            "type": "角色大搜查",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "在館內各樓層找找看：能不能找到《排球少年》、《咒術迴戰》、《名偵探柯南》或《吉伊卡哇 (Chiikawa)》的專區？"
           }
         ]
       },
@@ -764,6 +1070,20 @@ window.TRIP_DAYS = [
             "title": "Nintendo TOKYO 澀谷官方資訊",
             "url": "https://www.nintendo.com/jp/officialstore/index.html"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-arrows-split-up-and-left",
+            "type": "十字路口視角",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "站在 229 公尺頂樓「SKY EDGE」玻璃角落往下看，正下方那個號稱全球最繁忙的十字路口叫什麼名字？"
+          },
+          {
+            "icon": "fa-gamepad",
+            "type": "任天堂超級巨星",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "在澀谷 PARCO 6 樓 Nintendo TOKYO 門口，有一尊超巨大的電玩主角雕像，他是哪一位水管工大明星？"
+          }
         ]
       },
       {
@@ -785,6 +1105,20 @@ window.TRIP_DAYS = [
             "title": "Kiddy Land 原宿旗艦店 樓層與品牌介紹",
             "url": "https://www.kiddyland.co.jp/harajuku/"
           }
+        ],
+        "quests": [
+          {
+            "icon": "fa-dove",
+            "type": "史努比的小跟班",
+            "badge": "bg-yellow-100 text-yellow-800",
+            "q": "在地下 1 樓 Snoopy Town 裡，史努比身邊黃色的小鳥朋友叫什麼名字？"
+          },
+          {
+            "icon": "fa-credit-card",
+            "type": "日語結帳挑戰",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "在 Kiddy Land 選好文具或吊飾到櫃檯時，對店員說：「お会計をお願いします (Okaikei o onegaishimasu / 請幫我結帳)」！"
+          }
         ]
       },
       {
@@ -799,7 +1133,21 @@ window.TRIP_DAYS = [
         "holiday": "週日公休 (日曜日定休) ｜ 8/28(五) 避開公休，保證營業！",
         "holidayBadge": "text-emerald-700 font-bold",
         "history": "【高田馬場炸豬排激戰區之王】高田馬場是全東京公認的炸豬排激戰區，ひなた（Hinata）曾連續多年榮獲 Tabelog 百名店與米其林必比登推薦，嚴選宮城縣漢方豚等頂級豬肉，以精準油溫炸出金黃薄脆麵衣與多汁粉嫩肉質。",
-        "mustTry": "【必點極品】特選里肌（ロースカツ）、腰內肉（ヒレカツ）、特選肋眼部位；搭配喜馬拉雅玫瑰鹽與高知縣柚子胡椒，極致美味！"
+        "mustTry": "【必點極品】特選里肌（ロースカツ）、腰內肉（ヒレカツ）、特選肋眼部位；搭配喜馬拉雅玫瑰鹽與高知縣柚子胡椒，極致美味！",
+        "quests": [
+          {
+            "icon": "fa-ticket",
+            "type": "登機證大偵探",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "看看手上的機票登機證，找找看「搭乘口 (Gate)」、「座席番號 (Seat)」分別寫著什麼英文字母與數字？"
+          },
+          {
+            "icon": "fa-headphones",
+            "type": "發車音樂彩蛋",
+            "badge": "bg-purple-100 text-purple-800",
+            "q": "走出 JR 高田馬場站時，仔細聽車站的發車音樂（發車旋律），它是哪一部著名日本動漫的主題曲？"
+          }
+        ]
       }
     ]
   },
@@ -852,7 +1200,21 @@ window.TRIP_DAYS = [
         "hours": "免稅店 24 小時 / 全日營業",
         "holiday": "無休",
         "history": "羽田 T3 出境免稅區匯聚了日本各大機場限定點心名產（銀座千疋屋水果夾心、NY Perfect Cheese、Sugar Butter Sand Tree）。",
-        "mustTry": "免稅店採買日本名酒、Royce 巧克力與東京限定伴手禮禮盒。"
+        "mustTry": "免稅店採買日本名酒、Royce 巧克力與東京限定伴手禮禮盒。",
+        "quests": [
+          {
+            "icon": "fa-calculator",
+            "type": "伴手禮算術題",
+            "badge": "bg-indigo-100 text-indigo-800",
+            "q": "在免稅店挑一盒 NewYork Perfect Cheese (NY 起司餅乾) ¥1,200 日圓，換算成台幣約多少？"
+          },
+          {
+            "icon": "fa-award",
+            "type": "冒險回顧大總結",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "7 天旅程中，你最喜歡北海道的哪一個景點？在東京買到最喜歡的動漫紀念品是什麼？"
+          }
+        ]
       },
       {
         "time": "13:20 – 15:50",
@@ -865,7 +1227,27 @@ window.TRIP_DAYS = [
         "appleUrl": "https://maps.apple.com/?q=Taipei+Songshan+Airport",
         "hours": "航班 13:20 準時起飛",
         "holiday": "正常營運",
-        "history": "松山羽田航線自 2010 年重啟對飛，實現了台北與東京兩大首都蛋黃區「一日生活圈」的最速直達！"
+        "history": "松山羽田航線自 2010 年重啟對飛，實現了台北與東京兩大首都蛋黃區「一日生活圈」的最速直達！",
+        "quests": [
+          {
+            "icon": "fa-plane",
+            "type": "色彩大偵探",
+            "badge": "bg-sky-100 text-sky-800",
+            "q": "仔細觀察 ANA 飛機的垂直尾翼與機身，除了白色外有「深藍」與「淺藍」兩種顏色，這兩種藍色在日本官方的名字分別代表什麼自然景觀？"
+          },
+          {
+            "icon": "fa-comments",
+            "type": "實用日語實戰",
+            "badge": "bg-rose-100 text-rose-800",
+            "q": "在飛機上空服員送飲料時，試著用日語禮貌說：「これをお願いします (Kore o onegaishimasu / 請給我這個)」或「ありがとう (Arigatou / 謝謝)」。"
+          },
+          {
+            "icon": "fa-mountain",
+            "type": "地理眼力題",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "飛機接近東京降落前，往窗外看，能不能看見日本第一高峰「富士山」？"
+          }
+        ]
       }
     ]
   }
