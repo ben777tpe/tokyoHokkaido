@@ -139,7 +139,7 @@ window.TRIP_DAYS = [
     "shortName": "札幌夜景",
     "dayLabel": "Day 2 ｜ 札幌文史與夜景",
     "fullDate": "2026年8月24日（週一）",
-    "title": "諏訪神社花手水 ➔ 白色戀人 ➔ 大通文具散策 ➔ 藻岩山夜景 ➔ 薄野夾娃娃",
+    "title": "札幌神社 ＆ 北海道大學林蔭 ＆ 甜點城堡 ＆ 羅山和牛燒肉",
     "pace": "順向充實 ｜ 文具與生活採買",
     "paceColor": "bg-blue-100 text-blue-800",
     "rainBackup": {
@@ -148,13 +148,13 @@ window.TRIP_DAYS = [
     },
     "timeline": [
       {
-        "time": "09:30 - 10:45",
-        "stay": "1 小時 15 分",
+        "time": "09:30 - 10:30",
+        "stay": "1 小時",
         "spot": "🌸 札幌諏訪神社 (絕美花手水 ＋ 透明御朱印)",
         "googleUrl": "https://www.google.com/maps/search/?api=1&query=札幌諏訪神社",
         "appleUrl": "https://maps.apple.com/?q=札幌諏訪神社",
-        "transit": "地鐵東豐線「北13條東站」步行 3 分鐘",
-        "desc": "札幌超人氣能量景點！欣賞四季更迭的繽紛「花手水」水盤與透明剪紙御朱印。",
+        "transit": "地鐵東豐線「北13條東站」步行 3 分鐘 (薄野出發約 10 分鐘)",
+        "desc": "札幌超人氣能量景點！欣賞四季更迭的繽紛「花手水」水盤與透明剪紙御朱印，拍下夢幻美照。",
         "hours": "神社境內 24 小時開放，社務所授與所 09:00 - 17:00",
         "holiday": "全年無休 (2026/8/24 正常開放)",
         "holidayBadge": "text-emerald-700 font-bold",
@@ -186,13 +186,53 @@ window.TRIP_DAYS = [
         ]
       },
       {
-        "time": "11:15 - 14:00",
-        "stay": "2 小時 45 分",
-        "spot": "白色戀人公園 (白い恋人パーク)",
+        "time": "10:30 - 12:45",
+        "stay": "2 小時 15 分",
+        "spot": "🎓 北海道大學 (銀杏並木 ＋ 克拉克博士像 ＋ 白楊林道 ＋ 北大鮮乳冰淇淋)",
+        "googleUrl": "https://www.google.com/maps/search/?api=1&query=北海道大学+北13条門",
+        "appleUrl": "https://maps.apple.com/?q=北海道大学+北13条門",
+        "transit": "從諏訪神社向西步行 6～8 分鐘直達「北13條門」進入校園",
+        "desc": "漫步日本最美大學校園！走進盛夏翠綠的「銀杏並木大道」、中央草坪「克拉克博士像 (Boys, be ambitious!)」、百年木造古河講堂，在生協品嚐北海道大學特產「北大純濃鮮乳冰淇淋」與選購紀念品！",
+        "hours": "校園全日自由開放 / 生協販賣部 10:00 - 17:00",
+        "holiday": "校園無休自由開放 (註: 綜合博物館週一休館，轉漫步戶外大自然美景)",
+        "holidayBadge": "text-emerald-700 font-bold",
+        "history": "北海道大學前身為 1876 年創立的「札幌農學校」，為日本第一座頒發學士學位的高等學府。校園面積居全日本大學之冠，綠樹成蔭、小溪潺潺，融合歐美農莊與開拓使歷史風格。",
+        "mustTry": "北13條門 380 公尺銀杏綠色隧道、克拉克博士雕像合影、生協販賣部「北大鮮乳霜淇淋」與北大農場牛奶餅乾。",
+        "links": [
+          {
+            "title": "北海道大學 官方訪客校園導覽地圖",
+            "url": "https://www.hokudai.ac.jp/"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-graduation-cap",
+            "type": "百年勵志名言",
+            "badge": "bg-blue-100 text-blue-800",
+            "q": "站在克拉克博士胸像前，他當年離開北海道時對學生說的一句世界名言是什麼？（提示：Boys, be ______!）"
+          },
+          {
+            "icon": "fa-tree",
+            "type": "銀杏綠色隧道",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "北13條門這條筆直美麗的銀杏大道，兩旁一共種植了幾棵巨大銀杏樹？（提示：約 70 棵）"
+          },
+          {
+            "icon": "fa-ice-cream",
+            "type": "北大鮮乳算術",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "在北大生協買一支用農場鮮乳製作的純濃霜淇淋 ¥400 日圓，換算成台幣約多少錢？（提示：除以 4.6）"
+          }
+        ]
+      },
+      {
+        "time": "13:15 - 16:30",
+        "stay": "3 小時 15 分",
+        "spot": "🏰 白色戀人公園 (白い恋人パーク)",
         "googleUrl": "https://www.google.com/maps/search/?api=1&query=白い恋人パーク",
         "appleUrl": "https://maps.apple.com/?q=白い恋人パーク",
-        "transit": "地鐵東西線「宮之澤站」步行 7 分鐘",
-        "desc": "歐式童話城堡園區，參觀巧克力產線、玫瑰花園與品嚐現烤白色戀人冰淇淋。",
+        "transit": "從北大南門 (札幌站) 搭地鐵至「宮之澤站」步行 7 分鐘 (約 20 分)",
+        "desc": "歐式童話城堡園區，參觀巧克力產線、玫瑰花園與品嚐現烤白色戀人冰淇淋與下午茶。",
         "hours": "10:00 - 17:00 (最終入場 16:00)",
         "holiday": "年中無休 (2026/8/24 正常營業)",
         "holidayBadge": "text-emerald-700 font-bold",
@@ -209,7 +249,7 @@ window.TRIP_DAYS = [
             "icon": "fa-clock",
             "type": "鐘塔動物點名",
             "badge": "bg-cyan-100 text-cyan-800",
-            "q": "在整點時站在戶外廣場看巨大「機械鐘塔 (からくり時計)」，數數看有幾隻北海道動物（棕熊、兔子、鳥兒）出來吹喇叭遊行？"
+            "q": "在整點時站在戶外廣場看巨大「機械鐘塔 (からくり時計)」，數數看有幾隻北海道動物出來吹喇叭遊行？"
           },
           {
             "icon": "fa-mountain-sun",
@@ -226,13 +266,13 @@ window.TRIP_DAYS = [
         ]
       },
       {
-        "time": "14:30 - 16:00",
-        "stay": "1.5 小時",
-        "spot": "都心綠廊漫步：大通公園 ＋ 狸小路商店街小憩",
+        "time": "17:00 - 18:45",
+        "stay": "1 小時 45 分",
+        "spot": "都心綠廊漫步：大通公園 ＋ 狸小路商店街小憩 ＆ 回飯店放戰利品",
         "googleUrl": "https://www.google.com/maps/search/?api=1&query=大通公園",
         "appleUrl": "https://maps.apple.com/?q=大通公園",
-        "transit": "地鐵至大通站直達，地下街串連狸小路",
-        "desc": "在市中心噴泉綠蔭下漫步、吃烤玉米，順逛狸小路藥妝與伴手禮，回飯店稍作梳洗休息。",
+        "transit": "地鐵東西線直達「大通站」，步行至狸小路與飯店",
+        "desc": "在市中心噴泉綠蔭下漫步、吃烤玉米，順逛狸小路藥妝與伴手禮，回 Vessel Hotel 稍作梳洗休息放戰利品。",
         "hours": "戶外公園全日開放",
         "holiday": "全年無休 (2026/8/24 正常開放)",
         "holidayBadge": "text-emerald-700 font-bold",
@@ -240,47 +280,13 @@ window.TRIP_DAYS = [
         "mustTry": "大通公園烤玉米 (とうきびワゴン)、狸小路伴手禮零食採買。"
       },
       {
-        "time": "16:15 - 18:20",
-        "stay": "2 小時",
-        "spot": "藻岩山空中纜車・日本新三大夜景 (黃金暮色)",
-        "googleUrl": "https://www.google.com/maps/search/?api=1&query=藻岩山ロープウェイ",
-        "appleUrl": "https://maps.apple.com/?q=藻岩山ロープウェイ",
-        "transit": "薄野搭市電至「纜車入口站」轉搭免費接駁車 (約 25 分)",
-        "desc": "搭乘兩段式纜車登上標高 531 公尺山頂，飽覽白晝壯麗全景與黃昏暮色晚霞，18:20 準時搭纜車下山。",
-        "hours": "夏季 10:30 - 22:00 (上行末班 21:30)",
-        "holiday": "無休 (2026/8/24 正常運航)",
-        "holidayBadge": "text-emerald-700 font-bold",
-        "history": "藻岩山阿伊努語稱為「Inkarushipe」，意為登上可眺望四周之地。2015、2018、2022 年連續榮獲日本新三大夜景都市殊榮。",
-        "mustTry": "山頂「幸福之鐘」合影、莫里斯愛之鎖、360度展望台咖啡館。",
-        "links": [
-          {
-            "title": "札幌藻岩山空中纜車 即時天候與運行資訊",
-            "url": "https://mt-moiwa.jp/"
-          }
-        ],
-        "quests": [
-          {
-            "icon": "fa-paw",
-            "type": "吉祥物大搜查",
-            "badge": "bg-amber-100 text-amber-800",
-            "q": "在纜車站找找看藻岩山的黑色吉祥物「もーりす (Maurice)」，牠是一隻什麼動物？"
-          },
-          {
-            "icon": "fa-bell",
-            "type": "幸福之鐘秘密",
-            "badge": "bg-emerald-100 text-emerald-800",
-            "q": "登上 531 公尺山頂展望台，幸福之鐘周圍的鐵欄杆上，鎖滿了情侶和家庭掛上的什麼東西？"
-          }
-        ]
-      },
-      {
         "time": "19:00 - 21:00",
         "stay": "2 小時",
         "spot": "🥩 晚餐：炭火焼肉 羅山 (Razan) すすきの店 【已預約 19:00】",
         "googleUrl": "https://www.google.com/maps/search/?api=1&query=炭火焼肉+羅山+すすきの店",
         "appleUrl": "https://maps.apple.com/?q=炭火焼肉+羅山+すすきの店",
-        "transit": "藻岩山搭市電返抵薄野，步行 4 分鐘 (飯店步行 3 分鐘)",
-        "desc": "【已確認預約 19:00 (4位)】訂單ID: 238088 / 憑證ID: 145882。品嚐白老牛黑毛和牛、厚切極上牛舌與盛岡冷麵！",
+        "transit": "飯店下樓步行 3 分鐘 (南5條西6丁目18)",
+        "desc": "【已確認預約 19:00 (4位)】訂單ID: 238088 / 憑證ID: 145882。出示點餐小抄大啖白老牛黑毛和牛、厚切極上牛舌與盛岡冷麵！",
         "hours": "17:00 - 01:00 (LO 00:30)",
         "holiday": "已完成預訂 (2026/8/24 19:00 4位)",
         "holidayBadge": "text-emerald-700 font-bold",
@@ -290,26 +296,6 @@ window.TRIP_DAYS = [
           {
             "title": "炭火焼肉 羅山 すすきの店 官方菜單與資訊",
             "url": "https://razan.gorp.jp/"
-          }
-        ],
-        "quests": [
-          {
-            "icon": "fa-fire",
-            "type": "最高級黑木炭",
-            "badge": "bg-slate-100 text-slate-800",
-            "q": "我們烤肉爐子裡燒得紅通通的木炭敲起來像金屬一樣硬，它是日本最高級的什麼炭？"
-          },
-          {
-            "icon": "fa-map-pin",
-            "type": "和牛的家鄉",
-            "badge": "bg-amber-100 text-amber-800",
-            "q": "今晚菜單上的招牌和牛「白老牛」，產自北海道哪一個風景優美的溫泉鎮？"
-          },
-          {
-            "icon": "fa-utensils",
-            "type": "餐後禮貌日語",
-            "badge": "bg-emerald-100 text-emerald-800",
-            "q": "吃飽走出餐廳前，對老闆和店員大聲說一句：「ごちそうさまでした (Gochisousama deshita / 謝謝招待，真好吃)」！"
           }
         ],
         "orderList": [
@@ -382,6 +368,26 @@ window.TRIP_DAYS = [
             "jp": "ソフトドリンク",
             "qty": "2 杯",
             "zh": "無酒精軟性飲料 2杯 (果汁/可爾必思)"
+          }
+        ],
+        "quests": [
+          {
+            "icon": "fa-fire",
+            "type": "最高級黑木炭",
+            "badge": "bg-slate-100 text-slate-800",
+            "q": "我們烤肉爐子裡燒得紅通通的木炭敲起來像金屬一樣硬，它是日本最高級的什麼炭？"
+          },
+          {
+            "icon": "fa-map-pin",
+            "type": "和牛的家鄉",
+            "badge": "bg-amber-100 text-amber-800",
+            "q": "今晚菜單上的招牌和牛「白老牛」，產自北海道哪一個風景優美的溫泉鎮？"
+          },
+          {
+            "icon": "fa-utensils",
+            "type": "餐後禮貌日語",
+            "badge": "bg-emerald-100 text-emerald-800",
+            "q": "吃飽走出餐廳前，對老闆和店員大聲說一句：「ごちそうさまでした (Gochisousama deshita / 謝謝招待，真好吃)」！"
           }
         ]
       }
